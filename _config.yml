@@ -23,15 +23,9 @@ minima:
   social_links:
     - { platform: github,  user_url: "https://github.com/ipekselcen" }
     - { platform: linkedin, user_url: "https://www.linkedin.com/in/ipek-selcen-16516948/" }
-    - { platform: orcid, user_url: "https://orcid.org/0000-0001-7614-1780" }
+    - { platform: orcid,   user_url: "https://orcid.org/0000-0001-7614-1780" }
 
-# Optional collection (fine to keep)
-collections:
-  projects:
-    output: true
-    permalink: /projects/:name/
-
-# Minima uses header_pages (not nav_pages)
+# This creates the top header menu
 header_pages:
   - about.md
   - projects.md
