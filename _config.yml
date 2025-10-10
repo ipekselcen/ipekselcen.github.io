@@ -1,11 +1,11 @@
 
 title: Ipek Selcen — Molecular Biology & Bioinformatics
-description: Portfolio, projects, and writing on epigenetics, cloning, molecular biology, and my journey into bioinformatics.
+description: Portfolio, projects, and writing on epigenetics, molecular biology, and my journey into bioinformatics.
 theme: minima
 author:
   name: Ipek Selcen
-  email: your.email@example.com
-url: ""  # set this to https://<your-username>.github.io once deployed
+  email: ipek.selcen@gmail.com
+url: "https://ipekselcen.github.io"  # set this to https://<your-username>.github.io once deployed
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
@@ -17,8 +17,8 @@ minima:
   skin: auto
   social_links:
     - { platform: github,  user_url: "https://github.com/<your-username>" }
-    - { platform: linkedin, user_url: "https://www.linkedin.com/in/<your-handle>/" }
-    - { platform: orcid, user_url: "https://orcid.org/<your-orcid>" }
+    - { platform: linkedin, user_url: "www.linkedin.com/in/ipek-selcen-16516948" }
+    - { platform: orcid, user_url: "https://orcid.org/0000-0001-7614-1780" }
 collections:
   projects:
     output: true
