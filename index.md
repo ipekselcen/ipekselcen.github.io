@@ -12,3 +12,5 @@ This site is my **motivation hub**: I share projects I’m building and short no
 
 👉 See **[Projects](/projects/)**, **[Publications](/publications/)**, or read the **[Blog](/blog/)**.
 
+
+
