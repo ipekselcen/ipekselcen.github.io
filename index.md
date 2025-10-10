@@ -1,4 +1,3 @@
-
 ---
 layout: home
 title: Welcome
@@ -11,6 +10,3 @@ This site is my **motivation hub**: I share projects I’m building and short no
 - **Career interests:** Molecular biology R&D, bioinformatics, and scientific editorial work.
 
 👉 See **[Projects](/projects/)**, **[Publications](/publications/)**, or read the **[Blog](/blog/)**.
-
-
-
