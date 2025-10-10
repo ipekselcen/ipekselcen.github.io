@@ -1,7 +1,7 @@
 
 title: Ipek Selcen — Molecular Biology & Bioinformatics
 description: Portfolio, projects, and writing on epigenetics, molecular biology, and my journey into bioinformatics.
-theme: minima
+theme: jekyll-theme-minimal
 author:
   name: Ipek Selcen
   email: ipek.selcen@gmail.com
