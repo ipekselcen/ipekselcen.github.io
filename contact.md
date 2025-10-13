@@ -1,7 +1,7 @@
 ---
-layout: single
 title: Contact
 permalink: /contact/
+layout: single
 ---
 
 - Email: ipek.selcen@gmail.com
