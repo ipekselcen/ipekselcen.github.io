@@ -1,15 +1,10 @@
 ---
-title: "Editorial"
-permalink: /editorial/
-layout: single
+title: "Mini-Review — RNA 5hmC in OPCs (500 words)"
+order: 1
+kind: "Mini-review"
+tags: ["epigenetics","RNA-modifications"]
+summary: >
+  Compact synthesis: context, 3–5 findings, and why they matter — written for speed-reading researchers.
 ---
 
-{% assign items = site.editorial | sort: "order" %}
-{% for item in items %}
-### <a href="{{ item.url }}">{{ item.title }}</a>
-<small>{% if item.kind %}{{ item.kind }}{% endif %}{% if item.tags %} · {{ item.tags | join: ", " }}{% endif %}</small>
-
-{{ item.summary }}
-
----
-{% endfor %}
+(Your 500-word mini-review text…)
