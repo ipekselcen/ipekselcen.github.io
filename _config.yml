@@ -25,3 +25,10 @@ defaults:
       layout: single
       author_profile: false
 
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+  editorial:
+    output: true
+    permalink: /editorial/:name/
