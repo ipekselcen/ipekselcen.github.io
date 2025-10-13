@@ -2,6 +2,7 @@
 title: About
 permalink: /about/
 layout: single
+author_profile: true
 ---
 
 I am a recent PhD graduate passionate about epigenetics, and molecular biology. I’m actively learning *bioinformatics* to bridge wet-lab insight with reproducible computational analysis.
