@@ -1,7 +1,7 @@
 ---
-layout: single
 title: About
 permalink: /about/
+layout: single
 ---
 
 I am a recent PhD graduate passionate about epigenetics, and molecular biology. I’m actively learning *bioinformatics* to bridge wet-lab insight with reproducible computational analysis.
