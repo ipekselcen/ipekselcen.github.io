@@ -1,7 +1,7 @@
 ---
-layout: splash
 title: "Ipek Selcen"
 subtitle: "Epigenetics × Bioinformatics · Scientific Editorial"
+layout: splash
 header:
   overlay_color: "#ffffff"
   overlay_filter: "0.0"
