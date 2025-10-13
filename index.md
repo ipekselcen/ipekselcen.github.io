@@ -3,16 +3,16 @@ layout: home
 title: Welcome
 ---
 
-**Hi, I am Ipek.** I am a molecular biologist exploring epigenetics and bioinformatics tools.
-This site is my *motivation hub*: I share projects I am building and short notes on what I am learning.
+**Hi, I'm Ipek.**  
+I'm a molecular biologist exploring **epigenetics** and **bioinformatics**.  
+This site is my *motivation hub* — a place to share the projects I'm building and the lessons I'm learning along the way.
 
-- **Current focus:** RNA/epigenetic regulation, analysis pipelines, and translating complex results into clear writing.
+- **Current focus:** RNA and epigenetic regulation, analysis pipelines, and turning complex results into clear scientific writing.  
 - **Career interests:** Molecular biology R&D, bioinformatics, and scientific editorial work.
 
-👉 See **[Projects](/projects/)**, **[Publications](/publications/)**, or read the **[Blog](/blog/)**.
-
+👉 Explore my work:  
 <p>
-  <a class="btn" href="https://github.com/ipekselcen/bioinformatics-projects">Explore Bioinformatics Projects →</a>
+  <a class="btn" href="https://github.com/ipekselcen/bioinformatics-projects">🔬 Bioinformatics Projects</a>
   &nbsp;&nbsp;
-  <a class="btn" href="https://github.com/ipekselcen/editorial-portfolio">See Editorial Portfolio →</a>
+  <a class="btn" href="https://github.com/ipekselcen/editorial-portfolio">🖋️ Editorial Portfolio</a>
 </p>
