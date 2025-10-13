@@ -1,4 +1,4 @@
-title: Ipek Selcen - Molecular Biology & Bioinformatics
+title: Ipek Selcen — Molecular Biology & Bioinformatics
 email: ipek.selcen@gmail.com
 description: >-
   Portfolio showcasing bioinformatics projects, epigenetics work, and scientific editorial samples.
@@ -8,23 +8,24 @@ baseurl: ""
 remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 
 plugins:
-  - jekyll-include-cache
+  - jekyll-remote-theme   # <-- add this for Actions builds
   - jekyll-feed
   - jekyll-seo-tag
+  # (temporarily omit jekyll-include-cache until the build is green)
 
 markdown: kramdown
 kramdown:
   input: GFM
 
-minimal_mistakes_skin: "default"
+minimal_mistakes_skin: "default"   # or "mint", "air", etc.
 
 defaults:
-  - scope:
-      path: ""
+  - scope: { path: "" }
     values:
       layout: single
       author_profile: false
 
+# if you are using collections:
 collections:
   projects:
     output: true
