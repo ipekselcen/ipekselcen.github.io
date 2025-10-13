@@ -1,7 +1,7 @@
 ---
-layout: single
 title: "Welcome"
 author_profile: false
+layout: single
 ---
 
 **Hi, I'm Ipek.**  
