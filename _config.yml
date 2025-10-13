@@ -5,13 +5,15 @@ description: >-
 url: "https://ipekselcen.github.io"
 baseurl: ""
 
+
 remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 
 plugins:
-  - jekyll-remote-theme   # <-- add this for Actions builds
+  - jekyll-remote-theme
+  - jekyll-include-cache
   - jekyll-feed
   - jekyll-seo-tag
-  # (temporarily omit jekyll-include-cache until the build is green)
+
 
 markdown: kramdown
 kramdown:
