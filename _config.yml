@@ -16,7 +16,7 @@ markdown: kramdown
 kramdown:
   input: GFM
 
-minimal_mistakes_skin: "air"
+minimal_mistakes_skin: "default"
 
 # Optional defaults so all pages render correctly
 defaults:
