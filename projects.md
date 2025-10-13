@@ -2,6 +2,7 @@
 layout: page
 title: Projects
 permalink: /projects/
+layout: single
 ---
 
 Below are a few example projects. I’ll keep them short and focused on **problem → approach → result**.
