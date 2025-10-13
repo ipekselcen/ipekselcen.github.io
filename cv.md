@@ -1,7 +1,7 @@
 ---
-layout: single
 title: CV
 permalink: /cv/
+layout: single
 ---
 
 *Download PDF soon*
