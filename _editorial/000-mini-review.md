@@ -1,5 +1,5 @@
 ---
-title: "Mini-Review — RNA 5hmC in OPCs (500 words)"
+title: "Mini-Review — RNA 5hmC"
 order: 1
 kind: "Mini-review"
 tags: ["epigenetics","RNA-modifications"]
