@@ -1,7 +1,13 @@
 ---
-layout: post
-title: "Why I built this site (motivation & plan)"
+layout: page
+title: Blog
+permalink: /blog/
 ---
 
-I built this site to motivate myself as I move from wet-lab work into bioinformatics. 
-Here I’ll ship small weekly notes, mini-reviews, and simple analysis templates.
+Welcome to my learning log. I post concise notes and explainers. Browse the latest below, or see the full archive on the home page.
+
+{% for post in site.posts %}
+- [{{ post.title }}]({{ post.url }}) — <small>{{ post.date | date: "%b %d, %Y" }}</small><br/>
+  {{ post.excerpt }}
+{% endfor %}
+How can i fox this
