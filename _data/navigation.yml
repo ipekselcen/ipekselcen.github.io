@@ -1,1 +1,15 @@
-
+main:
+  - title: "Projects"
+    url: /projects/
+  - title: "Editorial"
+    url: /editorial/
+  - title: "Publications"
+    url: /publications/
+  - title: "Blog"
+    url: /blog/
+  - title: "About"
+    url: /about/
+  - title: "CV"
+    url: /cv/
+  - title: "Contact"
+    url: /contact/
