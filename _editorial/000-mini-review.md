@@ -7,4 +7,4 @@ summary: >
   Compact synthesis: context, 3–5 findings, and why they matter — written for speed-reading researchers.
 ---
 
-(Your 500-word mini-review text…)
+
