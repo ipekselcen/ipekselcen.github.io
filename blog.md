@@ -1,7 +1,7 @@
 ---
-layout: single
 title: Blog
 permalink: /blog/
+layout: single
 ---
 
 Welcome to my learning log. I post concise notes and explainers. Browse the latest below, or see the full archive on the home page.
