@@ -10,4 +10,3 @@ Welcome to my learning log. I post concise notes and explainers. Browse the late
 - [{{ post.title }}]({{ post.url }}) — <small>{{ post.date | date: "%b %d, %Y" }}</small><br/>
   {{ post.excerpt }}
 {% endfor %}
-How can i fox this
