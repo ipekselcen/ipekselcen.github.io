@@ -14,5 +14,3 @@ header:
 excerpt: >
   I bridge wet-lab insight and computational analysis—and I write clearly about complex biology.
 ---
-
-{% include feature_row %}
