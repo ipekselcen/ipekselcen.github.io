@@ -1,15 +1,19 @@
 title: Ipek Selcen - Molecular Biology & Bioinformatics
 description: Portfolio, projects, and writing on epigenetics, molecular biology, and my journey into bioinformatics.
-theme: minima
 
 author: Ipek Selcen
 email: ipek.selcen@gmail.com
 
 url: "https://ipekselcen.github.io"
 
+remote_theme: "mmistakes/minimal-mistakes@4.24.0"
+
 plugins:
+  - jekyll-include-cache
   - jekyll-feed
   - jekyll-seo-tag
+
+minimal_mistakes_skin: "air"   # or: default, mint, contrast, dark, etc.
 
 markdown: kramdown
 kramdown:
