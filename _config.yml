@@ -18,8 +18,6 @@ kramdown:
 
 minimal_mistakes_skin: "air"
 
-# REMOVE any `theme: minima` and REMOVE the whole `minima:` block (social_links, skin, etc.)
-
 # Optional defaults so all pages render correctly
 defaults:
   - scope: { path: "" }
