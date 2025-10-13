@@ -1,16 +1,18 @@
 ---
-layout: splash
-title: "Ipek Selcen"
-subtitle: "Epigenetics × Bioinformatics · Scientific Editorial"
-header:
-  overlay_color: "#ffffff"
-  overlay_filter: "0.0"
-  overlay_image:
-  actions:
-    - label: "Explore bioinformatics projects →"
-      url: "/projects/"
-    - label: "See editorial portfolio →"
-      url: "/editorial/"
-excerpt: >
-  I bridge wet-lab insight and computational analysis—and I write clearly about complex biology.
+layout: single
+title: "Welcome"
+author_profile: false
 ---
+
+**Hi, I'm Ipek.**  
+I’m a molecular biologist exploring **epigenetics** and **bioinformatics**.  
+This site is where I share the projects I’m building and what I’m learning.
+
+- **Current focus:** RNA/epigenetic regulation, analysis pipelines, and clear scientific writing.  
+- **Career interests:** Molecular biology R&D, bioinformatics, and scientific editorial work.
+
+<p>
+  <a class="btn" href="/projects/">🔬 Projects</a>
+  &nbsp;&nbsp;
+  <a class="btn" href="/editorial/">🖋️ Editorial</a>
+</p>
