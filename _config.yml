@@ -5,7 +5,6 @@ description: >-
 url: "https://ipekselcen.github.io"
 baseurl: ""
 
-
 remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 
 plugins:
@@ -14,12 +13,11 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
-
 markdown: kramdown
 kramdown:
   input: GFM
 
-minimal_mistakes_skin: "default"   # or "mint", "air", etc.
+minimal_mistakes_skin: "default"
 
 defaults:
   - scope: { path: "" }
@@ -27,7 +25,6 @@ defaults:
       layout: single
       author_profile: false
 
-# if you are using collections:
 collections:
   projects:
     output: true
