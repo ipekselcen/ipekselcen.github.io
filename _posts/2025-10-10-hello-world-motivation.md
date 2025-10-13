@@ -3,7 +3,7 @@ layout: post
 title: "Why I built this site (motivation & plan)"
 ---
 
-I built this site to **motivate myself** as I transition from a wet‑lab focus (epigenetics, cloning, molecular biology) into **bioinformatics**.
+I built this site to motivate myself as I transition from a wet‑lab focus (molecular biology and epigenetics) into *bioinformatics*.
 
 **Rules I’ll try to follow:**
 1. Ship small things weekly (notes, mini‑reviews, or figures).  
