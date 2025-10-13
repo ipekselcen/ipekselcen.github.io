@@ -1,10 +1,9 @@
-title: Ipek Selcen - Molecular Biology & Bioinformatics
-description: Portfolio, projects, and writing on epigenetics, molecular biology, and my journey into bioinformatics.
-
-author: Ipek Selcen
+title: Ipek Selcen — Molecular Biology & Bioinformatics
 email: ipek.selcen@gmail.com
-
+description: >-
+  Portfolio showcasing bioinformatics projects, epigenetics work, and scientific editorial samples.
 url: "https://ipekselcen.github.io"
+baseurl: ""
 
 remote_theme: "mmistakes/minimal-mistakes@4.24.0"
 
@@ -13,26 +12,16 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
-minimal_mistakes_skin: "air"   # or: default, mint, contrast, dark, etc.
-
 markdown: kramdown
 kramdown:
   input: GFM
 
-show_excerpts: true
+minimal_mistakes_skin: "air"  # try "default", "mint", "contrast" if you prefer
 
-minima:
-  skin: auto
-  social_links:
-    - { platform: github,  user_url: "https://github.com/ipekselcen" }
-    - { platform: linkedin, user_url: "https://www.linkedin.com/in/ipek-selcen-16516948/" }
-    - { platform: orcid,   user_url: "https://orcid.org/0000-0001-7614-1780" }
-
-# This creates the top header menu
-header_pages:
-  - about.md
-  - projects.md
-  - publications.md
-  - blog.md
-  - cv.md
-  - contact.md
+# Optional but helpful defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: single
+      author_profile: true
