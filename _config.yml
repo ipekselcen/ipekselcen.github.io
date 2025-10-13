@@ -1,4 +1,4 @@
-title: Ipek Selcen — Molecular Biology & Bioinformatics
+title: Ipek Selcen - Molecular Biology & Bioinformatics
 email: ipek.selcen@gmail.com
 description: >-
   Portfolio showcasing bioinformatics projects, epigenetics work, and scientific editorial samples.
@@ -16,20 +16,13 @@ markdown: kramdown
 kramdown:
   input: GFM
 
-minimal_mistakes_skin: "air"  # try "default", "mint", "contrast" if you prefer
+minimal_mistakes_skin: "air"
 
-# Optional but helpful defaults
+# REMOVE any `theme: minima` and REMOVE the whole `minima:` block (social_links, skin, etc.)
+
+# Optional defaults so all pages render correctly
 defaults:
-  - scope:
-      path: ""
+  - scope: { path: "" }
     values:
       layout: single
-      author_profile: true
-
-  collections:
-  projects:
-    output: true
-    permalink: /projects/:name/
-  editorial:
-    output: true
-    permalink: /editorial/:name/
+      author_profile: false  # turn on per page where you want the sidebar
