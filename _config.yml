@@ -18,9 +18,10 @@ kramdown:
 
 minimal_mistakes_skin: "default"
 
-# Optional defaults so all pages render correctly
 defaults:
-  - scope: { path: "" }
+  - scope:
+      path: ""
     values:
       layout: single
-      author_profile: false  # turn on per page where you want the sidebar
+      author_profile: false
+
