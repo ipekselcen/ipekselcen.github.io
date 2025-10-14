@@ -1,7 +1,10 @@
 ---
-title: "Welcome"
-author_profile: true
+title: Welcome
 layout: single
+author_profile: true
+permalink: /
+redirect_from:
+  - /about/
 ---
 
 **Hi, I'm Ipek.**  
