@@ -1,0 +1,16 @@
+---
+---
+/* smaller, cleaner typography */
+body {
+  font-size: 0.9rem;        /* default ~1rem → slightly smaller */
+  line-height: 1.6;
+}
+
+h1 { font-size: 1.6rem; }
+h2 { font-size: 1.3rem; }
+h3 { font-size: 1.1rem; }
+h4, h5, h6 { font-size: 1rem; }
+
+.page__content {
+  font-size: 0.9rem;
+}
