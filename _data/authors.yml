@@ -16,9 +16,3 @@ ipek:
     - label: "ORCID"
       icon: "ai ai-orcid"
       url: "https://orcid.org/0000-0001-7614-1780"
-    - label: "CV"
-      icon: "fas fa-fw fa-file-alt"
-      url: "/cv/"
-    - label: "Google Scholar"
-      icon: "ai ai-google-scholar"   # optional; omit if not using Academicons
-      url: "https://scholar.google.com/citations?user=iHRiVTYAAAAJ&hl=en"
