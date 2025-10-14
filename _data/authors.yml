@@ -1,0 +1,21 @@
+ipek:
+  name: "Ipek Selcen"
+  avatar: "/assets/images/IMG_6116.jpg"
+  bio: "Molecular biologist exploring bioinformatics. Clear science writing, reproducible analysis."
+  location: "NY, USA"
+  links:
+    - label: "Email"
+      icon: "fas fa-fw fa-envelope"
+      url: "mailto:ipekselcen@gmail.com"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/ipekselcen"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/ipekselcen/"
+    - label: "CV"
+      icon: "fas fa-fw fa-file-alt"
+      url: "/cv/"
+    - label: "Google Scholar"
+      icon: "ai ai-google-scholar"   # optional; omit if not using Academicons
+      url: "https://scholar.google.com/citations?user=XXXX"
