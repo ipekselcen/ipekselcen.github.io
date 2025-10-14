@@ -1,18 +1,19 @@
 ---
-title: Welcome
+title: About
+permalink: /about/
 layout: single
 author_profile: true
-permalink: /
-redirect_from:
-  - /about/
+author: ipek
 ---
 
-**Hi, I'm Ipek.**  
-I’m a molecular biologist exploring **epigenetics** and **bioinformatics**.  
-This site is where I share the projects I’m building and what I’m learning.
+I am a recent PhD graduate passionate about epigenetics and molecular biology. I am actively learning *bioinformatics* to bridge wet-lab insight with reproducible computational analysis.
 
-- **Current focus:** RNA/epigenetic regulation, analysis pipelines, and clear scientific writing.  
-- **Career interests:** Molecular biology R&D, bioinformatics, and scientific editorial work.
+**Skills snapshot**  
+- Wet lab: molecular cloning, cell culture, PCR/qPCR, CRISPR workflows, Western blotting, 
+- Computational: R (Bioconductor), Python, UNIX/bash, Git/GitHub.  
+- Writing & editing: scientific summaries, figure legends, manuscript structuring.
+
+**Why this site?** To *motivate myself* by tracking progress publicly, small wins, clear notes, and steady iteration.
 
 <p>
   <a class="btn" href="/projects/">🔬 Projects</a>
