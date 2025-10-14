@@ -5,8 +5,6 @@ main:
     url: /editorial/
   - title: "Blog"
     url: /blog/
-  - title: "About"
-    url: /about/
   - title: "CV"
     url: /cv/
   - title: "Contact"
