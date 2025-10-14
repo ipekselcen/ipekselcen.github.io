@@ -32,3 +32,4 @@ collections:
   editorial:
     output: true
     permalink: /editorial/:name/
+
