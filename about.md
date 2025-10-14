@@ -3,6 +3,7 @@ title: About
 permalink: /about/
 layout: single
 author_profile: true
+author: ipek
 ---
 
 I am a recent PhD graduate passionate about epigenetics and molecular biology. I am actively learning *bioinformatics* to bridge wet-lab insight with reproducible computational analysis.
