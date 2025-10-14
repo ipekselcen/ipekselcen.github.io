@@ -25,6 +25,8 @@ defaults:
       layout: single
       author_profile: false
 
+academicons: true
+
 collections:
   projects:
     output: true
