@@ -12,8 +12,11 @@ layout: single
 - BS in Molecular Biology and Genetics - *Istanbul Technical University* (2016)
 
 **Research Experience**  
-- Graduate Researcher — *Lab / Dept* (Year–Year)  
-  Focus: epigenetics, molecular cloning, molecular biology, and bioinformatics.
+- Graduate Researcher - *Casaccia Lab / Neuroscience Initiative* (2020-2025)  
+  Focus: epigenetics, molecular biology, glia and bioinformatics.
+
+- Graduate Researcher - *GenReg Lab / Molecular Biology & Genetics* (2016-2019)  
+  Focus: epigenetics, molecular biology, CRISPR and cancer biology.
 
 **Computational Skills**  
 R (tidyverse, ggplot2, DESeq2), Python (pandas, matplotlib), UNIX/bash, Git/GitHub.
@@ -22,4 +25,4 @@ R (tidyverse, ggplot2, DESeq2), Python (pandas, matplotlib), UNIX/bash, Git/GitH
 Manuscript structuring, concise summaries, blog mini‑reviews.
 
 **Selected Techniques**  
-PCR/qPCR, cloning, cell culture, CRISPR workflows, basic library prep.
+PCR/qPCR, molecular cloning, primary cell culture, CRISPR workflows, Western blotting, immunocytochemistry, immunohistochemistry.
