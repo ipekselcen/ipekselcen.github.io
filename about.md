@@ -12,4 +12,4 @@ I am a recent PhD graduate passionate about epigenetics and molecular biology. I
 - Computational: R (Bioconductor), Python, UNIX/bash, Git/GitHub.  
 - Writing & editing: scientific summaries, figure legends, manuscript structuring.
 
-**Why this site?** To **motivate myself** by tracking progress publicly—small wins, clear notes, and steady iteration.
+**Why this site?** To *motivate myself* by tracking progress publicly, small wins, clear notes, and steady iteration.
