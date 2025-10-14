@@ -1,16 +1,39 @@
 ---
 ---
-/* smaller, cleaner typography */
-body {
-  font-size: 0.9rem;        /* default ~1rem → slightly smaller */
-  line-height: 1.6;
+/* Site-wide smaller, tighter typography for Minimal Mistakes */
+
+/* Global base size: all rem units scale from here */
+html { font-size: 15px; }   /* try 14px if you want even smaller */
+
+/* Main content */
+.page__content {
+  font-size: 0.95rem;       /* ~14px when base is 15px */
+  line-height: 1.65;
 }
 
-h1 { font-size: 1.6rem; }
-h2 { font-size: 1.3rem; }
-h3 { font-size: 1.1rem; }
+/* Headings (dial them down a bit) */
+h1 { font-size: 1.6rem; }   /* ~24px */
+h2 { font-size: 1.3rem; }   /* ~20px */
+h3 { font-size: 1.1rem; }   /* ~17px */
 h4, h5, h6 { font-size: 1rem; }
 
-.page__content {
-  font-size: 0.9rem;
+/* Navigation + site title */
+.masthead__menu-item, .greedy-nav a { font-size: 0.95rem; }
+.site-title { font-size: 1.05rem; }
+
+/* Lists and small text alignment with body size */
+.page__content li,
+.page__content p { font-size: 0.95rem; }
+
+/* Optional: lighten link underlines for a cleaner look */
+a { text-decoration: none; border-bottom: 1px solid rgba(0,0,0,.15); }
+a:hover { border-bottom-color: rgba(0,0,0,.35); }
+
+/* Optional: slightly smaller sidebar widgets/profile */
+.sidebar { font-size: 0.9rem; }
+
+/* Mobile: keep it readable */
+@media (max-width: 768px) {
+  html { font-size: 14px; }
+  .page__content { font-size: 0.95rem; line-height: 1.7; }
 }
