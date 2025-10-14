@@ -2,6 +2,7 @@
 title: Ipek Selcen
 layout: single
 author_profile: true
+author: ipek
 permalink: /
 ---
 
