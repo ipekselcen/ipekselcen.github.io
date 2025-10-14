@@ -8,8 +8,8 @@ layout: single
 
 **Education**  
 - PhD in Biochemistry - *City University of New York* (2025)
-- MSc in Molecular Biology and Genetics - *Bogazici Univercity* (2019)
-- BS in Molecular Biology and Genetics - *Istanbul Technical Univercity* (2016)
+- MSc in Molecular Biology and Genetics - *Bogazici University* (2019)
+- BS in Molecular Biology and Genetics - *Istanbul Technical University* (2016)
 
 **Research Experience**  
 - Graduate Researcher — *Lab / Dept* (Year–Year)  
