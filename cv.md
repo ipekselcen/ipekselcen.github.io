@@ -7,7 +7,7 @@ layout: single
 *Download PDF soon*
 
 **Education**  
-- PhD in Biochemistry — *City University of New York* (2025)
+- PhD in Biochemistry - *City University of New York* (2025)
 - MSc in Molecular Biology and Genetics - *Bogazici Univercity* (2019)
 - BS in Molecular Biology and Genetics - *Istanbul Technical Univercity* (2016)
 
