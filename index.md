@@ -17,4 +17,4 @@ This site is where I share the projects I’m building and what I’m learning.
   <a class="btn" href="/editorial/">🖋️ Editorial</a>
 </p>
 
-
+ 
