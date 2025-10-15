@@ -1,7 +1,10 @@
 ---
 title: CV
-permalink: /cv/
 layout: single
+permalink: /cv/
+author_profile: false
+classes: wide cv-page
+toc: false
 ---
 
 *Download PDF soon*
