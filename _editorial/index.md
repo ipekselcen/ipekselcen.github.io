@@ -1,5 +1,5 @@
 ---
-title: Editorial
+title: Editorial Portfolio
 layout: single
 permalink: /editorial/
 ---
