@@ -1,0 +1,14 @@
+---
+---
+
+@import "minimal-mistakes";
+
+/* Denser content width for content-heavy pages */
+.cv-page .page__content,
+.post-page .page__content { max-width: 980px; line-height: 1.65; }
+
+/* Buttons look nicer inline in lists */
+a.btn { display: inline-block; }
+
+/* Tighten list spacing a bit */
+.page__content li { margin: 0.25rem 0; }
