@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Why I built this site (motivation & plan)"
-permalink: /2025/10/10/hello-world-motivation/
+permalink: /hello-world-motivation/
 author_profile: false
 read_time: true
 show_date: true
