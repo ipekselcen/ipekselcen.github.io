@@ -31,7 +31,7 @@ academicons: true
 collections:
   projects:
     output: true
-    permalink: /projects/:name/
+    permalink: /projects/:path/
   editorial:
     output: true
-    permalink: /editorial/:name/
+    permalink: /editorial/:path/
