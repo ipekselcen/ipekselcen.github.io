@@ -1,5 +1,7 @@
 ---
 title: "RNA-seq Differential Expression (Learning Pipeline)"
+classes: wide cv-page
+toc: false
 order: 1
 role: "Sole author · R/DESeq2"
 tags: ["RNA-seq","R","DESeq2","QC"]
