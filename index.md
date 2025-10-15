@@ -8,9 +8,7 @@ toc: false
 permalink: /
 ---
 
-👋🏼 I am Ipek! I am a recent PhD graduate passionate about epigenetics and molecular biology. I bridge wet-lab discovery and computational biology. My focus is on epigenetics and reproducible data workflows.
-
-I am actively learning *bioinformatics* to bridge wet-lab insight with reproducible computational analysis.
+I am a molecular biologist and recent PhD graduate passionate about epigenetics and computational biology. My work bridges wet-lab discovery and computational analysis, focusing on reproducible workflows and data-driven insight.
 
 ### Skills snapshot
 - **Wet lab:** molecular cloning, cell culture, PCR/qPCR, CRISPR workflows, Western blotting  
