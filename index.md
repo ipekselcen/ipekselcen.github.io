@@ -3,6 +3,8 @@ title: Ipek Selcen
 layout: single
 author_profile: true
 author: ipek
+classes: wide cv-page
+toc: false
 permalink: /
 ---
 
