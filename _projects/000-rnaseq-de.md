@@ -12,3 +12,4 @@ summary: >
 **Problem.** Clean, repeatable RNA-seq DE analysis is hard to standardize.  
 **Approach.** R/DESeq2, tidyverse; knitted report with QC and volcano plots.  
 **Result.** Runs in minutes; outputs sanity-check figures and ranked tables.
+
