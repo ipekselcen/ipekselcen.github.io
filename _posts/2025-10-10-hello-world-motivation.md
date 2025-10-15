@@ -6,10 +6,8 @@ author_profile: false
 read_time: true
 show_date: true
 classes: wide
-toc: true
-toc_label: "On this page"
-toc_icon: "list"
-categories: notes
+toc: false
+categories: notes 
 tags: [motivation, process, roadmap]
 excerpt: "Why I’m building a public lab-notebook: ship small, prefer clarity over perfection, and make results reproducible."
 ---
