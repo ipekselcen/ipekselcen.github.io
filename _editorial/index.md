@@ -2,6 +2,8 @@
 title: Editorial
 layout: single
 permalink: /editorial/
+classes: wide cv-page
+toc: false
 ---
 
 More of my writing and editing work is hosted here:  
