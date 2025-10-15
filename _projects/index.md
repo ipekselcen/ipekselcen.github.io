@@ -1,5 +1,5 @@
 ---
-title: Projects
+title: Bioinformatics Projects
 layout: single
 permalink: /projects/
 classes: wide
