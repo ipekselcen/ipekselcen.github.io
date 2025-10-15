@@ -4,7 +4,7 @@ ipek:
   bio: "Molecular biologist exploring bioinformatics. Clear science writing, reproducible analysis."
   location: "NY, USA"
   links:
-    - label: "Email"
+    - label: ""
       icon: "fas fa-fw fa-envelope"
       url: "mailto:ipekselcen@gmail.com"
     - label: "GitHub"
