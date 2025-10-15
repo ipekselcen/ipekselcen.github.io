@@ -5,7 +5,7 @@ permalink: /2025/10/10/hello-world-motivation/
 author_profile: false
 read_time: true
 show_date: true
-classes: wide post-page
+classes: wide
 toc: true
 toc_label: "On this page"
 toc_icon: "list"
