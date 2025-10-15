@@ -2,6 +2,8 @@
 title: "Projects"
 permalink: /projects/
 layout: single
+classes: wide cv-page
+toc: false
 ---
 
 {% assign items = site.projects | sort: "order" %}
