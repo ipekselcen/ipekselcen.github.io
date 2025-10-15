@@ -1,4 +1,4 @@
-ilipek:
+ipek:
   name: "Ipek Selcen"
   avatar: "/assets/images/IMG_6116.jpg"
   bio: "Molecular biologist exploring bioinformatics. Clear science writing, reproducible analysis."
@@ -14,5 +14,5 @@ ilipek:
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/ipek-selcen-16516948/"
     - label: "ORCID"
-      icon: "ai ai-orcid"
+      icon: "fab fa-orcid"
       url: "https://orcid.org/0000-0001-7614-1780"
