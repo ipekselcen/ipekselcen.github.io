@@ -2,6 +2,7 @@
 title: Editorial Portfolio
 layout: single
 permalink: /editorial/
+classes: wide
 ---
 
 More of my writing and editing work lives on a dedicated site:
