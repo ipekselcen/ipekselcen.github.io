@@ -14,5 +14,6 @@ I built this site to motivate myself as I transition from a wet‑lab focus (mol
 
 **Next steps (accountability):**
 - Publish a minimal RNA‑seq DE template with `DESeq2` and example plots.  
-- Write a 500‑word mini‑review on an epigenetics paper I like.  
+- Write a 500‑word mini‑review on an epigenetics paper I like.
 - Post a cheatsheet on basic UNIX + Git commands I use daily.
+
