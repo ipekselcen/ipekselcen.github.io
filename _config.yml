@@ -30,8 +30,8 @@ academicons: true
 
 collections:
   projects:
-    output: true
+    output: false
     permalink: /projects/:path/
   editorial:
-    output: true
+    output: false
     permalink: /editorial/:path/
