@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "Why I built this site (motivation & plan)"
+classes: wide cv-page
+toc: false
 ---
 
 I built this site to motivate myself as I transition from a wet‑lab focus (molecular biology and epigenetics) into *bioinformatics*.
