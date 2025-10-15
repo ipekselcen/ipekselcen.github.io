@@ -1,14 +1,15 @@
 ---
-title: Ipek Selcen
+title: ""
 layout: single
 author_profile: true
 author: ipek
-classes: wide cv-page
+classes: wide
 toc: false
 permalink: /
 ---
 
-I am a recent PhD graduate passionate about epigenetics and molecular biology.  
+👋🏼 I am Ipek! I am a recent PhD graduate passionate about epigenetics and molecular biology. I bridge wet-lab discovery and computational biology. My focus is on epigenetics and reproducible data workflows.
+
 I am actively learning *bioinformatics* to bridge wet-lab insight with reproducible computational analysis.
 
 ### Skills snapshot
