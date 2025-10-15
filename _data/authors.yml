@@ -1,10 +1,10 @@
-ipek:
+ilipek:
   name: "Ipek Selcen"
   avatar: "/assets/images/IMG_6116.jpg"
   bio: "Molecular biologist exploring bioinformatics. Clear science writing, reproducible analysis."
   location: "NY, USA"
   links:
-    - label: ""
+    - label: "Email"
       icon: "fas fa-fw fa-envelope"
       url: "mailto:ipekselcen@gmail.com"
     - label: "GitHub"
