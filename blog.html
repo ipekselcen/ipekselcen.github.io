@@ -1,0 +1,93 @@
+---
+layout: default
+title: Progress Blog
+---
+
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    line-height: 1.6;
+    color: #333;
+  }
+  
+  h1 {
+    color: #667eea;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+  }
+  
+  .back-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .back-link:hover {
+    text-decoration: underline;
+  }
+  
+  .post-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .post-item {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #764ba2;
+  }
+  
+  .post-item h2 {
+    margin: 0 0 10px 0;
+  }
+  
+  .post-item h2 a {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .post-item h2 a:hover {
+    color: #667eea;
+  }
+  
+  .post-date {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+  }
+  
+  .post-excerpt {
+    color: #555;
+    line-height: 1.7;
+  }
+</style>
+
+<a href="/" class="back-link">← Back to Portfolio</a>
+
+<h1>Progress Blog</h1>
+
+<p>Small wins, clear notes, and steady iteration — tracking my journey in chromatin biology and bioinformatics.</p>
+
+<ul class="post-list">
+  {% for post in site.posts %}
+    <li class="post-item">
+      <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+      <div class="post-date">{{ post.date | date: "%B %d, %Y" }}</div>
+      <div class="post-excerpt">{{ post.excerpt }}</div>
+    </li>
+  {% endfor %}
+</ul>
+
+{% if site.posts.size == 0 %}
+<p style="text-align: center; color: #666; font-style: italic; margin-top: 40px;">
+  No posts yet. Check back soon!
+</p>
+{% endif %}

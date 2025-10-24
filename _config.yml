@@ -1,42 +1,23 @@
-title: Ipek Selcen
-tagline: "Epigenetics × Bioinformatics × Scientific Communication"
-email: "ipekselcen [at] gmail.com"
-description: >-
-  Portfolio showcasing bioinformatics projects, epigenetics work, and scientific editorial samples.
+# Site Settings
+title: "Ipek Selcen - Progress Blog"
+description: "Tracking my journey in chromatin biology and bioinformatics"
 url: "https://ipekselcen.github.io"
 baseurl: ""
 
-remote_theme: "mmistakes/minimal-mistakes@4.24.0"
-
-plugins:
-  - jekyll-remote-theme
-  - jekyll-include-cache
-  - jekyll-feed
-  - jekyll-seo-tag
-  - jekyll-redirect-from
-
+# Build Settings
 markdown: kramdown
-kramdown:
-  input: GFM
+permalink: /blog/:year/:month/:day/:title/
 
-minimal_mistakes_skin: "default"
-
-defaults:
-  - scope:
-      path: ""
-      type: "pages"
-    values:
-      layout: single
-      author_profile: true
-      classes: wide
-      toc: false
-
-academicons: true
-
+# Collections
 collections:
-  projects:
+  posts:
     output: true
-    permalink: /projects/:path/
-  editorial:
-    output: true
-    permalink: /editorial/:path/
+    permalink: /blog/:year/:month/:day/:title/
+
+# Exclude files
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md
