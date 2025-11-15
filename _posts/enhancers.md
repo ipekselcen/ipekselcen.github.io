@@ -3,7 +3,7 @@ layout: post
 title: "Enhancers: The Master Regulators of Gene Expression"
 date: 2025-11-14
 categories: [editorial]
-tags: [writing, chromatin]
+tags: [writing, chromatin, enhancers]
 ---
 
 ## Introduction
