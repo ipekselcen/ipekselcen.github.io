@@ -7,27 +7,42 @@ tags: [writing, chromatin]
 ---
 
 # Introduction
-Your genome contains about 3 billion base pairs of DNA, all packed into a nucleus that's only about 5 micrometers across. If you stretched out all the DNA from one cell, it would be roughly 2 meters long. How does the cell pack all this DNA and still allow access to the genes that need to be read?
-The answer is chromatin—the combination of DNA and proteins that makes up our chromosomes. But not all chromatin is packaged the same way. Some regions are tightly packed and inaccessible, while others are loosely organized and accessible. This accessibility determines which parts of the genome can be read by the cell's machinery. Understanding chromatin accessibility is fundamental to understanding how genes are regulated.
+Our genome contains about 3 billion base pairs of DNA, all packed into a nucleus that is only about 5 micrometers across. If you stretched out all the DNA from one cell, it would be roughly 2 meters long. How does the cell pack all this DNA and still allow access to the genes that need to be read?
+
+The answer is chromatin, the combination of DNA and proteins that makes up our chromosomes. But not all chromatin is packaged the same way. Some regions are tightly packed and inaccessible, while others are loosely organized and accessible. This accessibility determines which parts of the genome can be read by the cell's machinery. Understanding chromatin accessibility is fundamental to understanding how genes are regulated.
 
 # Open vs. Closed Chromatin
-DNA wraps around histone proteins to form nucleosomes—the basic units of chromatin. Each nucleosome consists of DNA wound around eight histone proteins (two copies each of H2A, H2B, H3, and H4). When nucleosomes pack together tightly, they form closed chromatin (also called heterochromatin), which is generally inactive. When nucleosomes are spaced out or absent, the DNA is in open chromatin (euchromatin), which allows transcription factors and other regulatory proteins to bind.
-This isn't just a binary on/off state. Chromatin exists along a spectrum from completely inaccessible to highly accessible. Different genomic regions have different levels of accessibility depending on:
+DNA wraps around histone proteins to form nucleosomes: the basic units of chromatin. Each nucleosome consists of ~147 bp DNA wound 1.65 times around a histone octamer containing two copies each of H2A, H2B, H3, and H4. These cre histones are small, highly conserved proteins (11-15 kDa each) that are among the most abundant proteins in eukaryotic cells.
 
-- How many nucleosomes are present
-- How tightly nucleosomes are packed
-- Which histone modifications are present
-- Whether the DNA is methylated
+The DNA between nuclesomes, called *linker DNA*, varies in length from ~20-80 bp depending on the organism and genomic location. Histone H1 often binds to this linker DNA and helps compact nucleosomes into higher-order structures. When nucleosomes pack together tightly, they form closed chromatin (heterochromatin), which is generally transcriptionally inactive. When nucleosomes are spaced out or depleted, the DNA exists in open chromatin (euchromatin), which allows transcription factors and other regulatory proteins to bind.
+
+This is not just a binary on/off state. Chromatin exists along a spectrum from completely inaccessible to highly accessible. Different genomic regions have different levels of accessibility depending on:
+
+- How many nucleosomes are present (nucleosome occupancy)
+- How tightly nucleosomes are packed (spacing of 20 bp vs. 80 bp. linkers)
+- Which histone modifications are present (acetylation, methylation, phosphorylation etc.)
+- Whether the DNA is methylated (5-methylcytosine at CpG dinucleotides)
 - Which chromatin remodeling enzymes are active
+- The concentration and binding affinity of transcription factors competing for DNA access
+
+Functionally, we measure accessibility by how easily enzymes like DNase I or Tn5 transposase can access the DNA. Highly accessible regions (such as active promoters and enhancers) show 10-100 fold more enzyme cutting than bulk chromatin, while truly inaccessible regions (such as centromeres) show very little cutting even with high enzyme concentrations.
 
 # What Makes Chromatin Accessible?
 Several mechanisms control whether chromatin is open or closed:
 
-#Nucleosome Positioning and Depletion
-The position of nucleosomes along DNA is not random. At active genes, the region right before the transcription start site (called the promoter) often has few or no nucleosomes—this is called a nucleosome-depleted region (NDR). This NDR allows transcription factors to bind and recruit RNA polymerase to start transcription.
-Richard Kornberg and others showed decades ago that nucleosome positioning affects gene expression. More recently, genome-wide studies revealed that nucleosome positions are precisely organized at active genes, with characteristic spacing patterns. The nucleosomes flanking promoters (called the -1 and +1 nucleosomes) are often very well-positioned.
+*Nucleosome Positioning and Depletion*
+The position of nucleosomes along DNA is not random. At active genes, the region immediately upstream of the transcription start site (TSS) often has few or no nucleosomes, called a nucleosome-depleted region (NDR). NDR is typically 100-200 bp wide and allows transcription factors to bind DNA and recruit RNA polymerase to start transcription. 
 
-# Chromatin Remodeling Complexes
+
+
+
+
+Futhermore, NDR is flanked by well-positioned nucleosomes: the -1 nucleosome sits just upstream of the NDR, and the +1 nucleosome sits immediately downstream of the TSS. 
+
+
+Several studies showed decades ago that nucleosome positioning affects gene expression. More recently, genome-wide studies revealed that nucleosome positions are precisely organized at active genes, with characteristic spacing patterns. The nucleosomes flanking promoters (called the -1 and +1 nucleosomes) are often very well-positioned.
+
+*Chromatin Remodeling Complexes*
 Cells use ATP-powered molecular machines called chromatin remodelers to move, eject, or restructure nucleosomes. There are several families of these remodelers:
 
 - SWI/SNF complexes can slide nucleosomes along DNA or completely remove them, opening up DNA for transcription factor binding
@@ -37,7 +52,7 @@ Cells use ATP-powered molecular machines called chromatin remodelers to move, ej
 
 These remodelers don't work randomly—they're recruited to specific genomic locations by transcription factors and other regulatory proteins.
 
-# Histone Modifications
+*Histone Modifications*
 Chemical modifications on histone proteins affect how tightly DNA wraps around nucleosomes. Acetylation of histones (particularly H3K27ac) generally makes chromatin more accessible by loosening the interaction between DNA and histones. Deacetylation by histone deacetylases (HDACs) typically makes chromatin less accessible.
 Other modifications create binding sites for proteins that can further open or close chromatin. For example, H3K4me1 (a mark of enhancers) recruits chromatin remodelers that increase accessibility.
 
