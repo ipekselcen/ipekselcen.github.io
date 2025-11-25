@@ -1,8 +1,9 @@
 ---
-layout: post
+layout: default
 title: "Foundation Skill #1: Understanding Biological Data Formats"
 date: 2025-11-24
 categories: bioinformatics
+tags: [file-formats, FASTQ, FASTA, beginners]
 ---
 
 If you're a biologist stepping into bioinformatics, file formats might seem like boring technical details. But here's what I wish someone had told me at the start: understanding how your data is structured is the difference between running analyses confidently and feeling lost when things go wrong.
@@ -21,6 +22,7 @@ The most common ones you'll encounter:
 ## Let's Start Simple: FASTA Files
 
 A FASTA file is the most basic format. It looks like this:
+
 ```plaintext
 >gene_name
 ATGCGATCGATCGATCG
@@ -35,6 +37,7 @@ That's it! You could literally open this in Notepad.
 ## Next Step: FASTQ Files
 
 When you get raw sequencing data, it comes as FASTQ. Each sequence takes four lines:
+
 ```plaintext
 @SEQ_ID                          ← Header (starts with @)
 GATCGATCGATCGATCG                ← Sequence
@@ -56,6 +59,7 @@ Here's a real scenario: You download a script to count reads in a FASTQ file. Th
 ## Common Beginner Mistakes (I Made These Too!)
 
 ### 1. Thinking FASTA and FASTQ are interchangeable
+
 ```python
 # This breaks if you feed it the wrong format!
 def count_sequences(filename):
@@ -63,12 +67,18 @@ def count_sequences(filename):
         return sum(1 for line in f if line.startswith('>'))
 ```
 
+<div class="callout callout-tip">
+<strong>💡 Don't worry about understanding Python yet!</strong>
+<p>This code example just shows that scripts look for specific characters. FASTA looks for <code>></code> while FASTQ looks for <code>@</code>. The point: mixing up formats breaks things!</p>
+</div>
+
 <div class="callout callout-warning">
 <strong>⚠️ Warning</strong>
 <p>FASTA headers start with <code>></code> while FASTQ headers start with <code>@</code>. Mixing these up breaks most parsing scripts immediately.</p>
 </div>
 
 ### 2. Not realizing coordinates differ between formats
+
 ```plaintext
 # BED format (used by many tools): counts from 0
 chr1    0    100    ← means positions 0 to 99
@@ -84,6 +94,13 @@ Same region, different numbers! This catches everyone at first.
 <p>BED uses 0-based, half-open coordinates [0, 100) while GFF uses 1-based, closed coordinates [1, 100]. This one-position difference can shift all your genomic annotations!</p>
 </div>
 
+**Visual example:**
+```plaintext
+Genome:  A T G C G A T C G A
+BED:     0 1 2 3 4 5 6 7 8 9  (0-3 means ATG)
+GFF:     1 2 3 4 5 6 7 8 9 10 (1-3 means ATG)
+```
+
 ### 3. Assuming all files are tab-separated
 
 Some formats use tabs, others use spaces, some mix both. Always check before writing code.
@@ -91,14 +108,22 @@ Some formats use tabs, others use spaces, some mix both. Always check before wri
 ## Practical Tips to Build Your Intuition
 
 <div class="callout callout-tip">
-<strong>💡 Quick Check Commands</strong>
-<p>Before analyzing any file, run these commands:</p>
-<ul style="margin: 10px 0 0 20px;">
-<li><code>head myfile.fastq</code> — Look at the first few lines</li>
-<li><code>wc -l myfile.fastq</code> — Count lines (FASTQ should be divisible by 4)</li>
-<li><code>grep ">" myfile.fasta | head</code> — Search for patterns</li>
-</ul>
+<strong>💡 What is bash/terminal?</strong>
+<p>These are command-line tools where you type commands directly. On Mac/Linux, open "Terminal". On Windows, use Windows Subsystem for Linux (WSL) or Git Bash. Think of it as talking directly to your computer!</p>
 </div>
+
+Before analyzing any file, run these commands in your terminal:
+
+```bash
+# Look at the first few lines
+head myfile.fastq
+
+# Count lines (FASTQ should be divisible by 4)
+wc -l myfile.fastq
+
+# Search for patterns
+grep ">" myfile.fasta | head
+```
 
 **Check before you analyze:**
 - Open files in a text editor first
