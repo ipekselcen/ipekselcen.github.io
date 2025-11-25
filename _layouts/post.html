@@ -1,6 +1,58 @@
 ---
 layout: default
 ---
+<style>
+  .callout {
+    padding: 20px;
+    margin: 25px 0;
+    border-radius: 8px;
+    border-left: 4px solid;
+    line-height: 1.7;
+  }
+
+  .callout-note {
+    background-color: #e8f4f8;
+    border-left-color: #2196F3;
+  }
+
+  .callout-tip {
+    background-color: #f0f8f4;
+    border-left-color: #4CAF50;
+  }
+
+  .callout-warning {
+    background-color: #fff8e1;
+    border-left-color: #ff9800;
+  }
+
+  .callout-important {
+    background-color: #f3e8ff;
+    border-left-color: #667eea;
+  }
+
+  .callout-caution {
+    background-color: #ffebee;
+    border-left-color: #f44336;
+  }
+
+  .callout strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 1.05em;
+  }
+
+  .callout p {
+    margin: 0;
+  }
+
+  .callout code {
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+  }
+</style>
 
 <article>
   <h1>{{ page.title }}</h1>
