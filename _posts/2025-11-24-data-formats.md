@@ -21,7 +21,7 @@ The most common ones you'll encounter:
 ## Let's Start Simple: FASTA Files
 
 A FASTA file is the most basic format. It looks like this:
-```
+```plaintext
 >gene_name
 ATGCGATCGATCGATCG
 CGATCGATCGATCG
@@ -35,7 +35,7 @@ That's it! You could literally open this in Notepad.
 ## Next Step: FASTQ Files
 
 When you get raw sequencing data, it comes as FASTQ. Each sequence takes four lines:
-```
+```plaintext
 @SEQ_ID                          ← Header (starts with @)
 GATCGATCGATCGATCG                ← Sequence
 +                                ← Separator (just a +)
@@ -69,7 +69,7 @@ def count_sequences(filename):
 </div>
 
 ### 2. Not realizing coordinates differ between formats
-```
+```plaintext
 # BED format (used by many tools): counts from 0
 chr1    0    100    ← means positions 0 to 99
 
