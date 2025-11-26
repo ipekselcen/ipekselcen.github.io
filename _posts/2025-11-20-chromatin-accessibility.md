@@ -114,11 +114,6 @@ Chromatin accessibility is a fundamental property that determines which parts of
 - Buenrostro, J. D. et al. Single-cell chromatin accessibility reveals principles of regulatory variation. *Nature* 523, 486–490 (2015).
 - Klemm, S. L., Shipony, Z. & Greenleaf, W. J. Chromatin accessibility and the regulatory epigenome. *Nat. Rev. Genet.* 20, 207–220 (2019).
 
-**Nucleosome Dynamics:**
-- Polach, K. J. & Widom, J. Mechanism of protein access to specific DNA sequences in chromatin: a dynamic equilibrium model for gene regulation. *J. Mol. Biol.* 254, 130–149 (1995).
-- Maeshima, K. et al. Local nucleosome dynamics facilitate chromatin accessibility in living mammalian cells. *Cell Rep.* 2, 1645–1656 (2012).
-- Brancati, G. et al. Nucleosome dynamics render heterochromatin accessible in living human cells. *Nat. Commun.* 16, 4059 (2025).
-
 **Nucleosome Positioning:**
 - Segal, E. et al. A genomic code for nucleosome positioning. *Nature* 442, 772–778 (2006).
 - Schones, D. E. et al. Dynamic regulation of nucleosome positioning in the human genome. *Cell* 132, 887–898 (2008).
