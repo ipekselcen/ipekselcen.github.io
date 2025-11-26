@@ -20,8 +20,7 @@ DNA wraps around histone proteins to form nucleosomes which is the basic units o
 
 <div class="callout callout-note">
 <strong>📝 Note</strong>
-<p>The 147 bp of DNA wrapped around histones is remarkably consistent across all eukaryotes. This means techniques and insights from yeast or fly studies often translate directly to human cells!
-.</p>
+<p>The 147 bp of DNA wrapped around histones is remarkably consistent across all eukaryotes. This means techniques and insights from yeast or fly studies often translate directly to human cells!</p>
 </div>
 
 The DNA between nucleosomes, called *linker DNA*, varies in length from ~20-80 bp depending on the organism and genomic location. Histone H1 often binds to this linker DNA and helps compact nucleosomes into higher-order structures. When nucleosomes pack together tightly, they form closed chromatin (heterochromatin), which is generally transcriptionally inactive. When nucleosomes are spaced out or depleted, the DNA exists in open chromatin (euchromatin), which allows transcription factors and other regulatory proteins to bind.
@@ -48,8 +47,7 @@ Flanking this open region are well-positioned nucleosomes with characteristic sp
 
 <div class="callout callout-tip">
 <strong>💡 Tip</strong>
-<p>When analyzing ATAC-seq data, strong peaks at gene promoters usually indicate these nucleosome-depleted regions. We'll cover how to identify and interpret these peaks computationally in the next post!
-</p>
+<p>When analyzing ATAC-seq data, strong peaks at gene promoters usually indicate these nucleosome-depleted regions. We'll cover how to identify and interpret these peaks computationally in the next post!</p>
 </div>
 
 Segal et al. (2006) showed that DNA sequence itself influences where nucleosomes form. Certain sequences (particularly stretches of repeated A and T bases) disfavor nucleosome binding, while others with periodic patterns of AT/GC dinucleotides stabilize nucleosomes. However, in living cells, these sequence preferences are often overridden by active processes involving ATP-dependent chromatin remodelers.
@@ -99,7 +97,7 @@ This means accessibility helps determine:
 
 <div class="callout callout-tip">
 <strong>💡 Connecting Biology to Analysis</strong>
-<p>103> Understanding these biological principles will help you interpret your ATAC-seq results. A strong ATAC-seq peak means high accessibility, which typically indicates an active regulatory region like an enhancer or promoter!</p>
+<p>Understanding these biological principles will help you interpret your ATAC-seq results. A strong ATAC-seq peak means high accessibility, which typically indicates an active regulatory region like an enhancer or promoter!</p>
 </div>
 
 Scientists have developed several methods to map chromatin accessibility across the genome:
