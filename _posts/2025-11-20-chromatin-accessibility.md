@@ -18,6 +18,12 @@ The answer is chromatin, the combination of DNA and proteins that makes up our c
 
 DNA wraps around histone proteins to form nucleosomes which is the basic units of chromatin. Each nucleosome consists of ~147 base pairs of DNA wound 1.65 times around a histone octamer containing two copies each of H2A, H2B, H3, and H4 (Luger et al., 1997). These core histones are small, highly conserved proteins (11-15 kDa each) that are among the most abundant proteins in eukaryotic cells.
 
+<div class="callout callout-note">
+<strong>📝 Note</strong>
+<p>The 147 bp of DNA wrapped around histones is remarkably consistent across all eukaryotes. This means techniques and insights from yeast or fly studies often translate directly to human cells!
+.</p>
+</div>
+
 The DNA between nucleosomes, called *linker DNA*, varies in length from ~20-80 bp depending on the organism and genomic location. Histone H1 often binds to this linker DNA and helps compact nucleosomes into higher-order structures. When nucleosomes pack together tightly, they form closed chromatin (heterochromatin), which is generally transcriptionally inactive. When nucleosomes are spaced out or depleted, the DNA exists in open chromatin (euchromatin), which allows transcription factors and other regulatory proteins to bind.
 
 This is not just a binary on/off state. Chromatin exists along a spectrum from completely inaccessible to highly accessible. Different genomic regions have different levels of accessibility depending on:
@@ -40,6 +46,12 @@ The position of nucleosomes along DNA is not random. At active genes, the region
 
 Flanking this open region are well-positioned nucleosomes with characteristic spacing of about 165-185 bp (nucleosome + linker). This regular spacing pattern becomes less precise further into the gene body (Schones et al., 2008). The positioning of nucleosomes is controlled by a combination of DNA sequence preferences, transcription factor binding, and chromatin remodelers.
 
+<div class="callout callout-tip">
+<strong>💡 Tip</strong>
+<p>When analyzing ATAC-seq data, strong peaks at gene promoters usually indicate these nucleosome-depleted regions. We'll cover how to identify and interpret these peaks computationally in the next post!
+</p>
+</div>
+
 Segal et al. (2006) showed that DNA sequence itself influences where nucleosomes form. Certain sequences (particularly stretches of repeated A and T bases) disfavor nucleosome binding, while others with periodic patterns of AT/GC dinucleotides stabilize nucleosomes. However, in living cells, these sequence preferences are often overridden by active processes involving ATP-dependent chromatin remodelers.
 
 ### Chromatin Remodeling Complexes
@@ -53,6 +65,11 @@ Cells use ATP-powered molecular machines called chromatin remodelers to move, ej
 - **CHD complexes** can both remodel nucleosomes and recognize specific histone modifications through their *chromodomains*. CHD1 recognizes H3K4me3 (a mark of active promoters), while CHD4 (part of the NuRD complex) is associated with gene repression.
 
 - **INO80 complexes** specialize in nucleosome sliding and histone variant exchange. They can replace canonical H2A with the variant H2A.Z, which creates more unstable nucleosomes that are easier to displace.
+
+<div class="callout callout-important">
+<strong>🔑 Important</strong>
+<p>Different remodeler families have opposite effects on chromatin. SWI/SNF complexes typically open chromatin, while some CHD complexes (like CHD4/NuRD) help close it. Understanding which remodelers are active in your cell type is crucial for interpreting accessibility changes.</p>
+</div>
 
 ### Histone Modifications
 
@@ -80,6 +97,11 @@ This means accessibility helps determine:
 
 ## Measuring Chromatin Accessibility
 
+<div class="callout callout-tip">
+<strong>💡 Connecting Biology to Analysis</strong>
+<p>103> Understanding these biological principles will help you interpret your ATAC-seq results. A strong ATAC-seq peak means high accessibility, which typically indicates an active regulatory region like an enhancer or promoter!</p>
+</div>
+
 Scientists have developed several methods to map chromatin accessibility across the genome:
 
 **DNase-seq** uses the enzyme DNase I (deoxyribonuclease I), which preferentially cuts DNA in accessible regions at a rate ~100-fold higher than in nucleosomal DNA. DNase I is a ~30 kDa endonuclease that requires Ca²⁺ and Mg²⁺ and cuts the DNA backbone non-specifically. By titrating DNase I concentration carefully, researchers can preferentially digest accessible DNA, then sequence the resulting fragments to map open chromatin genome-wide. DNase-seq typically requires 1-10 million cells and involves multiple optimization steps to get the right digestion conditions.
@@ -96,6 +118,11 @@ ATAC-seq has become the most popular method because it (Buenrostro et al., 2013,
 - Has high signal-to-noise ratio because the transposase only cuts accessible DNA
 
 The fragment size distribution from ATAC-seq is particularly informative (Buenrostro et al., 2013): fragments <100 bp come from nucleosome-free regions, fragments of ~200 bp represent DNA from a single nucleosome (mono-nucleosomal), and larger fragments (400 bp, 600 bp) represent di-nucleosomes and tri-nucleosomes. This periodicity reveals nucleosome positioning genome-wide.
+
+<div class="callout callout-note">
+<strong>📝 Remember This</strong>
+<p>Fragment size distribution is built into ATAC-seq quality control! When you check your data quality, you will look for this characteristic pattern: a peak at <100 bp (nucleosome-free), another at ~200 bp (mono-nucleosomes), and decreasing peaks at 400 bp and 600 bp.</p>
+</div>
 
 ## Summary
 
