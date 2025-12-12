@@ -238,6 +238,84 @@ permalink: /projects/rna-seq-tutorial/
                 identify differentially expressed genes, and interpret results through functional enrichment analysis.
             </p>
 
+            <h2>Study Background</h2>
+            
+            <h3>The Research Question</h3>
+            <p>
+                This tutorial analyzes data from <strong>Moyon et al. (2016), Cell Reports</strong>, a landmark study from 
+                <strong>Dr. Patrizia Casaccia's laboratory</strong> at the Icahn School of Medicine at Mount Sinai investigating 
+                the role of DNA methylation in oligodendrocyte development and myelination.
+            </p>
+
+            <h3>Biological Context</h3>
+            <p>
+                <strong>Oligodendrocytes</strong> are the myelinating cells of the central nervous system (CNS) that wrap axons 
+                with myelin sheaths, enabling rapid nerve impulse transmission. They differentiate from <strong>oligodendrocyte 
+                progenitor cells (OPCs)</strong> through a tightly regulated developmental program controlled by transcription 
+                factors and epigenetic modifications, particularly DNA methylation.
+            </p>
+
+            <h3>The Knowledge Gap</h3>
+            <p>
+                While previous studies showed that DNA methylation levels change during oligodendrocyte differentiation, the 
+                <strong>functional role of DNA methyltransferase 1 (DNMT1)</strong>—the enzyme responsible for maintaining DNA 
+                methylation patterns—remained unclear. Key questions included:
+            </p>
+            <ul>
+                <li>Is DNMT1 required for OPC proliferation and expansion?</li>
+                <li>What happens to oligodendrocyte differentiation without DNMT1?</li>
+                <li>How does DNA methylation regulate the transition from progenitors to mature oligodendrocytes?</li>
+                <li>Does loss of DNMT1 cause a cell fate switch to other lineages?</li>
+            </ul>
+
+            <h3>Experimental Design</h3>
+            <p>
+                To address these questions, the researchers generated conditional knockout mice where <strong>Dnmt1 was 
+                specifically deleted in oligodendrocyte lineage cells</strong> using the <strong>Olig1-Cre</strong> driver line:
+            </p>
+            <ul>
+                <li><strong>Control (WT):</strong> Olig1<sup>+/+</sup>;Dnmt1<sup>fl/fl</sup> mice with intact DNMT1</li>
+                <li><strong>Knockout (cKO):</strong> Olig1<sup>cre/+</sup>;Dnmt1<sup>fl/fl</sup> mice lacking DNMT1 in OPCs</li>
+            </ul>
+            <p>
+                <strong>Cell types analyzed:</strong> Fluorescence-activated cell sorting (FACS) was used to purify oligodendrocyte 
+                progenitor cells from postnatal day 5 (P5) mouse brains using the PDGFRα-GFP reporter.
+            </p>
+            <p>
+                <strong>Biological replicates:</strong> 3 control and 3 knockout samples
+            </p>
+
+            <h3>Key Findings</h3>
+            <p>
+                The study revealed that <strong>DNMT1 is essential for developmental myelination</strong>. Loss of Dnmt1 in OPCs resulted in:
+            </p>
+            <ul>
+                <li>Inefficient OPC expansion and reduced proliferation</li>
+                <li>Severe hypomyelination of the CNS associated with ataxia and tremors</li>
+                <li>Profound differentiation defects without lineage switching or massive apoptosis</li>
+                <li>Aberrant alternative splicing events (exon skipping and intron retention)</li>
+                <li>Activation of endoplasmic reticulum (ER) stress response pathways</li>
+            </ul>
+            <p>
+                The RNA-seq data from this study (<strong>GEO: GSE79018</strong>) comparing control and Dnmt1-knockout OPCs provides 
+                an excellent resource for learning differential expression analysis while exploring the molecular mechanisms underlying 
+                oligodendrocyte development and myelination disorders.
+            </p>
+
+            <div class="info-box" style="background: #fff3cd; border-left: 4px solid #ffc107;">
+                <p><strong>💡 Why This Dataset?</strong></p>
+                <p>
+                    This dataset is ideal for learning RNA-seq analysis because it:
+                </p>
+                <ul style="margin-top: 10px;">
+                    <li>Represents a well-designed biological experiment with clear controls</li>
+                    <li>Demonstrates robust differential expression (hundreds of DEGs)</li>
+                    <li>Reveals biologically meaningful pathways (splicing, ER stress, cell cycle)</li>
+                    <li>Comes from a high-impact publication with validated findings</li>
+                    <li>Provides insights into epigenetics, neuroscience, and developmental biology</li>
+                </ul>
+            </div>
+
             <h2>Overview</h2>
             <p>
                 This tutorial covers the complete RNA-seq analysis pipeline from quality control through differential expression 
