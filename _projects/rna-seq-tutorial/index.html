@@ -1,6 +1,5 @@
 ---
 layout: none
-title: RNA-seq Analysis Tutorial
 permalink: /projects/rna-seq-tutorial/
 ---
 <!DOCTYPE html>
@@ -20,21 +19,21 @@ permalink: /projects/rna-seq-tutorial/
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: #f8f9fa;
+            background: white;
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1400px;  /* Wider layout */
             margin: 0 auto;
-            padding: 20px;
+            padding: 20px 60px;  /* More horizontal padding */
         }
 
+        /* Navigation */
         nav {
             background: white;
-            padding: 20px 40px;
+            padding: 20px 0;
             margin-bottom: 0;
-            border-radius: 10px 10px 0 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-bottom: 1px solid #e0e0e0;
         }
 
         nav ul {
@@ -57,108 +56,90 @@ permalink: /projects/rna-seq-tutorial/
             color: #764ba2;
         }
 
+        nav a.active {
+            color: #764ba2;
+            border-bottom: 2px solid #764ba2;
+            padding-bottom: 2px;
+        }
+
+        /* Header */
         header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 60px 40px;
+            padding: 60px 0;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 50px;
         }
 
         header h1 {
-            font-size: 2.5em;
+            font-size: 2.8em;
             margin-bottom: 15px;
             font-weight: 700;
         }
 
         header .subtitle {
-            font-size: 1.2em;
-            margin-bottom: 20px;
+            font-size: 1.3em;
             opacity: 0.95;
+            font-weight: 300;
         }
 
-        .badges {
-            margin: 20px 0;
-        }
-
-        .badge {
-            display: inline-block;
-            background: rgba(255,255,255,0.2);
-            padding: 8px 16px;
-            border-radius: 20px;
-            margin: 5px;
-            font-size: 0.9em;
-            font-weight: 500;
-        }
-
-        .header-links {
+        .header-meta {
             margin-top: 25px;
+            font-size: 1em;
+            opacity: 0.9;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            margin: 8px;
-            background: white;
-            color: #667eea;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 600;
-            transition: all 0.3s ease;
+        .header-meta span {
+            margin: 0 15px;
         }
 
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        /* Content */
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        .section {
-            background: white;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-        }
-
-        .section:last-of-type {
-            border-radius: 0 0 10px 10px;
-        }
-
-        .section h2 {
+        .content h2 {
             color: #667eea;
             font-size: 2em;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid #667eea;
+            margin-top: 50px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #667eea;
         }
 
-        .section h3 {
+        .content h3 {
             color: #764ba2;
             font-size: 1.5em;
-            margin-top: 30px;
+            margin-top: 35px;
             margin-bottom: 15px;
         }
 
-        .section p {
-            margin-bottom: 15px;
-            line-height: 1.8;
-        }
-
-        .section ul {
-            margin-left: 30px;
+        .content p {
             margin-bottom: 20px;
             line-height: 1.8;
+            font-size: 1.05em;
         }
 
-        .section li {
-            margin-bottom: 10px;
+        .content ul {
+            margin-left: 30px;
+            margin-bottom: 25px;
+            line-height: 1.9;
         }
 
+        .content li {
+            margin-bottom: 12px;
+        }
+
+        /* Code blocks */
         code {
-            background: #f4f4f4;
-            padding: 2px 6px;
+            background: #f5f5f5;
+            padding: 3px 8px;
             border-radius: 3px;
             font-family: 'Courier New', monospace;
-            font-size: 0.9em;
+            font-size: 0.95em;
+            color: #d63384;
         }
 
         pre {
@@ -167,7 +148,8 @@ permalink: /projects/rna-seq-tutorial/
             padding: 20px;
             border-radius: 5px;
             overflow-x: auto;
-            margin: 20px 0;
+            margin: 25px 0;
+            line-height: 1.5;
         }
 
         pre code {
@@ -176,119 +158,110 @@ permalink: /projects/rna-seq-tutorial/
             padding: 0;
         }
 
-        .workflow-steps {
-            background: #f8f9fa;
-            padding: 30px;
-            border-radius: 8px;
-            margin: 25px 0;
-        }
-
-        .workflow-steps h4 {
+        /* Links */
+        .content a {
             color: #667eea;
-            margin-top: 20px;
-            margin-bottom: 10px;
-            font-size: 1.2em;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-bottom 0.3s;
         }
 
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 25px 0;
+        .content a:hover {
+            border-bottom: 1px solid #667eea;
         }
 
-        .feature-box {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
-        }
-
-        .feature-box h4 {
-            color: #764ba2;
-            margin-bottom: 10px;
-        }
-
-        .highlight-box {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 5px;
-        }
-
-        .info-box {
-            background: #d1ecf1;
-            border-left: 4px solid #17a2b8;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 5px;
-        }
-
-        .results-preview {
+        /* Buttons */
+        .btn-group {
             margin: 30px 0;
-            padding: 30px;
-            background: #f8f9fa;
-            border-radius: 8px;
+            text-align: center;
         }
 
-        .results-preview h4 {
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            margin: 8px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: white;
             color: #667eea;
-            margin-bottom: 15px;
+            border: 2px solid #667eea;
         }
 
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Info box - minimal */
+        .info-box {
+            background: #f8f9fa;
+            padding: 25px;
+            margin: 30px 0;
+            border-left: 4px solid #667eea;
+            border-radius: 3px;
+        }
+
+        /* Table - clean */
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
+            margin: 30px 0;
         }
 
         th, td {
-            padding: 12px;
+            padding: 15px;
             text-align: left;
             border-bottom: 1px solid #e0e0e0;
         }
 
         th {
-            background: #667eea;
-            color: white;
+            background: #f8f9fa;
+            color: #333;
             font-weight: 600;
         }
 
-        tr:hover {
-            background: #f8f9fa;
-        }
-
+        /* Footer */
         footer {
             text-align: center;
-            padding: 40px 20px;
+            padding: 60px 20px 40px;
             color: #666;
-            font-size: 0.95em;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 80px;
+        }
+
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
 
         @media (max-width: 768px) {
-            nav {
-                padding: 15px 20px;
-            }
-
-            nav ul {
-                gap: 15px;
-            }
-
-            header {
-                padding: 40px 20px;
+            .container {
+                padding: 20px;
             }
 
             header h1 {
                 font-size: 2em;
             }
 
-            .section {
-                padding: 25px;
-            }
-
-            .feature-grid {
-                grid-template-columns: 1fr;
+            .content h2 {
+                font-size: 1.6em;
             }
         }
     </style>
@@ -299,131 +272,63 @@ permalink: /projects/rna-seq-tutorial/
             <ul>
                 <li><a href="../../index.html">Home</a></li>
                 <li><a href="../../cv.html">CV</a></li>
-                <li><a href="../../projects.html">Projects</a></li>
+                <li><a href="../../projects.html" class="active">Projects</a></li>
                 <li><a href="../../blog/">Blog</a></li>
             </ul>
         </nav>
+    </div>
 
-        <header>
-            <h1>RNA-seq Analysis Tutorial</h1>
-            <div class="subtitle">From Raw Reads to Biological Insight</div>
-            
-            <div class="badges">
-                <span class="badge">R / Bioconductor</span>
-                <span class="badge">Bash Scripting</span>
-                <span class="badge">Complete Pipeline</span>
-                <span class="badge">4-6 hours</span>
-            </div>
-            
-            <div class="header-links">
-                <a href="https://github.com/ipekselcen/ipekselcen.github.io/tree/main/projects/rna-seq-tutorial" class="btn" target="_blank">
-                    💻 View on GitHub
-                </a>
-                <a href="https://github.com/ipekselcen/ipekselcen.github.io/archive/refs/heads/main.zip" class="btn">
-                    📥 Download
-                </a>
-            </div>
-        </header>
+    <header>
+        <h1>RNA-seq Analysis Tutorial</h1>
+        <div class="subtitle">From Raw Reads to Biological Insight</div>
+        <div class="header-meta">
+            <span>📊 Complete Pipeline</span>
+            <span>🧬 GEO Dataset GSE79018</span>
+            <span>⏱️ 4-6 hours</span>
+        </div>
+    </header>
 
-        <section class="section">
-            <h2>Overview</h2>
-            <p>
-                This tutorial provides a complete, reproducible RNA-seq analysis pipeline using public data from the 
-                Gene Expression Omnibus (GEO). Learn how to process raw sequencing reads, identify differentially 
-                expressed genes, and interpret results through functional enrichment analysis.
-            </p>
-            
-            <div class="feature-grid">
-                <div class="feature-box">
-                    <h4>🔬 Complete Workflow</h4>
-                    <p>From FASTQ files to publication-ready figures</p>
-                </div>
-                <div class="feature-box">
-                    <h4>📊 Real Data</h4>
-                    <p>Uses GEO dataset GSE79018 (Human RNA-seq)</p>
-                </div>
-                <div class="feature-box">
-                    <h4>♻️ Reproducible</h4>
-                    <p>Conda environment with all dependencies</p>
-                </div>
-                <div class="feature-box">
-                    <h4>📚 Well-Documented</h4>
-                    <p>Step-by-step instructions with explanations</p>
-                </div>
-            </div>
-        </section>
+    <div class="content">
+        <p style="font-size: 1.15em; color: #555;">
+            A comprehensive, reproducible RNA-seq analysis workflow using public data. Learn to process raw sequencing reads, 
+            identify differentially expressed genes, and interpret results through functional enrichment analysis.
+        </p>
 
-        <section class="section">
-            <h2>What You'll Learn</h2>
-            
-            <h3>Bioinformatics Skills</h3>
-            <ul>
-                <li><strong>Quality Control:</strong> Assess read quality with FastQC and MultiQC</li>
-                <li><strong>Read Processing:</strong> Trim adapters and low-quality bases with Trim Galore</li>
-                <li><strong>Genome Alignment:</strong> Map reads using STAR aligner</li>
-                <li><strong>Quantification:</strong> Count reads per gene with featureCounts</li>
-                <li><strong>Statistical Analysis:</strong> Identify differentially expressed genes with DESeq2</li>
-                <li><strong>Functional Analysis:</strong> Perform pathway enrichment with clusterProfiler</li>
-            </ul>
+        <div class="btn-group">
+            <a href="https://github.com/ipekselcen/ipekselcen.github.io/tree/main/projects/rna-seq-tutorial" class="btn" target="_blank">
+                💻 View on GitHub
+            </a>
+            <a href="https://github.com/ipekselcen/ipekselcen.github.io/archive/refs/heads/main.zip" class="btn btn-secondary">
+                📥 Download ZIP
+            </a>
+        </div>
 
-            <h3>Best Practices</h3>
-            <ul>
-                <li>Reproducible analysis workflows</li>
-                <li>Environment management with Conda</li>
-                <li>Version control with Git</li>
-                <li>Publication-quality data visualization</li>
-                <li>Result interpretation and reporting</li>
-            </ul>
-        </section>
+        <h2>Overview</h2>
+        <p>
+            This tutorial covers the complete RNA-seq analysis pipeline from quality control through differential expression 
+            and pathway enrichment. All code is provided with detailed explanations and can be run with a single command.
+        </p>
 
-        <section class="section">
-            <h2>Tutorial Structure</h2>
-            
-            <div class="workflow-steps">
-                <h4>Step 1: Data Acquisition (~30 minutes)</h4>
-                <p>Download RNA-seq data from GEO and prepare reference genome</p>
-                <pre><code>bash scripts/01_download_data.sh</code></pre>
+        <p><strong>What's included:</strong></p>
+        <ul>
+            <li>Automated bash scripts for data processing (QC, trimming, alignment, quantification)</li>
+            <li>R scripts for statistical analysis with DESeq2 and pathway enrichment with clusterProfiler</li>
+            <li>Complete conda environment with all dependencies</li>
+            <li>Detailed documentation and troubleshooting guide</li>
+        </ul>
 
-                <h4>Step 2: Quality Control (~20 minutes)</h4>
-                <p>Assess raw read quality and identify potential issues</p>
-                <pre><code>bash scripts/02_quality_control.sh</code></pre>
+        <h2>Quick Start</h2>
 
-                <h4>Step 3: Read Trimming (~40 minutes)</h4>
-                <p>Remove adapters and low-quality bases</p>
-                <pre><code>bash scripts/03_trim_reads.sh</code></pre>
+        <h3>Prerequisites</h3>
+        <ul>
+            <li>Linux/Unix system or WSL2 on Windows</li>
+            <li>32 GB RAM minimum (64 GB recommended)</li>
+            <li>100 GB free disk space</li>
+            <li>Conda or Miniconda installed</li>
+        </ul>
 
-                <h4>Step 4: Genome Alignment (~2 hours)</h4>
-                <p>Align reads to reference genome using STAR</p>
-                <pre><code>bash scripts/04_align_reads.sh</code></pre>
-
-                <h4>Step 5: Read Quantification (~20 minutes)</h4>
-                <p>Count reads mapping to each gene</p>
-                <pre><code>bash scripts/05_count_reads.sh</code></pre>
-
-                <h4>Step 6: Differential Expression (~15 minutes)</h4>
-                <p>Identify genes with significant expression changes using DESeq2</p>
-                <pre><code>Rscript scripts/06_differential_expression.R</code></pre>
-
-                <h4>Step 7: Functional Enrichment (~20 minutes)</h4>
-                <p>Understand biological meaning through GO and KEGG analysis</p>
-                <pre><code>Rscript scripts/07_pathway_analysis.R</code></pre>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Quick Start</h2>
-            
-            <h3>Prerequisites</h3>
-            <p>Before starting, you'll need:</p>
-            <ul>
-                <li>Linux/Unix system or WSL2 on Windows</li>
-                <li>At least 32 GB RAM (64 GB recommended)</li>
-                <li>At least 100 GB free disk space</li>
-                <li>Conda or Miniconda installed</li>
-            </ul>
-
-            <h3>Installation</h3>
-            <pre><code># Clone repository
+        <h3>Installation & Usage</h3>
+        <pre><code># Clone repository
 git clone https://github.com/ipekselcen/ipekselcen.github.io.git
 cd ipekselcen.github.io/projects/rna-seq-tutorial
 
@@ -434,149 +339,135 @@ conda activate rnaseq
 # Run complete pipeline
 bash scripts/run_pipeline.sh</code></pre>
 
-            <div class="highlight-box">
-                <strong>⏱️ Total Runtime:</strong> The complete pipeline takes approximately 4-6 hours to run, 
-                depending on your system specifications. Most of this time is spent on genome alignment (~2 hours).
-            </div>
-        </section>
+        <p>The pipeline will automatically execute all steps sequentially and generate results in the <code>results/</code> directory.</p>
 
-        <section class="section">
-            <h2>Expected Results</h2>
-            
-            <div class="results-preview">
-                <h4>Quality Control Reports</h4>
-                <p>Interactive MultiQC HTML report summarizing all quality metrics</p>
-                
-                <h4>Differential Expression Results</h4>
-                <table>
-                    <tr>
-                        <th>File</th>
-                        <th>Description</th>
-                    </tr>
-                    <tr>
-                        <td><code>deseq2_results_significant.csv</code></td>
-                        <td>Genes with FDR < 0.05 and |log2FC| > 1</td>
-                    </tr>
-                    <tr>
-                        <td><code>normalized_counts.csv</code></td>
-                        <td>DESeq2-normalized expression values</td>
-                    </tr>
-                </table>
+        <h2>Pipeline Steps</h2>
 
-                <h4>Publication-Ready Figures (300 DPI PNG)</h4>
-                <ul>
-                    <li><strong>PCA Plot:</strong> Sample clustering and quality assessment</li>
-                    <li><strong>Volcano Plot:</strong> DEG magnitude and significance</li>
-                    <li><strong>MA Plot:</strong> Expression vs fold change</li>
-                    <li><strong>Heatmap:</strong> Top 50 differentially expressed genes</li>
-                    <li><strong>GO Enrichment:</strong> Biological process dotplot</li>
-                    <li><strong>KEGG Pathways:</strong> Enriched signaling pathways</li>
-                </ul>
-            </div>
-        </section>
+        <table>
+            <thead>
+                <tr>
+                    <th>Step</th>
+                    <th>Tool</th>
+                    <th>Description</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1. Data Download</td>
+                    <td>SRA Tools</td>
+                    <td>Download FASTQ files from GEO (GSE79018)</td>
+                    <td>~30 min</td>
+                </tr>
+                <tr>
+                    <td>2. Quality Control</td>
+                    <td>FastQC, MultiQC</td>
+                    <td>Assess read quality and generate reports</td>
+                    <td>~20 min</td>
+                </tr>
+                <tr>
+                    <td>3. Trimming</td>
+                    <td>Trim Galore</td>
+                    <td>Remove adapters and low-quality bases</td>
+                    <td>~40 min</td>
+                </tr>
+                <tr>
+                    <td>4. Alignment</td>
+                    <td>STAR</td>
+                    <td>Map reads to GRCh38 reference genome</td>
+                    <td>~2 hours</td>
+                </tr>
+                <tr>
+                    <td>5. Quantification</td>
+                    <td>featureCounts</td>
+                    <td>Count reads per gene</td>
+                    <td>~20 min</td>
+                </tr>
+                <tr>
+                    <td>6. Differential Expression</td>
+                    <td>DESeq2</td>
+                    <td>Identify significant DEGs (FDR < 0.05, |log2FC| > 1)</td>
+                    <td>~15 min</td>
+                </tr>
+                <tr>
+                    <td>7. Pathway Analysis</td>
+                    <td>clusterProfiler</td>
+                    <td>GO and KEGG enrichment analysis</td>
+                    <td>~20 min</td>
+                </tr>
+            </tbody>
+        </table>
 
-        <section class="section">
-            <h2>Key Features</h2>
-            
-            <h3>Production-Quality Code</h3>
-            <ul>
-                <li>Error handling with <code>set -e</code> in bash scripts</li>
-                <li>Color-coded progress messages</li>
-                <li>Automatic directory creation</li>
-                <li>Checkpoint system to resume failed runs</li>
-            </ul>
+        <h2>Expected Output</h2>
 
-            <h3>Comprehensive Documentation</h3>
-            <ul>
-                <li><strong>README.md:</strong> Project overview and quick start</li>
-                <li><strong>GETTING_STARTED.md:</strong> Detailed beginner's guide</li>
-                <li><strong>PROJECT_STRUCTURE.md:</strong> Complete reference documentation</li>
-                <li>Inline code comments explaining each step</li>
-            </ul>
+        <h3>Results Directory Structure</h3>
+        <pre><code>results/
+├── qc/                    # Quality control reports (HTML)
+├── aligned/               # BAM files and alignment statistics
+├── counts/                # Gene count matrix
+├── deg/                   # Differential expression results (CSV)
+├── pathways/              # GO and KEGG enrichment results (CSV)
+└── figures/               # Publication-ready figures (PNG, 300 DPI)
+    ├── pca_plot.png
+    ├── volcano_plot.png
+    ├── heatmap_top_degs.png
+    ├── GO_BP_dotplot.png
+    └── KEGG_dotplot.png</code></pre>
 
-            <h3>Reproducibility</h3>
-            <ul>
-                <li>Complete conda environment specification</li>
-                <li>R session info automatically saved</li>
-                <li>Software versions documented</li>
-                <li>Random seeds set for consistent results</li>
-            </ul>
-        </section>
+        <h3>Key Output Files</h3>
+        <ul>
+            <li><strong>deseq2_results_significant.csv</strong> - List of differentially expressed genes</li>
+            <li><strong>normalized_counts.csv</strong> - DESeq2-normalized expression values</li>
+            <li><strong>GO_biological_process.csv</strong> - Enriched GO terms</li>
+            <li><strong>KEGG_pathways.csv</strong> - Enriched KEGG pathways</li>
+        </ul>
 
-        <section class="section">
-            <h2>Dataset Information</h2>
-            
-            <div class="info-box">
-                <p><strong>GEO Accession:</strong> <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE79018" target="_blank">GSE79018</a></p>
-                <p><strong>Organism:</strong> Homo sapiens (Human)</p>
-                <p><strong>Platform:</strong> Illumina paired-end RNA-seq</p>
-                <p><strong>Design:</strong> Treatment vs Control (3 replicates each)</p>
-                <p><strong>Reference Genome:</strong> GRCh38 (Ensembl release 110)</p>
-            </div>
-        </section>
+        <h2>Dataset Information</h2>
+        <div class="info-box">
+            <p><strong>GEO Accession:</strong> <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE79018" target="_blank">GSE79018</a></p>
+            <p><strong>Organism:</strong> Homo sapiens (Human)</p>
+            <p><strong>Design:</strong> Treatment vs Control, 3 biological replicates each</p>
+            <p><strong>Platform:</strong> Illumina paired-end RNA-seq</p>
+            <p><strong>Reference:</strong> GRCh38 (Ensembl release 110)</p>
+        </div>
 
-        <section class="section">
-            <h2>Troubleshooting</h2>
-            
-            <h3>Common Issues</h3>
-            
-            <h4>Low Mapping Rates (&lt;70%)</h4>
-            <ul>
-                <li>Verify reference genome matches experiment organism</li>
-                <li>Check for adapter contamination in FastQC</li>
-                <li>Consider rRNA contamination</li>
-            </ul>
+        <h2>Documentation</h2>
+        <p>Complete documentation is available in the repository:</p>
+        <ul>
+            <li><strong>README.md</strong> - Project overview and quick start guide</li>
+            <li><strong>GETTING_STARTED.md</strong> - Detailed beginner's guide with installation instructions</li>
+            <li><strong>PROJECT_STRUCTURE.md</strong> - Complete reference documentation</li>
+        </ul>
 
-            <h4>Memory Issues During STAR Alignment</h4>
-            <pre><code># Reduce memory usage in script
---limitBAMsortRAM 30000000000  # 30GB
+        <h2>Troubleshooting</h2>
 
-# Or process samples individually</code></pre>
+        <h3>Common Issues</h3>
+        <p><strong>Low mapping rates (&lt;70%):</strong> Verify reference genome version matches your organism and check for adapter contamination in QC reports.</p>
+        
+        <p><strong>Memory errors during alignment:</strong> Reduce STAR memory usage by editing <code>--limitBAMsortRAM</code> parameter in the alignment script, or process samples individually.</p>
+        
+        <p><strong>R package installation failures:</strong> Ensure you're using the correct Bioconductor version and try installing from source if binary installation fails.</p>
 
-            <h4>R Package Installation Errors</h4>
-            <pre><code># Set specific Bioconductor version
-BiocManager::install(version = "3.18")
-
-# Install from source if binary fails
-install.packages("DESeq2", type = "source")</code></pre>
-        </section>
-
-        <section class="section">
-            <h2>Related Tutorials</h2>
-            <p>More comprehensive tutorials coming soon:</p>
-            <ul>
-                <li><strong>ATAC-seq Analysis:</strong> Chromatin accessibility profiling</li>
-                <li><strong>ChIP-seq Analysis:</strong> Protein-DNA interactions</li>
-                <li><strong>hMeRIP-seq Analysis:</strong> RNA modification profiling</li>
-                <li><strong>5hmC RRBS Analysis:</strong> DNA hydroxymethylation</li>
-                <li><strong>Multi-omics Integration:</strong> Combining multiple data types</li>
-            </ul>
-        </section>
-
-        <section class="section">
-            <h2>Citation</h2>
-            <p>If you use this tutorial in your research or teaching, please cite:</p>
-            <pre><code>Selcen, I. (2025). RNA-seq Analysis Tutorial: From Raw Reads to Biological Insight.
+        <h2>Citation</h2>
+        <p>If you use this tutorial, please cite:</p>
+        <pre><code>Selcen, I. (2025). RNA-seq Analysis Tutorial: From Raw Reads to Biological Insight.
 GitHub: https://github.com/ipekselcen/ipekselcen.github.io/tree/main/projects/rna-seq-tutorial</code></pre>
-        </section>
 
-        <section class="section">
-            <h2>Support & Contact</h2>
-            <p>Questions or issues?</p>
-            <ul>
-                <li><strong>GitHub Issues:</strong> <a href="https://github.com/ipekselcen/ipekselcen.github.io/issues" target="_blank">Report bugs or ask questions</a></li>
-                <li><strong>Email:</strong> ipek.selcen@gmail.com</li>
-                <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/ipek-selcen-16516948/" target="_blank">Connect with me</a></li>
-            </ul>
-        </section>
+        <h2>Support</h2>
+        <p>
+            Questions or issues? Open an issue on <a href="https://github.com/ipekselcen/ipekselcen.github.io/issues" target="_blank">GitHub</a> 
+            or contact me at ipek.selcen@gmail.com
+        </p>
 
-        <footer>
-            <p>© 2025 Ipek Selcen | Molecular Biologist & Bioinformatician</p>
-            <p style="margin-top: 10px;">
-                <a href="../../index.html" style="color: #667eea; text-decoration: none;">Back to Home</a> | 
-                <a href="../../projects.html" style="color: #667eea; text-decoration: none;">All Projects</a>
-            </p>
-        </footer>
     </div>
+
+    <footer>
+        <p>© 2025 Ipek Selcen | Molecular Biologist & Bioinformatician</p>
+        <p style="margin-top: 10px;">
+            <a href="../../index.html">Home</a> | 
+            <a href="../../projects.html">All Projects</a> |
+            <a href="../../blog/">Blog</a>
+        </p>
+    </footer>
 </body>
 </html>
