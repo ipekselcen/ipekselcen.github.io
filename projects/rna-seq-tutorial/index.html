@@ -242,24 +242,17 @@ permalink: /projects/rna-seq-tutorial/
             
             <h3>The Research Question</h3>
             <p>
-                This tutorial analyzes data from <strong>Moyon et al. (2016), Cell Reports</strong>, a landmark study from 
-                <strong>Dr. Patrizia Casaccia's laboratory</strong> at the Icahn School of Medicine at Mount Sinai investigating 
-                the role of DNA methylation in oligodendrocyte development and myelination.
+                This tutorial analyzes data from Moyon et al. (2016), <italic>Cell Reports</italic>, a landmark study from Dr. Patrizia Casaccia's laboratory investigating the role of DNA methylation in oligodendrocyte development and myelination.
             </p>
 
             <h3>Biological Context</h3>
             <p>
-                <strong>Oligodendrocytes</strong> are the myelinating cells of the central nervous system (CNS) that wrap axons 
-                with myelin sheaths, enabling rapid nerve impulse transmission. They differentiate from <strong>oligodendrocyte 
-                progenitor cells (OPCs)</strong> through a tightly regulated developmental program controlled by transcription 
-                factors and epigenetic modifications, particularly DNA methylation.
+                Oligodendrocytes are the myelinating glial cells of the central nervous system (CNS) that wrap axons with myelin sheaths, enabling rapid nerve impulse transmission. They differentiate from oligodendrocyte progenitor cells (OPCs) through a tightly regulated developmental program controlled by transcription factors and epigenetic modifications, particularly DNA methylation.
             </p>
 
             <h3>The Knowledge Gap</h3>
             <p>
-                While previous studies showed that DNA methylation levels change during oligodendrocyte differentiation, the 
-                <strong>functional role of DNA methyltransferase 1 (DNMT1)</strong>—the enzyme responsible for maintaining DNA 
-                methylation patterns—remained unclear. Key questions included:
+                While previous studies showed that DNA methylation levels change during oligodendrocyte differentiation, the functional role of DNA methyltransferase 1 (DNMT1), which is the enzyme responsible for maintaining DNA methylation patterns, remained unclear. Key questions included:
             </p>
             <ul>
                 <li>Is DNMT1 required for OPC proliferation and expansion?</li>
@@ -270,16 +263,14 @@ permalink: /projects/rna-seq-tutorial/
 
             <h3>Experimental Design</h3>
             <p>
-                To address these questions, the researchers generated conditional knockout mice where <strong>Dnmt1 was 
-                specifically deleted in oligodendrocyte lineage cells</strong> using the <strong>Olig1-Cre</strong> driver line:
+                To address these questions, the researchers generated conditional knockout mice where <italic>Dnmt1</italic> was specifically deleted in oligodendrocyte lineage cells using the <strong>Olig1-Cre</strong> driver line:
             </p>
             <ul>
                 <li><strong>Control (WT):</strong> Olig1<sup>+/+</sup>;Dnmt1<sup>fl/fl</sup> mice with intact DNMT1</li>
                 <li><strong>Knockout (cKO):</strong> Olig1<sup>cre/+</sup>;Dnmt1<sup>fl/fl</sup> mice lacking DNMT1 in OPCs</li>
             </ul>
             <p>
-                <strong>Cell types analyzed:</strong> Fluorescence-activated cell sorting (FACS) was used to purify oligodendrocyte 
-                progenitor cells from postnatal day 5 (P5) mouse brains using the PDGFRα-GFP reporter.
+                <strong>Cell types analyzed:</strong> Fluorescence-activated cell sorting (FACS) was used to purify oligodendrocyte progenitor cells from postnatal day 5 (P5) mouse brains using the PDGFRα-GFP reporter.
             </p>
             <p>
                 <strong>Biological replicates:</strong> 3 control and 3 knockout samples
@@ -287,7 +278,7 @@ permalink: /projects/rna-seq-tutorial/
 
             <h3>Key Findings</h3>
             <p>
-                The study revealed that <strong>DNMT1 is essential for developmental myelination</strong>. Loss of Dnmt1 in OPCs resulted in:
+                The study revealed that DNMT1 is essential for developmental myelination. Loss of <italic>Dnmt1</italic> in OPCs resulted in:
             </p>
             <ul>
                 <li>Inefficient OPC expansion and reduced proliferation</li>
@@ -297,9 +288,7 @@ permalink: /projects/rna-seq-tutorial/
                 <li>Activation of endoplasmic reticulum (ER) stress response pathways</li>
             </ul>
             <p>
-                The RNA-seq data from this study (<strong>GEO: GSE79018</strong>) comparing control and Dnmt1-knockout OPCs provides 
-                an excellent resource for learning differential expression analysis while exploring the molecular mechanisms underlying 
-                oligodendrocyte development and myelination disorders.
+                The RNA-seq data from this study (GEO: <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE79018" target="_blank">GSE79018</a>) comparing control and <italic>Dnmt1</italic>-knockout OPCs provides an excellent resource for learning differential expression analysis while exploring the molecular mechanisms underlying oligodendrocyte development and myelination disorders.
             </p>
 
             <div class="info-box" style="background: #fff3cd; border-left: 4px solid #ffc107;">
@@ -318,8 +307,7 @@ permalink: /projects/rna-seq-tutorial/
 
             <h2>Overview</h2>
             <p>
-                This tutorial covers the complete RNA-seq analysis pipeline from quality control through differential expression 
-                and pathway enrichment. All code is provided with detailed explanations and can be run with a single command.
+                This tutorial covers the complete RNA-seq analysis pipeline from quality control through differential expression and pathway enrichment. All code is provided with detailed explanations and can be run with a single command.
             </p>
             <p><strong>What's included:</strong></p>
             <ul>
@@ -330,14 +318,6 @@ permalink: /projects/rna-seq-tutorial/
             </ul>
 
             <h2>Quick Start</h2>
-            <h3>Prerequisites</h3>
-            <ul>
-                <li>Linux/Unix system or WSL2 on Windows</li>
-                <li>32 GB RAM minimum (64 GB recommended)</li>
-                <li>100 GB free disk space</li>
-                <li>Conda or Miniconda installed</li>
-            </ul>
-
             <h3>Installation & Usage</h3>
             <pre><code># Clone repository
 git clone https://github.com/ipekselcen/ipekselcen.github.io.git
@@ -383,7 +363,7 @@ bash scripts/run_pipeline.sh</code></pre>
                     <tr>
                         <td>4. Alignment</td>
                         <td>STAR</td>
-                        <td>Map reads to GRCh38 reference genome</td>
+                        <td>Map reads to GRCm39 reference genome</td>
                         <td>~2 hours</td>
                     </tr>
                     <tr>
