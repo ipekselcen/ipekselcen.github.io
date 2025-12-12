@@ -21,9 +21,9 @@ This tutorial provides an end-to-end RNA-seq analysis pipeline covering:
 
 ## Dataset Information
 
-**GEO Accession:** GSE79018  
-**Organism:** *Homo sapiens* (Human)  
-**Sequencing:** Illumina paired-end RNA-seq  
+**GEO Accession:** GSE79018
+**Organism:** *Mus musculus* (Mouse)
+**Sequencing:** Illumina paired-end RNA-seq
 **Study Design:** Control vs Treatment comparison
 
 ## Prerequisites
@@ -39,7 +39,7 @@ This tutorial provides an end-to-end RNA-seq analysis pipeline covering:
 ### R Packages
 ```r
 # Bioconductor packages
-BiocManager::install(c("DESeq2", "clusterProfiler", "org.Hs.eg.db", 
+BiocManager::install(c("DESeq2", "clusterProfiler", "org.Mm.eg.db", 
                        "AnnotationDbi", "EnhancedVolcano", "ComplexHeatmap"))
 
 # CRAN packages
@@ -208,41 +208,16 @@ options(BioC_mirror = "https://bioconductor.org")
 BiocManager::install(version = "3.18")
 ```
 
-## Citation
-
-If you use this tutorial, please cite:
-```
-Selcen, I. (2025). RNA-seq Analysis Tutorial: From Raw Reads to Biological Insight. 
-GitHub: https://github.com/ipekselcen/rnaseq-tutorial
-```
-
 ## Data Availability
-
 - **GEO Accession:** [GSE79018](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE79018)
-- **Reference Genome:** GRCh38 (Ensembl)
-- **Gene Annotation:** Homo_sapiens.GRCh38.110.gtf
-
-## Resources
+- **Reference Genome:** GRCm39 (Ensembl)
+- **Gene Annotation:** gencode.vM38.annotation.gtf
 
 ### Learn More
 - [DESeq2 Vignette](http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html)
 - [RNA-seqlopedia](https://rnaseq.uoregon.edu/)
 - [STAR Manual](https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf)
 
-### Related Tutorials
-- [ATAC-seq Analysis](../atacseq-tutorial/)
-- [ChIP-seq Analysis](../chipseq-tutorial/)
-- [Multi-omics Integration](../integration-tutorial/)
-
-## License
-
-MIT License - see [LICENSE](LICENSE) file
-
-## Contact
-
-**Ipek Selcen**  
-- GitHub: [@ipekselcen](https://github.com/ipekselcen)
-- Website: [ipekselcen.github.io](https://ipekselcen.github.io)
 
 ## Acknowledgments
 
