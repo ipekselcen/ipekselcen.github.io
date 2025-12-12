@@ -7,7 +7,6 @@ rnaseq-tutorial/
 │
 ├── README.md                      # Main project documentation
 ├── GETTING_STARTED.md             # Quick start guide
-├── LICENSE                        # MIT License
 ├── .gitignore                     # Git ignore file
 ├── environment.yml                # Conda environment specification
 │
