@@ -14,8 +14,8 @@ rnaseq-tutorial/
 │   ├── raw/                       # Raw FASTQ files (downloaded)
 │   │   └── .gitkeep
 │   ├── reference/                 # Reference genome and annotation
-│   │   ├── Homo_sapiens.GRCh38.dna.primary_assembly.fa
-│   │   ├── Homo_sapiens.GRCh38.110.gtf
+│   │   ├── Mus_musculus.GRCm39.dna.primary_assembly.fa
+│   │   ├── Mus_musculus.GRCm39.115.gtf
 │   │   ├── star_index/            # STAR genome index
 │   │   └── .gitkeep
 │   └── metadata.csv               # Sample metadata (generated)
@@ -34,7 +34,7 @@ rnaseq-tutorial/
 │   └── RNA-seq_analysis.Rmd       # Interactive analysis notebook
 │
 ├── docs/                          # Documentation
-│   └── tutorial.md                # Detailed tutorial (for GitHub Pages)
+│   └── tutorial.md                # Detailed tutorial
 │
 └── results/                       # Analysis results
     ├── qc/                        # Quality control reports
@@ -84,7 +84,6 @@ rnaseq-tutorial/
 |------|---------|
 | `README.md` | Main project documentation with overview, installation, and usage |
 | `GETTING_STARTED.md` | Quick start guide for beginners |
-| `LICENSE` | MIT License for the project |
 | `.gitignore` | Specifies files to exclude from version control |
 | `environment.yml` | Conda environment with all dependencies |
 
@@ -117,7 +116,7 @@ All scripts are executable (`chmod +x scripts/*.sh`)
 
 #### Alignment (04_align_reads.sh)
 - Aligner: STAR v2.7.11a
-- Genome: GRCh38 (Ensembl release 110)
+- Genome: GRCm39 (Ensembl release 115)
 - Splice junction overhang: 99
 - Threads: 16
 - Output: Coordinate-sorted BAM
@@ -197,12 +196,6 @@ All figures are saved as PNG (300 DPI):
 | Results | ~2-3 GB | Counts, DEGs, figures |
 | **Total** | **~60-70 GB** | **Complete pipeline** |
 
-### Compute Resources
-
-- **Minimum**: 16 GB RAM, 4 cores
-- **Recommended**: 32 GB RAM, 8+ cores
-- **Ideal**: 64 GB RAM, 16+ cores
-- **Runtime**: 4-6 hours on recommended system
 
 ## Reproducibility
 
@@ -281,20 +274,3 @@ Edit the scripts to modify:
 - **Tutorial Website**: [https://ipekselcen.github.io/projects/rnaseq-tutorial/](https://ipekselcen.github.io/projects/rnaseq-tutorial/)
 - **GitHub Repository**: [https://github.com/ipekselcen/rnaseq-tutorial](https://github.com/ipekselcen/rnaseq-tutorial)
 - **Issues/Questions**: [GitHub Issues](https://github.com/ipekselcen/rnaseq-tutorial/issues)
-
-## Citation
-
-```bibtex
-@software{selcen2025rnaseq,
-  author = {Selcen, Ipek},
-  title = {RNA-seq Analysis Tutorial: From Raw Reads to Biological Insight},
-  year = {2025},
-  url = {https://github.com/ipekselcen/rnaseq-tutorial}
-}
-```
-
----
-
-Last updated: December 2024  
-Author: Ipek Selcen, PhD  
-License: MIT
