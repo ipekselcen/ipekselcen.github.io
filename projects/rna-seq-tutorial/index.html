@@ -14,28 +14,25 @@ permalink: /projects/rna-seq-tutorial/
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.5;
             color: #333;
-            background: white;
+            background: #f8f9fa;
         }
-
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
         }
-
         /* Navigation */
         nav {
             background: white;
-            padding: 20px 0;
+            padding: 20px 40px;
             margin-bottom: 0;
-            border-bottom: 1px solid #e0e0e0;
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
-
         nav ul {
             list-style: none;
             display: flex;
@@ -43,7 +40,6 @@ permalink: /projects/rna-seq-tutorial/
             justify-content: center;
             flex-wrap: wrap;
         }
-
         nav a {
             color: #667eea;
             text-decoration: none;
@@ -51,55 +47,50 @@ permalink: /projects/rna-seq-tutorial/
             font-size: 1.05em;
             transition: color 0.3s ease;
         }
-
         nav a:hover {
             color: #764ba2;
         }
-
         nav a.active {
             color: #764ba2;
             border-bottom: 2px solid #764ba2;
             padding-bottom: 2px;
         }
-
         /* Header */
         header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 60px 0;
+            padding: 60px 40px;
             text-align: center;
-            margin-bottom: 50px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-
         header h1 {
-            font-size: 2.8em;
-            margin-bottom: 15px;
+            font-size: 2.5em;
+            margin-bottom: 10px;
             font-weight: 700;
         }
-
         header .subtitle {
-            font-size: 1.3em;
+            font-size: 1.2em;
             opacity: 0.95;
-            font-weight: 300;
         }
-
         .header-meta {
-            margin-top: 25px;
-            font-size: 1em;
+            margin-top: 20px;
+            font-size: 0.95em;
             opacity: 0.9;
         }
-
         .header-meta span {
             margin: 0 15px;
         }
-
         /* Content */
-        .content {
-            margin: 0 auto;
-            padding: 0 20px;
+        .section {
+            background: white;
+            padding: 40px;
+            margin-bottom: 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
         }
-
-        .content h2 {
+        .section:last-of-type {
+            border-radius: 0 0 10px 10px;
+        }
+        .section h2 {
             color: #667eea;
             font-size: 2em;
             margin-top: 40px;
@@ -107,30 +98,28 @@ permalink: /projects/rna-seq-tutorial/
             padding-bottom: 10px;
             border-bottom: 2px solid #667eea;
         }
-
-        .content h3 {
+        .section h2:first-child {
+            margin-top: 0;
+        }
+        .section h3 {
             color: #764ba2;
             font-size: 1.5em;
             margin-top: 25px;
             margin-bottom: 12px;
         }
-
-        .content p {
+        .section p {
             margin-bottom: 15px;
             line-height: 1.6;
             font-size: 1.05em;
         }
-
-        .content ul {
+        .section ul {
             margin-left: 30px;
             margin-bottom: 20px;
             line-height: 1.6;
         }
-
-        .content li {
+        .section li {
             margin-bottom: 8px;
         }
-
         /* Code blocks */
         code {
             background: #f5f5f5;
@@ -140,7 +129,6 @@ permalink: /projects/rna-seq-tutorial/
             font-size: 0.95em;
             color: #d63384;
         }
-
         pre {
             background: #2d2d2d;
             color: #f8f8f2;
@@ -150,26 +138,22 @@ permalink: /projects/rna-seq-tutorial/
             margin: 25px 0;
             line-height: 1.5;
         }
-
         pre code {
             background: none;
             color: inherit;
             padding: 0;
         }
-
         /* Links */
-        .content a {
+        .section a {
             color: #667eea;
             text-decoration: none;
             border-bottom: 1px solid transparent;
             transition: border-bottom 0.3s;
         }
-
-        .content a:hover {
+        .section a:hover {
             border-bottom: 1px solid #667eea;
         }
-
-        /* Info box - minimal */
+        /* Info box */
         .info-box {
             background: #f8f9fa;
             padding: 25px;
@@ -177,56 +161,52 @@ permalink: /projects/rna-seq-tutorial/
             border-left: 4px solid #667eea;
             border-radius: 3px;
         }
-
-        /* Table - clean */
+        /* Table */
         table {
             width: 100%;
             border-collapse: collapse;
             margin: 30px 0;
         }
-
         th, td {
             padding: 15px;
             text-align: left;
             border-bottom: 1px solid #e0e0e0;
         }
-
         th {
             background: #f8f9fa;
             color: #333;
             font-weight: 600;
         }
-
         /* Footer */
         footer {
             text-align: center;
-            padding: 60px 20px 40px;
+            padding: 40px 20px;
             color: #666;
-            border-top: 1px solid #e0e0e0;
-            margin-top: 80px;
+            font-size: 0.95em;
         }
-
         footer a {
             color: #667eea;
             text-decoration: none;
             margin: 0 15px;
         }
-
         footer a:hover {
             text-decoration: underline;
         }
-
         @media (max-width: 768px) {
-            .container {
-                padding: 20px;
+            nav {
+                padding: 15px 20px;
             }
-
+            nav ul {
+                gap: 15px;
+            }
+            header {
+                padding: 40px 20px;
+            }
             header h1 {
                 font-size: 2em;
             }
-
-            .content h2 {
-                font-size: 1.6em;
+            .section {
+                padding: 25px;
             }
         }
     </style>
@@ -241,50 +221,47 @@ permalink: /projects/rna-seq-tutorial/
                 <li><a href="/blog/">Blog</a></li>
             </ul>
         </nav>
-    </div>
 
-    <header>
-        <h1>RNA-seq Analysis Tutorial</h1>
-        <div class="subtitle">From Raw Reads to Biological Insight</div>
-        <div class="header-meta">
-            <span>📊 Complete Pipeline</span>
-            <span>🧬 GEO Dataset GSE79018</span>
-            <span>⏱️ 4-6 hours</span>
-        </div>
-    </header>
+        <header>
+            <h1>RNA-seq Analysis Tutorial</h1>
+            <div class="subtitle">From Raw Reads to Biological Insight</div>
+            <div class="header-meta">
+                <span>📊 Complete Pipeline</span>
+                <span>🧬 GEO Dataset GSE79018</span>
+                <span>⏱️ 4-6 hours</span>
+            </div>
+        </header>
 
-    <div class="content">
-        <p style="font-size: 1.15em; color: #555;">
-            A comprehensive, reproducible RNA-seq analysis workflow using public data. Learn to process raw sequencing reads, 
-            identify differentially expressed genes, and interpret results through functional enrichment analysis.
-        </p>
+        <section class="section">
+            <p style="font-size: 1.15em; color: #555;">
+                A comprehensive, reproducible RNA-seq analysis workflow using public data. Learn to process raw sequencing reads, 
+                identify differentially expressed genes, and interpret results through functional enrichment analysis.
+            </p>
 
-        <h2>Overview</h2>
-        <p>
-            This tutorial covers the complete RNA-seq analysis pipeline from quality control through differential expression 
-            and pathway enrichment. All code is provided with detailed explanations and can be run with a single command.
-        </p>
+            <h2>Overview</h2>
+            <p>
+                This tutorial covers the complete RNA-seq analysis pipeline from quality control through differential expression 
+                and pathway enrichment. All code is provided with detailed explanations and can be run with a single command.
+            </p>
+            <p><strong>What's included:</strong></p>
+            <ul>
+                <li>Automated bash scripts for data processing (QC, trimming, alignment, quantification)</li>
+                <li>R scripts for statistical analysis with DESeq2 and pathway enrichment with clusterProfiler</li>
+                <li>Complete conda environment with all dependencies</li>
+                <li>Detailed documentation and troubleshooting guide</li>
+            </ul>
 
-        <p><strong>What's included:</strong></p>
-        <ul>
-            <li>Automated bash scripts for data processing (QC, trimming, alignment, quantification)</li>
-            <li>R scripts for statistical analysis with DESeq2 and pathway enrichment with clusterProfiler</li>
-            <li>Complete conda environment with all dependencies</li>
-            <li>Detailed documentation and troubleshooting guide</li>
-        </ul>
+            <h2>Quick Start</h2>
+            <h3>Prerequisites</h3>
+            <ul>
+                <li>Linux/Unix system or WSL2 on Windows</li>
+                <li>32 GB RAM minimum (64 GB recommended)</li>
+                <li>100 GB free disk space</li>
+                <li>Conda or Miniconda installed</li>
+            </ul>
 
-        <h2>Quick Start</h2>
-
-        <h3>Prerequisites</h3>
-        <ul>
-            <li>Linux/Unix system or WSL2 on Windows</li>
-            <li>32 GB RAM minimum (64 GB recommended)</li>
-            <li>100 GB free disk space</li>
-            <li>Conda or Miniconda installed</li>
-        </ul>
-
-        <h3>Installation & Usage</h3>
-        <pre><code># Clone repository
+            <h3>Installation & Usage</h3>
+            <pre><code># Clone repository
 git clone https://github.com/ipekselcen/ipekselcen.github.io.git
 cd ipekselcen.github.io/projects/rna-seq-tutorial
 
@@ -294,70 +271,67 @@ conda activate rnaseq
 
 # Run complete pipeline
 bash scripts/run_pipeline.sh</code></pre>
+            <p>The pipeline will automatically execute all steps sequentially and generate results in the <code>results/</code> directory.</p>
 
-        <p>The pipeline will automatically execute all steps sequentially and generate results in the <code>results/</code> directory.</p>
+            <h2>Pipeline Steps</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Step</th>
+                        <th>Tool</th>
+                        <th>Description</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1. Data Download</td>
+                        <td>SRA Tools</td>
+                        <td>Download FASTQ files from GEO (GSE79018)</td>
+                        <td>~30 min</td>
+                    </tr>
+                    <tr>
+                        <td>2. Quality Control</td>
+                        <td>FastQC, MultiQC</td>
+                        <td>Assess read quality and generate reports</td>
+                        <td>~20 min</td>
+                    </tr>
+                    <tr>
+                        <td>3. Trimming</td>
+                        <td>Trim Galore</td>
+                        <td>Remove adapters and low-quality bases</td>
+                        <td>~40 min</td>
+                    </tr>
+                    <tr>
+                        <td>4. Alignment</td>
+                        <td>STAR</td>
+                        <td>Map reads to GRCh38 reference genome</td>
+                        <td>~2 hours</td>
+                    </tr>
+                    <tr>
+                        <td>5. Quantification</td>
+                        <td>featureCounts</td>
+                        <td>Count reads per gene</td>
+                        <td>~20 min</td>
+                    </tr>
+                    <tr>
+                        <td>6. Differential Expression</td>
+                        <td>DESeq2</td>
+                        <td>Identify significant DEGs (FDR < 0.05, |log2FC| > 1)</td>
+                        <td>~15 min</td>
+                    </tr>
+                    <tr>
+                        <td>7. Pathway Analysis</td>
+                        <td>clusterProfiler</td>
+                        <td>GO and KEGG enrichment analysis</td>
+                        <td>~20 min</td>
+                    </tr>
+                </tbody>
+            </table>
 
-        <h2>Pipeline Steps</h2>
-
-        <table>
-            <thead>
-                <tr>
-                    <th>Step</th>
-                    <th>Tool</th>
-                    <th>Description</th>
-                    <th>Time</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1. Data Download</td>
-                    <td>SRA Tools</td>
-                    <td>Download FASTQ files from GEO (GSE79018)</td>
-                    <td>~30 min</td>
-                </tr>
-                <tr>
-                    <td>2. Quality Control</td>
-                    <td>FastQC, MultiQC</td>
-                    <td>Assess read quality and generate reports</td>
-                    <td>~20 min</td>
-                </tr>
-                <tr>
-                    <td>3. Trimming</td>
-                    <td>Trim Galore</td>
-                    <td>Remove adapters and low-quality bases</td>
-                    <td>~40 min</td>
-                </tr>
-                <tr>
-                    <td>4. Alignment</td>
-                    <td>STAR</td>
-                    <td>Map reads to GRCh38 reference genome</td>
-                    <td>~2 hours</td>
-                </tr>
-                <tr>
-                    <td>5. Quantification</td>
-                    <td>featureCounts</td>
-                    <td>Count reads per gene</td>
-                    <td>~20 min</td>
-                </tr>
-                <tr>
-                    <td>6. Differential Expression</td>
-                    <td>DESeq2</td>
-                    <td>Identify significant DEGs (FDR < 0.05, |log2FC| > 1)</td>
-                    <td>~15 min</td>
-                </tr>
-                <tr>
-                    <td>7. Pathway Analysis</td>
-                    <td>clusterProfiler</td>
-                    <td>GO and KEGG enrichment analysis</td>
-                    <td>~20 min</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h2>Expected Output</h2>
-
-        <h3>Results Directory Structure</h3>
-        <pre><code>results/
+            <h2>Expected Output</h2>
+            <h3>Results Directory Structure</h3>
+            <pre><code>results/
 ├── qc/                    # Quality control reports (HTML)
 ├── aligned/               # BAM files and alignment statistics
 ├── counts/                # Gene count matrix
@@ -370,54 +344,53 @@ bash scripts/run_pipeline.sh</code></pre>
     ├── GO_BP_dotplot.png
     └── KEGG_dotplot.png</code></pre>
 
-        <h3>Key Output Files</h3>
-        <ul>
-            <li><strong>deseq2_results_significant.csv</strong> - List of differentially expressed genes</li>
-            <li><strong>normalized_counts.csv</strong> - DESeq2-normalized expression values</li>
-            <li><strong>GO_biological_process.csv</strong> - Enriched GO terms</li>
-            <li><strong>KEGG_pathways.csv</strong> - Enriched KEGG pathways</li>
-        </ul>
+            <h3>Key Output Files</h3>
+            <ul>
+                <li><strong>deseq2_results_significant.csv</strong> - List of differentially expressed genes</li>
+                <li><strong>normalized_counts.csv</strong> - DESeq2-normalized expression values</li>
+                <li><strong>GO_biological_process.csv</strong> - Enriched GO terms</li>
+                <li><strong>KEGG_pathways.csv</strong> - Enriched KEGG pathways</li>
+            </ul>
 
-        <h2>Dataset Information</h2>
-        <div class="info-box">
-            <p><strong>GEO Accession:</strong> <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE79018" target="_blank">GSE79018</a></p>
-            <p><strong>Organism:</strong> Mus musculus (Mouse)</p>
-            <p><strong>Design:</strong> Treatment vs Control, 3 biological replicates each</p>
-            <p><strong>Platform:</strong> Illumina paired-end RNA-seq</p>
-            <p><strong>Reference:</strong> GRCm39 (Ensembl release 115)</p>
-        </div>
+            <h2>Dataset Information</h2>
+            <div class="info-box">
+                <p><strong>GEO Accession:</strong> <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE79018" target="_blank">GSE79018</a></p>
+                <p><strong>Organism:</strong> Mus musculus (Mouse)</p>
+                <p><strong>Design:</strong> Treatment vs Control, 3 biological replicates each</p>
+                <p><strong>Platform:</strong> Illumina paired-end RNA-seq</p>
+                <p><strong>Reference:</strong> GRCm39 (Ensembl release 115)</p>
+            </div>
 
-        <h2>Documentation</h2>
-        <p>Complete documentation is available in the repository:</p>
-        <ul>
-            <li><strong>README.md</strong> - Project overview and quick start guide</li>
-            <li><strong>GETTING_STARTED.md</strong> - Detailed beginner's guide with installation instructions</li>
-            <li><strong>PROJECT_STRUCTURE.md</strong> - Complete reference documentation</li>
-        </ul>
+            <h2>Documentation</h2>
+            <p>Complete documentation is available in the repository:</p>
+            <ul>
+                <li><strong>README.md</strong> - Project overview and quick start guide</li>
+                <li><strong>GETTING_STARTED.md</strong> - Detailed beginner's guide with installation instructions</li>
+                <li><strong>PROJECT_STRUCTURE.md</strong> - Complete reference documentation</li>
+            </ul>
 
-        <h2>Troubleshooting</h2>
+            <h2>Troubleshooting</h2>
+            <h3>Common Issues</h3>
+            <p><strong>Low mapping rates (&lt;70%):</strong> Verify reference genome version matches your organism and check for adapter contamination in QC reports.</p>
+            
+            <p><strong>Memory errors during alignment:</strong> Reduce STAR memory usage by editing <code>--limitBAMsortRAM</code> parameter in the alignment script, or process samples individually.</p>
+            
+            <p><strong>R package installation failures:</strong> Ensure you're using the correct Bioconductor version and try installing from source if binary installation fails.</p>
+        </section>
 
-        <h3>Common Issues</h3>
-        <p><strong>Low mapping rates (&lt;70%):</strong> Verify reference genome version matches your organism and check for adapter contamination in QC reports.</p>
-        
-        <p><strong>Memory errors during alignment:</strong> Reduce STAR memory usage by editing <code>--limitBAMsortRAM</code> parameter in the alignment script, or process samples individually.</p>
-        
-        <p><strong>R package installation failures:</strong> Ensure you're using the correct Bioconductor version and try installing from source if binary installation fails.</p>
-
+        <footer>
+            <p>© 2025 Ipek Selcen | Molecular Biologist & Bioinformatician</p>
+            <p style="margin-top: 10px;">
+                <a href="/index.html">Home</a> | 
+                <a href="/projects.html">All Projects</a> |
+                <a href="/blog/">Blog</a>
+            </p>
+            <p style="margin-top: 15px; font-size: 0.9em;">
+                <a href="https://github.com/ipekselcen/ipekselcen.github.io/tree/main/projects/rna-seq-tutorial" target="_blank">
+                    💻 View full code and files on GitHub
+                </a>
+            </p>
+        </footer>
     </div>
-
-    <footer>
-        <p>© 2025 Ipek Selcen | Molecular Biologist & Bioinformatician</p>
-        <p style="margin-top: 10px;">
-            <a href="/index.html">Home</a> | 
-            <a href="/projects.html">All Projects</a> |
-            <a href="/blog/">Blog</a>
-        </p>
-        <p style="margin-top: 15px; font-size: 0.9em;">
-            <a href="https://github.com/ipekselcen/ipekselcen.github.io/tree/main/projects/rna-seq-tutorial" target="_blank">
-                💻 View full code and files on GitHub
-            </a>
-        </p>
-    </footer>
 </body>
 </html>
