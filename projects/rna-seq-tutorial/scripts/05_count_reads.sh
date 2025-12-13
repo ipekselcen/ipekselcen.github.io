@@ -24,7 +24,7 @@ THREADS=16
 mkdir -p ${COUNT_DIR}
 
 # Reference annotation
-GTF="${REF_DIR}/Homo_sapiens.GRCh38.110.gtf"
+GTF="${REF_DIR}/Mus_musculus.GRCm39.115.gtf"
 
 echo -e "${YELLOW}Step 1: Counting reads per gene with featureCounts${NC}"
 
