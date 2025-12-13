@@ -7,7 +7,7 @@
 # Load required libraries
 suppressPackageStartupMessages({
   library(clusterProfiler)
-  library(org.Hs.eg.db)
+  library(org.Mm.eg.db)
   library(AnnotationDbi)
   library(ggplot2)
   library(dplyr)
@@ -60,7 +60,7 @@ down_genes_clean <- gsub("\\..*", "", down_genes)
 # Convert to Entrez IDs
 convert_to_entrez <- function(genes) {
   entrez <- mapIds(
-    org.Hs.eg.db,
+    org.Mm.eg.db,
     keys = genes,
     column = "ENTREZID",
     keytype = "ENSEMBL",
@@ -84,7 +84,7 @@ cat("\nStep 3: Performing GO enrichment analysis\n")
 cat("  - GO: Biological Process\n")
 go_bp <- enrichGO(
   gene = all_entrez,
-  OrgDb = org.Hs.eg.db,
+  OrgDb = org.Mm.eg.db,
   ont = "BP",
   pAdjustMethod = "BH",
   pvalueCutoff = 0.05,
@@ -107,7 +107,7 @@ if (!is.null(go_bp) && nrow(go_bp) > 0) {
 cat("  - GO: Molecular Function\n")
 go_mf <- enrichGO(
   gene = all_entrez,
-  OrgDb = org.Hs.eg.db,
+  OrgDb = org.Mm.eg.db,
   ont = "MF",
   pAdjustMethod = "BH",
   pvalueCutoff = 0.05,
@@ -128,7 +128,7 @@ if (!is.null(go_mf) && nrow(go_mf) > 0) {
 cat("  - GO: Cellular Component\n")
 go_cc <- enrichGO(
   gene = all_entrez,
-  OrgDb = org.Hs.eg.db,
+  OrgDb = org.Mm.eg.db,
   ont = "CC",
   pAdjustMethod = "BH",
   pvalueCutoff = 0.05,
@@ -152,14 +152,14 @@ cat("\nStep 4: Performing KEGG pathway analysis\n")
 
 kegg <- enrichKEGG(
   gene = all_entrez,
-  organism = "hsa",
+  organism = "mmu",
   pvalueCutoff = 0.05,
   qvalueCutoff = 0.05
 )
 
 if (!is.null(kegg) && nrow(kegg) > 0) {
   # Convert gene IDs to symbols for readability
-  kegg_readable <- setReadable(kegg, OrgDb = org.Hs.eg.db, keyType = "ENTREZID")
+  kegg_readable <- setReadable(kegg, OrgDb = org.Mm.eg.db, keyType = "ENTREZID")
   
   write.csv(
     as.data.frame(kegg_readable),
@@ -180,7 +180,7 @@ cat("\nStep 5: Enrichment analysis for up and downregulated genes separately\n")
 cat("  - Upregulated genes (GO BP)\n")
 go_bp_up <- enrichGO(
   gene = up_entrez,
-  OrgDb = org.Hs.eg.db,
+  OrgDb = org.Mm.eg.db,
   ont = "BP",
   pAdjustMethod = "BH",
   pvalueCutoff = 0.05,
@@ -201,7 +201,7 @@ if (!is.null(go_bp_up) && nrow(go_bp_up) > 0) {
 cat("  - Downregulated genes (GO BP)\n")
 go_bp_down <- enrichGO(
   gene = down_entrez,
-  OrgDb = org.Hs.eg.db,
+  OrgDb = org.Mm.eg.db,
   ont = "BP",
   pAdjustMethod = "BH",
   pvalueCutoff = 0.05,
@@ -238,7 +238,7 @@ deg_all$gene_id_clean <- gsub("\\..*", "", deg_all$gene_id)
 
 # Convert to Entrez
 deg_all$entrez <- mapIds(
-  org.Hs.eg.db,
+  org.Mm.eg.db,
   keys = deg_all$gene_id_clean,
   column = "ENTREZID",
   keytype = "ENSEMBL",
@@ -256,7 +256,7 @@ cat(sprintf("  Created ranked list of %d genes\n", length(gene_list)))
 # Run GSEA
 gsea_go <- gseGO(
   geneList = gene_list,
-  OrgDb = org.Hs.eg.db,
+  OrgDb = org.Mm.eg.db,
   ont = "BP",
   pvalueCutoff = 0.05,
   pAdjustMethod = "BH",
@@ -264,7 +264,7 @@ gsea_go <- gseGO(
 )
 
 if (!is.null(gsea_go) && nrow(gsea_go) > 0) {
-  gsea_go_readable <- setReadable(gsea_go, OrgDb = org.Hs.eg.db, keyType = "ENTREZID")
+  gsea_go_readable <- setReadable(gsea_go, OrgDb = org.Mm.eg.db, keyType = "ENTREZID")
   write.csv(
     as.data.frame(gsea_go_readable),
     file = file.path(pathway_dir, "GSEA_GO_BP.csv"),
@@ -379,7 +379,7 @@ if (!is.null(go_bp_up) && !is.null(go_bp_down) &&
   compare_go <- compareCluster(
     geneClusters = compare_list,
     fun = "enrichGO",
-    OrgDb = org.Hs.eg.db,
+    OrgDb = org.Mm.eg.db,
     ont = "BP",
     pAdjustMethod = "BH",
     pvalueCutoff = 0.05,
