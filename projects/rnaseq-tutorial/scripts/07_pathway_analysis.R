@@ -33,8 +33,7 @@ cat("Step 1: Loading differential expression results\n")
 # Load significant DEGs
 deg_results <- read.csv(
   file.path(deg_dir, "deseq2_results_significant.csv"),
-  stringsAsFactors = FALSE
-)
+  stringsAsFactors = FALSE)
 
 cat(sprintf("  Loaded %d significant DEGs\n", nrow(deg_results)))
 
@@ -64,8 +63,7 @@ convert_to_entrez <- function(genes) {
     keys = genes,
     column = "ENTREZID",
     keytype = "ENSEMBL",
-    multiVals = "first"
-  )
+    multiVals = "first")
   return(na.omit(entrez))
 }
 
@@ -89,17 +87,14 @@ go_bp <- enrichGO(
   pAdjustMethod = "BH",
   pvalueCutoff = 0.05,
   qvalueCutoff = 0.05,
-  readable = TRUE
-)
+  readable = TRUE)
 
 if (!is.null(go_bp) && nrow(go_bp) > 0) {
   write.csv(
     as.data.frame(go_bp),
     file = file.path(pathway_dir, "GO_biological_process.csv"),
-    row.names = FALSE
-  )
-  cat(sprintf("    Found %d enriched BP terms\n", nrow(go_bp)))
-} else {
+    row.names = FALSE)
+  cat(sprintf("    Found %d enriched BP terms\n", nrow(go_bp)))} else {
   cat("    No significant GO BP terms found\n")
 }
 
@@ -112,15 +107,13 @@ go_mf <- enrichGO(
   pAdjustMethod = "BH",
   pvalueCutoff = 0.05,
   qvalueCutoff = 0.05,
-  readable = TRUE
-)
+  readable = TRUE)
 
 if (!is.null(go_mf) && nrow(go_mf) > 0) {
   write.csv(
     as.data.frame(go_mf),
     file = file.path(pathway_dir, "GO_molecular_function.csv"),
-    row.names = FALSE
-  )
+    row.names = FALSE)
   cat(sprintf("    Found %d enriched MF terms\n", nrow(go_mf)))
 }
 
@@ -133,15 +126,13 @@ go_cc <- enrichGO(
   pAdjustMethod = "BH",
   pvalueCutoff = 0.05,
   qvalueCutoff = 0.05,
-  readable = TRUE
-)
+  readable = TRUE)
 
 if (!is.null(go_cc) && nrow(go_cc) > 0) {
   write.csv(
     as.data.frame(go_cc),
     file = file.path(pathway_dir, "GO_cellular_component.csv"),
-    row.names = FALSE
-  )
+    row.names = FALSE)
   cat(sprintf("    Found %d enriched CC terms\n", nrow(go_cc)))
 }
 
@@ -154,8 +145,7 @@ kegg <- enrichKEGG(
   gene = all_entrez,
   organism = "mmu",
   pvalueCutoff = 0.05,
-  qvalueCutoff = 0.05
-)
+  qvalueCutoff = 0.05)
 
 if (!is.null(kegg) && nrow(kegg) > 0) {
   # Convert gene IDs to symbols for readability
@@ -164,8 +154,7 @@ if (!is.null(kegg) && nrow(kegg) > 0) {
   write.csv(
     as.data.frame(kegg_readable),
     file = file.path(pathway_dir, "KEGG_pathways.csv"),
-    row.names = FALSE
-  )
+    row.names = FALSE)
   cat(sprintf("  Found %d enriched KEGG pathways\n", nrow(kegg)))
 } else {
   cat("  No significant KEGG pathways found\n")
@@ -185,15 +174,13 @@ go_bp_up <- enrichGO(
   pAdjustMethod = "BH",
   pvalueCutoff = 0.05,
   qvalueCutoff = 0.05,
-  readable = TRUE
-)
+  readable = TRUE)
 
 if (!is.null(go_bp_up) && nrow(go_bp_up) > 0) {
   write.csv(
     as.data.frame(go_bp_up),
     file = file.path(pathway_dir, "GO_BP_upregulated.csv"),
-    row.names = FALSE
-  )
+    row.names = FALSE)
   cat(sprintf("    Found %d enriched terms\n", nrow(go_bp_up)))
 }
 
@@ -206,15 +193,13 @@ go_bp_down <- enrichGO(
   pAdjustMethod = "BH",
   pvalueCutoff = 0.05,
   qvalueCutoff = 0.05,
-  readable = TRUE
-)
+  readable = TRUE)
 
 if (!is.null(go_bp_down) && nrow(go_bp_down) > 0) {
   write.csv(
     as.data.frame(go_bp_down),
     file = file.path(pathway_dir, "GO_BP_downregulated.csv"),
-    row.names = FALSE
-  )
+    row.names = FALSE)
   cat(sprintf("    Found %d enriched terms\n", nrow(go_bp_down)))
 }
 
@@ -226,8 +211,7 @@ cat("\nStep 6: Running GSEA\n")
 # Prepare ranked gene list
 deg_all <- read.csv(
   file.path(deg_dir, "deseq2_results_all.csv"),
-  stringsAsFactors = FALSE
-)
+  stringsAsFactors = FALSE)
 
 # Create ranked list (by log2FC * -log10(pvalue))
 deg_all$rank_metric <- sign(deg_all$log2FoldChange) * -log10(deg_all$pvalue)
@@ -242,8 +226,7 @@ deg_all$entrez <- mapIds(
   keys = deg_all$gene_id_clean,
   column = "ENTREZID",
   keytype = "ENSEMBL",
-  multiVals = "first"
-)
+  multiVals = "first")
 
 # Remove NAs and create ranked list
 deg_all <- deg_all[!is.na(deg_all$entrez), ]
@@ -260,16 +243,14 @@ gsea_go <- gseGO(
   ont = "BP",
   pvalueCutoff = 0.05,
   pAdjustMethod = "BH",
-  verbose = FALSE
-)
+  verbose = FALSE)
 
 if (!is.null(gsea_go) && nrow(gsea_go) > 0) {
   gsea_go_readable <- setReadable(gsea_go, OrgDb = org.Mm.eg.db, keyType = "ENTREZID")
   write.csv(
     as.data.frame(gsea_go_readable),
     file = file.path(pathway_dir, "GSEA_GO_BP.csv"),
-    row.names = FALSE
-  )
+    row.names = FALSE)
   cat(sprintf("  Found %d enriched gene sets\n", nrow(gsea_go)))
 }
 
@@ -290,8 +271,7 @@ if (!is.null(go_bp) && nrow(go_bp) > 0) {
     p_go_dot,
     width = 10,
     height = 8,
-    dpi = 300
-  )
+    dpi = 300)
 }
 
 ## 7b. GO BP Barplot
@@ -306,8 +286,7 @@ if (!is.null(go_bp) && nrow(go_bp) > 0) {
     p_go_bar,
     width = 10,
     height = 8,
-    dpi = 300
-  )
+    dpi = 300)
 }
 
 ## 7c. KEGG Dotplot
@@ -322,8 +301,7 @@ if (!is.null(kegg) && nrow(kegg) > 0) {
     p_kegg_dot,
     width = 10,
     height = 8,
-    dpi = 300
-  )
+    dpi = 300)
 }
 
 ## 7d. Enrichment Map (GO BP)
@@ -339,8 +317,7 @@ if (!is.null(go_bp) && nrow(go_bp) > 5) {
     p_emap,
     width = 12,
     height = 10,
-    dpi = 300
-  )
+    dpi = 300)
 }
 
 ## 7e. GSEA Plot
@@ -352,16 +329,14 @@ if (!is.null(gsea_go) && nrow(gsea_go) > 0) {
     p_gsea <- gseaplot2(
       gsea_go,
       geneSetID = i,
-      title = gsea_go$Description[i]
-    )
+      title = gsea_go$Description[i])
     
     ggsave(
       file.path(fig_dir, sprintf("GSEA_plot_%d.png", i)),
       p_gsea,
       width = 10,
       height = 6,
-      dpi = 300
-    )
+      dpi = 300)
   }
 }
 
@@ -373,8 +348,7 @@ if (!is.null(go_bp_up) && !is.null(go_bp_down) &&
   # Create comparison object
   compare_list <- list(
     Upregulated = up_entrez,
-    Downregulated = down_entrez
-  )
+    Downregulated = down_entrez)
   
   compare_go <- compareCluster(
     geneClusters = compare_list,
@@ -383,8 +357,7 @@ if (!is.null(go_bp_up) && !is.null(go_bp_down) &&
     ont = "BP",
     pAdjustMethod = "BH",
     pvalueCutoff = 0.05,
-    qvalueCutoff = 0.05
-  )
+    qvalueCutoff = 0.05)
   
   if (!is.null(compare_go) && nrow(compare_go) > 0) {
     p_compare <- dotplot(compare_go, showCategory = 10) +
@@ -396,8 +369,7 @@ if (!is.null(go_bp_up) && !is.null(go_bp_down) &&
       p_compare,
       width = 12,
       height = 10,
-      dpi = 300
-    )
+      dpi = 300)
   }
 }
 
