@@ -26,8 +26,8 @@ mkdir -p ${ALIGN_DIR}
 mkdir -p ${GENOME_DIR}
 
 # Reference files
-GENOME_FASTA="${REF_DIR}/Homo_sapiens.GRCh38.dna.primary_assembly.fa"
-GTF="${REF_DIR}/Homo_sapiens.GRCh38.110.gtf"
+GENOME_FASTA="${REF_DIR}/Mus_musculus.GRCm39.dna.primary_assembly.fa"
+GTF="${REF_DIR}/Mus_musculus.GRCm39.115.gtf"
 
 echo -e "${YELLOW}Step 1: Building STAR genome index${NC}"
 
