@@ -2,7 +2,6 @@
 
 [![Language](https://img.shields.io/badge/Language-R%20%7C%20Bash-blue)](https://www.r-project.org/)
 [![Status](https://img.shields.io/badge/Status-Complete-success)](https://github.com/ipekselcen/rnaseq-tutorial)
-[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 A comprehensive, reproducible RNA-seq analysis workflow using public data from GEO (GSE79018).
 
@@ -21,10 +20,10 @@ This tutorial provides an end-to-end RNA-seq analysis pipeline covering:
 
 ## Dataset Information
 
-**GEO Accession:** GSE79018
-**Organism:** *Mus musculus* (Mouse)
-**Sequencing:** Illumina paired-end RNA-seq
-**Study Design:** Control vs Treatment comparison
+**GEO Accession:** GSE79018  
+**Organism:** *Mus musculus* (Mouse)  
+**Sequencing:** Illumina paired-end RNA-seq  
+**Study Design:** Control vs Treatment comparison  
 
 ## Prerequisites
 
@@ -43,8 +42,8 @@ BiocManager::install(c("DESeq2", "clusterProfiler", "org.Mm.eg.db",
                        "AnnotationDbi", "EnhancedVolcano", "ComplexHeatmap"))
 
 # CRAN packages
-install.packages(c("ggplot2", "pheatmap", "RColorBrewer", "dplyr", 
-                   "tidyr", "ggrepel"))
+install.packages(c("ggplot2", "pheatmap", "RColorBrewer", "dplyr",
+                    "tidyr", "ggrepel"))
 ```
 
 ## Quick Start
@@ -189,17 +188,6 @@ After running the pipeline, you will generate:
 - Downregulated genes: ~XXX
 - Total DEGs (FDR<0.05): ~XXX
 
-## Troubleshooting
-
-### Low Mapping Rates
-- Check reference genome version matches experiment
-- Verify FASTQ quality and adapter contamination
-- Consider different aligner settings
-
-### Memory Issues
-- Reduce STAR `--limitBAMsortRAM` parameter
-- Process samples one at a time
-- Use computing cluster if available
 
 ### R Package Installation
 ```r
