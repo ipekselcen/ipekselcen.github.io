@@ -14,16 +14,6 @@ permalink: /projects/rnaseq-tutorial/
     <span class="badge badge-success">Complete</span>
     <span class="badge badge-info">4-6 hours</span>
   </div>
-  
-  <div class="project-links">
-    <a href="https://github.com/ipekselcen/rnaseq-tutorial" class="btn btn-primary">
-      <i class="fab fa-github"></i> View on GitHub
-    </a>
-    <a href="https://github.com/ipekselcen/rnaseq-tutorial/archive/main.zip" class="btn btn-secondary">
-      <i class="fas fa-download"></i> Download
-    </a>
-  </div>
-</div>
 
 ---
 
@@ -36,7 +26,7 @@ This tutorial provides a complete, reproducible RNA-seq analysis pipeline using 
 - **Interpret** results through functional enrichment analysis
 - **Visualize** data with publication-quality figures
 
-**Dataset:** [GSE79018](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE79018) - Human RNA-seq comparing treatment vs control conditions
+**Dataset:** [GSE79018](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE79018) - Mouse RNA-seq comparing *Dnmt1*-cKO vs control conditions in OPCs
 
 ---
 
@@ -204,7 +194,7 @@ Rscript scripts/07_pathway_analysis.R
 BiocManager::install(c(
   "DESeq2", 
   "clusterProfiler",
-  "org.Hs.eg.db",
+  "org.Mm.eg.db",
   "EnhancedVolcano",
   "ComplexHeatmap"
 ))
@@ -380,23 +370,8 @@ rMATS --b1 control.txt --b2 treatment.txt \
       --gtf genes.gtf --readLength 150
 ```
 
-**Fusion Detection:**
-```bash
-# Use STAR-Fusion
-STAR-Fusion --genome_lib_dir ${CTAT_GENOME_LIB} \
-            --left_fq read1.fq --right_fq read2.fq
-```
-
-**Single-Cell RNA-seq:**  
-See our [scRNA-seq tutorial](../scrna-tutorial/) for analysis of single-cell data
-
----
 
 ## Citations
-
-### Methods
-
-If you use this tutorial, please cite:
 
 **STAR aligner:**
 > Dobin A, et al. (2013). STAR: ultrafast universal RNA-seq aligner. Bioinformatics. 29(1):15-21.
@@ -410,53 +385,7 @@ If you use this tutorial, please cite:
 ### Dataset
 
 **GSE79018:**
-> [Original publication information from GEO]
-
----
-
-## Additional Resources
-
-### Learn More
-
-**RNA-seq Theory:**
-- [RNA-seqlopedia](https://rnaseq.uoregon.edu/)
-- [Bioconductor RNA-seq Workflow](http://bioconductor.org/packages/devel/workflows/vignettes/rnaseqGene/inst/doc/rnaseqGene.html)
-
-**DESeq2 Documentation:**
-- [DESeq2 Vignette](http://bioconductor.org/packages/devel/bioc/vignettes/DESeq2/inst/doc/DESeq2.html)
-- [DESeq2 Paper](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-014-0550-8)
-
-**STAR Manual:**
-- [STAR Documentation](https://github.com/alexdobin/STAR/blob/master/doc/STARmanual.pdf)
-
-### Related Tutorials
-
-- **[ATAC-seq Analysis](../atacseq-tutorial/)** - Chromatin accessibility profiling
-- **[ChIP-seq Analysis](../chipseq-tutorial/)** - Protein-DNA interactions
-- **[Multi-omics Integration](../integration-tutorial/)** - Combining RNA-seq with other data types
-
----
-
-## Support
-
-### Questions?
-
-- **GitHub Issues:** [Report bugs or ask questions](https://github.com/ipekselcen/rnaseq-tutorial/issues)
-- **Email:** ipek.selcen@gmail.com
-- **Twitter:** [@ipekselcen](https://twitter.com/ipekselcen)
-
-### Contributing
-
-Contributions are welcome! Please:
-1. Fork the repository
-2. Create a feature branch
-3. Submit a pull request
-
----
-
-## License
-
-This tutorial is released under the **MIT License**. See [LICENSE](https://github.com/ipekselcen/rnaseq-tutorial/blob/main/LICENSE) for details.
+> Moyon S, Huynh JL, Dutta D, et al. Functional Characterization of DNA Methylation in the Oligodendrocyte Lineage. Cell Rep. 2016;15(4):748-760. doi:10.1016/j.celrep.2016.03.060
 
 ---
 
@@ -474,7 +403,7 @@ This tutorial is released under the **MIT License**. See [LICENSE](https://githu
 ---
 
 <p class="text-center text-muted">
-  <small>Last updated: December 2024</small>
+  <small>Last updated: December 2025</small>
 </p>
 
 <style>
