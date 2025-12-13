@@ -2,19 +2,7 @@
 
 Welcome to the RNA-seq Analysis Tutorial! This guide will help you get started quickly.
 
-## Prerequisites Checklist
-
-Before starting, ensure you have:
-
-- [ ] Linux/Unix system or WSL2 on Windows
-- [ ] At least 32 GB RAM (recommended 64 GB for human genome)
-- [ ] At least 100 GB free disk space
-- [ ] Internet connection for downloading data
-
 ## Installation Steps
-
-### Option 1: Using Conda (Recommended)
-
 ```bash
 # 1. Clone the repository
 git clone https://github.com/ipekselcen/rnaseq-tutorial.git
@@ -32,22 +20,6 @@ STAR --version
 Rscript --version
 ```
 
-### Option 2: Manual Installation
-
-If you prefer manual installation, install these tools:
-
-**Command-line tools:**
-```bash
-# Ubuntu/Debian
-sudo apt-get update
-sudo apt-get install fastqc trimmomatic samtools
-
-# Install STAR from source
-wget https://github.com/alexdobin/STAR/archive/2.7.11a.tar.gz
-tar -xzf 2.7.11a.tar.gz
-cd STAR-2.7.11a/source
-make STAR
-```
 
 **R packages:**
 ```r
@@ -59,11 +31,10 @@ if (!requireNamespace("BiocManager", quietly = TRUE))
 BiocManager::install(c(
   "DESeq2",
   "clusterProfiler",
-  "org.Hs.eg.db",
+  "org.Mm.eg.db",
   "AnnotationDbi",
   "EnhancedVolcano",
-  "ComplexHeatmap"
-))
+  "ComplexHeatmap"))
 
 # Install CRAN packages
 install.packages(c(
@@ -72,8 +43,7 @@ install.packages(c(
   "RColorBrewer",
   "dplyr",
   "tidyr",
-  "ggrepel"
-))
+  "ggrepel"))
 ```
 
 ## Quick Start
@@ -128,9 +98,9 @@ Rscript scripts/07_pathway_analysis.R
 ### Data Requirements
 
 The pipeline will download:
-- **FASTQ files**: ~6 samples, ~20-40M reads each (~6-12 GB total)
-- **Reference genome**: Human GRCh38 (~3 GB)
-- **Gene annotation**: Ensembl GTF (~50 MB)
+- **FASTQ files**: ~4 samples, ~20-40M reads each
+- **Reference genome**: Mouse GRCm39
+- **Gene annotation**: Ensembl GTF
 
 ### Output Files
 
@@ -161,8 +131,6 @@ results/
 
 ```bash
 # Open MultiQC report in browser
-firefox results/qc/raw/raw_multiqc_report.html
-# or
 open results/qc/raw/raw_multiqc_report.html  # macOS
 ```
 
@@ -171,9 +139,6 @@ open results/qc/raw/raw_multiqc_report.html  # macOS
 ```bash
 # View in terminal
 head results/deg/deseq2_results_significant.csv
-
-# Or open in Excel/LibreOffice
-libreoffice results/deg/deseq2_results_significant.csv
 ```
 
 ### Figures
@@ -184,8 +149,7 @@ All publication-quality figures are in `results/figures/`:
 # View figures
 ls results/figures/
 
-# Example: View volcano plot
-eog results/figures/volcano_plot.png  # Linux
+# View volcano plot
 open results/figures/volcano_plot.png  # macOS
 ```
 
@@ -212,61 +176,6 @@ Rscript -e "library(DESeq2); library(clusterProfiler); cat('R packages OK\n')"
 ```
 
 If all tests pass, you're ready to start!
-
-## Common Issues
-
-### Issue: "Command not found"
-
-**Solution:** Make sure the conda environment is activated:
-```bash
-conda activate rnaseq
-```
-
-### Issue: "Permission denied" when running scripts
-
-**Solution:** Make scripts executable:
-```bash
-chmod +x scripts/*.sh
-```
-
-### Issue: Out of memory during STAR alignment
-
-**Solution:** Reduce memory usage or process one sample at a time:
-```bash
-# Edit scripts/04_align_reads.sh
-# Add: --limitBAMsortRAM 30000000000
-```
-
-### Issue: R packages fail to install
-
-**Solution:** Try installing from source:
-```r
-install.packages("package_name", type = "source")
-```
-
-## Getting Help
-
-- **Tutorial website:** [https://ipekselcen.github.io/projects/rnaseq-tutorial/](https://ipekselcen.github.io/projects/rnaseq-tutorial/)
-- **GitHub Issues:** [https://github.com/ipekselcen/rnaseq-tutorial/issues](https://github.com/ipekselcen/rnaseq-tutorial/issues)
-- **Email:** ipek.selcen@gmail.com
-
-## Next Steps
-
-After completing this tutorial, you can:
-
-1. **Modify parameters** - Try different thresholds for DEGs
-2. **Use your own data** - Replace GSE79018 with your dataset
-3. **Explore advanced analyses** - Alternative splicing, fusion detection
-4. **Try related tutorials** - ATAC-seq, ChIP-seq, multi-omics integration
-
-## Citation
-
-If you use this tutorial in your research, please cite:
-
-```
-Selcen, I. (2025). RNA-seq Analysis Tutorial: From Raw Reads to Biological Insight.
-GitHub: https://github.com/ipekselcen/rnaseq-tutorial
-```
 
 ---
 
