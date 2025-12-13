@@ -132,7 +132,7 @@ RNA-seq Analysis Summary
 Analysis Date: $(date)
 
 Dataset: GSE79018
-Organism: Homo sapiens
+Organism: Mus musculus
 Design: Treatment vs Control
 
 PIPELINE STEPS COMPLETED:
