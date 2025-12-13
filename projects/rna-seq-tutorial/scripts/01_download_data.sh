@@ -36,12 +36,10 @@ wget -O data/SraRunTable.txt \
 
 # Example SRA accessions (replace with actual accessions from GSE79018)
 SRA_IDS=(
-  "SRR3396381"
-  "SRR3396382"
-  "SRR3396383"
-  "SRR3396384"
-  "SRR3396385"
-  "SRR3396386"
+  "SRR3212794"
+  "SRR3212795"
+  "SRR3212796"
+  "SRR3212797"
 )
 
 echo -e "${YELLOW}Step 2: Downloading FASTQ files from SRA${NC}"
@@ -73,19 +71,19 @@ echo -e "${YELLOW}Step 3: Downloading reference genome and annotation${NC}"
 cd data/reference
 
 # Download genome FASTA
-if [ ! -f "Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz" ]; then
+if [ ! -f "Mus_musculus.GRCm39.dna.primary_assembly.fa.gz" ]; then
   echo "Downloading reference genome..."
-  wget http://ftp.ensembl.org/pub/release-110/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz
-  gunzip Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz
+  wget https://ftp.ensembl.org/pub/release-110/fasta/mus_musculus/dna/Mus_musculus.GRCm39.dna.primary_assembly.fa.gz
+  gunzip Mus_musculus.GRCm39.dna.primary_assembly.fa.gz
 else
   echo "Reference genome already exists"
 fi
 
 # Download GTF annotation
-if [ ! -f "Homo_sapiens.GRCh38.110.gtf.gz" ]; then
+if [ ! -f "Mus_musculus.GRCm39.115.gtf.gz" ]; then
   echo "Downloading gene annotation..."
-  wget http://ftp.ensembl.org/pub/release-110/gtf/homo_sapiens/Homo_sapiens.GRCh38.110.gtf.gz
-  gunzip Homo_sapiens.GRCh38.110.gtf.gz
+  wget https://ftp.ensembl.org/pub/release-110/gtf/mus_musculus/Mus_musculus.GRCm39.115.gtf.gz
+  gunzip Mus_musculus.GRCm39.115.gtf.gz
 else
   echo "Gene annotation already exists"
 fi
@@ -97,12 +95,10 @@ echo -e "${YELLOW}Step 4: Creating metadata file${NC}"
 # Create sample metadata CSV
 cat > data/metadata.csv << 'EOF'
 sample_id,sra_id,condition,replicate,fastq_1,fastq_2
-Control_1,SRR3396381,Control,1,data/raw/SRR3396381_1.fastq.gz,data/raw/SRR3396381_2.fastq.gz
-Control_2,SRR3396382,Control,2,data/raw/SRR3396382_1.fastq.gz,data/raw/SRR3396382_2.fastq.gz
-Control_3,SRR3396383,Control,3,data/raw/SRR3396383_1.fastq.gz,data/raw/SRR3396383_2.fastq.gz
-Treatment_1,SRR3396384,Treatment,1,data/raw/SRR3396384_1.fastq.gz,data/raw/SRR3396384_2.fastq.gz
-Treatment_2,SRR3396385,Treatment,2,data/raw/SRR3396385_1.fastq.gz,data/raw/SRR3396385_2.fastq.gz
-Treatment_3,SRR3396386,Treatment,3,data/raw/SRR3396386_1.fastq.gz,data/raw/SRR3396386_2.fastq.gz
+Control_1,SRR3212794,Control,1,data/raw/SRR3212794_1.fastq.gz,data/raw/SRR3212794_2.fastq.gz
+Control_2,SRR3212795,Control,2,data/raw/SRR3212795_1.fastq.gz,data/raw/SRR3212795_2.fastq.gz
+Treatment_1,SRR3212796,Treatment,1,data/raw/SRR3212796_1.fastq.gz,data/raw/SRR3212796_2.fastq.gz
+Treatment_2,SRR3212797,Treatment,2,data/raw/SRR3212797_1.fastq.gz,data/raw/SRR3212797_2.fastq.gz
 EOF
 
 echo -e "${GREEN}Metadata file created: data/metadata.csv${NC}"
