@@ -8,68 +8,13 @@ permalink: /
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ipek Selcen | Molecular Biologist & Aspiring Bioinformatician</title>
+    
+    <!-- Shared styles -->
+    <link rel="stylesheet" href="/assets/css/custom.css">
+    
+    <!-- Index-specific styles -->
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f8f9fa;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        /* Navigation */
-        nav {
-            background: white;
-            padding: 20px 40px;
-            margin-bottom: 0;
-            border-radius: 10px 10px 0 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 30px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1.05em;
-            transition: color 0.3s ease;
-        }
-
-        nav a:hover {
-            color: #764ba2;
-        }
-
-        nav a.active {
-            color: #764ba2;
-            border-bottom: 2px solid #764ba2;
-            padding-bottom: 2px;
-        }
-
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 60px 40px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
+        /* Hero photo styling */
         .hero-photo {
             margin-bottom: 25px;
             display: flex;
@@ -90,52 +35,15 @@ permalink: /
             transform: scale(1.05);
         }
 
-        header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        header .subtitle {
-            font-size: 1.3em;
-            margin-bottom: 20px;
-            opacity: 0.95;
-            font-weight: 300;
-        }
-
         header .tagline {
             font-size: 1.1em;
             max-width: 700px;
-            margin: 0 auto;
+            margin: 20px auto 0;
             opacity: 0.9;
             line-height: 1.5;
         }
 
-        .section {
-            background: white;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-        }
-
-        .section:last-of-type {
-            border-radius: 0 0 10px 10px;
-        }
-
-        .section h2 {
-            color: #667eea;
-            font-size: 2em;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid #667eea;
-        }
-
-        .about-text {
-            font-size: 1.1em;
-            line-height: 1.8;
-            margin-bottom: 20px;
-        }
-
+        /* Skills grid */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -144,14 +52,14 @@ permalink: /
         }
 
         .skill-category {
-            background: #f8f9fa;
+            background: var(--bg-color);
             padding: 25px;
             border-radius: 8px;
-            border-left: 4px solid #667eea;
+            border-left: 4px solid var(--primary-color);
         }
 
         .skill-category h3 {
-            color: #764ba2;
+            color: var(--secondary-color);
             margin-bottom: 15px;
             font-size: 1.3em;
         }
@@ -170,25 +78,26 @@ permalink: /
             content: "▸";
             position: absolute;
             left: 0;
-            color: #667eea;
+            color: var(--primary-color);
         }
 
+        /* Projects */
         .project {
             margin-bottom: 30px;
             padding: 25px;
-            background: #f8f9fa;
+            background: var(--bg-color);
             border-radius: 8px;
-            border-left: 4px solid #764ba2;
+            border-left: 4px solid var(--secondary-color);
         }
 
         .project h3 {
-            color: #333;
+            color: var(--text-color);
             margin-bottom: 10px;
             font-size: 1.4em;
         }
 
-        .project .project-meta {
-            color: #666;
+        .project-meta {
+            color: var(--text-light);
             font-size: 0.95em;
             margin-bottom: 15px;
             font-style: italic;
@@ -201,8 +110,8 @@ permalink: /
 
         .tag {
             display: inline-block;
-            background: #667eea;
-            color: white;
+            background: var(--primary-color);
+            color: var(--white);
             padding: 5px 12px;
             border-radius: 15px;
             font-size: 0.85em;
@@ -210,20 +119,21 @@ permalink: /
             margin-top: 5px;
         }
 
+        /* Publications */
         .publication {
             margin-bottom: 25px;
             padding: 20px;
-            background: #f8f9fa;
+            background: var(--bg-color);
             border-radius: 8px;
             line-height: 1.7;
         }
 
         .publication strong {
-            color: #764ba2;
+            color: var(--secondary-color);
         }
 
         .publication a {
-            color: #667eea;
+            color: var(--primary-color);
             text-decoration: none;
         }
 
@@ -231,17 +141,23 @@ permalink: /
             text-decoration: underline;
         }
 
+        /* Blog link box */
         .blog-link {
             background: #f0f4ff;
             padding: 30px;
             border-radius: 8px;
             text-align: center;
-            border: 2px dashed #667eea;
+            border: 2px dashed var(--primary-color);
             margin-top: 20px;
         }
 
+        .blog-link h3 {
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
         .blog-link a {
-            color: #667eea;
+            color: var(--primary-color);
             font-size: 1.2em;
             text-decoration: none;
             font-weight: 600;
@@ -251,69 +167,22 @@ permalink: /
             text-decoration: underline;
         }
 
-        /* Contact section */
-        .contact-info {
-            text-align: center;
-            padding: 30px 0;
-            line-height: 2;
+        /* About text */
+        .about-text {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 20px;
         }
 
-        .contact-info a {
-            color: #667eea;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 1em;
-        }
-
-        .contact-info a:hover {
-            color: #764ba2;
-            text-decoration: underline;
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: #666;
-            font-size: 0.95em;
-        }
-
+        /* Mobile adjustments */
         @media (max-width: 768px) {
-            nav {
-                padding: 15px 20px;
-            }
-
-            nav ul {
-                gap: 15px;
-            }
-
-            header {
-                padding: 40px 20px;
-            }
-
-            header h1 {
-                font-size: 2em;
-            }
-            
-            header .subtitle {
-                font-size: 1.1em;
-            }
-
             .hero-photo img {
                 width: 110px;
                 height: 110px;
             }
 
-            .section {
-                padding: 25px;
-            }
-
             .skills-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .contact-info a {
-                display: block;
-                margin: 10px 0;
             }
         }
     </style>
@@ -437,7 +306,7 @@ permalink: /
             </div>
 
             <div class="blog-link">
-                <h3 style="margin-bottom: 20px; color: #333;">📝 My Progress Blogs</h3>
+                <h3>📝 My Progress Blogs</h3>
                 <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-bottom: 15px;">
                     <a href="/blog/">📚 All Posts</a>
                     <a href="/blog/editorial/">✍️ Editorial</a>
@@ -445,7 +314,7 @@ permalink: /
                     <a href="/blog/wetlab/">🔬 Wet Lab</a>
                 </div>
                 <p style="color: #666; font-style: italic;">
-                Small wins, clear notes, and steady iteration
+                    Small wins, clear notes, and steady iteration
                 </p>
             </div>
         </section>
@@ -494,7 +363,6 @@ permalink: /
             </ul>
         </section>
 
-
         <footer>
             <p>© 2025 Ipek Selcen | Molecular Biologist & Aspiring Bioinformatician</p>
             <p style="margin-top: 10px; font-style: italic;">Tracking progress publicly — small wins and clear notes.</p>
@@ -502,4 +370,3 @@ permalink: /
     </div>
 </body>
 </html>
-
