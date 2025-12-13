@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # 03_trim_reads.sh
 # Trims adapters and low-quality bases using Trim Galore
 # Usage: bash 03_trim_reads.sh
@@ -7,12 +6,8 @@
 set -e
 set -u
 
-# Color output
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-NC='\033[0m'
-
-echo -e "${GREEN}Starting Read Trimming${NC}"
+echo "Starting Read Trimming"
+echo ""
 
 # Directories
 RAW_DIR="data/raw"
@@ -24,24 +19,25 @@ THREADS=8
 mkdir -p ${TRIMMED_DIR}
 mkdir -p ${QC_DIR}
 
-echo -e "${YELLOW}Step 1: Trimming reads with Trim Galore${NC}"
+# Process each sample from metadata
+echo "Trimming reads with Trim Galore..."
 
-# Read metadata and process each sample
 while IFS=',' read -r sample_id sra_id condition replicate fastq_1 fastq_2; do
-  # Skip header
+  
+  # Skip header line
   if [ "$sample_id" == "sample_id" ]; then
     continue
   fi
   
-  echo -e "${GREEN}Processing ${sample_id}...${NC}"
+  echo "  Processing ${sample_id}..."
   
-  # Check if already trimmed
+  # Skip if already trimmed
   if [ -f "${TRIMMED_DIR}/${sra_id}_1_val_1.fq.gz" ]; then
-    echo -e "${YELLOW}${sample_id} already trimmed, skipping...${NC}"
+    echo "    Already trimmed, skipping"
     continue
   fi
   
-  # Run Trim Galore
+  # Trim adapters and low-quality bases
   trim_galore \
     --paired \
     --fastqc \
@@ -51,22 +47,12 @@ while IFS=',' read -r sample_id sra_id condition replicate fastq_1 fastq_2; do
     --output_dir ${TRIMMED_DIR} \
     ${fastq_1} ${fastq_2}
     
-  echo -e "${GREEN}${sample_id} trimmed successfully${NC}"
-  
 done < data/metadata.csv
 
-echo -e "${YELLOW}Step 2: Running FastQC on trimmed reads${NC}"
+echo ""
+echo "Generating MultiQC report..."
 
-# Run FastQC on trimmed files (if not already done by Trim Galore)
-fastqc \
-  ${TRIMMED_DIR}/*_val_*.fq.gz \
-  --outdir ${QC_DIR} \
-  --threads ${THREADS} \
-  --quiet
-
-echo -e "${YELLOW}Step 3: Generating MultiQC report for trimmed reads${NC}"
-
-# Run MultiQC
+# Aggregate QC reports
 multiqc \
   ${QC_DIR} \
   ${TRIMMED_DIR} \
@@ -76,15 +62,11 @@ multiqc \
   --force
 
 echo ""
-echo -e "${GREEN}========================================${NC}"
-echo -e "${GREEN}Trimming Complete!${NC}"
-echo -e "${GREEN}========================================${NC}"
+echo "========================================"
+echo "Trimming Complete!"
+echo "========================================"
 echo ""
 echo "Trimmed files: ${TRIMMED_DIR}/*_val_*.fq.gz"
-echo "QC reports: ${QC_DIR}/trimmed_multiqc_report.html"
+echo "QC report: ${QC_DIR}/trimmed_multiqc_report.html"
 echo ""
-echo -e "${YELLOW}Trimming statistics:${NC}"
-grep "Total reads processed:" ${TRIMMED_DIR}/*.txt | head -n 3
-echo ""
-echo -e "${YELLOW}Next step: Align reads to reference genome${NC}"
-echo "bash scripts/04_align_reads.sh"
+echo "Next step: bash scripts/04_align_reads.sh"
