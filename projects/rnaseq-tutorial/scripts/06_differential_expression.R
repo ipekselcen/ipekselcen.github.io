@@ -37,8 +37,7 @@ counts <- read.table(
   file.path(count_dir, "count_matrix_clean.txt"),
   header = TRUE,
   row.names = 1,
-  check.names = FALSE
-)
+  check.names = FALSE)
 
 # Load metadata
 metadata <- read.csv("data/metadata.csv", stringsAsFactors = FALSE)
@@ -59,8 +58,7 @@ cat("\nStep 2: Creating DESeq2 dataset\n")
 dds <- DESeqDataSetFromMatrix(
   countData = counts,
   colData = metadata,
-  design = ~ condition
-)
+  design = ~ condition)
 
 # Pre-filtering: keep genes with at least 10 reads total
 keep <- rowSums(counts(dds)) >= 10
@@ -101,8 +99,7 @@ normalized_counts <- counts(dds, normalized = TRUE)
 write.csv(
   normalized_counts,
   file = file.path(deg_dir, "normalized_counts.csv"),
-  quote = FALSE
-)
+  quote = FALSE)
 
 # ============================================================================
 # Step 5: Save Results
@@ -123,8 +120,7 @@ write.csv(
   res_df,
   file = file.path(deg_dir, "deseq2_results_all.csv"),
   row.names = FALSE,
-  quote = FALSE
-)
+  quote = FALSE)
 
 # Save significant DEGs only
 sig_genes <- res_df[res_df$padj < 0.05 & abs(res_df$log2FoldChange) > 1, ]
@@ -132,8 +128,7 @@ write.csv(
   sig_genes,
   file = file.path(deg_dir, "deseq2_results_significant.csv"),
   row.names = FALSE,
-  quote = FALSE
-)
+  quote = FALSE)
 
 cat(sprintf("  Total DEGs (|log2FC| > 1, FDR < 0.05): %d\n", nrow(sig_genes)))
 cat(sprintf("    Upregulated: %d\n", sum(sig_genes$regulation == "Up")))
@@ -159,8 +154,7 @@ p_pca <- ggplot(pca_data, aes(x = PC1, y = PC2, color = condition)) +
   theme_bw() +
   theme(
     legend.position = "top",
-    plot.title = element_text(hjust = 0.5, face = "bold")
-  ) +
+    plot.title = element_text(hjust = 0.5, face = "bold")) +
   ggtitle("PCA Plot - Sample Clustering")
 
 ggsave(
@@ -168,8 +162,7 @@ ggsave(
   p_pca,
   width = 8,
   height = 6,
-  dpi = 300
-)
+  dpi = 300)
 
 ## 6b. Sample Correlation Heatmap
 cat("  - Sample correlation heatmap\n")
@@ -179,15 +172,13 @@ png(
   file.path(fig_dir, "sample_correlation.png"),
   width = 2400,
   height = 2400,
-  res = 300
-)
+  res = 300)
 pheatmap(
   sample_cor,
   color = colorRampPalette(rev(brewer.pal(9, "RdBu")))(100),
   main = "Sample Correlation Heatmap",
   display_numbers = TRUE,
-  number_format = "%.2f"
-)
+  number_format = "%.2f")
 dev.off()
 
 ## 6c. Dispersion Plot
@@ -196,8 +187,7 @@ png(
   file.path(fig_dir, "dispersion_plot.png"),
   width = 2400,
   height = 1800,
-  res = 300
-)
+  res = 300)
 plotDispEsts(dds, main = "Dispersion Estimates")
 dev.off()
 
@@ -212,8 +202,7 @@ png(
   file.path(fig_dir, "ma_plot.png"),
   width = 2400,
   height = 1800,
-  res = 300
-)
+  res = 300)
 plotMA(res, alpha = 0.05, main = "MA Plot", ylim = c(-5, 5))
 dev.off()
 
@@ -235,35 +224,30 @@ p_volcano <- ggplot(volcano_data, aes(x = log2FoldChange, y = log10padj)) +
   scale_color_manual(values = c(
     "Up" = "red",
     "Down" = "blue",
-    "Not Significant" = "gray"
-  )) +
+    "Not Significant" = "gray")) +
   geom_hline(yintercept = -log10(0.05), linetype = "dashed", color = "black") +
   geom_vline(xintercept = c(-1, 1), linetype = "dashed", color = "black") +
   geom_text_repel(
     data = top_genes,
     aes(label = gene_id),
     size = 3,
-    max.overlaps = 20
-  ) +
+    max.overlaps = 20) +
   theme_bw() +
   theme(
     legend.position = "top",
-    plot.title = element_text(hjust = 0.5, face = "bold")
-  ) +
+    plot.title = element_text(hjust = 0.5, face = "bold")) +
   labs(
     x = "Log2 Fold Change",
     y = "-Log10 Adjusted P-value",
     title = "Volcano Plot - Treatment vs Control",
-    color = "Regulation"
-  )
+    color = "Regulation")
 
 ggsave(
   file.path(fig_dir, "volcano_plot.png"),
   p_volcano,
   width = 10,
   height = 8,
-  dpi = 300
-)
+  dpi = 300)
 
 ## 7c. Heatmap of Top DEGs
 cat("  - Heatmap of top differentially expressed genes\n")
@@ -280,15 +264,13 @@ heatmap_data_scaled <- t(scale(t(heatmap_data)))
 # Annotation for samples
 annotation_col <- data.frame(
   Condition = metadata$condition,
-  row.names = rownames(metadata)
-)
+  row.names = rownames(metadata))
 
 png(
   file.path(fig_dir, "heatmap_top_degs.png"),
   width = 2400,
   height = 3000,
-  res = 300
-)
+  res = 300)
 pheatmap(
   heatmap_data_scaled,
   annotation_col = annotation_col,
@@ -298,8 +280,7 @@ pheatmap(
   show_rownames = TRUE,
   fontsize_row = 6,
   cluster_cols = TRUE,
-  cluster_rows = TRUE
-)
+  cluster_rows = TRUE)
 dev.off()
 
 # ============================================================================
@@ -328,22 +309,19 @@ p_top_up <- ggplot(plot_data, aes(x = condition, y = counts, color = condition))
   theme(
     axis.text.x = element_text(angle = 45, hjust = 1),
     strip.background = element_rect(fill = "lightblue"),
-    plot.title = element_text(hjust = 0.5, face = "bold")
-  ) +
+    plot.title = element_text(hjust = 0.5, face = "bold")) +
   labs(
     x = "Condition",
     y = "Normalized Counts",
     title = "Top 6 Upregulated Genes",
-    color = "Condition"
-  )
+    color = "Condition")
 
 ggsave(
   file.path(fig_dir, "top_upregulated_genes.png"),
   p_top_up,
   width = 12,
   height = 8,
-  dpi = 300
-)
+  dpi = 300)
 
 # ============================================================================
 # Final Summary
@@ -372,5 +350,4 @@ cat("Rscript scripts/07_pathway_analysis.R\n")
 # Save session info
 writeLines(
   capture.output(sessionInfo()),
-  file.path(deg_dir, "sessionInfo.txt")
-)
+  file.path(deg_dir, "sessionInfo.txt"))
