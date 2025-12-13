@@ -19,8 +19,7 @@ knitr::opts_chunk$set(
   message = FALSE,
   fig.width = 10,
   fig.height = 6,
-  dpi = 300
-)
+  dpi = 300)
 ```
 
 # Introduction
@@ -29,7 +28,7 @@ This notebook provides a complete RNA-seq analysis workflow using data from **GE
 
 ## Biological Context
 
-This analysis compares gene expression between **control** and **treatment** conditions to identify differentially expressed genes and understand the biological processes affected by the treatment.
+This analysis compares gene expression between control and knockout conditions to identify differentially expressed genes and understand the biological processes affected by the treatment.
 
 ## Workflow Overview
 
@@ -54,7 +53,7 @@ library(dplyr)
 library(tidyr)
 library(ggrepel)
 library(clusterProfiler)
-library(org.Hs.eg.db)
+library(org.Mm.eg.db)
 library(enrichplot)
 library(DT)
 
@@ -74,8 +73,7 @@ counts <- read.table(
   "../results/counts/count_matrix_clean.txt",
   header = TRUE,
   row.names = 1,
-  check.names = FALSE
-)
+  check.names = FALSE)
 
 # Load metadata
 metadata <- read.csv("../data/metadata.csv", stringsAsFactors = FALSE)
@@ -110,8 +108,7 @@ lib_sizes <- colSums(counts)
 lib_df <- data.frame(
   sample = names(lib_sizes),
   size = lib_sizes,
-  condition = metadata$condition
-)
+  condition = metadata$condition)
 
 # Plot
 ggplot(lib_df, aes(x = sample, y = size/1e6, fill = condition)) +
@@ -119,8 +116,7 @@ ggplot(lib_df, aes(x = sample, y = size/1e6, fill = condition)) +
   labs(
     x = "Sample",
     y = "Library Size (millions)",
-    title = "Library Size Distribution"
-  ) +
+    title = "Library Size Distribution") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   scale_fill_brewer(palette = "Set2")
 ```
@@ -134,16 +130,14 @@ genes_detected <- colSums(counts > 0)
 genes_df <- data.frame(
   sample = names(genes_detected),
   genes = genes_detected,
-  condition = metadata$condition
-)
+  condition = metadata$condition)
 
 ggplot(genes_df, aes(x = sample, y = genes, fill = condition)) +
   geom_bar(stat = "identity") +
   labs(
     x = "Sample",
     y = "Number of Genes Detected",
-    title = "Gene Detection per Sample"
-  ) +
+    title = "Gene Detection per Sample") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
   scale_fill_brewer(palette = "Set2")
 ```
@@ -159,8 +153,7 @@ ggplot(genes_df, aes(x = sample, y = genes, fill = condition)) +
 dds <- DESeqDataSetFromMatrix(
   countData = counts,
   colData = metadata,
-  design = ~ condition
-)
+  design = ~ condition)
 
 # Pre-filtering
 keep <- rowSums(counts(dds)) >= 10
@@ -230,8 +223,7 @@ ggplot(pca_data, aes(x = PC1, y = PC2, color = condition)) +
   labs(
     x = paste0("PC1: ", percentVar[1], "% variance"),
     y = paste0("PC2: ", percentVar[2], "% variance"),
-    title = "PCA Plot - Sample Clustering"
-  ) +
+    title = "PCA Plot - Sample Clustering") +
   scale_color_brewer(palette = "Set1")
 ```
 
@@ -248,8 +240,7 @@ pheatmap(
   color = colorRampPalette(rev(brewer.pal(9, "RdBu")))(100),
   display_numbers = TRUE,
   number_format = "%.2f",
-  main = "Sample Correlation Heatmap"
-)
+  main = "Sample Correlation Heatmap")
 ```
 
 ## MA Plot
@@ -277,21 +268,18 @@ ggplot(volcano_data, aes(x = log2FoldChange, y = log10padj)) +
   scale_color_manual(values = c(
     "Up" = "red",
     "Down" = "blue",
-    "Not Significant" = "gray"
-  )) +
+    "Not Significant" = "gray")) +
   geom_hline(yintercept = -log10(0.05), linetype = "dashed") +
   geom_vline(xintercept = c(-1, 1), linetype = "dashed") +
   geom_text_repel(
     data = top_genes,
     aes(label = gene_id),
     size = 2.5,
-    max.overlaps = 15
-  ) +
+    max.overlaps = 15) +
   labs(
     x = "Log2 Fold Change",
     y = "-Log10 Adjusted P-value",
-    title = "Volcano Plot - Treatment vs Control"
-  ) +
+    title = "Volcano Plot - Treatment vs Control") +
   theme(legend.position = "top")
 ```
 
@@ -315,7 +303,6 @@ heatmap_data_scaled <- t(scale(t(heatmap_data)))
 annotation_col <- data.frame(
   Condition = metadata$condition,
   row.names = rownames(metadata)
-)
 
 # Plot
 pheatmap(
@@ -327,8 +314,7 @@ pheatmap(
   show_rownames = TRUE,
   fontsize_row = 6,
   cluster_cols = TRUE,
-  cluster_rows = TRUE
-)
+  cluster_rows = TRUE)
 ```
 
 ---
@@ -346,12 +332,11 @@ sig_gene_ids_clean <- gsub("\\..*", "", sig_gene_ids)
 
 # Convert to Entrez IDs
 entrez_ids <- mapIds(
-  org.Hs.eg.db,
+  org.Mm.eg.db,
   keys = sig_gene_ids_clean,
   column = "ENTREZID",
   keytype = "ENSEMBL",
-  multiVals = "first"
-)
+  multiVals = "first")
 
 entrez_ids <- na.omit(entrez_ids)
 
@@ -363,20 +348,18 @@ cat(sprintf("Converted %d genes to Entrez IDs\n", length(entrez_ids)))
 ```{r go-bp}
 go_bp <- enrichGO(
   gene = entrez_ids,
-  OrgDb = org.Hs.eg.db,
+  OrgDb = org.Mm.eg.db,
   ont = "BP",
   pAdjustMethod = "BH",
   pvalueCutoff = 0.05,
   qvalueCutoff = 0.05,
-  readable = TRUE
-)
+  readable = TRUE)
 
 if (!is.null(go_bp) && nrow(go_bp) > 0) {
   # Display top terms
   datatable(
     as.data.frame(go_bp)[1:20, ],
-    options = list(pageLength = 10)
-  )
+    options = list(pageLength = 10))
   
   # Dotplot
   dotplot(go_bp, showCategory = 20) +
@@ -393,19 +376,17 @@ if (!is.null(go_bp) && nrow(go_bp) > 0) {
 ```{r kegg}
 kegg <- enrichKEGG(
   gene = entrez_ids,
-  organism = "hsa",
+  organism = "mmu",
   pvalueCutoff = 0.05,
-  qvalueCutoff = 0.05
-)
+  qvalueCutoff = 0.05)
 
 if (!is.null(kegg) && nrow(kegg) > 0) {
-  kegg_readable <- setReadable(kegg, OrgDb = org.Hs.eg.db, keyType = "ENTREZID")
+  kegg_readable <- setReadable(kegg, OrgDb = org.Mm.eg.db, keyType = "ENTREZID")
   
   # Display results
   datatable(
     as.data.frame(kegg_readable)[1:20, ],
-    options = list(pageLength = 10)
-  )
+    options = list(pageLength = 10))
   
   # Dotplot
   dotplot(kegg, showCategory = 20) +
@@ -447,14 +428,8 @@ sessionInfo()
 
 # Conclusions
 
-This analysis identified differentially expressed genes between treatment and control conditions, revealing biological processes and pathways affected by the treatment. The results provide insights into the molecular mechanisms underlying the observed phenotype.
+This analysis identified differentially expressed genes between knockout and control conditions, revealing biological processes and pathways affected by the knockout. The results provide insights into the molecular mechanisms underlying the observed phenotype.
 
-## Next Steps
-
-- Validate top DEGs with RT-qPCR
-- Investigate specific pathways of interest
-- Integrate with other omics data
-- Perform time-series analysis if applicable
 
 ---
 
