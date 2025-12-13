@@ -189,8 +189,8 @@ All figures are saved as PNG (300 DPI):
 
 | Component | Size | Notes |
 |-----------|------|-------|
-| FASTQ files (raw) | ~8-12 GB | 6 samples, paired-end |
-| Reference genome | ~3 GB | GRCh38 uncompressed |
+| FASTQ files (raw) | ~8-12 GB | 4 samples, paired-end |
+| Reference genome | ~3 GB | GRCm39 uncompressed |
 | STAR index | ~30 GB | Built from reference |
 | BAM files | ~15-20 GB | Aligned reads |
 | Results | ~2-3 GB | Counts, DEGs, figures |
@@ -254,8 +254,8 @@ Edit the scripts to modify:
 
 1. **Update reference files** in `scripts/01_download_data.sh`
 2. **Change organism database** in R scripts:
-   - `org.Hs.eg.db` → `org.Mm.eg.db` (mouse)
-   - `organism = "hsa"` → `organism = "mmu"` (mouse)
+   - `org.Mm.eg.db` → `org.Hs.eg.db` (mouse)
+   - `organism = "mmu"` → `organism = "hsa"` (human)
 
 ## Troubleshooting Guide
 
