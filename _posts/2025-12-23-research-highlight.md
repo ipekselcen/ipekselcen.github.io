@@ -1,4 +1,4 @@
-u---
+---
 layout: default
 title: "Research Highlight #1: Alzheimer’s Disease Epigenomic Atlas"
 date: 2025-12-23
