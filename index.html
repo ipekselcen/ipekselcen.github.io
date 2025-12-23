@@ -3,75 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ipek Selcen, PhD | Chromatin Biology & Bioinformatics</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Ipek Selcen, PhD</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Top Navigation -->
-    <nav class="site-nav">
-        <div class="nav-container">
-            <a href="index.html" class="site-logo">Ipek Selcen</a>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="bioinformatics/index.html">Bioinformatics</a></li>
-                <li><a href="editorial/index.html">Science Communication</a></li>
-                <li><a href="cv.html">CV</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Two-Column Layout -->
-    <div class="two-column-layout">
-        <!-- Left Column - Profile -->
-        <div class="profile-column">
+    <div class="container">
+        <header class="profile-header">
             <img src="profile.jpg" alt="Ipek Selcen" class="profile-image">
-            <h1>Ipek Selcen</h1>
-            <p class="title">PhD in Chromatin Biology & Epigenetics</p>
+            <h1 class="name">Ipek Selcen</h1>
+            <div class="title">PhD in Chromatin Biology & Epigenetics</div>
+            
+            <p class="bio">
+                I study how epigenetic modifications shape cell fate decisions, combining 
+                wet lab molecular biology with computational genomics. My research focuses 
+                on TET2-mediated modifications in neural development.
+            </p>
+            
             <div class="contact-links">
                 <a href="https://github.com/ipekselcen" target="_blank">GitHub</a>
-                <a href="https://linkedin.com/in/ipek-selcen-16516948" target="_blank">LinkedIn</a>
+                <a href="https://linkedin.com/in/ipekselcen" target="_blank">LinkedIn</a>
                 <a href="mailto:ipek.selcen@gmail.com">Email</a>
             </div>
-        </div>
+        </header>
+        
+        <section class="section">
+            <h2>Expertise</h2>
+            <div class="card-grid">
+                <a href="bioinformatics/index.html" class="card">
+                    <h3>Bioinformatics</h3>
+                    <p>Multi-omics analysis, data visualization, and computational pipelines in R and Python</p>
+                </a>
+                
+                <a href="editorial/index.html" class="card">
+                    <h3>Science Communication</h3>
+                    <p>Scientific writing, editing, and making complex research accessible</p>
+                </a>
+            </div>
+        </section>
+        
 
-        <!-- Right Column - Content -->
-        <div class="content-column">
-            <section class="section">
-                <h2 class="page-title">About Me</h2>
-                <p class="page-intro">
-                    I study how epigenetic modifications shape cell fate decisions, combining 
-                    wet lab molecular biology with computational genomics. My research focuses 
-                    on TET2-mediated modifications in neural development.
-                </p>
-            </section>
-
-            <section class="section">
-                <h3 class="section-header">Expertise</h3>
-                <div class="card-grid">
-                    <a href="bioinformatics/index.html" class="card">
-                        <h3>Bioinformatics & Data Visualization</h3>
-                        <p>
-                            Multi-omics analysis, data visualization, and computational 
-                            pipelines in R and Python. Creating publication-ready figures 
-                            from genomics data.
-                        </p>
-                    </a>
-                    
-                    <a href="editorial/index.html" class="card">
-                        <h3>Science Communication</h3>
-                        <p>
-                            Scientific writing, editing, and making complex research accessible. 
-                            BioRender Campus Ambassador and Medical Communications certificate holder.
-                        </p>
-                    </a>
-                </div>
-            </section>
-        </div>
+        
+        <footer>
+            © 2024 Ipek Selcen
+        </footer>
     </div>
-
-    <footer class="site-footer">
-        © 2024 Ipek Selcen
-    </footer>
 </body>
 </html>
