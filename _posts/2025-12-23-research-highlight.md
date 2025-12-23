@@ -7,8 +7,7 @@ tags: [research highlight]
 ---
 
 ## Epigenomic Breakdown in Alzheimer's: When Brain Cells Lose Control
-
-**Liu et al., Cell (2025) 188:4980-5002** | **[Read the paper →](https://doi.org/10.1016/j.cell.2025.06.031)**
+**Liu et al., Cell (2025)** | **[Read the paper →](https://doi.org/10.1016/j.cell.2025.06.031)**
 
 Most people think of Alzheimer’s disease in terms of plaques and tangles; the protein clumps that show up in brain scans. But a massive new study published in Cell this September reveals that the real story might be about something more fundamental: brain cells losing their grip on gene regulation itself.
 
