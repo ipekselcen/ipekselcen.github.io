@@ -62,4 +62,4 @@ The study used 10X Genomics platforms for both snATAC-seq (1.2 million nuclei) a
 7.	Arenaza-Urquijo EM, Vemuri P. Resistance vs resilience to Alzheimer disease: clarifying terminology for preclinical studies. Neurology. 2018;90(15):695-703.
 8.	Mathys H, Boix CA, Akay LA, et al. Single-cell multiregion dissection of Alzheimer’s disease. Nature. 2024;632:858-868.
 9.	Korsunsky I, Millard N, Fan J, et al. Fast, sensitive and accurate integration of single-cell data with Harmony. Nat Methods. 2019;16(12):1289-1296.  
----
+
