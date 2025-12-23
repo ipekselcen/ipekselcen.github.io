@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorials | Ipek Selcen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">← Bioinformatics</a>
+            <ul>
+                <li><a href="index.html">About</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="tutorials.html">Tutorials</a></li>
+                <li><a href="cv.html">CV</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container content">
+        <h1>Visualizing Omics Data</h1>
+        <p class="intro" style="max-width: 700px;">
+            Practical tutorials for creating publication-ready figures. 
+            Each uses real research data and provides reproducible R code.
+        </p>
+        
+        <div class="highlight-box">
+            <p>
+                These tutorials are designed for biologists transitioning into bioinformatics. 
+                <strong>Prerequisites:</strong> Basic R knowledge (data frames, functions). 
+                I'll teach you the visualization part.
+            </p>
+        </div>
+
+        <div class="tutorials-list">
+            <div class="tutorial">
+                <div class="tutorial-number">01</div>
+                <div>
+                    <h3>RNA-seq Essentials</h3>
+                    <p>
+                        Master volcano plots, MA plots, and PCA visualizations. Learn to 
+                        customize every aspect for publication quality.
+                    </p>
+                    <div class="tutorial-tags">
+                        <span class="tag">ggplot2</span>
+                        <span class="tag">DESeq2</span>
+                        <span class="tag">visualization</span>
+                    </div>
+                    <a href="tutorials/01-rnaseq-viz.html" class="card-link">Start tutorial</a>
+                </div>
+            </div>
+
+            <div class="tutorial">
+                <div class="tutorial-number">02</div>
+                <div>
+                    <h3>Advanced Heatmaps</h3>
+                    <p>
+                        Create sophisticated heatmaps with ComplexHeatmap. Cover annotations, 
+                        clustering methods, and color schemes.
+                    </p>
+                    <div class="tutorial-tags">
+                        <span class="tag">ComplexHeatmap</span>
+                        <span class="tag">clustering</span>
+                        <span class="tag">annotations</span>
+                    </div>
+                    <a href="tutorials/02-heatmaps.html" class="card-link">Start tutorial</a>
+                </div>
+            </div>
+
+            <div class="tutorial">
+                <div class="tutorial-number">03</div>
+                <div>
+                    <h3>ChIP-seq & ATAC-seq</h3>
+                    <p>
+                        Visualize epigenomic data with peak profiles and metaplots. 
+                        Integrate multiple data types for comprehensive views.
+                    </p>
+                    <div class="tutorial-tags">
+                        <span class="tag">ChIPseeker</span>
+                        <span class="tag">genomic ranges</span>
+                        <span class="tag">tracks</span>
+                    </div>
+                    <a href="tutorials/03-chipseq.html" class="card-link">Start tutorial</a>
+                </div>
+            </div>
+
+            <div class="tutorial coming-soon">
+                <div class="tutorial-number">04</div>
+                <div>
+                    <h3>Alternative Splicing</h3>
+                    <p>
+                        Visualize splicing events with sashimi plots and PSI distributions. 
+                        Based on TET2 research on splicing regulation.
+                    </p>
+                    <div class="tutorial-tags">
+                        <span class="tag">splicing</span>
+                        <span class="tag">sashimi plots</span>
+                        <span class="tag">PSI</span>
+                    </div>
+                    <span class="card-link">Coming soon</span>
+                </div>
+            </div>
+
+            <div class="tutorial coming-soon">
+                <div class="tutorial-number">05</div>
+                <div>
+                    <h3>RNA Modifications</h3>
+                    <p>
+                        Specialized visualizations for hMeRIP-seq and other RNA modification data. 
+                        Display modification landscapes and integrate with expression.
+                    </p>
+                    <div class="tutorial-tags">
+                        <span class="tag">hMeRIP-seq</span>
+                        <span class="tag">epitranscriptomics</span>
+                        <span class="tag">integration</span>
+                    </div>
+                    <span class="card-link">Coming soon</span>
+                </div>
+            </div>
+
+            <div class="tutorial coming-soon">
+                <div class="tutorial-number">06</div>
+                <div>
+                    <h3>Publication Figures</h3>
+                    <p>
+                        Assemble multi-panel figures with patchwork. Learn about color schemes, 
+                        typography, and making figures reviewers love.
+                    </p>
+                    <div class="tutorial-tags">
+                        <span class="tag">patchwork</span>
+                        <span class="tag">design</span>
+                        <span class="tag">publication</span>
+                    </div>
+                    <span class="card-link">Coming soon</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Ipek Selcen · All tutorials are freely available for educational use</p>
+    </footer>
+</body>
+</html>
