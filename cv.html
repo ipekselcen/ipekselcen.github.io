@@ -3,113 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV | Ipek Selcen</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>CV - Ipek Selcen</title>
     <style>
-        /* CV-specific styles */
-        .cv-header {
-            border-bottom: 1px solid #e5e5e5;
-            padding-bottom: 2rem;
-            margin-bottom: 3rem;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        
-        .cv-title {
-            font-size: 0.95rem;
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fafafa;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        header {
+            border-bottom: 2px solid #333;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .contact-info {
             color: #666;
-            margin-bottom: 1rem;
+            font-size: 0.95em;
         }
-        
+        .contact-info a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        h2 {
+            color: #333;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #444;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
         .job-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 0.5rem;
-            flex-wrap: wrap;
-            gap: 0.5rem;
+            margin-bottom: 5px;
         }
-        
         .date {
-            color: #999;
-            font-size: 0.9rem;
-            font-weight: 400;
-        }
-        
-        .institution {
             color: #666;
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
+            font-style: italic;
+            font-size: 0.9em;
         }
-        
-        .cv-section {
-            margin-bottom: 3rem;
+        .institution {
+            color: #555;
+            margin-bottom: 10px;
         }
-        
-        .cv-section ul {
-            margin-left: 1.5rem;
-            margin-top: 0.5rem;
+        ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
         }
-        
-        .cv-section li {
-            margin-bottom: 0.5rem;
-            color: #4a4a4a;
-            line-height: 1.7;
+        li {
+            margin-bottom: 8px;
         }
-        
-        .skills-grid {
+        .skills-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.5rem;
+            gap: 10px;
             list-style: none;
             margin-left: 0;
         }
-        
-        .skills-grid li {
-            background: #f5f5f5;
-            padding: 0.4rem 0.9rem;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            color: #666;
-            border: 1px solid #e5e5e5;
+        .skills-list li {
+            background: #f0f0f0;
+            padding: 5px 15px;
+            border-radius: 3px;
+            font-size: 0.9em;
         }
-        
-        .publication {
-            margin-bottom: 1.5rem;
-            padding-left: 1.5rem;
-            border-left: 2px solid #f0f0f0;
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #0066cc;
+            text-decoration: none;
+            font-size: 0.9em;
         }
-        
+        .back-link:hover {
+            text-decoration: underline;
+        }
         @media print {
-            nav { display: none; }
-            .container { padding: 1rem; }
+            body {
+                background: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+            .back-link {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">← Ipek Selcen</a>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="cv.html">CV</a></li>
-            </ul>
-        </div>
-    </nav>
-
     <div class="container">
-        <header class="cv-header">
+        <a href="index.html" class="back-link">← Back to home</a>
+        
+        <header>
             <h1>Ipek Selcen</h1>
-            <div class="cv-title">PhD in Biochemistry | Epigenetics & Computational Biology</div>
-            <div class="contact-links">
-                <a href="https://github.com/ipekselcen" target="_blank">GitHub</a>
-                <a href="https://linkedin.com/in/ipek-selcen-16516948" target="_blank">LinkedIn</a>
+            <div class="contact-info">
+                PhD in Biochemistry | Epigenetics & Computational Biology<br>
+                <a href="https://github.com/ipekselcen">GitHub</a> | 
+                <a href="https://www.linkedin.com/in/ipek-selcen-16516948">LinkedIn</a> | 
                 <a href="mailto:ipek.selcen@gmail.com">Email</a>
             </div>
         </header>
 
-        <section class="cv-section">
+        <section>
             <h2>Education</h2>
-            
             <div class="job-header">
                 <h3>Doctor of Philosophy in Biochemistry</h3>
                 <span class="date">2019 - 2025</span>
@@ -143,9 +167,8 @@
             </ul>
         </section>
 
-        <section class="cv-section">
+        <section>
             <h2>Research Experience</h2>
-            
             <div class="job-header">
                 <h3>Doctoral Researcher</h3>
                 <span class="date">2019 - 2025</span>
@@ -175,39 +198,10 @@
             </ul>
         </section>
 
-        <section class="cv-section">
-            <h2>Publications</h2>
-            
-            <div class="publication">
-                Dansu, D.K.*, <strong>Selcen, I.*</strong>, Sauma, S., Prentice, E., Huang, D., Li, M., Moyon, S., Casaccia, P. (2024). 
-                Histone H4 acetylation differentially modulates proliferation in adult oligodendrocyte progenitors. 
-                <em>Journal of Cell Biology</em>.
-            </div>
-            
-            <div class="publication">
-                Pruvost, M., Patzig, J., Yattah, C., <strong>Selcen, I.</strong>, Hernandez, M., Park, H.J., Moyon, S., Liu, S., Morioka, M.S., Shopland, L., Casaccia, P. (2023). 
-                The stability of the myelinating oligodendrocyte transcriptome is regulated by the nuclear lamina. 
-                <em>Cell Reports</em>.
-            </div>
-            
-            <div class="publication">
-                <strong>Selcen, I.</strong>, Prentice, E., Casaccia, P. (2023). 
-                The epigenetic landscape of oligodendrocyte lineage cells. 
-                <em>Annals of the New York Academy of Sciences</em>.
-            </div>
-            
-            <div class="publication">
-                Dansu, D.K., Liang, J., <strong>Selcen, I.</strong>, Zheng, H., Moore, D.F., Casaccia, P. (2022). 
-                PRMT5 Interacting Partners and Substrates in Oligodendrocyte Lineage Cells. 
-                <em>Frontiers in Cellular Neuroscience</em>.
-            </div>
-        </section>
-
-        <section class="cv-section">
+        <section>
             <h2>Technical Skills</h2>
-            
             <h3>Molecular Biology</h3>
-            <ul class="skills-grid">
+            <ul class="skills-list">
                 <li>CRISPR genome editing</li>
                 <li>Primary cell culture</li>
                 <li>Molecular cloning</li>
@@ -218,8 +212,8 @@
                 <li>Immunoprecipitation</li>
             </ul>
 
-            <h3 style="margin-top: 2rem;">Computational Biology</h3>
-            <ul class="skills-grid">
+            <h3>Computational Biology</h3>
+            <ul class="skills-list">
                 <li>R (Bioconductor)</li>
                 <li>Python</li>
                 <li>UNIX/bash</li>
@@ -230,8 +224,8 @@
                 <li>Data visualization</li>
             </ul>
 
-            <h3 style="margin-top: 2rem;">Scientific Communication</h3>
-            <ul class="skills-grid">
+            <h3>Scientific Communication</h3>
+            <ul class="skills-list">
                 <li>Manuscript writing</li>
                 <li>Figure preparation</li>
                 <li>Science communication</li>
@@ -240,7 +234,17 @@
             </ul>
         </section>
 
-        <section class="cv-section">
+        <section>
+            <h2>Publications</h2>
+            <ul>
+                <li>Dansu, D.K.*, <strong>Selcen, I.*</strong>, Sauma, S., Prentice, E., Huang, D., Li, M., Moyon, S., Casaccia, P. (2024). Histone H4 acetylation differentially modulates proliferation in adult oligodendrocyte progenitors. <em>Journal of Cell Biology</em>.</li>
+                <li>Pruvost, M., Patzig, J., Yattah, C., <strong>Selcen, I.</strong>, Hernandez, M., Park, H.J., Moyon, S., Liu, S., Morioka, M.S., Shopland, L., Casaccia, P. (2023). The stability of the myelinating oligodendrocyte transcriptome is regulated by the nuclear lamina. <em>Cell Reports</em>.</li>
+                <li><strong>Selcen, I.</strong>, Prentice, E., Casaccia, P. (2023). The epigenetic landscape of oligodendrocyte lineage cells. <em>Annals of the New York Academy of Sciences</em>.</li>
+                <li>Dansu, D.K., Liang, J., <strong>Selcen, I.</strong>, Zheng, H., Moore, D.F., Casaccia, P. (2022). PRMT5 Interacting Partners and Substrates in Oligodendrocyte Lineage Cells. <em>Frontiers in Cellular Neuroscience</em>.</li>
+            </ul>
+        </section>
+
+        <section>
             <h2>Service & Outreach</h2>
             <ul>
                 <li>ITU Volunteer Mentor (2025 - present)</li>
@@ -249,16 +253,12 @@
             </ul>
         </section>
 
-        <section class="cv-section">
+        <section>
             <h2>Professional Development</h2>
             <ul>
                 <li>Medical Communications Certificate, NYU</li>
             </ul>
         </section>
-
-        <footer>
-            © 2024 Ipek Selcen
-        </footer>
     </div>
 </body>
 </html>
