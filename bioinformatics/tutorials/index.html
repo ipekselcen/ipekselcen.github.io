@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorials | Ipek Selcen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="site-nav">
+        <div class="nav-container">
+            <a href="../../index.html" class="site-logo">Ipek Selcen</a>
+            <ul class="nav-menu">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../index.html" class="active">Bioinformatics</a></li>
+                <li><a href="../../editorial/index.html">Science Communication</a></li>
+                <li><a href="../../cv.html">CV</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <a href="../index.html" style="color: var(--color-bioinfo); font-size: 0.9rem; display: inline-block; margin-bottom: 2rem;">
+            ← Back to Bioinformatics
+        </a>
+
+        <header class="page-header">
+            <h1 class="page-title">Bioinformatics Tutorials</h1>
+            <p class="page-subtitle">
+                Step-by-step guides for analyzing genomics data, written for biologists transitioning 
+                to computational work
+            </p>
+        </header>
+
+        <section class="content-section">
+            <!-- Featured Tutorial -->
+            <div class="project-card bioinfo" style="border-left-width: 6px;">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <span class="project-tag type">⭐ Featured</span>
+                    <span class="project-tag category">Complete Pipeline</span>
+                </div>
+                <h3>RNA-seq Analysis: From Raw Reads to Biological Insight</h3>
+                <p>
+                    A comprehensive, end-to-end RNA-seq workflow using public data. Covers quality control, 
+                    alignment, quantification, differential expression, and pathway analysis. Includes all 
+                    code, data, and reproducible scripts. Based on methods used in my published research.
+                </p>
+                <div style="margin-top: 1.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                    <span style="font-size: 0.85rem; color: var(--color-text-muted);">🔧 FastQC • STAR • DESeq2 • clusterProfiler</span>
+                </div>
+                <div style="margin-top: 1rem; display: flex; gap: 1rem; align-items: center;">
+                    <a href="rna-seq.html" class="project-link">View tutorial →</a>
+                    <span style="font-size: 0.85rem; color: var(--color-text-muted);">⏱ 4-6 hours</span>
+                    <span style="font-size: 0.85rem; color: var(--color-text-muted);">📊 Beginner-Intermediate</span>
+                </div>
+            </div>
+
+            <!-- Upcoming Tutorials -->
+            <h3 class="section-header" style="margin-top: 4rem;">More Tutorials Coming Soon</h3>
+            
+            <div class="project-card bioinfo" style="opacity: 0.6;">
+                <div class="project-meta">
+                    <span class="project-tag category">In Development</span>
+                </div>
+                <h3>ChIP-seq Analysis Pipeline</h3>
+                <p>
+                    Complete workflow for analyzing ChIP-seq data, from quality control through peak calling 
+                    and annotation. Includes motif discovery and downstream analysis.
+                </p>
+            </div>
+
+            <div class="project-card bioinfo" style="opacity: 0.6;">
+                <div class="project-meta">
+                    <span class="project-tag category">In Development</span>
+                </div>
+                <h3>Data Visualization in R</h3>
+                <p>
+                    Create publication-quality figures from genomics data using ggplot2 and ComplexHeatmap. 
+                    Covers heatmaps, volcano plots, MA plots, and more.
+                </p>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            © 2024 Ipek Selcen
+        </footer>
+    </div>
+</body>
+</html>
