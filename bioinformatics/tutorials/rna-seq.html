@@ -23,7 +23,7 @@
         }
         
         .overview-label {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--color-text-muted);
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -31,7 +31,7 @@
         }
         
         .overview-value {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 600;
             color: var(--color-text-primary);
         }
@@ -47,16 +47,16 @@
         .workflow-steps {
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 2.5rem;
         }
         
         .workflow-step {
-            flex: 1;
-            min-width: 140px;
+            flex: 0 0 auto;
+            width: 160px;
             text-align: center;
-            padding: 1.25rem;
+            padding: 1.5rem 1rem;
             background: white;
             border: 1px solid var(--color-border);
             border-radius: 6px;
@@ -66,12 +66,13 @@
         .workflow-step::after {
             content: '→';
             position: absolute;
-            right: -1.5rem;
+            right: -2rem;
             top: 50%;
             transform: translateY(-50%);
             color: var(--color-bioinfo);
             font-size: 1.5rem;
             font-weight: 700;
+            z-index: -1;
         }
         
         .workflow-step:last-child::after {
@@ -80,13 +81,13 @@
         
         .step-name {
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 1rem;
             color: var(--color-text-primary);
             margin-bottom: 0.5rem;
         }
         
         .step-tool {
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             color: var(--color-bioinfo);
         }
         
@@ -127,7 +128,7 @@
         }
         
         .metric-value {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--color-bioinfo);
             margin-bottom: 0.25rem;
@@ -244,10 +245,10 @@
 
         <!-- Header -->
         <header style="margin-bottom: 3rem;">
-            <h1 style="font-size: 2.5rem; font-weight: 700; line-height: 1.2; margin-bottom: 1rem;">
+            <h1 style="font-size: 1.75rem; font-weight: 700; line-height: 1.2; margin-bottom: 1rem;">
                 Role of DNA Methylation in Oligodendrocyte Progenitor Cell Development
             </h1>
-            <p style="font-size: 1.15rem; line-height: 1.7; color: var(--color-text-secondary); max-width: 800px;">
+            <p style="font-size: 1.05rem; line-height: 1.7; color: var(--color-text-secondary); max-width: 800px;">
                 RNA-seq analysis investigating how Dnmt1-mediated DNA methylation regulates gene expression 
                 during early oligodendrocyte development in neonatal mice
             </p>
@@ -275,7 +276,7 @@
 
         <!-- Background -->
         <section style="margin-bottom: 4rem;">
-            <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1.5rem;">Background</h2>
+            <h2 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 1.5rem;">Background</h2>
             <p style="line-height: 1.8; color: var(--color-text-secondary); margin-bottom: 1rem;">
                 Oligodendrocyte progenitor cells (OPCs) are glial cells that differentiate into myelinating 
                 oligodendrocytes in the central nervous system. During postnatal development, OPCs undergo 
@@ -297,7 +298,7 @@
 
         <!-- Analysis Workflow -->
         <section style="margin-bottom: 4rem;">
-            <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1.5rem;">Analysis Workflow</h2>
+            <h2 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 1.5rem;">Analysis Workflow</h2>
             
             <div class="workflow-diagram">
                 <div class="workflow-steps">
@@ -328,7 +329,7 @@
                 </div>
             </div>
 
-            <h3 style="font-size: 1.25rem; font-weight: 600; margin: 2.5rem 0 1.5rem 0;">
+            <h3 style="font-size: 1.1rem; font-weight: 600; margin: 2.5rem 0 1.5rem 0;">
                 Key Tool Choices & Rationale
             </h3>
 
@@ -363,7 +364,7 @@
 
         <!-- Quality Control Metrics -->
         <section style="margin-bottom: 4rem;">
-            <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1.5rem;">Quality Control</h2>
+            <h2 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 1.5rem;">Quality Control</h2>
             
             <div class="metrics-grid">
                 <div class="metric-box">
@@ -393,7 +394,7 @@
 
         <!-- Results Section -->
         <section style="margin-bottom: 4rem;">
-            <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1.5rem;">Results</h2>
+            <h2 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 1.5rem;">Results</h2>
             
             <p style="line-height: 1.8; color: var(--color-text-secondary); margin-bottom: 2rem;">
                 <em>Note: Final analysis in progress. Numbers shown are placeholders for expected results.</em>
@@ -421,7 +422,7 @@
             </div>
 
             <!-- Figure placeholders -->
-            <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1.5rem;">Figures</h3>
+            <h3 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1.5rem;">Figures</h3>
             
             <div class="figure-placeholder">
                 <div style="font-size: 1.1rem; font-weight: 600; margin-bottom: 0.5rem;">Volcano Plot</div>
@@ -456,7 +457,7 @@
 
         <!-- Connection to My Research -->
         <section style="margin-bottom: 4rem;">
-            <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1.5rem;">
+            <h2 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 1.5rem;">
                 Relevance to My Research
             </h2>
             <p style="line-height: 1.8; color: var(--color-text-secondary); margin-bottom: 1rem;">
@@ -475,7 +476,7 @@
 
         <!-- Technical Implementation -->
         <section style="margin-bottom: 4rem;">
-            <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1.5rem;">
+            <h2 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 1.5rem;">
                 Technical Implementation
             </h2>
 
@@ -565,7 +566,7 @@
 
         <!-- Code & Reproducibility -->
         <section style="margin-bottom: 4rem;">
-            <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1.5rem;">
+            <h2 style="font-size: 1.35rem; font-weight: 700; margin-bottom: 1.5rem;">
                 Code & Reproducibility
             </h2>
             <p style="line-height: 1.8; color: var(--color-text-secondary); margin-bottom: 1.5rem;">
