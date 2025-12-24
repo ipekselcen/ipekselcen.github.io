@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dnmt1 Knockout RNA-seq Analysis | Ipek Selcen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        .hero-banner {
+            background: linear-gradient(135deg, var(--color-bioinfo-light) 0%, var(--color-bg-primary) 100%);
+            padding: 3rem;
+            border-radius: 12px;
+            margin-bottom: 3rem;
+            border-left: 6px solid var(--color-bioinfo);
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .metric-card {
+            background: var(--color-bg-primary);
+            border: 2px solid var(--color-bioinfo);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .metric-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--color-bioinfo);
+            line-height: 1;
+        }
+        
+        .metric-label {
+            font-size: 0.85rem;
+            color: var(--color-text-secondary);
+            margin-top: 0.5rem;
+        }
+        
+        .findings-box {
+            background: var(--color-bioinfo-light);
+            border-left: 4px solid var(--color-bioinfo);
+            padding: 2rem;
+            border-radius: 0 8px 8px 0;
+            margin: 2rem 0;
+        }
+        
+        .findings-box h3 {
+            color: var(--color-bioinfo-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .findings-box ul {
+            margin-left: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .findings-box li {
+            margin-bottom: 0.75rem;
+            color: var(--color-text-primary);
+        }
+        
+        .figure-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .figure-card {
+            background: var(--color-bg-secondary);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+        
+        .figure-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+        
+        .figure-placeholder {
+            background: linear-gradient(135deg, #e0f2fe 0%, #bfdbfe 100%);
+            height: 250px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-bioinfo-dark);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .figure-caption {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+        }
+        
+        .methods-brief {
+            background: var(--color-bg-secondary);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .github-cta {
+            background: var(--color-bg-primary);
+            border: 2px solid var(--color-bioinfo);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .github-btn {
+            display: inline-block;
+            background: var(--color-bioinfo);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+        
+        .github-btn:hover {
+            background: var(--color-bioinfo-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="site-nav">
+        <div class="nav-container">
+            <a href="../../index.html" class="site-logo">Ipek Selcen</a>
+            <ul class="nav-menu">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../index.html" class="active">Bioinformatics</a></li>
+                <li><a href="../../editorial/index.html">Science Communication</a></li>
+                <li><a href="../../cv.html">CV</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <a href="../index.html" style="color: var(--color-bioinfo); font-size: 0.9rem; display: inline-block; margin-bottom: 2rem;">
+            ← Back to Bioinformatics
+        </a>
+
+        <!-- Hero Section -->
+        <div class="hero-banner">
+            <div style="margin-bottom: 1rem;">
+                <span style="background: var(--color-bioinfo); color: white; padding: 0.35rem 0.75rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;">Case Study</span>
+                <span style="background: white; color: var(--color-text-secondary); padding: 0.35rem 0.75rem; border-radius: 20px; font-size: 0.8rem; margin-left: 0.5rem; border: 1px solid var(--color-border);">Public Dataset</span>
+            </div>
+            <h1 style="font-size: 2.25rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.2;">
+                Transcriptional Reprogramming in Dnmt1 Knockout Cells
+            </h1>
+            <p style="font-size: 1.1rem; color: var(--color-text-secondary); line-height: 1.7;">
+                An RNA-seq analysis revealing how loss of DNA methyltransferase 1 triggers widespread 
+                epigenetic changes and reactivates pluripotency networks
+            </p>
+        </div>
+
+        <!-- Key Metrics -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-number">347</div>
+                <div class="metric-label">Differentially Expressed Genes</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number">162</div>
+                <div class="metric-label">Upregulated</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number">185</div>
+                <div class="metric-label">Downregulated</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-number">85%</div>
+                <div class="metric-label">Mapping Rate</div>
+            </div>
+        </div>
+
+        <!-- Background -->
+        <section style="margin-bottom: 4rem;">
+            <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1.5rem;">Background</h2>
+            <p style="color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 1rem;">
+                DNA methyltransferase 1 (Dnmt1) maintains DNA methylation patterns during cell division, 
+                playing a critical role in silencing repetitive elements and regulating gene expression. 
+                Loss of Dnmt1 leads to global hypomethylation and can trigger developmental defects and 
+                genomic instability.
+            </p>
+            <p style="color: var(--color-text-secondary); line-height: 1.8;">
+                I analyzed publicly available RNA-seq data (GSE79018) comparing mouse embryonic stem cells 
+                with and without Dnmt1 to understand the transcriptional consequences of losing this key 
+                epigenetic regulator.
+            </p>
+        </section>
+
+        <!-- Key Findings -->
+        <div class="findings-box">
+            <h3>🔬 Key Findings</h3>
+            <ul>
+                <li><strong>Widespread transcriptional changes:</strong> 347 genes showed significant 
+                    differential expression (FDR < 0.05, |log₂FC| > 1)</li>
+                <li><strong>Reactivation of pluripotency factors:</strong> Upregulation of <em>Pou5f1</em> 
+                    (Oct4), <em>Sox2</em>, and <em>Nanog</em>—core pluripotency transcription factors</li>
+                <li><strong>Chromatin remodeling response:</strong> Enrichment of genes involved in 
+                    histone modification and chromatin organization</li>
+                <li><strong>Compensation mechanisms:</strong> Upregulation of other DNA methyltransferases 
+                    (<em>Dnmt3a</em>, <em>Dnmt3b</em>) suggesting compensatory responses</li>
+                <li><strong>Metabolic reprogramming:</strong> Changes in one-carbon metabolism and 
+                    methionine cycle genes</li>
+            </ul>
+        </div>
+
+        <!-- Results & Figures -->
+        <section style="margin-bottom: 4rem;">
+            <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 2rem;">Results</h2>
+            
+            <div class="figure-grid">
+                <div class="figure-card">
+                    <div class="figure-placeholder">
+                        Volcano Plot
+                        <br>
+                        <span style="font-size: 0.8rem; font-weight: 400;">[Add your figure here]</span>
+                    </div>
+                    <p class="figure-caption">
+                        <strong>Figure 1: Volcano plot of differential expression.</strong> 
+                        Red points indicate significantly upregulated genes (log₂FC > 1, FDR < 0.05), 
+                        blue points show downregulated genes (log₂FC < -1, FDR < 0.05). 
+                        Key pluripotency factors are labeled.
+                    </p>
+                </div>
+
+                <div class="figure-card">
+                    <div class="figure-placeholder">
+                        PCA Plot
+                        <br>
+                        <span style="font-size: 0.8rem; font-weight: 400;">[Add your figure here]</span>
+                    </div>
+                    <p class="figure-caption">
+                        <strong>Figure 2: Principal component analysis.</strong> 
+                        Clear separation between control and Dnmt1 KO samples on PC1 (68% variance), 
+                        demonstrating robust transcriptional differences.
+                    </p>
+                </div>
+
+                <div class="figure-card">
+                    <div class="figure-placeholder">
+                        Heatmap
+                        <br>
+                        <span style="font-size: 0.8rem; font-weight: 400;">[Add your figure here]</span>
+                    </div>
+                    <p class="figure-caption">
+                        <strong>Figure 3: Heatmap of top 50 DEGs.</strong> 
+                        Hierarchical clustering shows distinct expression patterns. 
+                        Notable upregulation of pluripotency and chromatin remodeling genes.
+                    </p>
+                </div>
+
+                <div class="figure-card">
+                    <div class="figure-placeholder">
+                        GO Enrichment
+                        <br>
+                        <span style="font-size: 0.8rem; font-weight: 400;">[Add your figure here]</span>
+                    </div>
+                    <p class="figure-caption">
+                        <strong>Figure 4: Gene Ontology enrichment analysis.</strong> 
+                        Top enriched biological processes include chromatin organization, 
+                        DNA methylation, and stem cell maintenance (FDR < 0.01).
+                    </p>
+                </div>
+
+                <div class="figure-card">
+                    <div class="figure-placeholder">
+                        KEGG Pathways
+                        <br>
+                        <span style="font-size: 0.8rem; font-weight: 400;">[Add your figure here]</span>
+                    </div>
+                    <p class="figure-caption">
+                        <strong>Figure 5: KEGG pathway enrichment.</strong> 
+                        Enriched pathways include metabolic processes, particularly one-carbon 
+                        metabolism critical for methylation reactions.
+                    </p>
+                </div>
+
+                <div class="figure-card">
+                    <div class="figure-placeholder">
+                        MA Plot
+                        <br>
+                        <span style="font-size: 0.8rem; font-weight: 400;">[Add your figure here]</span>
+                    </div>
+                    <p class="figure-caption">
+                        <strong>Figure 6: MA plot showing log fold change vs. mean expression.</strong> 
+                        Differential expression is not driven by lowly expressed genes; 
+                        many high-abundance transcripts show significant changes.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Biological Interpretation -->
+        <section style="margin-bottom: 4rem;">
+            <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1.5rem;">Biological Interpretation</h2>
+            
+            <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; color: var(--color-bioinfo);">
+                Reversion to Pluripotent State
+            </h3>
+            <p style="color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 2rem;">
+                The upregulation of core pluripotency factors (<em>Oct4</em>, <em>Sox2</em>, <em>Nanog</em>) 
+                suggests that loss of Dnmt1-mediated DNA methylation allows reactivation of genes normally 
+                silenced during differentiation. This is consistent with the known role of DNA methylation 
+                in maintaining cellular identity and preventing dedifferentiation.
+            </p>
+
+            <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; color: var(--color-bioinfo);">
+                Compensatory Epigenetic Mechanisms
+            </h3>
+            <p style="color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 2rem;">
+                Upregulation of <em>Dnmt3a</em> and <em>Dnmt3b</em> indicates an attempt to compensate for 
+                loss of maintenance methylation. However, de novo methyltransferases cannot fully replace 
+                Dnmt1's role in maintaining established methylation patterns, leading to progressive hypomethylation.
+            </p>
+
+            <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; color: var(--color-bioinfo);">
+                Chromatin Remodeling Response
+            </h3>
+            <p style="color: var(--color-text-secondary); line-height: 1.8;">
+                The enrichment of chromatin organization genes suggests active remodeling of the epigenome 
+                in response to hypomethylation. This likely reflects both direct consequences of methylation 
+                loss and cellular attempts to restore proper gene regulation through alternative mechanisms.
+            </p>
+        </section>
+
+        <!-- Methods Overview -->
+        <div class="methods-brief">
+            <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem;">Analysis Approach</h3>
+            <p style="color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 1rem;">
+                I processed raw sequencing reads through a standard RNA-seq pipeline: quality control with 
+                FastQC/MultiQC, adapter trimming with Trim Galore, alignment to mouse reference genome (GRCm39) 
+                using STAR, and read quantification with featureCounts.
+            </p>
+            <p style="color: var(--color-text-secondary); line-height: 1.8;">
+                Differential expression analysis was performed using DESeq2 with standard normalization and 
+                FDR correction. Pathway enrichment used clusterProfiler for GO and KEGG analyses. All 
+                visualizations were created in R using ggplot2, ComplexHeatmap, and EnhancedVolcano.
+            </p>
+        </div>
+
+        <!-- Connection to My Research -->
+        <section style="background: var(--color-bg-secondary); padding: 2.5rem; border-radius: 12px; border-left: 4px solid var(--color-bioinfo); margin-bottom: 4rem;">
+            <h3 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem;">
+                Connection to My Research
+            </h3>
+            <p style="color: var(--color-text-secondary); line-height: 1.8; margin-bottom: 1rem;">
+                This analysis demonstrates the same RNA-seq workflow I used in my PhD research on TET2-mediated 
+                RNA modifications. Like Dnmt1, TET2 is an epigenetic regulator, and understanding how loss of 
+                these enzymes affects transcription is central to my work.
+            </p>
+            <p style="color: var(--color-text-secondary); line-height: 1.8;">
+                The methods here—from quality control through pathway analysis—have been validated in my 
+                published research in <em>Cell Reports</em> and <em>Journal of Cell Biology</em>, where similar 
+                approaches revealed how TET2 regulates alternative splicing in oligodendrocyte progenitor cells.
+            </p>
+        </section>
+
+        <!-- Dataset & Code -->
+        <div class="github-cta">
+            <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem;">
+                Complete Code & Reproducible Pipeline
+            </h3>
+            <p style="color: var(--color-text-secondary); max-width: 600px; margin: 0 auto 1.5rem;">
+                All analysis code, scripts, and documentation are available on GitHub. The pipeline is 
+                fully reproducible and includes automated downloads of public data.
+            </p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="https://github.com/ipekselcen/rnaseq-tutorial" target="_blank" class="github-btn">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16" style="vertical-align: middle; margin-right: 0.5rem;">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.20 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                    View on GitHub
+                </a>
+                <span style="align-self: center; color: var(--color-text-muted); font-size: 0.9rem;">
+                    Dataset: GSE79018 (Moyon et al. 2016)
+                </span>
+            </div>
+        </div>
+
+        <!-- Technical Details -->
+        <details style="background: var(--color-bg-secondary); padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
+            <summary style="cursor: pointer; font-weight: 600; color: var(--color-bioinfo);">
+                📊 Technical Details & QC Metrics
+            </summary>
+            <div style="margin-top: 1.5rem; color: var(--color-text-secondary); line-height: 1.8;">
+                <ul style="margin-left: 1.5rem;">
+                    <li><strong>Samples:</strong> 4 (2 Control, 2 Dnmt1 KO)</li>
+                    <li><strong>Sequencing:</strong> Illumina paired-end, ~30M reads per sample</li>
+                    <li><strong>Reference:</strong> Mouse GRCm39 (Ensembl release 115)</li>
+                    <li><strong>Alignment rate:</strong> 85-90% uniquely mapped</li>
+                    <li><strong>Gene assignment:</strong> 72% of reads assigned to genes</li>
+                    <li><strong>DE criteria:</strong> FDR < 0.05, |log₂FC| > 1</li>
+                    <li><strong>Tools:</strong> STAR v2.7.11a, featureCounts v2.0.6, DESeq2 v1.42.0</li>
+                </ul>
+            </div>
+        </details>
+
+        <footer class="site-footer">
+            © 2024 Ipek Selcen
+        </footer>
+    </div>
+</body>
+</html>
