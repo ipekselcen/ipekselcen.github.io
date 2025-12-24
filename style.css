@@ -1,19 +1,19 @@
 /* ============================================
-   IPEK SELCEN PORTFOLIO - 2025 MODERN DESIGN
+   IPEK SELCEN PORTFOLIO - 2025
    Color-coded sections, visual hierarchy
    ============================================ */
 
 :root {
-    /* Brand Colors - Color-coded by section */
-    --color-bioinfo: #0ea5e9;      /* Vibrant cyan-blue for Bioinformatics */
+    /* Color-coded by section */
+    --color-bioinfo: #0ea5e9;
     --color-bioinfo-light: #e0f2fe; 
     --color-bioinfo-dark: #0369a1;
     
-    --color-scicomm: #a855f7;      /* Purple for Science Communication */
+    --color-scicomm: #a855f7;
     --color-scicomm-light: #f3e8ff;
     --color-scicomm-dark: #7e22ce;
     
-    --color-research: #10b981;     /* Green for Research/Publications */
+    --color-research: #10b981;
     --color-research-light: #d1fae5;
     
     /* Neutrals - 2025 warm grayscale */
@@ -47,7 +47,7 @@ body {
 }
 
 /* ============================================
-   TOP NAVIGATION - Modern glassmorphism effect
+   TOP NAVIGATION
    ============================================ */
 .site-nav {
     background: rgba(255, 255, 255, 0.8);
@@ -128,7 +128,7 @@ body {
     min-height: calc(100vh - 70px);
 }
 
-/* LEFT SIDEBAR - Refined design */
+/* LEFT SIDEBAR */
 .profile-sidebar {
     background: linear-gradient(135deg, var(--color-bg-sidebar) 0%, var(--color-bg-secondary) 100%);
     border-right: 1px solid var(--color-border);
