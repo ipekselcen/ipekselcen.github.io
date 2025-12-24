@@ -4,21 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Science Communication | Ipek Selcen</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Top Navigation -->
     <nav class="site-nav">
         <div class="nav-container">
             <a href="../index.html" class="site-logo">Ipek Selcen</a>
             <ul class="nav-menu">
                 <li><a href="../index.html">Home</a></li>
-                <li><span class="nav-divider">|</span></li>
                 <li><a href="../bioinformatics/index.html">Bioinformatics</a></li>
-                <li><span class="nav-divider">|</span></li>
                 <li><a href="index.html" class="active">Science Communication</a></li>
-                <li><span class="nav-divider">|</span></li>
                 <li><a href="../cv.html">CV</a></li>
             </ul>
         </div>
@@ -26,103 +23,153 @@
 
     <!-- Main Content -->
     <div class="container">
-        <header class="page-header" style="text-align: left; border-bottom: none; padding-bottom: 2rem;">
-            <h1>Science Communication</h1>
-            <p class="page-intro" style="margin-left: 0; max-width: 100%;">
-                I make complex research accessible through clear writing and thoughtful 
-                editing. With a PhD in chromatin biology and formal training in medical 
-                communications, I bring both scientific depth and communication clarity.
+        <header class="page-header">
+            <h1 class="page-title">Science Communication</h1>
+            <p class="page-subtitle">
+                Making complex research accessible through clear writing and thoughtful editing
             </p>
         </header>
 
-        <section class="section" style="background: var(--bg-gray); padding: 2rem; border-radius: 8px; margin-bottom: 4rem;">
-            <h2 style="font-size: 1.1rem; font-weight: 600; margin-bottom: 1rem; color: var(--text-dark);">Philosophy</h2>
-            <p style="color: var(--text-medium); margin-bottom: 1rem;">
-                Great science communication starts with deep understanding. My background 
-                in molecular biology and bioinformatics gives me the fluency to engage 
-                with cutting-edge research.
+        <!-- Philosophy Section -->
+        <section class="content-section" style="background: var(--color-scicomm-light); padding: 2.5rem; border-radius: 12px; border-left: 4px solid var(--color-scicomm); margin-bottom: 4rem;">
+            <h2 style="font-size: 1.25rem; font-weight: 700; margin-bottom: 1rem; color: var(--color-text-primary);">
+                My Approach
+            </h2>
+            <p style="color: var(--color-text-secondary); margin-bottom: 1rem; line-height: 1.8;">
+                Great science communication starts with deep understanding. My PhD in chromatin 
+                biology and hands-on experience with multi-omics analysis give me the technical 
+                fluency to engage with cutting-edge research across molecular biology, genetics, 
+                and computational biology.
             </p>
-            <p style="color: var(--text-medium);">
-                But understanding isn't enough. The best writing makes complex concepts 
-                not just comprehensible, but compelling. I write for clarity, edit for 
-                precision, and always keep the reader in mind.
+            <p style="color: var(--color-text-secondary); line-height: 1.8;">
+                But understanding isn't enough. The best writing makes complex concepts not just 
+                comprehensible, but compelling. I write for clarity, edit for precision, and 
+                always keep the reader in mind—whether they're a fellow scientist, a journal 
+                editor, or someone encountering the topic for the first time.
             </p>
         </section>
 
-        <section class="section">
-            <h2 class="section-header">Experience</h2>
+        <section class="content-section">
+            <h2 class="section-title">Experience & Training</h2>
             <div class="highlights-grid">
                 <div class="highlight-item">
-                    <h3>Research Communication</h3>
-                    <p>First-author publications in Nature Neuroscience, Cell Reports, 
-                       and JCB. Experience presenting complex findings to diverse audiences.</p>
+                    <h3>Research Publications</h3>
+                    <p>
+                        First-author papers in <em>Cell Reports</em> and <em>Journal of Cell Biology</em>. 
+                        Experience presenting complex findings to diverse audiences, from lab meetings 
+                        to international conferences.
+                    </p>
                 </div>
                 
                 <div class="highlight-item">
-                    <h3>Education</h3>
-                    <p>Graduate Certificate in Medical Communications (NYU). Trained 8+ students 
-                       in molecular biology and computational methods.</p>
+                    <h3>Medical Communications</h3>
+                    <p>
+                        Graduate Certificate from NYU focused on writing for healthcare audiences. 
+                        Trained in translating technical research for patients, providers, and 
+                        policy makers.
+                    </p>
                 </div>
                 
                 <div class="highlight-item">
-                    <h3>Content Creation</h3>
-                    <p>BioRender Campus Ambassador developing educational content that 
-                       bridges experimental and computational biology.</p>
+                    <h3>Educational Content</h3>
+                    <p>
+                        BioRender Campus Ambassador developing tutorials that bridge experimental 
+                        and computational biology. Mentored 8+ students in both wet lab techniques 
+                        and data analysis.
+                    </p>
                 </div>
                 
                 <div class="highlight-item">
                     <h3>Technical Fluency</h3>
-                    <p>Can read methods, interpret figures, and ask the right questions. 
-                       Comfortable with both wet lab and computational research.</p>
+                    <p>
+                        Can read methods sections, interpret complex figures, ask the right questions, 
+                        and explain the significance. Comfortable with wet lab protocols and 
+                        computational pipelines.
+                    </p>
                 </div>
             </div>
         </section>
 
-        <section class="section">
-            <h2 class="section-header">Featured Writing</h2>
+        <section class="content-section">
+            <h2 class="section-title">Writing Portfolio</h2>
             
-            <div class="writing-sample">
-                <div class="writing-meta">
-                    <span class="writing-type">Educational Content</span>
-                    <span class="writing-category">Bioinformatics</span>
+            <!-- Writing Sample 1 -->
+            <div class="project-card scicomm">
+                <div class="project-meta">
+                    <span class="project-tag type" style="background: linear-gradient(135deg, var(--color-scicomm) 0%, var(--color-scicomm-dark) 100%);">Educational Content</span>
+                    <span class="project-tag category">Bioinformatics Tutorial</span>
                 </div>
                 <h3>Visualizing Omics Data</h3>
                 <p>
-                    Comprehensive tutorials teaching biologists how to create publication-ready 
-                    visualizations from genomics data. Each chapter balances technical rigor 
-                    with pedagogical clarity.
+                    Comprehensive tutorial series teaching biologists how to create publication-ready 
+                    visualizations from genomics data. Each chapter balances technical rigor with 
+                    pedagogical clarity, explaining not just the "how" but the "why" behind design 
+                    choices. Written for researchers transitioning from experimental to computational work.
                 </p>
-                <a href="../bioinformatics/tutorials.html" class="writing-link">View tutorials →</a>
+                <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-top: 0.5rem;">
+                    <strong>Audience:</strong> Biologists with basic R knowledge | <strong>Format:</strong> Step-by-step tutorials with code examples
+                </p>
+                <a href="../bioinformatics/index.html" class="project-link" style="color: var(--color-scicomm);">View tutorials →</a>
             </div>
-            
-            <div class="writing-sample">
-                <div class="writing-meta">
-                    <span class="writing-type">Research Summary</span>
-                    <span class="writing-category">General Audience</span>
+
+            <!-- Writing Sample 2 -->
+            <div class="project-card scicomm">
+                <div class="project-meta">
+                    <span class="project-tag type" style="background: linear-gradient(135deg, var(--color-scicomm) 0%, var(--color-scicomm-dark) 100%);">Research Summary</span>
+                    <span class="project-tag category">General Audience</span>
                 </div>
-                <h3>Understanding RNA Modifications</h3>
+                <h3>How RNA Modifications Guide Cell Fate</h3>
                 <p>
-                    A lay-friendly explanation of how RNA modifications guide cell fate decisions. 
-                    Translates my PhD research into accessible language while maintaining accuracy.
+                    A lay-friendly explanation of how chemical modifications to RNA molecules influence 
+                    whether a stem cell becomes a neuron or a supporting glial cell. Translates my 
+                    PhD research into accessible language while maintaining scientific accuracy. 
+                    Written for science-interested readers without specialized biology training.
+                </p>
+                <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-top: 0.5rem;">
+                    <strong>Audience:</strong> General public | <strong>Length:</strong> 800 words | <strong>Reading level:</strong> High school
                 </p>
             </div>
-            
-            <div class="writing-sample">
-                <div class="writing-meta">
-                    <span class="writing-type">Technical Writing</span>
-                    <span class="writing-category">Methods & Protocols</span>
+
+            <!-- Writing Sample 3 -->
+            <div class="project-card scicomm">
+                <div class="project-meta">
+                    <span class="project-tag type" style="background: linear-gradient(135deg, var(--color-scicomm) 0%, var(--color-scicomm-dark) 100%);">Technical Writing</span>
+                    <span class="project-tag category">Methods & Protocols</span>
                 </div>
-                <h3>ChIP-seq Analysis Pipeline</h3>
+                <h3>ChIP-seq Analysis: From Raw Reads to Biological Insight</h3>
                 <p>
-                    Step-by-step guide for processing and analyzing ChIP-seq data, from quality control 
-                    through peak calling and downstream analysis. Written for computational biologists.
+                    Step-by-step guide for processing and analyzing ChIP-seq data, written for 
+                    computational biologists. Covers quality control, alignment, peak calling, 
+                    annotation, and downstream analysis. Balances conceptual understanding with 
+                    practical implementation details.
+                </p>
+                <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-top: 0.5rem;">
+                    <strong>Audience:</strong> Bioinformaticians | <strong>Format:</strong> Technical tutorial with code
+                </p>
+            </div>
+
+            <!-- Writing Sample 4 -->
+            <div class="project-card scicomm">
+                <div class="project-meta">
+                    <span class="project-tag type" style="background: linear-gradient(135deg, var(--color-scicomm) 0%, var(--color-scicomm-dark) 100%);">Science Explainer</span>
+                    <span class="project-tag category">Blog Post</span>
+                </div>
+                <h3>Chromatin Accessibility: What It Is and Why It Matters</h3>
+                <p>
+                    Explainer article breaking down the concept of chromatin accessibility—how tightly 
+                    or loosely DNA is packaged in cells—and why this matters for gene regulation and 
+                    disease. Uses everyday analogies (filing cabinets, locked doors) to make abstract 
+                    molecular biology concepts tangible.
+                </p>
+                <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-top: 0.5rem;">
+                    <strong>Audience:</strong> Science enthusiasts | <strong>Length:</strong> 1,200 words | <strong>Analogies used:</strong> 3
                 </p>
             </div>
         </section>
-    </div>
 
-    <footer class="site-footer">
-        © 2024 Ipek Selcen
-    </footer>
+        <footer class="site-footer">
+            © 2024 Ipek Selcen
+        </footer>
+    </div>
 </body>
 </html>
