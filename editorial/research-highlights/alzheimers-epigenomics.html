@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alzheimer's Disease Epigenomic Atlas | Ipek Selcen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+    <style>
+        .post-header {
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--color-border);
+        }
+        
+        .post-meta {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .post-tag {
+            font-size: 0.85rem;
+            padding: 0.4rem 0.9rem;
+            border-radius: 20px;
+            font-weight: 500;
+            background: #a855f7;
+            color: white;
+        }
+        
+        .post-title {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            color: var(--color-text-primary);
+        }
+        
+        .post-citation {
+            font-size: 1.05rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .post-citation a {
+            color: #a855f7;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .post-citation a:hover {
+            text-decoration: underline;
+        }
+        
+        .post-content {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--color-text-secondary);
+        }
+        
+        .post-content h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            color: var(--color-text-primary);
+        }
+        
+        .post-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .post-content strong {
+            color: var(--color-text-primary);
+            font-weight: 600;
+        }
+        
+        .post-content em {
+            font-style: italic;
+        }
+        
+        .post-content sup {
+            font-size: 0.75em;
+        }
+        
+        .callout {
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 6px;
+            border-left: 4px solid;
+        }
+        
+        .callout-important {
+            background: #faf5ff;
+            border-color: #a855f7;
+        }
+        
+        .callout strong {
+            display: block;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+        }
+        
+        .callout p {
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        .references {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--color-border);
+        }
+        
+        .references h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .references ol {
+            padding-left: 1.5rem;
+        }
+        
+        .references li {
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--color-text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="site-nav">
+        <div class="nav-container">
+            <a href="../../index.html" class="site-logo">Ipek Selcen</a>
+            <ul class="nav-menu">
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../../bioinformatics/index.html">Bioinformatics</a></li>
+                <li><a href="../index.html" class="active">Science Communication</a></li>
+                <li><a href="../../cv.html">CV</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <a href="../index.html" style="color: #a855f7; font-size: 0.9rem; display: inline-block; margin-bottom: 2rem; text-decoration: none;">
+            ← Back to Science Communication
+        </a>
+
+        <article class="post-header">
+            <div class="post-meta">
+                <span class="post-tag">Research Communication</span>
+            </div>
+            <h1 class="post-title">Epigenomic Breakdown in Alzheimer's: When Brain Cells Lose Control</h1>
+            <p class="post-citation">
+                Liu et al., Cell (2025) | <a href="https://doi.org/10.1016/j.cell.2025.06.031" target="_blank">Read the paper →</a>
+            </p>
+        </article>
+
+        <div class="post-content">
+            <p>
+                Most people think of Alzheimer's disease in terms of plaques and tangles; the protein clumps that show up in brain scans. But a massive new study published in Cell this September reveals that the real story might be about something more fundamental: brain cells losing their grip on gene regulation itself.
+            </p>
+
+            <p>
+                We've known for a while that Alzheimer's doesn't hit all brain regions equally. The hippocampus and entorhinal cortex (your memory centers) get hit early and hard, while other regions like the prefrontal cortex show damage later. But why? And at a cellular level, what's actually breaking down?
+            </p>
+
+            <p>
+                This is where single-cell epigenomics comes in. The epigenome, the chemical modifications that control which genes are accessible and which stay locked away, is essentially the instruction manual that tells each cell type how to be itself. When that manual gets corrupted, cells can't maintain their identity or function properly. Single-cell technologies have revolutionized our ability to map cellular diversity and regulatory landscapes in the brain<sup>1,2</sup>, but applying them to understand disease progression at this scale is still relatively new.
+            </p>
+
+            <h3>What They Did</h3>
+            <p>
+                The MIT and Broad Institute team, led by <em>Manolis Kellis and Li-Huei Tsai</em>, built the largest single-cell brain atlas for Alzheimer's to date. They profiled 3.5 million individual cells from 384 postmortem brain samples spanning six different brain regions in 111 donors from the Religious Orders Study and Rush Memory and Aging Project<sup>3</sup> (two well-characterized longitudinal cohort studies that have been instrumental in Alzheimer's research).
+            </p>
+
+            <p>
+                The donors ranged from people with no pathology to early-stage and late-stage disease. The key innovation is the integration of single-nucleus ATAC-seq<sup>4</sup> (measuring chromatin accessibility) and single-nucleus RNA-seq (measuring gene expression) in the same tissue samples. This lets you see not just which genes are being expressed, but whether the regulatory machinery controlling those genes is intact or falling apart.
+            </p>
+
+            <h3>The Core Findings</h3>
+            <p>Two major patterns emerged that fundamentally change how we think about Alzheimer's progression:</p>
+
+            <p>
+                <strong>First:</strong> Epigenome relaxation and compartment breakdown. Healthy cells maintain strict spatial organization in their nuclei, with the genome partitioned into active and repressive compartments<sup>5,6</sup>. Active compartments sit in the nuclear interior with accessible chromatin, while repressive compartments are near the nuclear periphery and lamina with higher A/T content.
+            </p>
+
+            <p>
+                In Alzheimer's, this organization breaks down. The cells experience what the authors call "epigenomic relaxation": regions that should be tightly closed become accessible, and active regions lose their structure. Vulnerable neurons in the entorhinal cortex and hippocampus showed the most dramatic compartment switching, with normally repressive chromatin becoming inappropriately activated.
+            </p>
+
+            <p>
+                <strong>Second:</strong> Loss of epigenomic information. Each cell type has a unique epigenetic signature that defines what it is. In Alzheimer's progression, cells lose this signature. They essentially forget how to be themselves. The study identified over 1 million candidate regulatory elements organized into 123 distinct modules across 67 cell subtypes, and tracked how these modules erode during disease.
+            </p>
+
+            <p>
+                The loss was most pronounced in excitatory neurons in superficial cortical layers, somatostatin-positive inhibitory interneurons, oligodendrocytes, and microglia.
+            </p>
+
+            <p>
+                Interestingly, glial cells showed a two-phase response. Early in disease, they gained epigenomic definition as they activated to respond to damage. But with sustained stress, they entered exhausted states and lost their epigenetic stability, especially pronounced in APOE4 carriers.
+            </p>
+
+            <h3>The Resilience Angle</h3>
+            <p>
+                Here's the hopeful part: some people maintained cognitive function despite having significant Alzheimer's pathology in their brains. These "resilient" individuals showed something striking: their cells maintained higher epigenomic information across all brain regions compared to people who showed cognitive decline with similar pathology burdens<sup>7</sup>. This suggests that preserving epigenetic stability might be protective, even when plaques and tangles are present.
+            </p>
+
+            <p>
+                This study shifts the therapeutic conversation. Instead of just targeting plaques and tangles (the end products of disease) we could potentially target the regulatory factors that maintain epigenomic stability. The authors point to Polycomb complexes, which act as "epigenomic guardians" by maintaining chromatin structure. Strengthening these systems, or targeting the specific transcription factors that regulate vulnerable cell types, could offer new intervention strategies.
+            </p>
+
+            <p>
+                The work complements a companion study published simultaneously in Cell<sup>8</sup>, which found coordinated disruption of 3D genome organization alongside the epigenomic erosion described here. Together, these studies paint a comprehensive picture of how nuclear organization collapses in Alzheimer's.
+            </p>
+
+            <p>
+                The dataset itself is also a resource: all data is publicly available, giving the field a detailed molecular map of how different cell types in different brain regions respond to or resist Alzheimer's pathology.
+            </p>
+
+            <h3>Technical Notes</h3>
+            <p>
+                The study used 10X Genomics platforms for both snATAC-seq (1.2 million nuclei) and snRNA-seq (2.3 million nuclei). They defined epigenomic compartments at genome-wide resolution using hidden Markov models, and calculated epigenomic information for single cells using Shannon entropy, quantifying how well cells maintain their cell-type-specific regulatory programs. Integration across regions and disease stages used Harmony for batch correction<sup>9</sup>, with validation against ENCODE reference datasets.
+            </p>
+
+            <div class="callout callout-important">
+                <strong>Bottom Line</strong>
+                <p>
+                    Alzheimer's isn't just about protein aggregates. It's about a progressive loss of the regulatory control that keeps brain cells functioning. Understanding epigenomic erosion opens new therapeutic avenues and helps explain why some people are resilient while others aren't. This kind of comprehensive, multimodal atlas is exactly what the field needs to move beyond symptomatic treatments.
+                </p>
+            </div>
+        </div>
+
+        <div class="references">
+            <h3>References</h3>
+            <ol>
+                <li>Kelsey G, Stegle O, Reik W. Single-cell epigenomics: Recording the past and predicting the future. Science. 2017;358(6359):69-75.</li>
+                <li>Clark SJ, Lee HJ, Smallwood SA, Kelsey G, Reik W. Single-cell epigenomics: powerful new methods for understanding gene regulation and cell identity. Genome Biol. 2016;17:72.</li>
+                <li>Bennett DA, Schneider JA, Arvanitakis Z, Wilson RS. Overview and findings from the religious orders study. Curr Alzheimer Res. 2012;9(6):628-645.</li>
+                <li>Buenrostro JD, Giresi PG, Zaba LC, Chang HY, Greenleaf WJ. Transposition of native chromatin for fast and sensitive epigenomic profiling of open chromatin, DNA-binding proteins and nucleosome position. Nat Methods. 2013;10(12):1213-1218.</li>
+                <li>Lieberman-Aiden E, van Berkum NL, Williams L, et al. Comprehensive mapping of long-range interactions reveals folding principles of the human genome. Science. 2009;326(5950):289-293.</li>
+                <li>Dixon JR, Selvaraj S, Yue F, et al. Topological domains in mammalian genomes identified by analysis of chromatin interactions. Nature. 2012;485(7398):376-380.</li>
+                <li>Arenaza-Urquijo EM, Vemuri P. Resistance vs resilience to Alzheimer disease: clarifying terminology for preclinical studies. Neurology. 2018;90(15):695-703.</li>
+                <li>Mathys H, Boix CA, Akay LA, et al. Single-cell multiregion dissection of Alzheimer's disease. Nature. 2024;632:858-868.</li>
+                <li>Korsunsky I, Millard N, Fan J, et al. Fast, sensitive and accurate integration of single-cell data with Harmony. Nat Methods. 2019;16(12):1289-1296.</li>
+            </ol>
+        </div>
+
+        <footer class="site-footer">
+            © 2024 Ipek Selcen
+        </footer>
+    </div>
+</body>
+</html>
