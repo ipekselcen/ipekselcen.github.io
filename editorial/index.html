@@ -13,18 +13,18 @@
         }
         
         .content-sections {
-            margin: 4rem 0;
+            margin: 2rem 0;
         }
         
         .section-block {
-            margin-bottom: 5rem;
+            margin-bottom: 3rem;
         }
         
         .section-header {
             display: flex;
             align-items: center;
             gap: 1rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
         }
         
         .section-icon {
@@ -55,18 +55,18 @@
             font-size: 1rem;
             line-height: 1.7;
             color: var(--color-text-secondary);
-            margin-bottom: 2rem;
+            margin-bottom: 1.25rem;
         }
         
         .posts-grid {
             display: grid;
-            gap: 2rem;
+            gap: 1rem;
         }
         
         .post-card {
             border: 1px solid var(--color-border);
             border-radius: 8px;
-            padding: 2rem;
+            padding: 1rem 1.25rem;
             transition: all 0.3s;
             background: var(--color-bg-primary);
         }
@@ -125,8 +125,22 @@
         .post-card h3 {
             font-size: 1.25rem;
             font-weight: 700;
-            margin-bottom: 1rem;
+            margin-bottom: 0;
             color: var(--color-text-primary);
+        }
+        
+        .post-card h3 a {
+            color: var(--color-text-primary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .post-card.research h3 a:hover {
+            color: #a855f7;
+        }
+        
+        .post-card.teaching h3 a:hover {
+            color: #14b8a6;
         }
         
         .post-excerpt {
@@ -172,13 +186,13 @@
 
     <!-- Main Content -->
     <div class="container">
-        <header style="margin-bottom: 3rem;">
+        <header style="margin-bottom: 2rem;">
             <h1 style="font-size: 2rem; font-weight: 700; margin-bottom: 1rem;">Science Communication</h1>
             <div class="section-intro">
                 <p style="font-size: 1.05rem; line-height: 1.7; color: var(--color-text-secondary);">
-                    Bridging the gap between complex research and clear communication. I write to explain 
-                    my own findings and to make chromatin biology accessible to students and scientists 
-                    entering the field.
+                    Bridging the gap between complex research and clear communication. I summarize 
+                    cutting-edge studies and explain chromatin biology concepts for students and 
+                    scientists entering the field.
                 </p>
             </div>
         </header>
@@ -197,34 +211,11 @@
                 
                 <div class="posts-grid">
                     <article class="post-card research">
-                        <div class="post-meta">
-                            <span class="post-tag tag-research">Research</span>
-                            <span class="post-tag tag-category">Cell Reports</span>
-                        </div>
-                        <h3>TET2 Regulates RNA Modifications in Oligodendrocyte Progenitors</h3>
-                        <p class="post-excerpt">
-                            How TET2 controls RNA hydroxymethylation to regulate alternative splicing 
-                            and cell fate decisions in adult oligodendrocyte progenitor cells. Published 
-                            findings from my PhD research on epigenetic regulation in the CNS.
-                        </p>
-                        <a href="research-communication/tet2-rna-modifications.html" class="read-more">
-                            Read summary →
-                        </a>
+                        <h3><a href="research-communication/alzheimers-epigenomics.html">Epigenomic Breakdown in Alzheimer's: When Brain Cells Lose Control</a></h3>
                     </article>
 
                     <article class="post-card research">
-                        <div class="post-meta">
-                            <span class="post-tag tag-research">Research</span>
-                            <span class="post-tag tag-category">Analysis Methods</span>
-                        </div>
-                        <h3>Chromatin Landscape Analysis via ChIP-seq</h3>
-                        <p class="post-excerpt">
-                            Mapping histone modifications and transcription factor binding across the genome 
-                            to understand how chromatin states regulate gene expression during OPC differentiation.
-                        </p>
-                        <a href="research-communication/chip-seq-findings.html" class="read-more">
-                            Read summary →
-                        </a>
+                        <h3><a href="research-communication/glioblastoma-ecdna.html">Tracking Glioblastoma's Circular DNA at Single-Cell Resolution</a></h3>
                     </article>
                 </div>
             </section>
@@ -237,40 +228,12 @@
                 </div>
                 <p class="section-description">
                     Educational content that breaks down complex chromatin biology concepts for students 
-                    and researchers new to the field. Written to clarify topics I wish had been explained 
-                    better when I started.
+                    and researchers new to the field.
                 </p>
                 
                 <div class="posts-grid">
                     <article class="post-card teaching">
-                        <div class="post-meta">
-                            <span class="post-tag tag-teaching">Educational</span>
-                            <span class="post-tag tag-category">Chromatin Biology</span>
-                        </div>
-                        <h3>Chromatin Accessibility: What It Is and Why It Matters</h3>
-                        <p class="post-excerpt">
-                            An explainer on how chromatin structure controls gene accessibility, why open 
-                            and closed chromatin states matter for development, and how we measure accessibility 
-                            experimentally.
-                        </p>
-                        <a href="teaching-epigenetics/chromatin-accessibility.html" class="read-more">
-                            Read article →
-                        </a>
-                    </article>
-
-                    <article class="post-card teaching">
-                        <div class="post-meta">
-                            <span class="post-tag tag-teaching">Educational</span>
-                            <span class="post-tag tag-category">DNA Methylation</span>
-                        </div>
-                        <h3>DNA Methylation Basics: A Primer for Biologists</h3>
-                        <p class="post-excerpt">
-                            Introduction to DNA methylation, covering what it is, how it's established and 
-                            maintained, and why it's critical for gene regulation and cellular identity.
-                        </p>
-                        <a href="teaching-epigenetics/dna-methylation-basics.html" class="read-more">
-                            Read article →
-                        </a>
+                        <h3><a href="teaching-epigenetics/chromatin-accessibility.html">Chromatin Accessibility: Why Some DNA is Open for Business</a></h3>
                     </article>
                 </div>
             </section>
