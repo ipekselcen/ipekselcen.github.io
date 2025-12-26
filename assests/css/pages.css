@@ -1,5 +1,12 @@
-/* Editorial Post Styles - Use for all research & teaching posts */
+/* ============================================
+   page-specific styles
+   ============================================ */
 
+/* ============================================
+   post styles - editorial & research posts
+   ============================================ */
+
+/* Post Header */
 .post-header {
     margin-bottom: 3rem;
     padding-bottom: 2rem;
@@ -21,7 +28,7 @@
 }
 
 .post-tag.research {
-    background: #a855f7;
+    background: var(--color-scicomm);
     color: white;
 }
 
@@ -45,7 +52,7 @@
 }
 
 .post-citation a {
-    color: #a855f7;
+    color: var(--color-scicomm);
     text-decoration: none;
     font-weight: 500;
 }
@@ -60,6 +67,7 @@
     margin-bottom: 0.5rem;
 }
 
+/* post content */
 .post-content {
     font-size: 1.05rem;
     line-height: 1.8;
@@ -109,7 +117,9 @@
     line-height: 1.7;
 }
 
-/* Callout Boxes */
+/* ============================================
+   callout boxes
+   ============================================ */
 .callout {
     padding: 1.5rem;
     margin: 2rem 0;
@@ -129,7 +139,7 @@
 
 .callout-important {
     background: #faf5ff;
-    border-color: #a855f7;
+    border-color: var(--color-scicomm);
 }
 
 .callout-warning {
@@ -149,7 +159,9 @@
     line-height: 1.7;
 }
 
-/* References Section */
+/* ============================================
+   references section
+   ============================================ */
 .references {
     margin-top: 4rem;
     padding-top: 2rem;
