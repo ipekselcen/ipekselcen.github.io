@@ -1,6 +1,6 @@
 /* ============================================
-   portfolio - main styles
-   base styles, colors, navigation, layout
+   IPEK SELCEN PORTFOLIO - MAIN STYLES
+   Base styles, colors, navigation, layout
    ============================================ */
 
 :root {
@@ -16,7 +16,7 @@
     --color-research: #10b981;
     --color-research-light: #d1fae5;
     
-    /* Neutrals */
+    /* Neutrals - 2025 warm grayscale */
     --color-text-primary: #1e293b;
     --color-text-secondary: #64748b;
     --color-text-muted: #94a3b8;
@@ -25,7 +25,7 @@
     --color-bg-sidebar: #f1f5f9;
     --color-border: #e2e8f0;
     
-    /* Shadows */
+    /* Shadows - soft and modern */
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
     --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
@@ -33,7 +33,7 @@
 }
 
 /* ============================================
-   reset & base styles
+   RESET & BASE STYLES
    ============================================ */
 * {
     margin: 0;
@@ -50,7 +50,7 @@ body {
 }
 
 /* ============================================
-   top navigation
+   TOP NAVIGATION
    ============================================ */
 .site-nav {
     background: rgba(255, 255, 255, 0.8);
@@ -121,7 +121,7 @@ body {
 }
 
 /* ============================================
-   page layout - sidebar + content
+   PAGE LAYOUT - Sidebar + Content
    ============================================ */
 .page-layout {
     display: grid;
@@ -131,7 +131,7 @@ body {
     min-height: calc(100vh - 70px);
 }
 
-/* left sidebar */
+/* LEFT SIDEBAR */
 .profile-sidebar {
     background: linear-gradient(135deg, var(--color-bg-sidebar) 0%, var(--color-bg-secondary) 100%);
     border-right: 1px solid var(--color-border);
@@ -201,7 +201,7 @@ body {
 }
 
 /* ============================================
-   main content area
+   MAIN CONTENT AREA
    ============================================ */
 .main-content-area {
     background: var(--color-bg-primary);
@@ -253,7 +253,7 @@ body {
 }
 
 /* ============================================
-   single column pages
+   SINGLE COLUMN PAGES
    ============================================ */
 .container {
     max-width: 900px;
@@ -266,7 +266,7 @@ body {
 }
 
 /* ============================================
-   footer
+   FOOTER
    ============================================ */
 .page-footer,
 .site-footer {
@@ -279,7 +279,7 @@ body {
 }
 
 /* ============================================
-   responsive design
+   RESPONSIVE DESIGN
    ============================================ */
 @media (max-width: 1024px) {
     .page-layout {

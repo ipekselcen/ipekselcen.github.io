@@ -1,9 +1,10 @@
 /* ============================================
-   page-specific styles
+   PAGE-SPECIFIC STYLES
+   Styles for editorial posts, bioinformatics projects, and other content types
    ============================================ */
 
 /* ============================================
-   post styles - editorial & research posts
+   POST STYLES - Editorial & Research Posts
    ============================================ */
 
 /* Post Header */
@@ -67,7 +68,7 @@
     margin-bottom: 0.5rem;
 }
 
-/* post content */
+/* Post Content */
 .post-content {
     font-size: 1.05rem;
     line-height: 1.8;
@@ -118,7 +119,7 @@
 }
 
 /* ============================================
-   callout boxes
+   CALLOUT BOXES
    ============================================ */
 .callout {
     padding: 1.5rem;
@@ -160,7 +161,7 @@
 }
 
 /* ============================================
-   references section
+   REFERENCES SECTION
    ============================================ */
 .references {
     margin-top: 4rem;
