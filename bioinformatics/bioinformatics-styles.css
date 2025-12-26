@@ -206,3 +206,15 @@
     opacity: 0.5;
     pointer-events: none;
 }
+
+.coming-soon h3 {
+    color: var(--color-text-muted);
+}
+
+.coming-soon .tools-display {
+    color: var(--color-text-muted);
+}
+
+.coming-soon .tools-display strong {
+    color: var(--color-text-muted);
+}
