@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bioinformatics & Data Visualization | Ipek Selcen</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Bioinformatics | Ipek Selcen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="bioinformatics-styles.css">
 </head>
 <body>
-    <!-- Top Navigation -->
+    <!-- Navigation -->
     <nav class="site-nav">
         <div class="nav-container">
             <a href="../index.html" class="site-logo">Ipek Selcen</a>
@@ -24,70 +25,37 @@
     <!-- Main Content -->
     <div class="container">
         <header class="page-header">
-            <h1 class="page-title">Bioinformatics & Data Visualization</h1>
+            <h1 class="page-title">Bioinformatics & Data Analysis</h1>
             <p class="page-subtitle">
-                Transforming complex genomics data into clear, publication-ready visualizations
+                Transforming complex genomics data into biological insights through computational analysis and visualization
             </p>
         </header>
 
         <section class="content-section">
-            <h2 class="section-title">Featured Work</h2>
+            <h2 class="section-title">Projects & Tutorials</h2>
             
-            <!-- Project 1 -->
+            <!-- RNA-seq Project -->
             <div class="project-card bioinfo">
-                <div class="project-meta">
-                    <span class="project-tag type">Multi-Omics Integration</span>
-                    <span class="project-tag category">Published Research</span>
+                <h3><a href="projects/rnaseq-dnmt1/index.html">RNA-seq Analysis: Dnmt1 Knockout in Neonatal OPCs</a></h3>
+                <div class="tools-display">
+                    <strong>Tools:</strong> FastQC, STAR, DESeq2, clusterProfiler, ggplot2
                 </div>
-                <h3>TET2-Mediated RNA Modifications</h3>
-                <p>
-                    Integrated RNA-seq, hMeRIP-seq, ChIP-seq, and ATAC-seq to reveal how TET2 
-                    regulates RNA hydroxymethylation and alternative splicing in oligodendrocyte 
-                    progenitor cells. Created publication-quality heatmaps, volcano plots, and 
-                    genome browser tracks using R/Bioconductor.
-                </p>
-                <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-top: 0.5rem;">
-                    <strong>Tools:</strong> R, DESeq2, ComplexHeatmap, ggplot2, ChIPseeker
-                </p>
-                <a href="#" class="project-link">View analysis pipeline →</a>
             </div>
 
-            <!-- Project 2 -->
+            <!-- TET2 Research -->
             <div class="project-card bioinfo">
-                <div class="project-meta">
-                    <span class="project-tag type">Data Visualization</span>
-                    <span class="project-tag category">Tutorial Series</span>
+                <h3>TET2-Mediated RNA Modifications in OPCs</h3>
+                <div class="tools-display">
+                    <strong>Tools:</strong> R, DESeq2, ComplexHeatmap, ChIPseeker, custom visualization scripts
                 </div>
-                <h3>Publication-Ready Figures from RNA-seq</h3>
-                <p>
-                    Step-by-step tutorials teaching biologists how to create professional 
-                    visualizations from sequencing data. Covers everything from PCA plots and 
-                    heatmaps to volcano plots and pathway enrichment diagrams. Written for 
-                    researchers transitioning from wet lab to computational work.
-                </p>
-                <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-top: 0.5rem;">
-                    <strong>Topics:</strong> Quality control, differential expression, visualization best practices
-                </p>
-                <a href="tutorials/rna-seq.html" class="project-link">View tutorial →</a>
             </div>
 
-            <!-- Project 3 -->
-            <div class="project-card bioinfo">
-                <div class="project-meta">
-                    <span class="project-tag type">Analysis Pipeline</span>
-                    <span class="project-tag category">Reproducible Workflow</span>
+            <!-- ChIP-seq Pipeline -->
+            <div class="project-card bioinfo coming-soon">
+                <h3>ChIP-seq Analysis Pipeline</h3>
+                <div class="tools-display">
+                    <strong>Tools:</strong> MACS2, ChIPseeker, HOMER, deepTools
                 </div>
-                <h3>ChIP-seq Analysis Framework</h3>
-                <p>
-                    Reproducible pipeline for processing ChIP-seq data from raw reads to peak 
-                    calling and downstream analysis. Includes quality metrics, peak annotation, 
-                    motif discovery, and comparative analysis across conditions. All code 
-                    available on GitHub with detailed documentation.
-                </p>
-                <p style="font-size: 0.9rem; color: var(--color-text-muted); margin-top: 0.5rem;">
-                    <strong>Features:</strong> Automated QC, batch processing, custom visualization functions
-                </p>
-                <a href="https://github.com/ipekselcen" target="_blank" class="project-link">View on GitHub →</a>
             </div>
         </section>
 
@@ -99,7 +67,7 @@
                     <div class="skills">
                         <span class="skill-tag">R / Bioconductor</span>
                         <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Bash/Unix</span>
+                        <span class="skill-tag">Bash</span>
                         <span class="skill-tag">Git</span>
                     </div>
                 </div>
@@ -119,7 +87,6 @@
                     <div class="skills">
                         <span class="skill-tag">ggplot2</span>
                         <span class="skill-tag">ComplexHeatmap</span>
-                        <span class="skill-tag">Seaborn</span>
                         <span class="skill-tag">BioRender</span>
                     </div>
                 </div>
@@ -128,16 +95,16 @@
                     <h4>Tools</h4>
                     <div class="skills">
                         <span class="skill-tag">DESeq2</span>
-                        <span class="skill-tag">edgeR</span>
                         <span class="skill-tag">STAR</span>
                         <span class="skill-tag">IGV</span>
+                        <span class="skill-tag">Conda</span>
                     </div>
                 </div>
             </div>
         </section>
 
         <footer class="site-footer">
-            © 2025 Ipek Selcen
+            © 2024 Ipek Selcen
         </footer>
     </div>
 </body>
