@@ -1,0 +1,191 @@
+/* Editorial Post Styles - Use for all research & teaching posts */
+
+.post-header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.post-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.post-tag {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: 20px;
+    font-weight: 500;
+}
+
+.post-tag.research {
+    background: #a855f7;
+    color: white;
+}
+
+.post-tag.teaching {
+    background: #14b8a6;
+    color: white;
+}
+
+.post-title {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+    color: var(--color-text-primary);
+}
+
+.post-citation {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.post-citation a {
+    color: #a855f7;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.post-citation a:hover {
+    text-decoration: underline;
+}
+
+.post-subtitle {
+    font-size: 1.15rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.post-content {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--color-text-secondary);
+}
+
+.post-content h2 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-top: 3.5rem;
+    margin-bottom: 1.25rem;
+    color: var(--color-text-primary);
+}
+
+.post-content h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    color: var(--color-text-primary);
+}
+
+.post-content p {
+    margin-bottom: 1.5rem;
+}
+
+.post-content strong {
+    color: var(--color-text-primary);
+    font-weight: 600;
+}
+
+.post-content em {
+    font-style: italic;
+}
+
+.post-content sup {
+    font-size: 0.75em;
+}
+
+.post-content ul {
+    margin: 1.5rem 0;
+    padding-left: 2rem;
+}
+
+.post-content li {
+    margin-bottom: 0.75rem;
+    line-height: 1.7;
+}
+
+/* Callout Boxes */
+.callout {
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 6px;
+    border-left: 4px solid;
+}
+
+.callout-note {
+    background: #f0fdfa;
+    border-color: #14b8a6;
+}
+
+.callout-tip {
+    background: #fef3c7;
+    border-color: #f59e0b;
+}
+
+.callout-important {
+    background: #faf5ff;
+    border-color: #a855f7;
+}
+
+.callout-warning {
+    background: #fef2f2;
+    border-color: #ef4444;
+}
+
+.callout strong {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+}
+
+.callout p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+/* References Section */
+.references {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.references h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.references h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.references p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.references ol {
+    padding-left: 1.5rem;
+}
+
+.references ul {
+    list-style: none;
+    padding: 0;
+}
+
+.references li {
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+}
