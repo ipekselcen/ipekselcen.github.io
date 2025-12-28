@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChIP-seq: H4K8ac in Adult OPCs | Ipek Selcen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="/css/pages.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="site-nav">
+        <div class="nav-container">
+            <a href="/index.html" class="site-logo">Ipek Selcen</a>
+            <ul class="nav-menu">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/bioinformatics/index.html" class="active">Bioinformatics</a></li>
+                <li><a href="/editorial/index.html">Science Communication</a></li>
+                <li><a href="/cv.html">CV</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <p><a href="/bioinformatics/index.html" style="color: #0ea5e9; text-decoration: none; font-weight: 500;">← Back to Bioinformatics</a></p>
+
+        <!-- Project Header -->
+        <header class="page-header" style="margin-top: 2rem;">
+            <h1 class="page-title" style="font-size: 2rem; margin-bottom: 1rem;">H4K8 Acetylation Differentially Regulates Adult Oligodendrocyte Progenitors</h1>
+            <p class="page-subtitle" style="font-size: 1.05rem; margin-bottom: 2rem;">ChIP-seq analysis revealing how an activating histone mark shapes the unique chromatin landscape and functional properties of adult brain progenitor cells</p>
+            
+            <!-- Dataset Info Table -->
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin: 2rem 0; padding: 1.5rem; background: #f8fafc; border-radius: 8px; border-left: 4px solid #0ea5e9;">
+                <div>
+                    <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">Dataset</p>
+                    <p style="font-weight: 600; color: #1e293b;">GSE263808</p>
+                </div>
+                <div>
+                    <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">Cell Type</p>
+                    <p style="font-weight: 600; color: #1e293b;">PDGFRα+ OPCs</p>
+                </div>
+                <div>
+                    <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">Comparison</p>
+                    <p style="font-weight: 600; color: #1e293b;">Adult (P60) vs Neonatal (P5)</p>
+                </div>
+                <div>
+                    <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">Samples</p>
+                    <p style="font-weight: 600; color: #1e293b;">3 Adult, 3 Neonatal + Inputs</p>
+                </div>
+            </div>
+
+            <!-- Publication Info -->
+            <div style="background: #fef3c7; padding: 1rem 1.5rem; border-radius: 8px; border-left: 4px solid #f59e0b; margin: 2rem 0;">
+                <p style="color: #92400e; font-size: 0.9rem; margin: 0;">
+                    <strong>Publication:</strong> Dansu DK*, Selcen I*, et al. (2024). Histone H4 acetylation differentially modulates proliferation in adult oligodendrocyte progenitors. <em>J Cell Biol</em> 223(11):e202308064. 
+                    <a href="https://doi.org/10.1083/jcb.202308064" style="color: #0ea5e9; text-decoration: none;">[DOI]</a>
+                    <br><span style="font-size: 0.85rem;">*Co-first authors</span>
+                </p>
+            </div>
+        </header>
+
+        <!-- Key Findings -->
+        <section style="background: #e0f2fe; padding: 2rem; border-radius: 8px; border-left: 4px solid #0ea5e9; margin: 3rem 0;">
+            <h3 style="color: #0369a1; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700;">Key Findings</h3>
+            <ul style="color: #1e293b; line-height: 1.8; padding-left: 1.5rem;">
+                <li style="margin-bottom: 0.75rem;"><strong>35,820 differential H4K8ac sites</strong> identified between adult and neonatal OPCs (FDR < 0.01)</li>
+                <li style="margin-bottom: 0.75rem;"><strong>95% enriched in adult OPCs</strong> at functionally important genomic loci</li>
+                <li style="margin-bottom: 0.75rem;"><strong>Progenitor gene regulation</strong> with H4K8ac at <em>Hes5</em>, <em>Gpr17</em>, and <em>Sox9</em></li>
+                <li style="margin-bottom: 0.75rem;"><strong>Metabolic gene priming</strong> at lipid metabolism genes (<em>Txnip</em>, <em>Ptgds</em>)</li>
+                <li style="margin-bottom: 0.75rem;"><strong>Myelin gene accessibility</strong> with H4K8ac at <em>Cnp</em>, <em>Mog</em>, and <em>Mbp</em></li>
+            </ul>
+        </section>
+
+        <!-- Biological Context -->
+        <section class="content-section">
+            <h2 class="section-header">Biological Context</h2>
+            <p style="color: #64748b; line-height: 1.8; margin-bottom: 1rem;">
+                Adult oligodendrocyte progenitor cells (aOPCs) represent a critical population of stem-like cells in the adult brain that maintain the capacity to generate new myelin-forming oligodendrocytes. Unlike their neonatal counterparts (nOPCs), aOPCs proliferate more slowly, respond differently to external signals, and express a unique transcriptional profile more similar to mature oligodendrocytes.
+            </p>
+            <p style="color: #64748b; line-height: 1.8; margin-bottom: 1rem;">
+                While transcriptional differences between aOPCs and nOPCs have been well-documented, the epigenetic mechanisms underlying these functional distinctions remained unclear. This study used unbiased histone proteomics to identify H4K8ac—an activating histone modification—as differentially enriched in adult progenitors.
+            </p>
+        </section>
+
+        <!-- Results Section -->
+        <section class="content-section">
+            <h2 class="section-header">Results</h2>
+
+            <!-- Figure Placeholders -->
+            <div style="margin: 2rem 0;">
+                <div style="background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 8px; padding: 3rem; text-align: center; margin-bottom: 1rem;">
+                    <p style="color: #94a3b8; font-weight: 500;">Differential Binding Overview</p>
+                    <p style="color: #cbd5e1; font-size: 0.85rem;">Add: figures/volcano-plot.png</p>
+                </div>
+                <p style="font-weight: 600; margin-bottom: 0.5rem;">Figure 1: Genome-wide differential H4K8ac occupancy</p>
+                <p style="color: #64748b; margin-bottom: 3rem;">Volcano plot showing 35,820 significantly differential H4K8ac sites. Red points indicate adult-enriched sites (95%), blue points show neonatal-enriched sites (5%).</p>
+            </div>
+
+            <div style="margin: 2rem 0;">
+                <div style="background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 8px; padding: 3rem; text-align: center; margin-bottom: 1rem;">
+                    <p style="color: #94a3b8; font-weight: 500;">Sample Correlation</p>
+                    <p style="color: #cbd5e1; font-size: 0.85rem;">Add: figures/correlation-heatmap.png</p>
+                </div>
+                <p style="font-weight: 600; margin-bottom: 0.5rem;">Figure 2: ChIP-seq sample clustering</p>
+                <p style="color: #64748b; margin-bottom: 3rem;">Correlation heatmap showing clear separation between adult and neonatal samples based on H4K8ac occupancy patterns.</p>
+            </div>
+
+            <div style="margin: 2rem 0;">
+                <div style="background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 8px; padding: 3rem; text-align: center; margin-bottom: 1rem;">
+                    <p style="color: #94a3b8; font-weight: 500;">Genomic Distribution</p>
+                    <p style="color: #cbd5e1; font-size: 0.85rem;">Add: figures/peak-annotation-pie.png</p>
+                </div>
+                <p style="font-weight: 600; margin-bottom: 0.5rem;">Figure 3: H4K8ac peak distribution across genomic features</p>
+                <p style="color: #64748b; margin-bottom: 3rem;">Pie chart showing differential H4K8ac sites distributed across promoters (43%), introns (34%), distal intergenic regions (18%), and exons (5%).</p>
+            </div>
+
+            <div style="margin: 2rem 0;">
+                <div style="background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 8px; padding: 3rem; text-align: center; margin-bottom: 1rem;">
+                    <p style="color: #94a3b8; font-weight: 500;">Gene Examples</p>
+                    <p style="color: #cbd5e1; font-size: 0.85rem;">Add: figures/igv-tracks.png</p>
+                </div>
+                <p style="font-weight: 600; margin-bottom: 0.5rem;">Figure 4: H4K8ac at key target genes</p>
+                <p style="color: #64748b; margin-bottom: 3rem;">IGV tracks showing H4K8ac enrichment at <em>Hes5</em> (progenitor), <em>Txnip</em> (metabolism), and <em>Cnp</em> (myelin) loci in adult vs neonatal OPCs.</p>
+            </div>
+
+            <div style="margin: 2rem 0;">
+                <div style="background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 8px; padding: 3rem; text-align: center; margin-bottom: 1rem;">
+                    <p style="color: #94a3b8; font-weight: 500;">Functional Enrichment</p>
+                    <p style="color: #cbd5e1; font-size: 0.85rem;">Add: figures/go-enrichment.png</p>
+                </div>
+                <p style="font-weight: 600; margin-bottom: 0.5rem;">Figure 5: GO term enrichment analysis</p>
+                <p style="color: #64748b; margin-bottom: 3rem;">Top enriched biological processes at adult-enriched H4K8ac sites include lipid metabolic process, myelination, transcription regulation, and mitochondrial function (FDR < 0.01).</p>
+            </div>
+
+            <div style="margin: 2rem 0;">
+                <div style="background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 8px; padding: 3rem; text-align: center; margin-bottom: 1rem;">
+                    <p style="color: #94a3b8; font-weight: 500;">ChIP-seq Quality Metrics</p>
+                    <p style="color: #cbd5e1; font-size: 0.85rem;">Add: figures/qc-fingerprint.png</p>
+                </div>
+                <p style="font-weight: 600; margin-bottom: 0.5rem;">Figure 6: ChIP enrichment fingerprint plot</p>
+                <p style="color: #64748b; margin-bottom: 3rem;">Fingerprint plot showing strong enrichment of ChIP samples over input controls (FRiP scores: 3-8%).</p>
+            </div>
+        </section>
+
+        <!-- Biological Interpretation -->
+        <section class="content-section">
+            <h2 class="section-header">Biological Interpretation</h2>
+            
+            <h3 style="color: #1e293b; font-size: 1.1rem; margin: 2rem 0 1rem 0; font-weight: 600;">The Adult OPC Chromatin Landscape</h3>
+            <p style="color: #64748b; line-height: 1.8; margin-bottom: 1rem;">
+                Our ChIP-seq analysis reveals that adult OPCs maintain a unique chromatin state characterized by enhanced H4K8ac at three key functional categories:
+            </p>
+            <ol style="color: #64748b; line-height: 1.8; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                <li style="margin-bottom: 0.75rem;"><strong style="color: #1e293b;">Progenitor identity genes</strong> — H4K8ac marks genes like <em>Hes5</em>, <em>Sox9</em>, and <em>Gpr17</em>, maintaining the stem-like progenitor state while preventing premature differentiation.</li>
+                <li style="margin-bottom: 0.75rem;"><strong style="color: #1e293b;">Metabolic adaptation genes</strong> — Lipid metabolism genes (<em>Txnip</em>, <em>Ptgds</em>) show increased H4K8ac, reflecting the metabolic demands of adult CNS environment.</li>
+                <li style="margin-bottom: 0.75rem;"><strong style="color: #1e293b;">Myelin gene priming</strong> — Despite being in the progenitor state, adult OPCs show H4K8ac at myelin genes (<em>Cnp</em>, <em>Mog</em>, <em>Mbp</em>), creating a "poised" chromatin state ready for rapid differentiation.</li>
+            </ol>
+
+            <h3 style="color: #1e293b; font-size: 1.1rem; margin: 2rem 0 1rem 0; font-weight: 600;">Functional Implications</h3>
+            <p style="color: #64748b; line-height: 1.8; margin-bottom: 1rem;">
+                The distinct H4K8ac landscape explains key functional differences between adult and neonatal OPCs:
+            </p>
+            <ul style="color: #64748b; line-height: 1.8; padding-left: 1.5rem; margin-bottom: 1.5rem;">
+                <li style="margin-bottom: 0.75rem;"><strong style="color: #1e293b;">Lower proliferation</strong> — Cell cycle genes lack H4K8ac in adult OPCs, consistent with their reduced proliferative capacity.</li>
+                <li style="margin-bottom: 0.75rem;"><strong style="color: #1e293b;">Metabolic specialization</strong> — Enhanced H4K8ac at metabolic genes supports the unique energy demands of adult progenitors.</li>
+                <li style="margin-bottom: 0.75rem;"><strong style="color: #1e293b;">Differentiation readiness</strong> — H4K8ac-marked myelin genes enable rapid response to demyelination or learning-induced plasticity.</li>
+            </ul>
+
+            <h3 style="color: #1e293b; font-size: 1.1rem; margin: 2rem 0 1rem 0; font-weight: 600;">Clinical Relevance</h3>
+            <p style="color: #64748b; line-height: 1.8; margin-bottom: 1rem;">
+                Understanding the epigenetic regulation of adult OPCs has important implications for myelin repair therapies in diseases such as multiple sclerosis, spinal cord injury, and age-related demyelination. The identification of H4K8ac as a key regulatory mark suggests potential therapeutic strategies targeting histone acetyltransferases to enhance remyelination capacity.
+            </p>
+        </section>
+
+        <!-- Methods Section -->
+        <section class="content-section">
+            <h3 class="section-header" style="font-size: 1.3rem;">Methods Summary</h3>
+            <p style="color: #64748b; line-height: 1.8; margin-bottom: 1rem;">
+                <strong style="color: #1e293b;">Cell Isolation & ChIP:</strong> PDGFRα+ oligodendrocyte progenitors isolated from P5 (neonatal) and P60 (adult) <em>Pdgfra-H2B-EGFP</em> reporter mice via fluorescence-activated cell sorting. Chromatin immunoprecipitation performed with H4K8ac-specific antibody (Active Motif 61103) validated by western blot and peptide array.
+            </p>
+            <p style="color: #64748b; line-height: 1.8; margin-bottom: 1rem;">
+                <strong style="color: #1e293b;">Sequencing & Alignment:</strong> Libraries sequenced on Illumina HiSeq 4000 (paired-end, 150bp). Reads aligned to mm10 genome using Bowtie2 with --very-sensitive mode. BAM files filtered (MAPQ ≥ 20) and duplicates removed with Picard MarkDuplicates. Blacklist regions excluded.
+            </p>
+            <p style="color: #64748b; line-height: 1.8; margin-bottom: 1rem;">
+                <strong style="color: #1e293b;">Peak Calling:</strong> MACS2 used for broad peak calling (--broad --broad-cutoff 0.01) appropriate for histone modifications. Peaks called against matched input controls with minimum 200bp length.
+            </p>
+            <p style="color: #64748b; line-height: 1.8; margin-bottom: 1rem;">
+                <strong style="color: #1e293b;">Differential Binding:</strong> Differential H4K8ac occupancy analyzed using both MACS2 bdgdiff (fold change cutoff 3.0) and diffReps (window-based approach, FDR < 0.01). Sites identified by both methods considered high-confidence.
+            </p>
+            <p style="color: #64748b; line-height: 1.8; margin-bottom: 1rem;">
+                <strong style="color: #1e293b;">Annotation & Enrichment:</strong> ChIPseeker used for genomic feature annotation (TSS ± 3kb for promoters). Functional enrichment performed with GREAT and clusterProfiler using Gene Ontology and KEGG databases. Benjamini-Hochberg FDR correction applied.
+            </p>
+            <p style="color: #64748b; line-height: 1.8; margin-bottom: 1rem;">
+                <strong style="color: #1e293b;">Quality Control:</strong> All samples met quality thresholds: mapping rate >80%, duplication rate <25%, NSC >1.2, RSC >0.9, FRiP 3-8%.
+            </p>
+        </section>
+
+        <!-- Code Repository Link -->
+        <section class="content-section">
+            <h3 class="section-header" style="font-size: 1.3rem;">Complete Analysis Code</h3>
+            <p style="color: #64748b; line-height: 1.8; margin-bottom: 1rem;">Full reproducible ChIP-seq workflow including quality control, alignment, peak calling, differential binding with MACS2 and diffReps, annotation, and visualization scripts</p>
+            <a href="https://github.com/ipekselcen/chipseq-tutorial" class="project-link" style="color: #0ea5e9; font-weight: 600; text-decoration: none;">View Code on GitHub →</a>
+        </section>
+
+        <!-- Data Availability -->
+        <section class="content-section">
+            <h3 class="section-header" style="font-size: 1.3rem;">Data Availability</h3>
+            <p style="color: #64748b; line-height: 1.8; margin-bottom: 0.5rem;">
+                <strong style="color: #1e293b;">Raw Data:</strong> GEO accession <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE263808" style="color: #0ea5e9; text-decoration: none;">GSE263808</a>
+            </p>
+            <p style="color: #64748b; line-height: 1.8; margin-bottom: 0.5rem;">
+                <strong style="color: #1e293b;">Processed Data:</strong> BigWig tracks, peak calls, differential binding results available on GEO
+            </p>
+            <p style="color: #64748b; line-height: 1.8; margin-bottom: 0.5rem;">
+                <strong style="color: #1e293b;">Code:</strong> Complete analysis pipeline on <a href="https://github.com/ipekselcen/chipseq-tutorial" style="color: #0ea5e9; text-decoration: none;">GitHub</a>
+            </p>
+        </section>
+
+        <!-- Footer -->
+        <footer class="site-footer">
+            © 2025 Ipek Selcen
+        </footer>
+    </div>
+</body>
+</html>
