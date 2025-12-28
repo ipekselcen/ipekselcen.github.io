@@ -25,181 +25,133 @@
 
     <!-- Main Content -->
     <div class="container">
-        <a href="../index.html" style="color: #0ea5e9; font-size: 0.9rem; display: inline-block; margin-bottom: 2rem; text-decoration: none;">
-            ← Back to Bioinformatics
-        </a>
+        <p><a href="/bioinformatics/index.html" style="color: #0ea5e9; text-decoration: none; font-weight: 500;">← Back to Bioinformatics</a></p>
 
         <!-- Project Header -->
-        <header class="project-header">
-            <h1 class="project-title">
-                Transcriptional Response to <em>Dnmt1</em> Loss in Neonatal Oligodendrocyte Progenitors
-            </h1>
-            <p class="project-subtitle">
-                RNA-seq analysis revealing how DNA methyltransferase 1 regulates gene expression during 
-                early oligodendrocyte development
-            </p>
-
-            <div class="project-meta">
-                <div class="meta-item">
-                    <span class="meta-label">Dataset</span>
-                    <span class="meta-value">GSE79018 (Public)</span>
+        <header class="page-header" style="margin-top: 2rem;">
+            <h1 class="page-title" style="font-size: 2rem; margin-bottom: 1rem;">Transcriptional Response to <em>Dnmt1</em> Loss in Neonatal Oligodendrocyte Progenitors</h1>
+            <p class="page-subtitle" style="font-size: 1.05rem; margin-bottom: 2rem;">RNA-seq analysis revealing how DNA methyltransferase 1 regulates gene expression during early oligodendrocyte development</p>
+            
+            <!-- Dataset Info Table -->
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; margin: 2rem 0; padding: 1.5rem; background: #f8fafc; border-radius: 8px; border-left: 4px solid #0ea5e9;">
+                <div>
+                    <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">Dataset</p>
+                    <p style="font-weight: 600; color: #1e293b;">GSE79018 (Public)</p>
                 </div>
-                <div class="meta-item">
-                    <span class="meta-label">Cell Type</span>
-                    <span class="meta-value">Neonatal OPCs</span>
+                <div>
+                    <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">Cell Type</p>
+                    <p style="font-weight: 600; color: #1e293b;">Neonatal OPCs</p>
                 </div>
-                <div class="meta-item">
-                    <span class="meta-label">Comparison</span>
-                    <span class="meta-value"><em>Dnmt1</em> KO vs Control</span>
+                <div>
+                    <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">Comparison</p>
+                    <p style="font-weight: 600; color: #1e293b;"><em>Dnmt1</em> KO vs Control</p>
                 </div>
-                <div class="meta-item">
-                    <span class="meta-label">Samples</span>
-                    <span class="meta-value">2 Control, 2 KO</span>
+                <div>
+                    <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; margin-bottom: 0.5rem; font-weight: 600;">Samples</p>
+                    <p style="font-weight: 600; color: #1e293b;">2 Control, 2 KO</p>
                 </div>
             </div>
         </header>
 
         <!-- Key Findings -->
-        <div class="key-findings">
-            <h3>Key Findings</h3>
-            <ul>
-                <li><strong>347 differentially expressed genes</strong> (FDR < 0.05, |log₂FC| > 1)</li>
-                <li><strong>Chromatin remodeling response</strong> with upregulation of epigenetic regulators</li>
-                <li><strong>Compensatory mechanisms</strong> via Dnmt3a/3b upregulation</li>
-                <li><strong>Metabolic reprogramming</strong> in one-carbon metabolism pathways</li>
+        <section style="background: #e0f2fe; padding: 2rem; border-radius: 8px; border-left: 4px solid #0ea5e9; margin: 3rem 0;">
+            <h3 style="color: #0369a1; font-size: 1.1rem; margin-bottom: 1.5rem; font-weight: 700;">Key Findings</h3>
+            <ul style="color: #1e293b; line-height: 1.8; padding-left: 1.5rem;">
+                <li style="margin-bottom: 0.75rem;"><strong>347 differentially expressed genes</strong> (FDR < 0.05, |log₂FC| > 1)</li>
+                <li style="margin-bottom: 0.75rem;"><strong>Chromatin remodeling response</strong> with upregulation of epigenetic regulators</li>
+                <li style="margin-bottom: 0.75rem;"><strong>Compensatory mechanisms</strong> via Dnmt3a/3b upregulation</li>
+                <li style="margin-bottom: 0.75rem;"><strong>Metabolic reprogramming</strong> in one-carbon metabolism pathways</li>
             </ul>
-        </div>
+        </section>
 
-        <!-- Figures Section -->
-        <section class="figures-section">
-            <h2 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem;">Results</h2>
-            
-            <div class="figure-grid">
-                <div class="figure-item">
-                    <div class="figure-placeholder">
-                        <div style="text-align: center;">
-                            <div style="font-size: 1.1rem; margin-bottom: 0.5rem;">Volcano Plot</div>
-                            <div style="font-size: 0.85rem; color: var(--color-text-muted);">
-                                Add: figures/volcano-plot.png
-                            </div>
-                        </div>
-                    </div>
-                    <div class="figure-caption">
-                        <strong>Figure 1: Differential expression overview</strong>
-                        Volcano plot showing 347 significantly differentially expressed genes. Red points indicate upregulated genes (log₂FC > 1), blue points show downregulated genes.
-                    </div>
-                </div>
+        <!-- Results Section -->
+        <section class="content-section">
+            <h2 class="section-header">Results</h2>
 
-                <div class="figure-item">
-                    <div class="figure-placeholder">
-                        <div style="text-align: center;">
-                            <div style="font-size: 1.1rem; margin-bottom: 0.5rem;">PCA Plot</div>
-                            <div style="font-size: 0.85rem; color: var(--color-text-muted);">
-                                Add: figures/pca-plot.png
-                            </div>
-                        </div>
-                    </div>
-                    <div class="figure-caption">
-                        <strong>Figure 2: Sample clustering</strong>
-                        Principal component analysis showing clear separation between Dnmt1 KO and control samples on PC1 (68% variance).
-                    </div>
+            <!-- Figure Placeholders -->
+            <div style="margin: 2rem 0;">
+                <div style="background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 8px; padding: 3rem; text-align: center; margin-bottom: 1rem;">
+                    <p style="color: #94a3b8; font-weight: 500;">Volcano Plot</p>
+                    <p style="color: #cbd5e1; font-size: 0.85rem;">Add: figures/volcano-plot.png</p>
                 </div>
+                <p style="font-weight: 600; margin-bottom: 0.5rem;">Figure 1: Differential expression overview</p>
+                <p style="color: #64748b; margin-bottom: 3rem;">Volcano plot showing 347 significantly differentially expressed genes. Red points indicate upregulated genes (log₂FC > 1), blue points show downregulated genes.</p>
+            </div>
 
-                <div class="figure-item">
-                    <div class="figure-placeholder">
-                        <div style="text-align: center;">
-                            <div style="font-size: 1.1rem; margin-bottom: 0.5rem;">Heatmap</div>
-                            <div style="font-size: 0.85rem; color: var(--color-text-muted);">
-                                Add: figures/heatmap-deg.png
-                            </div>
-                        </div>
-                    </div>
-                    <div class="figure-caption">
-                        <strong>Figure 3: Top differentially expressed genes</strong>
-                        Heatmap of top 50 DEGs showing distinct expression patterns. Notable upregulation of pluripotency and chromatin remodeling genes.
-                    </div>
+            <div style="margin: 2rem 0;">
+                <div style="background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 8px; padding: 3rem; text-align: center; margin-bottom: 1rem;">
+                    <p style="color: #94a3b8; font-weight: 500;">PCA Plot</p>
+                    <p style="color: #cbd5e1; font-size: 0.85rem;">Add: figures/pca-plot.png</p>
                 </div>
+                <p style="font-weight: 600; margin-bottom: 0.5rem;">Figure 2: Sample clustering</p>
+                <p style="color: #64748b; margin-bottom: 3rem;">Principal component analysis showing clear separation between Dnmt1 KO and control samples on PC1 (68% variance).</p>
+            </div>
 
-                <div class="figure-item">
-                    <div class="figure-placeholder">
-                        <div style="text-align: center;">
-                            <div style="font-size: 1.1rem; margin-bottom: 0.5rem;">GO Enrichment</div>
-                            <div style="font-size: 0.85rem; color: var(--color-text-muted);">
-                                Add: figures/go-enrichment.png
-                            </div>
-                        </div>
-                    </div>
-                    <div class="figure-caption">
-                        <strong>Figure 4: Functional enrichment</strong>
-                        Top enriched biological processes include chromatin organization, DNA methylation, and stem cell maintenance (FDR < 0.01).
-                    </div>
+            <div style="margin: 2rem 0;">
+                <div style="background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 8px; padding: 3rem; text-align: center; margin-bottom: 1rem;">
+                    <p style="color: #94a3b8; font-weight: 500;">Heatmap</p>
+                    <p style="color: #cbd5e1; font-size: 0.85rem;">Add: figures/heatmap-deg.png</p>
                 </div>
+                <p style="font-weight: 600; margin-bottom: 0.5rem;">Figure 3: Top differentially expressed genes</p>
+                <p style="color: #64748b; margin-bottom: 3rem;">Heatmap of top 50 DEGs showing distinct expression patterns. Notable upregulation of pluripotency and chromatin remodeling genes.</p>
+            </div>
 
-                <div class="figure-item">
-                    <div class="figure-placeholder">
-                        <div style="text-align: center;">
-                            <div style="font-size: 1.1rem; margin-bottom: 0.5rem;">KEGG Pathways</div>
-                            <div style="font-size: 0.85rem; color: var(--color-text-muted);">
-                                Add: figures/kegg-pathways.png
-                            </div>
-                        </div>
-                    </div>
-                    <div class="figure-caption">
-                        <strong>Figure 5: Pathway analysis</strong>
-                        Enriched KEGG pathways highlighting metabolic reprogramming and epigenetic regulation.
-                    </div>
+            <div style="margin: 2rem 0;">
+                <div style="background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 8px; padding: 3rem; text-align: center; margin-bottom: 1rem;">
+                    <p style="color: #94a3b8; font-weight: 500;">GO Enrichment</p>
+                    <p style="color: #cbd5e1; font-size: 0.85rem;">Add: figures/go-enrichment.png</p>
                 </div>
+                <p style="font-weight: 600; margin-bottom: 0.5rem;">Figure 4: Functional enrichment</p>
+                <p style="color: #64748b; margin-bottom: 3rem;">Top enriched biological processes include chromatin organization, DNA methylation, and stem cell maintenance (FDR < 0.01).</p>
+            </div>
 
-                <div class="figure-item">
-                    <div class="figure-placeholder">
-                        <div style="text-align: center;">
-                            <div style="font-size: 1.1rem; margin-bottom: 0.5rem;">MA Plot</div>
-                            <div style="font-size: 0.85rem; color: var(--color-text-muted);">
-                                Add: figures/ma-plot.png
-                            </div>
-                        </div>
-                    </div>
-                    <div class="figure-caption">
-                        <strong>Figure 6: Expression vs fold change</strong>
-                        MA plot showing relationship between mean expression and log fold change across all genes.
-                    </div>
+            <div style="margin: 2rem 0;">
+                <div style="background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 8px; padding: 3rem; text-align: center; margin-bottom: 1rem;">
+                    <p style="color: #94a3b8; font-weight: 500;">KEGG Pathways</p>
+                    <p style="color: #cbd5e1; font-size: 0.85rem;">Add: figures/kegg-pathways.png</p>
                 </div>
+                <p style="font-weight: 600; margin-bottom: 0.5rem;">Figure 5: Pathway analysis</p>
+                <p style="color: #64748b; margin-bottom: 3rem;">Enriched KEGG pathways highlighting metabolic reprogramming and epigenetic regulation.</p>
+            </div>
+
+            <div style="margin: 2rem 0;">
+                <div style="background: #f8fafc; border: 2px dashed #cbd5e1; border-radius: 8px; padding: 3rem; text-align: center; margin-bottom: 1rem;">
+                    <p style="color: #94a3b8; font-weight: 500;">MA Plot</p>
+                    <p style="color: #cbd5e1; font-size: 0.85rem;">Add: figures/ma-plot.png</p>
+                </div>
+                <p style="font-weight: 600; margin-bottom: 0.5rem;">Figure 6: Expression vs fold change</p>
+                <p style="color: #64748b; margin-bottom: 3rem;">MA plot showing relationship between mean expression and log fold change across all genes.</p>
             </div>
         </section>
 
-        <!-- Methods -->
-        <section class="methods-brief">
-            <h3>Methods Summary</h3>
-            <p>
-                <strong>Quality Control:</strong> Raw reads assessed with FastQC/MultiQC. Adapter trimming performed with Trim Galore. All samples passed quality thresholds (Q30+ per-base quality, >85% mapping rate).
+        <!-- Methods Section -->
+        <section class="content-section">
+            <h3 class="section-header" style="font-size: 1.3rem;">Methods Summary</h3>
+            <p style="color: #64748b; line-height: 1.8; margin-bottom: 1rem;">
+                <strong style="color: #1e293b;">Quality Control:</strong> Raw reads assessed with FastQC/MultiQC. Adapter trimming performed with Trim Galore. All samples passed quality thresholds (Q30+ per-base quality, >85% mapping rate).
             </p>
-            <p>
-                <strong>Alignment & Quantification:</strong> Reads aligned to mouse reference genome (GRCm39) using STAR with two-pass mode for splice junction detection. Gene-level counts generated with featureCounts (Subread package).
+            <p style="color: #64748b; line-height: 1.8; margin-bottom: 1rem;">
+                <strong style="color: #1e293b;">Alignment & Quantification:</strong> Reads aligned to mouse reference genome (GRCm39) using STAR with two-pass mode for splice junction detection. Gene-level counts generated with featureCounts (Subread package).
             </p>
-            <p>
-                <strong>Differential Expression:</strong> DESeq2 used for normalization and statistical testing. Genes with FDR < 0.05 and |log₂FC| > 1 considered significantly differentially expressed.
+            <p style="color: #64748b; line-height: 1.8; margin-bottom: 1rem;">
+                <strong style="color: #1e293b;">Differential Expression:</strong> DESeq2 used for normalization and statistical testing. Genes with FDR < 0.05 and |log₂FC| > 1 considered significantly differentially expressed.
             </p>
-            <p>
-                <strong>Pathway Analysis:</strong> Gene Ontology and KEGG enrichment performed using clusterProfiler with Benjamini-Hochberg FDR correction.
+            <p style="color: #64748b; line-height: 1.8; margin-bottom: 1rem;">
+                <strong style="color: #1e293b;">Pathway Analysis:</strong> Gene Ontology and KEGG enrichment performed using clusterProfiler with Benjamini-Hochberg FDR correction.
             </p>
-            <p>
-                <strong>Visualization:</strong> All plots generated in R using ggplot2, ComplexHeatmap, and EnhancedVolcano packages.
+            <p style="color: #64748b; line-height: 1.8; margin-bottom: 1rem;">
+                <strong style="color: #1e293b;">Visualization:</strong> All plots generated in R using ggplot2, ComplexHeatmap, and EnhancedVolcano packages.
             </p>
         </section>
 
-        <!-- GitHub Section -->
-        <section class="github-section">
-            <h3 style="font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem;">
-                Complete Analysis Code
-            </h3>
-            <p style="color: var(--color-text-secondary); margin-bottom: 1.5rem;">
-                Full reproducible workflow with all scripts, environment setup, and documentation
-            </p>
-            <a href="https://github.com/ipekselcen/rnaseq-tutorial" target="_blank" class="github-button">
-                View Code on GitHub →
-            </a>
+        <!-- Code Repository Link -->
+        <section class="content-section">
+            <h3 class="section-header" style="font-size: 1.3rem;">Complete Analysis Code</h3>
+            <p style="color: #64748b; line-height: 1.8; margin-bottom: 1rem;">Full reproducible workflow with all scripts, environment setup, and documentation</p>
+            <a href="https://github.com/ipekselcen/rnaseq-tutorial" class="project-link" style="color: #0ea5e9; font-weight: 600; text-decoration: none;">View Code on GitHub →</a>
         </section>
 
+        <!-- Footer -->
         <footer class="site-footer">
             © 2025 Ipek Selcen
         </footer>
