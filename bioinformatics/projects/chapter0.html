@@ -240,6 +240,7 @@
                     <li><a href="#recommended-pipelines">7. Recommended Pipelines for Common Scenarios</a></li>
                     <li><a href="#dnmt1-choices">8. Our Choices for the Dnmt1 Tutorial</a></li>
                     <li><a href="#pitfalls">9. Common Pitfalls to Avoid</a></li>
+                    <li><a href="#biological-interpretation">10. Beyond the Gene List: Biological Interpretation</a></li>
                 </ul>
             </div>
 
@@ -270,6 +271,28 @@
                 </div>
 
                 <p>Think of this guide as your RNA-seq GPS. We'll show you the different routes, explain what makes each one unique, and help you choose the path that makes sense for your specific destination.</p>
+
+                <div class="warning-box">
+                    <h4>⚠️ Setting Expectations: What RNA-seq Can and Cannot Tell You</h4>
+                    
+                    <p><strong>RNA-seq CAN tell you:</strong></p>
+                    <ul>
+                        <li>Which genes are transcribed in your samples</li>
+                        <li>How transcript levels change between conditions</li>
+                        <li>Which biological pathways might be affected</li>
+                        <li>What questions to ask next in the lab</li>
+                    </ul>
+                    
+                    <p><strong>RNA-seq CANNOT tell you:</strong></p>
+                    <ul>
+                        <li>Protein levels or protein activity</li>
+                        <li>Whether changes are cause, consequence, or compensation</li>
+                        <li>Biological mechanism or molecular function</li>
+                        <li>What to do therapeutically</li>
+                    </ul>
+                    
+                    <p><strong>This tutorial focuses on the computational pipeline—getting from raw data to a statistically sound gene list. But the most important skill—biological interpretation and experimental validation—comes from understanding your biological system deeply. You are a biologist who uses computational tools, not the other way around.</strong></p>
+                </div>
 
                 <h2 id="alignment-decision">2. Decision Point 1: Alignment-Based vs. Alignment-Free Quantification</h2>
 
@@ -901,6 +924,358 @@ featureCounts with custom GTF → DESeq2
                     <p><strong>Do this instead:</strong> Merge technical replicates; only biological replicates provide statistical power</p>
                 </div>
 
+                <div class="warning-box">
+                    <h4>❌ Stopping at the Gene List</h4>
+                    <p><strong>Why it's wrong:</strong> RNA-seq is a discovery tool, not an endpoint. mRNA ≠ protein ≠ function. Getting a statistically significant gene list is the beginning of your research, not the end.</p>
+                    <p><strong>Do this instead:</strong> Validate top hits with RT-qPCR, confirm protein levels with Western blots, test function with perturbation experiments</p>
+                </div>
+
+                <div class="warning-box">
+                    <h4>❌ Assuming RNA Changes Predict Protein Changes</h4>
+                    <p><strong>Why it's wrong:</strong> Post-transcriptional regulation, translation efficiency, protein stability, and localization are all invisible to RNA-seq. Many highly upregulated mRNAs produce little to no protein.</p>
+                    <p><strong>Do this instead:</strong> Measure protein levels directly for genes of interest (Western blot, immunofluorescence, mass spectrometry)</p>
+                </div>
+
+                <div class="warning-box">
+                    <h4>❌ Over-relying on Pathway Enrichment</h4>
+                    <p><strong>Why it's wrong:</strong> GO terms are biased toward well-studied processes, pathways overlap extensively, and statistical enrichment doesn't equal biological importance</p>
+                    <p><strong>Do this instead:</strong> Use pathway analysis to generate hypotheses about biological processes, then validate specific genes from those pathways experimentally</p>
+                </div>
+
+                <div class="warning-box">
+                    <h4>❌ Confusing Correlation with Causation</h4>
+                    <p><strong>Why it's wrong:</strong> Just because Gene X is upregulated in your condition doesn't mean it's driving the phenotype—it could be a consequence, a compensation attempt, or completely unrelated</p>
+                    <p><strong>Do this instead:</strong> Design perturbation experiments (knockdown/knockout or overexpression) to test whether candidate genes are functionally important</p>
+                </div>
+
+                <h2 id="biological-interpretation">10. Beyond the Gene List: Biological Interpretation</h2>
+
+                <p>You've run your pipeline perfectly. DESeq2 gave you a list of 500 differentially expressed genes with padj < 0.05 and beautiful volcano plots. Congratulations! Now comes the hard part: <strong>What does it actually mean biologically?</strong></p>
+
+                <div class="warning-box">
+                    <h4>The Most Critical Lesson</h4>
+                    <p><strong>RNA-seq tells you what's transcribed, NOT what's functional.</strong></p>
+                    <p>This entire tutorial has helped you generate a high-quality gene list with statistical rigor. But that gene list is just the beginning. The hardest work—and the most important work—happens next: figuring out what those changes mean for your biological system.</p>
+                </div>
+
+                <h3>The Central Dogma Doesn't Always Hold</h3>
+
+                <div class="info-box">
+                    <h4>DNA → RNA → Protein → Function</h4>
+                    <p>This is what we teach in introductory biology. Reality is much messier:</p>
+                    <ul>
+                        <li><strong>MicroRNAs and RNA-binding proteins</strong> can completely block translation even when mRNA is abundant</li>
+                        <li><strong>Protein half-life varies enormously:</strong> Histones are stable for days, transcription factors for minutes. A 2-fold increase in mRNA might mean nothing if the protein is already saturated or if it's degraded immediately.</li>
+                        <li><strong>Post-translational modifications</strong> (phosphorylation, acetylation, ubiquitination) completely change protein function without touching RNA levels at all</li>
+                        <li><strong>Subcellular localization matters:</strong> A protein in the wrong compartment is non-functional, but RNA-seq can't tell you where proteins go</li>
+                        <li><strong>Protein-protein interactions:</strong> Many proteins need binding partners to be active—RNA-seq won't show you this</li>
+                    </ul>
+                </div>
+
+                <h3>Questions to Ask About Your Results</h3>
+
+                <h4>1. Is this upregulation cause, consequence, or compensation?</h4>
+
+                <p><strong>Example from oligodendrocyte biology:</strong> Imagine you knock out <em>Dnmt1</em> and see upregulation of <em>Dnmt3a</em> and <em>Dnmt3b</em>.</p>
+
+                <ul>
+                    <li><strong>Cause?</strong> No—you knocked out Dnmt1 first, so the other DNMTs didn't cause the initial effect</li>
+                    <li><strong>Compensation?</strong> Possibly—cells might be attempting to restore DNA methylation function through alternative methyltransferases</li>
+                    <li><strong>Consequence?</strong> Maybe—loss of DNA methylation might trigger a chromatin stress response that includes upregulating related enzymes</li>
+                    <li><strong>Bystander effect?</strong> Perhaps—these genes might be in an open chromatin region that becomes derepressed for unrelated reasons</li>
+                </ul>
+
+                <p><strong>How to distinguish:</strong> You need functional experiments. Try knocking down the "compensatory" genes and measuring DNA methylation levels. Check protein levels and enzymatic activity. Measure the timeline—do these genes go up before or after the phenotype appears?</p>
+
+                <h4>2. Does the direction of change make biological sense?</h4>
+
+                <div class="tip-box">
+                    <h4>Biological Sanity Checks</h4>
+                    <p>Before getting excited about statistical significance:</p>
+                    <ul>
+                        <li>If you knocked out a <strong>transcriptional repressor</strong>, are its known target genes upregulated?</li>
+                        <li>If you're studying <strong>differentiation</strong>, do stem cell markers go down and differentiation markers go up?</li>
+                        <li>Are <strong>housekeeping genes stable</strong>? (If Gapdh, Actb, or ribosomal proteins are wildly changing, something's wrong)</li>
+                        <li>Do <strong>positive controls</strong> behave as expected? (If you know Gene X should change based on previous work, does it?)</li>
+                        <li>Check <strong>known biology</strong>: Do your top hits have any connection to your phenotype in the literature?</li>
+                    </ul>
+                </div>
+
+                <h4>3. What's the effect size, and does it matter biologically?</h4>
+
+                <p>Statistical significance and biological significance are not the same thing.</p>
+
+                <p><strong>Scenario A:</strong> Gene with padj = 1e-50 and log2FC = 0.3</p>
+                <ul>
+                    <li><strong>Statistically:</strong> Extremely significant (amazing p-value!)</li>
+                    <li><strong>Biologically:</strong> Probably meaningless—1.23-fold change is unlikely to drive phenotypes in most systems</li>
+                </ul>
+
+                <p><strong>Scenario B:</strong> Gene with padj = 0.04 and log2FC = 4 (16-fold change)</p>
+                <ul>
+                    <li><strong>Statistically:</strong> Barely significant (just passes your threshold)</li>
+                    <li><strong>Biologically:</strong> Very interesting—massive changes like this deserve investigation even with borderline statistics</li>
+                </ul>
+
+                <p><strong>Context matters:</strong> What fold-changes are typical in your system?</p>
+                <ul>
+                    <li><strong>Development/differentiation:</strong> 2-3 fold changes can completely alter cell fate</li>
+                    <li><strong>Metabolic stress:</strong> You might see 50-fold changes in stress response genes that are ultimately inconsequential</li>
+                    <li><strong>Your specific system:</strong> Only you know what's normal—use that biological knowledge!</li>
+                </ul>
+
+                <h3>The Problem with Pathway Enrichment</h3>
+
+                <div class="warning-box">
+                    <h4>GO Terms and KEGG Pathways Are Useful Tools, But Dangerous Shortcuts</h4>
+                    <p><strong>The temptation:</strong> "My top enriched pathway is 'chromatin organization' with p < 0.001, so I'll write in my paper that Dnmt1 regulates chromatin organization!"</p>
+                    
+                    <p><strong>Why this is problematic:</strong></p>
+                    <ul>
+                        <li><strong>Annotation bias:</strong> Well-studied processes (chromatin, cell cycle, apoptosis) have hundreds of genes annotated. Understudied processes have few. This creates artifactual enrichment.</li>
+                        <li><strong>Circular logic:</strong> You're studying an epigenetic regulator, so of course epigenetic genes are in your list—that doesn't necessarily mean it's the mechanism</li>
+                        <li><strong>Pathway crosstalk:</strong> A gene annotated in "chromatin remodeling" is also in "DNA repair," "cell cycle regulation," "transcription," and five other categories</li>
+                        <li><strong>Statistical issues:</strong> Standard enrichment tests don't account for gene length, expression level, or correlation structure</li>
+                        <li><strong>Vague categories:</strong> What does "regulation of biological process" or "cellular response to stimulus" actually tell you?</li>
+                    </ul>
+                    
+                    <p><strong>Use pathway analysis as a hypothesis generator, not as your conclusion.</strong></p>
+                </div>
+
+                <h3>Designing Follow-Up Experiments</h3>
+
+                <p>Your RNA-seq is a <strong>discovery tool</strong> that generates hypotheses. Those hypotheses need testing. Here's a roadmap:</p>
+
+                <h4>Validation tier 1: Confirm the RNA-seq is correct</h4>
+
+                <ol>
+                    <li><strong>RT-qPCR on the same RNA samples:</strong> Pick 5-10 top hits, validate that the fold-changes match. This confirms your RNA-seq pipeline worked correctly.</li>
+                    <li><strong>RT-qPCR on independent biological replicates:</strong> Process new samples from scratch. This confirms the effect is reproducible, not a batch effect.</li>
+                </ol>
+
+                <p><strong>If these don't validate, stop and troubleshoot your RNA-seq before proceeding.</strong></p>
+
+                <h4>Validation tier 2: Check if RNA changes translate to protein</h4>
+
+                <ol start="3">
+                    <li><strong>Western blot:</strong> For your top candidates, do protein levels match RNA levels? (They often don't!)</li>
+                    <li><strong>Immunofluorescence:</strong> Protein level AND subcellular localization—where is the protein?</li>
+                    <li><strong>Mass spectrometry:</strong> If you have resources, unbiased proteomics tells you what's actually changing at the protein level</li>
+                </ol>
+
+                <p><strong>Key insight:</strong> If RNA goes up 5-fold but protein doesn't change, the RNA change probably doesn't matter functionally.</p>
+
+                <h4>Validation tier 3: Test functional importance</h4>
+
+                <ol start="6">
+                    <li><strong>Knockdown/knockout of candidates:</strong> Does perturbing Gene X recapitulate any aspect of your original phenotype?</li>
+                    <li><strong>Overexpression:</strong> Does forcing Gene X expression rescue your knockout phenotype?</li>
+                    <li><strong>Functional assays:</strong> Measure the actual biological output (proliferation, differentiation, migration, etc.)</li>
+                </ol>
+
+                <h4>Mechanistic experiments: Understanding "how"</h4>
+
+                <ul>
+                    <li><strong>ChIP-seq or CUT&RUN:</strong> Is your factor of interest directly binding to the promoters of changed genes? Or is this an indirect effect?</li>
+                    <li><strong>ATAC-seq:</strong> Are expression changes accompanied by chromatin accessibility changes?</li>
+                    <li><strong>Time-course experiments:</strong> What changes first? This helps distinguish cause from consequence.</li>
+                    <li><strong>Rescue experiments:</strong> If Gene A knockout causes Gene B upregulation, does re-expressing Gene A bring it back down?</li>
+                    <li><strong>Epistasis analysis:</strong> Double knockouts can reveal genetic interactions and pathway order</li>
+                </ul>
+
+                <h3>Integration with Other Data Types</h3>
+
+                <p><strong>RNA-seq alone can't tell you mechanism—it only tells you association.</strong></p>
+
+                <p>The most powerful insights come from integrating multiple data types:</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Combine RNA-seq with...</th>
+                            <th>To answer...</th>
+                            <th>Example question</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>ChIP-seq</strong></td>
+                            <td>Which changes are direct targets vs. downstream effects?</td>
+                            <td>"Does Dnmt1 directly bind genes that change in the knockout?"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>ATAC-seq</strong></td>
+                            <td>Are expression changes driven by chromatin accessibility?</td>
+                            <td>"Do upregulated genes have newly accessible promoters?"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Proteomics</strong></td>
+                            <td>Do RNA changes translate to protein changes?</td>
+                            <td>"Which RNA changes actually matter for protein levels?"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>CRISPR screens</strong></td>
+                            <td>Which genes are functionally important for the phenotype?</td>
+                            <td>"Of 200 upregulated genes, which ones drive differentiation?"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>scRNA-seq</strong></td>
+                            <td>Are changes uniform or cell-type-specific?</td>
+                            <td>"Is this happening in all OPCs or a subpopulation?"</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Metabolomics</strong></td>
+                            <td>Do expression changes affect cellular metabolism?</td>
+                            <td>"Does upregulation of metabolic genes change actual metabolite levels?"</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="info-box">
+                    <h4>Example: Interpreting a Dnmt1 Knockout Experiment</h4>
+                    
+                    <p><strong>RNA-seq finding:</strong> 347 differentially expressed genes, with enrichment for "chromatin organization" and upregulation of Dnmt3a/3b</p>
+                    
+                    <p><strong>What RNA-seq tells you:</strong></p>
+                    <ul>
+                        <li>Transcript levels changed for these genes</li>
+                        <li>The changes are statistically significant</li>
+                        <li>Chromatin-related genes are over-represented</li>
+                    </ul>
+                    
+                    <p><strong>What RNA-seq does NOT tell you:</strong></p>
+                    <ul>
+                        <li>Are these direct Dnmt1 targets or indirect downstream effects?</li>
+                        <li>Do protein levels of Dnmt3a/3b actually increase?</li>
+                        <li>Is the Dnmt3a/3b upregulation compensatory (trying to restore function) or pathological (stress response)?</li>
+                        <li>Would preventing Dnmt3a/3b upregulation rescue the phenotype?</li>
+                        <li>What's the mechanism connecting Dnmt1 loss to these expression changes?</li>
+                    </ul>
+                    
+                    <p><strong>How to find out (follow-up experiments):</strong></p>
+                    <ul>
+                        <li><strong>ChIP-seq for Dnmt1:</strong> Does it directly bind promoters of upregulated genes? (Answers: direct vs. indirect)</li>
+                        <li><strong>Western blots for Dnmt3a/3b:</strong> Do protein levels match the RNA increase? (Answers: translation efficiency)</li>
+                        <li><strong>Dnmt3a/3b knockdown in Dnmt1 KO cells:</strong> Does blocking the upregulation worsen or improve the phenotype? (Answers: compensatory vs. pathological)</li>
+                        <li><strong>Time-course RNA-seq:</strong> What changes first after Dnmt1 loss? (Answers: cause vs. consequence)</li>
+                        <li><strong>DNA methylation profiling:</strong> Which genomic regions lose methylation? Do those correlate with gene expression changes? (Answers: mechanism)</li>
+                    </ul>
+                </div>
+
+                <h3>Common Biological Interpretation Mistakes</h3>
+
+                <div class="warning-box">
+                    <h4>❌ "This gene is upregulated, so it must be important for the phenotype"</h4>
+                    <p><strong>Why it's wrong:</strong> Correlation ≠ causation. The gene might be:</p>
+                    <ul>
+                        <li>A <strong>bystander</strong> (changed for unrelated reasons)</li>
+                        <li>A <strong>consequence</strong> (response to the phenotype, not cause of it)</li>
+                        <li>A <strong>failed compensation attempt</strong> (cell trying to fix the problem but failing)</li>
+                        <li>A <strong>stress response</strong> (non-specific reaction to perturbation)</li>
+                    </ul>
+                    <p><strong>Do this instead:</strong> Test function with loss-of-function or gain-of-function experiments</p>
+                </div>
+
+                <div class="warning-box">
+                    <h4>❌ "The RNA went up 5-fold, so the protein probably went up 5-fold too"</h4>
+                    <p><strong>Why it's wrong:</strong> Post-transcriptional regulation is pervasive:</p>
+                    <ul>
+                        <li>MicroRNAs can block translation</li>
+                        <li>mRNA might be sequestered in stress granules</li>
+                        <li>Protein might be rapidly degraded</li>
+                        <li>Translation might be selectively inhibited</li>
+                    </ul>
+                    <p>Studies comparing RNA-seq and proteomics typically find only 30-50% correlation between mRNA and protein levels.</p>
+                    <p><strong>Do this instead:</strong> Measure protein directly for genes you care about (Western, IF, mass spec)</p>
+                </div>
+
+                <div class="warning-box">
+                    <h4>❌ "This pathway is enriched, so that's THE mechanism"</h4>
+                    <p><strong>Why it's wrong:</strong></p>
+                    <ul>
+                        <li>Pathway enrichment is a statistical observation about your gene list, not a statement about biology</li>
+                        <li>Most genes belong to multiple pathways</li>
+                        <li>The "pathway" might be too broad to be meaningful</li>
+                        <li>Enrichment could be an artifact of annotation bias</li>
+                    </ul>
+                    <p><strong>Do this instead:</strong> Use pathway analysis to identify specific candidate genes, then validate those genes individually</p>
+                </div>
+
+                <div class="warning-box">
+                    <h4>❌ "500 genes changed, so I need to study all 500"</h4>
+                    <p><strong>Why it's wrong:</strong> Most gene expression changes are downstream ripple effects. The key drivers are usually a small subset.</p>
+                    <p><strong>Do this instead:</strong> Prioritize genes based on:</p>
+                    <ul>
+                        <li><strong>Magnitude of change:</strong> Larger fold-changes are more likely to be functionally important</li>
+                        <li><strong>Known biology:</strong> Genes with established roles in your system</li>
+                        <li><strong>Direct targets:</strong> If you have ChIP-seq, focus on direct binding targets</li>
+                        <li><strong>Druggability:</strong> For translational work, genes that can be therapeutically targeted</li>
+                        <li><strong>Validation feasibility:</strong> Genes where you have good antibodies or reagents</li>
+                    </ul>
+                </div>
+
+                <h3>The Iterative Nature of Discovery</h3>
+
+                <p>Good biology is iterative. RNA-seq is rarely a one-and-done experiment:</p>
+
+                <div class="info-box">
+                    <h4>The Scientific Method in Practice</h4>
+                    <ol>
+                        <li><strong>Initial hypothesis:</strong> "Dnmt1 is important for oligodendrocyte differentiation"</li>
+                        <li><strong>RNA-seq experiment:</strong> Knock out Dnmt1, discover what changes</li>
+                        <li><strong>Analysis:</strong> Generate statistically sound gene list (what you learned in this tutorial)</li>
+                        <li><strong>Validation:</strong> Confirm key findings with RT-qPCR and Western blots</li>
+                        <li><strong>Refined hypothesis:</strong> "Dnmt1 regulates OPC differentiation through direct repression of pluripotency genes and chromatin remodelers"</li>
+                        <li><strong>Mechanistic experiments:</strong> ChIP-seq shows Dnmt1 binds these promoters; knockdown confirms they're functionally important</li>
+                        <li><strong>Model building:</strong> Dnmt1 maintains DNA methylation at specific loci to repress alternative cell fates</li>
+                        <li><strong>Test predictions:</strong> Does your model predict other phenotypes? Can you rescue with downstream targets?</li>
+                        <li><strong>Additional RNA-seq:</strong> Time-course or perturbation of downstream targets to refine the model</li>
+                    </ol>
+                    <p><strong>RNA-seq appears at steps 2, 9, and potentially more times as you iterate.</strong></p>
+                </div>
+
+                <h3>Your Expertise Makes the Difference</h3>
+
+                <p>Here's what makes a mediocre RNA-seq paper versus an excellent one:</p>
+
+                <p><strong>Mediocre approach:</strong></p>
+                <ul>
+                    <li>Run RNA-seq → Get gene list → Run GO enrichment → Write: "We found enrichment for chromatin organization, suggesting Dnmt1 regulates chromatin"</li>
+                    <li>Stop there, never validate anything</li>
+                    <li>Circular conclusion (you studied an epigenetic enzyme and found epigenetic genes changed—not surprising!)</li>
+                </ul>
+
+                <p><strong>Excellent approach:</strong></p>
+                <ul>
+                    <li>Run RNA-seq → Get gene list → Validate top hits with RT-qPCR and Western blots</li>
+                    <li>Identify specific candidate genes from enriched pathways based on biological knowledge</li>
+                    <li>Test whether candidates are direct targets (ChIP-seq) or indirect effects</li>
+                    <li>Functionally test whether preventing these changes rescues the phenotype</li>
+                    <li>Build a mechanistic model with experimental support</li>
+                    <li>Make testable predictions and validate them</li>
+                </ul>
+
+                <p><strong>The difference is biology, not bioinformatics.</strong> Both papers might have identical computational analysis. The excellent paper uses that analysis as a starting point for biological discovery.</p>
+
+                <h2 id="final-thoughts">Final Thoughts: Computation Enables Biology, But Doesn't Replace It</h2>
+
+                <div class="tip-box">
+                    <h4>You Are a Biologist Who Uses Computational Tools</h4>
+                    <p>Not the other way around.</p>
+                    
+                    <p>This tutorial has taught you how to go from raw FASTQ files to a statistically rigorous list of differentially expressed genes. That's an important skill, and you should feel confident using these computational approaches.</p>
+                    
+                    <p><strong>But never forget:</strong> The computational pipeline serves your biological understanding, not the other way around.</p>
+                    
+                    <p><strong>Your expertise as a biologist—</strong>knowing your cell type, your developmental stage, your signaling pathways, your phenotype, what's been published, what makes biological sense—is what transforms a gene list into biological insight.</p>
+                    
+                    <p><strong>A perfectly executed computational pipeline that produces biologically meaningless results is far worse than a rough-around-the-edges analysis that generates testable, important hypotheses.</strong></p>
+                    
+                    <p>Use these computational tools to ask better biological questions. Then get back in the lab to answer them.</p>
+                    
+                    <p><strong>The wet lab and the dry lab aren't separate—they're iterative partners in discovery.</strong></p>
+                </div>
+
                 <h2>Summary: Your RNA-seq Decision Framework</h2>
 
                 <p>By now, you should have a clear mental framework for approaching RNA-seq analysis:</p>
@@ -913,11 +1288,13 @@ featureCounts with custom GTF → DESeq2
                     <li><strong>Use appropriate normalization</strong> - raw counts for DE testing, normalized counts for visualization</li>
                     <li><strong>Account for experimental design</strong> - replicates, batches, paired samples</li>
                     <li><strong>Validate your results</strong> - QC at every step, visualize to ensure results make biological sense</li>
+                    <li><strong>Remember: RNA ≠ protein ≠ function</strong> - computational analysis generates hypotheses that need experimental validation</li>
                 </ol>
 
                 <div class="tip-box">
                     <h4>Remember</h4>
                     <p>There is no universally "correct" pipeline. The best approach depends on your specific question, your data characteristics, and your available resources. The goal is to make <strong>informed decisions</strong> that you can justify, rather than blindly following a recipe.</p>
+                    <p><strong>Most importantly:</strong> RNA-seq is a powerful discovery tool, but it's just the first step. The real scientific work—biological interpretation, experimental validation, and mechanistic understanding—comes from integrating computational analysis with wet lab experiments and deep knowledge of your biological system.</p>
                 </div>
 
                 <div class="nav-buttons">
