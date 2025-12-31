@@ -225,7 +225,7 @@
             <div class="info-box">
                 <h4>Who is this for?</h4>
                 <p>This guide is designed for experimental biologists who need to analyze RNA-seq data but feel overwhelmed by the many different tools and approaches. We focus on understanding the <strong>decision points</strong> rather than memorizing commands.</p>
-                <p><strong>No prior bioinformatics experience required.</strong> We'll explain concepts using real-world analogies and help you make informed choices for your specific research questions.</p>
+                <p><strong>No prior bioinformatics experience required.</strong> I'll explain concepts using real-world analogies and help you make informed choices for your specific research questions.</p>
             </div>
 
             <div class="toc">
@@ -245,9 +245,9 @@
             </div>
 
             <section class="content-section">
-                <h2 id="introduction">1. Introduction: One Question, Many Paths</h2>
+                <h2 id="introduction">Introduction: One Question, Many Paths</h2>
                 
-                <p>At its core, RNA-seq answers a deceptively simple question: <strong>How much is each gene expressed in my samples?</strong></p>
+                <p>At its core, RNA-seq answers a deceptively simple question: How much is each gene expressed in my samples?</p>
                 
                 <p>But when you sit down to analyze your data, you're immediately confronted with choices:</p>
                 <ul>
@@ -257,23 +257,23 @@
                     <li>How do I know if I'm making the right choice?</li>
                 </ul>
 
-                <p>Here's the good news: <strong>there's no single "correct" pipeline.</strong> Different approaches work better for different biological questions, sample types, and computational resources.</p>
+                <p>Here's the good news: there's no single "correct" pipeline. Different approaches work better for different biological questions, sample types, and computational resources.</p>
 
                 <div class="tip-box">
                     <h4>The Goal of This Guide</h4>
-                    <p>Rather than telling you "always use method X," we'll help you understand:</p>
+                    <p>Rather than telling you "always use method X," I'll help you understand:</p>
                     <ul>
-                        <li>What each approach actually does (in plain English)</li>
+                        <li>What each approach actually does</li>
                         <li>When to use which method</li>
                         <li>What trade-offs you're making</li>
                         <li>How to recognize if something went wrong</li>
                     </ul>
                 </div>
 
-                <p>Think of this guide as your RNA-seq GPS. We'll show you the different routes, explain what makes each one unique, and help you choose the path that makes sense for your specific destination.</p>
+                <p>Think of this guide as your RNA-seq GPS. I'll show you the different routes, explain what makes each one unique, and help you choose the path that makes sense for your specific destination.</p>
 
                 <div class="warning-box">
-                    <h4>⚠️ Setting Expectations: What RNA-seq Can and Cannot Tell You</h4>
+                    <h4>⚠️ Setting Expectations: What RNA-seq can and cannot tell you</h4>
                     
                     <p><strong>RNA-seq CAN tell you:</strong></p>
                     <ul>
@@ -282,7 +282,7 @@
                         <li>Which biological pathways might be affected</li>
                         <li>What questions to ask next in the lab</li>
                     </ul>
-                    
+                    <br>
                     <p><strong>RNA-seq CANNOT tell you:</strong></p>
                     <ul>
                         <li>Protein levels or protein activity</li>
@@ -290,11 +290,11 @@
                         <li>Biological mechanism or molecular function</li>
                         <li>What to do therapeutically</li>
                     </ul>
-                    
-                    <p><strong>This tutorial focuses on the computational pipeline—getting from raw data to a statistically sound gene list. But the most important skill—biological interpretation and experimental validation—comes from understanding your biological system deeply. You are a biologist who uses computational tools, not the other way around.</strong></p>
+                    <br>
+                    <p>This tutorial focuses on the computational pipeline (getting from raw data to a statistically sound gene list). But the most important skill, <em>biological interpretation and experimental validation</em>, comes from understanding your biological system deeply. You are a biologist who uses computational tools, not the other way around.</p>
                 </div>
 
-                <h2 id="alignment-decision">2. Decision Point 1: Alignment-Based vs. Alignment-Free Quantification</h2>
+                <h2 id="alignment-decision">Decision Point 1: Alignment-Based vs. Alignment-Free Quantification</h2>
 
                 <p>This is your first major fork in the road. Do you align your reads to the genome, or do you skip that step entirely?</p>
 
@@ -314,8 +314,8 @@
 
                 <h3>When to Use What</h3>
 
-                <div class="decision-box">
-                    <h3>Use Salmon or Kallisto when:</h3>
+                <div class="tip-box">
+                    <h4>Use Salmon or Kallisto when:</h4>
                     <ul>
                         <li>Your main question is: "Which genes are differentially expressed?"</li>
                         <li>You're working with a well-annotated organism (human, mouse, etc.)</li>
@@ -323,10 +323,8 @@
                         <li>Computational resources are limited</li>
                         <li>You want transcript-level quantification in addition to gene-level</li>
                     </ul>
-                </div>
-
-                <div class="decision-box">
-                    <h3>Use STAR or HISAT2 when:</h3>
+                    <br>
+                    <h4>Use STAR or HISAT2 when:</h4>
                     <ul>
                         <li>You need to discover novel transcripts or splicing events</li>
                         <li>You want to visualize your reads in IGV (Integrative Genomics Viewer)</li>
@@ -441,7 +439,7 @@
                     <li><strong>Best use:</strong> Large studies where speed is critical</li>
                 </ul>
 
-                <h2 id="gene-vs-transcript">3. Decision Point 2: Gene-Level vs. Transcript-Level Analysis</h2>
+                <h2 id="gene-vs-transcript">Decision Point 2: Gene-Level vs. Transcript-Level Analysis</h2>
 
                 <p>This decision shapes what biological questions you can answer with your data.</p>
 
@@ -462,8 +460,8 @@
 
                 <h3>When Does This Matter?</h3>
 
-                <div class="decision-box">
-                    <h3>Gene-level quantification is sufficient when:</h3>
+                <div class="tip-box">
+                    <h4>Gene-level quantification is sufficient when:</h4>
                     <ul>
                         <li>Your question is about overall gene regulation (up or down)</li>
                         <li>You're interested in which pathways are affected</li>
@@ -471,10 +469,8 @@
                         <li>Alternative splicing isn't relevant to your biological system</li>
                         <li>You want simpler statistics and clearer interpretation</li>
                     </ul>
-                </div>
-
-                <div class="decision-box">
-                    <h3>Transcript-level analysis becomes important when:</h3>
+                    <br>
+                    <h4>Transcript-level analysis becomes important when:</h4>
                     <ul>
                         <li>Alternative splicing is relevant to your biology (development, cancer, neurodegeneration)</li>
                         <li>Different isoforms have different functions (e.g., membrane-bound vs. secreted)</li>
@@ -485,14 +481,13 @@
                 </div>
 
                 <h3>Real-World Example</h3>
-
-                <p>Consider the gene <em>BCL2L1</em>, which encodes two major isoforms:</p>
+                <p>Consider the gene <em>TET1</em>, which encodes two major isoforms:</p>
                 <ul>
-                    <li><strong>BCL-xL:</strong> Anti-apoptotic (prevents cell death)</li>
-                    <li><strong>BCL-xS:</strong> Pro-apoptotic (promotes cell death)</li>
+                    <li><strong>TET1 (full-length):</strong> Contains the CXXC DNA-binding domain and catalytic domain - can bind CpG islands and catalyze DNA hydroxymethylation (demethylation)</li>
+                    <li><strong>TET1s (short isoform):</strong> Lacks the CXXC domain - has catalytic activity but different genomic targeting</li>
                 </ul>
-
-                <p>Gene-level analysis might show "no change in <em>BCL2L1</em> expression," but transcript-level analysis could reveal a dramatic shift from the long (protective) to the short (death-promoting) isoform. This would completely change your biological interpretation!</p>
+                <br>
+                <p>Gene-level analysis might show "no change in <em>TET1</em> expression," but transcript-level analysis could reveal a dramatic shift from the full-length (with DNA-binding specificity) to the short (with altered targeting) isoform. This would completely change your biological interpretation: the cell might maintain the same enzymatic capacity but redirect it to different genomic locations!</p>
 
                 <h3>The Statistical Trade-offs</h3>
 
@@ -513,7 +508,7 @@
                 <div class="code-block">
 # Alignment-based:
 STAR/HISAT2 → featureCounts/HTSeq → DESeq2 → Gene-level DE
-
+<br>
 # Alignment-free:
 Salmon/Kallisto → tximport (summarize to genes) → DESeq2 → Gene-level DE
                 </div>
@@ -522,10 +517,10 @@ Salmon/Kallisto → tximport (summarize to genes) → DESeq2 → Gene-level DE
                 <div class="code-block">
 # Full isoform analysis:
 Salmon/Kallisto → IsoformSwitchAnalyzeR → Isoform switching
-
+<br>
 # Differential transcript usage:
 Salmon/Kallisto → DRIMSeq/DEXSeq → Which isoforms change within genes
-
+<br>
 # Discovery-based:
 STAR → StringTie → Ballgown → Transcript-level DE
                 </div>
@@ -535,7 +530,7 @@ STAR → StringTie → Ballgown → Transcript-level DE
                     <p><strong>Start with gene-level analysis.</strong> It's simpler, more powerful, and answers most biological questions. If you find interesting candidates or if alternative splicing is central to your question, then dive into transcript-level analysis for those specific genes or pathways.</p>
                 </div>
 
-                <h2 id="quantification">4. Decision Point 3: Count Quantification Methods</h2>
+                <h2 id="quantification">Decision Point 3: Count Quantification Methods</h2>
 
                 <p>If you chose an alignment-based approach, you now need to convert your aligned reads (BAM files) into a count matrix. This step determines how many reads "belong" to each gene.</p>
 
@@ -605,7 +600,7 @@ STAR → StringTie → Ballgown → Transcript-level DE
                     <p>For standard differential expression analysis, <strong>use featureCounts with default settings</strong> (discarding multi-mappers). This is conservative and works well for most biological questions. The small number of reads you lose is unlikely to affect your biological conclusions.</p>
                 </div>
 
-                <h2 id="normalization">5. Decision Point 4: Normalization - Making Data Comparable</h2>
+                <h2 id="normalization">Decision Point 4: Normalization - Making Data Comparable</h2>
 
                 <p>Raw sequencing produces different numbers of reads for each sample (library size differences). Additionally, longer genes capture more reads than shorter genes, even if they're expressed at the same level. Normalization corrects for these technical biases.</p>
 
@@ -672,7 +667,7 @@ STAR → StringTie → Ballgown → Transcript-level DE
 
                 <p>Now they're comparable - Gene X has the same expression level in both samples.</p>
 
-                <h2 id="experimental-design">6. Decision Point 5: Experimental Design Considerations</h2>
+                <h2 id="experimental-design">Decision Point 5: Experimental Design Considerations</h2>
 
                 <p>The best analysis pipeline won't save a poorly designed experiment. Here are key considerations that affect your analysis strategy:</p>
 
@@ -691,7 +686,7 @@ STAR → StringTie → Ballgown → Transcript-level DE
                 </div>
 
                 <p><strong>How to detect:</strong> Run PCA and check if samples cluster by processing date rather than biological condition</p>
-
+                <br>
                 <p><strong>How to handle:</strong></p>
                 <ul>
                     <li><strong>Best solution:</strong> Balanced experimental design (equal representation of conditions in each batch)</li>
@@ -736,7 +731,7 @@ STAR → StringTie → Ballgown → Transcript-level DE
 
                 <div class="tip-box">
                     <h4>Rule of Thumb</h4>
-                    <p><strong>It's better to have more biological replicates than more sequencing depth.</strong> 6 samples with 20M reads each will give you more statistical power than 3 samples with 40M reads each.</p>
+                    <p>It's better to have more biological replicates than more sequencing depth. 6 samples with 20M reads each will give you more statistical power than 3 samples with 40M reads each.</p>
                 </div>
 
                 <h3>Paired vs. Unpaired Designs</h3>
@@ -749,15 +744,15 @@ STAR → StringTie → Ballgown → Transcript-level DE
                 <div class="code-block">
 # For paired design:
 design = ~ patient + condition
-
+<br>
 # This controls for patient-to-patient variation
                 </div>
 
-                <h2 id="recommended-pipelines">7. Recommended Pipelines for Common Scenarios</h2>
+                <h2 id="recommended-pipelines">Recommended Pipelines for Common Scenarios</h2>
 
                 <p>Now that you understand the options, here are concrete recommendations for different research scenarios:</p>
 
-                <h3>Scenario 1: Standard Differential Expression (Like Dnmt1 Project)</h3>
+                <h3>Scenario 1: Standard Differential Expression</h3>
                 <div class="info-box">
                     <h4>Question: Which genes change between condition A and condition B?</h4>
                     <p><strong>Recommended Pipeline:</strong></p>
@@ -784,7 +779,7 @@ featureCounts/StringTie quantification → DESeq2
                     <p><strong>Recommended Pipeline:</strong></p>
                     <div class="code-block">
 Salmon → IsoformSwitchAnalyzeR → Isoform switching analysis
-
+<br>
 Alternative:
 STAR → rMATS → Differential splicing events
                     </div>
@@ -823,58 +818,8 @@ featureCounts with custom GTF → DESeq2
                     <p><strong>Why this works:</strong> You can't rely on existing annotations, so you build a transcriptome from your data. HISAT2 gives you alignment flexibility with reasonable memory usage.</p>
                 </div>
 
-                <h2 id="dnmt1-choices">8. Our Choices for the Dnmt1 Tutorial</h2>
 
-                <p>For the detailed Dnmt1 knockout RNA-seq tutorial that follows this guide, we made these specific choices:</p>
-
-                <div class="decision-box">
-                    <h3>Pipeline: STAR → featureCounts → DESeq2</h3>
-                    
-                    <h4>Why STAR (not Salmon/Kallisto)?</h4>
-                    <ul>
-                        <li><strong>Educational value:</strong> Understanding alignment teaches fundamental concepts about how sequencing reads map to genomes</li>
-                        <li><strong>Flexibility:</strong> BAM files enable visualization in IGV, which is crucial for validating results</li>
-                        <li><strong>Future integration:</strong> BAM files allow integration with ChIP-seq or ATAC-seq data from the same cells</li>
-                        <li><strong>Discovery potential:</strong> 2-pass mode can identify novel splicing events relevant to OPC biology</li>
-                    </ul>
-
-                    <h4>Why Gene-Level (not Transcript-Level)?</h4>
-                    <ul>
-                        <li><strong>Primary question:</strong> "What genes does Dnmt1 regulate?" rather than "What isoforms change?"</li>
-                        <li><strong>Statistical power:</strong> Gene-level analysis has more power to detect moderate effect sizes</li>
-                        <li><strong>Interpretability:</strong> Gene-level results are easier to validate experimentally and connect to pathways</li>
-                        <li><strong>Practical approach:</strong> Start broad, then investigate specific genes for isoform differences if interesting candidates emerge</li>
-                    </ul>
-
-                    <h4>Why featureCounts?</h4>
-                    <ul>
-                        <li><strong>Speed:</strong> Handles multiple BAM files quickly with multi-threading</li>
-                        <li><strong>Paired-end handling:</strong> Correctly counts fragments (not individual reads) for paired-end data</li>
-                        <li><strong>Clear output:</strong> Simple count matrix format that DESeq2 expects</li>
-                        <li><strong>Standard choice:</strong> Most widely used tool for this step</li>
-                    </ul>
-
-                    <h4>Why DESeq2?</h4>
-                    <ul>
-                        <li><strong>Gold standard:</strong> Most widely used and trusted tool for RNA-seq differential expression</li>
-                        <li><strong>Robust statistics:</strong> Handles small sample sizes well, robust to outliers</li>
-                        <li><strong>Excellent documentation:</strong> Detailed vignettes and active support community</li>
-                        <li><strong>Integrated workflow:</strong> From normalization through visualization in one framework</li>
-                    </ul>
-                </div>
-
-                <div class="info-box">
-                    <h4>What This Approach Gives Us</h4>
-                    <p>This pipeline provides:</p>
-                    <ul>
-                        <li>Reliable differential expression results for gene-level analysis</li>
-                        <li>BAM files for visual validation of interesting findings</li>
-                        <li>Foundation for potential follow-up analyses (isoforms, integration with other data types)</li>
-                        <li>Standard, reproducible workflow that reviewers and readers will recognize</li>
-                    </ul>
-                </div>
-
-                <h2 id="pitfalls">9. Common Pitfalls to Avoid</h2>
+                <h2 id="pitfalls">Common Pitfalls to Avoid</h2>
 
                 <div class="warning-box">
                     <h4>❌ Using FPKM or TPM for Differential Expression</h4>
@@ -948,14 +893,14 @@ featureCounts with custom GTF → DESeq2
                     <p><strong>Do this instead:</strong> Design perturbation experiments (knockdown/knockout or overexpression) to test whether candidate genes are functionally important</p>
                 </div>
 
-                <h2 id="biological-interpretation">10. Beyond the Gene List: Biological Interpretation</h2>
+                <h2 id="biological-interpretation">Beyond the Gene List: Biological Interpretation</h2>
 
                 <p>You've run your pipeline perfectly. DESeq2 gave you a list of 500 differentially expressed genes with padj < 0.05 and beautiful volcano plots. Congratulations! Now comes the hard part: <strong>What does it actually mean biologically?</strong></p>
 
                 <div class="warning-box">
                     <h4>The Most Critical Lesson</h4>
                     <p><strong>RNA-seq tells you what's transcribed, NOT what's functional.</strong></p>
-                    <p>This entire tutorial has helped you generate a high-quality gene list with statistical rigor. But that gene list is just the beginning. The hardest work—and the most important work—happens next: figuring out what those changes mean for your biological system.</p>
+                    <p>This entire tutorial has helped you generate a high-quality gene list with statistical rigor. But that gene list is just the beginning. The hardest work (and the most important work) happens next: figuring out what those changes mean for your biological system.</p>
                 </div>
 
                 <h3>The Central Dogma Doesn't Always Hold</h3>
@@ -968,7 +913,7 @@ featureCounts with custom GTF → DESeq2
                         <li><strong>Protein half-life varies enormously:</strong> Histones are stable for days, transcription factors for minutes. A 2-fold increase in mRNA might mean nothing if the protein is already saturated or if it's degraded immediately.</li>
                         <li><strong>Post-translational modifications</strong> (phosphorylation, acetylation, ubiquitination) completely change protein function without touching RNA levels at all</li>
                         <li><strong>Subcellular localization matters:</strong> A protein in the wrong compartment is non-functional, but RNA-seq can't tell you where proteins go</li>
-                        <li><strong>Protein-protein interactions:</strong> Many proteins need binding partners to be active—RNA-seq won't show you this</li>
+                        <li><strong>Protein-protein interactions:</strong> Many proteins need binding partners to be active: RNA-seq won't show you this</li>
                     </ul>
                 </div>
 
@@ -979,13 +924,13 @@ featureCounts with custom GTF → DESeq2
                 <p><strong>Example from oligodendrocyte biology:</strong> Imagine you knock out <em>Dnmt1</em> and see upregulation of <em>Dnmt3a</em> and <em>Dnmt3b</em>.</p>
 
                 <ul>
-                    <li><strong>Cause?</strong> No—you knocked out Dnmt1 first, so the other DNMTs didn't cause the initial effect</li>
-                    <li><strong>Compensation?</strong> Possibly—cells might be attempting to restore DNA methylation function through alternative methyltransferases</li>
-                    <li><strong>Consequence?</strong> Maybe—loss of DNA methylation might trigger a chromatin stress response that includes upregulating related enzymes</li>
-                    <li><strong>Bystander effect?</strong> Perhaps—these genes might be in an open chromatin region that becomes derepressed for unrelated reasons</li>
+                    <li><strong>Cause?</strong> No, you knocked out <em>Dnmt1</em> first, so the other DNMTs didn't cause the initial effect</li>
+                    <li><strong>Compensation?</strong> Possibly, cells might be attempting to restore DNA methylation function through alternative methyltransferases</li>
+                    <li><strong>Consequence?</strong> Maybe, loss of DNA methylation might trigger a chromatin stress response that includes upregulating related enzymes</li>
+                    <li><strong>Bystander effect?</strong> Perhaps, these genes might be in an open chromatin region that becomes derepressed for unrelated reasons</li>
                 </ul>
 
-                <p><strong>How to distinguish:</strong> You need functional experiments. Try knocking down the "compensatory" genes and measuring DNA methylation levels. Check protein levels and enzymatic activity. Measure the timeline—do these genes go up before or after the phenotype appears?</p>
+                <p><strong>How to distinguish:</strong> You need functional experiments. Try knocking down the "compensatory" genes and measuring DNA methylation levels. Check protein levels and enzymatic activity. Measure the timeline, do these genes go up before or after the phenotype appears?</p>
 
                 <h4>2. Does the direction of change make biological sense?</h4>
 
@@ -995,7 +940,7 @@ featureCounts with custom GTF → DESeq2
                     <ul>
                         <li>If you knocked out a <strong>transcriptional repressor</strong>, are its known target genes upregulated?</li>
                         <li>If you're studying <strong>differentiation</strong>, do stem cell markers go down and differentiation markers go up?</li>
-                        <li>Are <strong>housekeeping genes stable</strong>? (If Gapdh, Actb, or ribosomal proteins are wildly changing, something's wrong)</li>
+                        <li>Are <strong>housekeeping genes stable</strong>? (If <em>Gapdh</em>, <em>Actb</em>, or ribosomal proteins are wildly changing, something's wrong)</li>
                         <li>Do <strong>positive controls</strong> behave as expected? (If you know Gene X should change based on previous work, does it?)</li>
                         <li>Check <strong>known biology</strong>: Do your top hits have any connection to your phenotype in the literature?</li>
                     </ul>
@@ -1008,20 +953,20 @@ featureCounts with custom GTF → DESeq2
                 <p><strong>Scenario A:</strong> Gene with padj = 1e-50 and log2FC = 0.3</p>
                 <ul>
                     <li><strong>Statistically:</strong> Extremely significant (amazing p-value!)</li>
-                    <li><strong>Biologically:</strong> Probably meaningless—1.23-fold change is unlikely to drive phenotypes in most systems</li>
+                    <li><strong>Biologically:</strong> Probably meaningless, 1.23-fold change is unlikely to drive phenotypes in most systems</li>
                 </ul>
-
+                <br>
                 <p><strong>Scenario B:</strong> Gene with padj = 0.04 and log2FC = 4 (16-fold change)</p>
                 <ul>
                     <li><strong>Statistically:</strong> Barely significant (just passes your threshold)</li>
-                    <li><strong>Biologically:</strong> Very interesting—massive changes like this deserve investigation even with borderline statistics</li>
+                    <li><strong>Biologically:</strong> Very interesting, massive changes like this deserve investigation even with borderline statistics</li>
                 </ul>
 
                 <p><strong>Context matters:</strong> What fold-changes are typical in your system?</p>
                 <ul>
                     <li><strong>Development/differentiation:</strong> 2-3 fold changes can completely alter cell fate</li>
                     <li><strong>Metabolic stress:</strong> You might see 50-fold changes in stress response genes that are ultimately inconsequential</li>
-                    <li><strong>Your specific system:</strong> Only you know what's normal—use that biological knowledge!</li>
+                    <li><strong>Your specific system:</strong> Only you know what's normal: use that biological knowledge!</li>
                 </ul>
 
                 <h3>The Problem with Pathway Enrichment</h3>
@@ -1033,7 +978,7 @@ featureCounts with custom GTF → DESeq2
                     <p><strong>Why this is problematic:</strong></p>
                     <ul>
                         <li><strong>Annotation bias:</strong> Well-studied processes (chromatin, cell cycle, apoptosis) have hundreds of genes annotated. Understudied processes have few. This creates artifactual enrichment.</li>
-                        <li><strong>Circular logic:</strong> You're studying an epigenetic regulator, so of course epigenetic genes are in your list—that doesn't necessarily mean it's the mechanism</li>
+                        <li><strong>Circular logic:</strong> You're studying an epigenetic regulator, so of course epigenetic genes are in your list, that doesn't necessarily mean it's the mechanism</li>
                         <li><strong>Pathway crosstalk:</strong> A gene annotated in "chromatin remodeling" is also in "DNA repair," "cell cycle regulation," "transcription," and five other categories</li>
                         <li><strong>Statistical issues:</strong> Standard enrichment tests don't account for gene length, expression level, or correlation structure</li>
                         <li><strong>Vague categories:</strong> What does "regulation of biological process" or "cellular response to stimulus" actually tell you?</li>
@@ -1059,7 +1004,7 @@ featureCounts with custom GTF → DESeq2
 
                 <ol start="3">
                     <li><strong>Western blot:</strong> For your top candidates, do protein levels match RNA levels? (They often don't!)</li>
-                    <li><strong>Immunofluorescence:</strong> Protein level AND subcellular localization—where is the protein?</li>
+                    <li><strong>Immunofluorescence:</strong> Protein level AND subcellular localization, where is the protein?</li>
                     <li><strong>Mass spectrometry:</strong> If you have resources, unbiased proteomics tells you what's actually changing at the protein level</li>
                 </ol>
 
@@ -1085,7 +1030,7 @@ featureCounts with custom GTF → DESeq2
 
                 <h3>Integration with Other Data Types</h3>
 
-                <p><strong>RNA-seq alone can't tell you mechanism—it only tells you association.</strong></p>
+                <p><strong>RNA-seq alone can't tell you mechanism, it only tells you association.</strong></p>
 
                 <p>The most powerful insights come from integrating multiple data types:</p>
 
@@ -1132,9 +1077,9 @@ featureCounts with custom GTF → DESeq2
                 </table>
 
                 <div class="info-box">
-                    <h4>Example: Interpreting a Dnmt1 Knockout Experiment</h4>
+                    <h4>Example: Interpreting a <em>Dnmt1</em> Knockout Experiment</h4>
                     
-                    <p><strong>RNA-seq finding:</strong> 347 differentially expressed genes, with enrichment for "chromatin organization" and upregulation of Dnmt3a/3b</p>
+                    <p><strong>RNA-seq finding:</strong> 347 differentially expressed genes, with enrichment for "chromatin organization" and upregulation of <em>Dnmt3a/3b</em></p>
                     
                     <p><strong>What RNA-seq tells you:</strong></p>
                     <ul>
@@ -1142,22 +1087,22 @@ featureCounts with custom GTF → DESeq2
                         <li>The changes are statistically significant</li>
                         <li>Chromatin-related genes are over-represented</li>
                     </ul>
-                    
+                    <br>
                     <p><strong>What RNA-seq does NOT tell you:</strong></p>
                     <ul>
-                        <li>Are these direct Dnmt1 targets or indirect downstream effects?</li>
-                        <li>Do protein levels of Dnmt3a/3b actually increase?</li>
-                        <li>Is the Dnmt3a/3b upregulation compensatory (trying to restore function) or pathological (stress response)?</li>
-                        <li>Would preventing Dnmt3a/3b upregulation rescue the phenotype?</li>
-                        <li>What's the mechanism connecting Dnmt1 loss to these expression changes?</li>
+                        <li>Are these direct <em>Dnmt1</em> targets or indirect downstream effects?</li>
+                        <li>Do protein levels of <em>Dnmt3a/3b</em> actually increase?</li>
+                        <li>Is the <em>Dnmt3a/3b</em> upregulation compensatory (trying to restore function) or pathological (stress response)?</li>
+                        <li>Would preventing <em>Dnmt3a/3b</em> upregulation rescue the phenotype?</li>
+                        <li>What's the mechanism connecting <em>Dnmt1</em> loss to these expression changes?</li>
                     </ul>
-                    
+                    <br>
                     <p><strong>How to find out (follow-up experiments):</strong></p>
                     <ul>
-                        <li><strong>ChIP-seq for Dnmt1:</strong> Does it directly bind promoters of upregulated genes? (Answers: direct vs. indirect)</li>
-                        <li><strong>Western blots for Dnmt3a/3b:</strong> Do protein levels match the RNA increase? (Answers: translation efficiency)</li>
-                        <li><strong>Dnmt3a/3b knockdown in Dnmt1 KO cells:</strong> Does blocking the upregulation worsen or improve the phenotype? (Answers: compensatory vs. pathological)</li>
-                        <li><strong>Time-course RNA-seq:</strong> What changes first after Dnmt1 loss? (Answers: cause vs. consequence)</li>
+                        <li><strong>ChIP-seq for <em>Dnmt1</em>:</strong> Does it directly bind promoters of upregulated genes? (Answers: direct vs. indirect)</li>
+                        <li><strong>Western blots for <em>Dnmt3a/3b</em>:</strong> Do protein levels match the RNA increase? (Answers: translation efficiency)</li>
+                        <li><strong><em>Dnmt3a/3b</em> knockdown in <em>Dnmt1</em>-KO cells:</strong> Does blocking the upregulation worsen or improve the phenotype? (Answers: compensatory vs. pathological)</li>
+                        <li><strong>Time-course RNA-seq:</strong> What changes first after <em>Dnmt1</em> loss? (Answers: cause vs. consequence)</li>
                         <li><strong>DNA methylation profiling:</strong> Which genomic regions lose methylation? Do those correlate with gene expression changes? (Answers: mechanism)</li>
                     </ul>
                 </div>
@@ -1244,7 +1189,7 @@ featureCounts with custom GTF → DESeq2
                     <li>Stop there, never validate anything</li>
                     <li>Circular conclusion (you studied an epigenetic enzyme and found epigenetic genes changed—not surprising!)</li>
                 </ul>
-
+                <br>
                 <p><strong>Excellent approach:</strong></p>
                 <ul>
                     <li>Run RNA-seq → Get gene list → Validate top hits with RT-qPCR and Western blots</li>
@@ -1254,7 +1199,7 @@ featureCounts with custom GTF → DESeq2
                     <li>Build a mechanistic model with experimental support</li>
                     <li>Make testable predictions and validate them</li>
                 </ul>
-
+                <br>
                 <p><strong>The difference is biology, not bioinformatics.</strong> Both papers might have identical computational analysis. The excellent paper uses that analysis as a starting point for biological discovery.</p>
 
                 <h2 id="final-thoughts">Final Thoughts: Computation Enables Biology, But Doesn't Replace It</h2>
@@ -1267,13 +1212,13 @@ featureCounts with custom GTF → DESeq2
                     
                     <p><strong>But never forget:</strong> The computational pipeline serves your biological understanding, not the other way around.</p>
                     
-                    <p><strong>Your expertise as a biologist—</strong>knowing your cell type, your developmental stage, your signaling pathways, your phenotype, what's been published, what makes biological sense—is what transforms a gene list into biological insight.</p>
-                    
+                    <p><strong>Your expertise as a biologist: </strong>knowing your cell type, your developmental stage, your signaling pathways, your phenotype, what's been published, what makes biological sense, is what transforms a gene list into biological insight.</p>
+                    <br>
                     <p><strong>A perfectly executed computational pipeline that produces biologically meaningless results is far worse than a rough-around-the-edges analysis that generates testable, important hypotheses.</strong></p>
-                    
+                    <br>
                     <p>Use these computational tools to ask better biological questions. Then get back in the lab to answer them.</p>
                     
-                    <p><strong>The wet lab and the dry lab aren't separate—they're iterative partners in discovery.</strong></p>
+                    <p><strong>The wet lab and the dry lab aren't separate: they're iterative partners in discovery.</strong></p>
                 </div>
 
                 <h2>Summary: Your RNA-seq Decision Framework</h2>
@@ -1294,7 +1239,7 @@ featureCounts with custom GTF → DESeq2
                 <div class="tip-box">
                     <h4>Remember</h4>
                     <p>There is no universally "correct" pipeline. The best approach depends on your specific question, your data characteristics, and your available resources. The goal is to make <strong>informed decisions</strong> that you can justify, rather than blindly following a recipe.</p>
-                    <p><strong>Most importantly:</strong> RNA-seq is a powerful discovery tool, but it's just the first step. The real scientific work—biological interpretation, experimental validation, and mechanistic understanding—comes from integrating computational analysis with wet lab experiments and deep knowledge of your biological system.</p>
+                    <p><strong>Most importantly:</strong> RNA-seq is a powerful discovery tool, but it's just the first step. The real scientific work (biological interpretation, experimental validation, and mechanistic understanding) comes from integrating computational analysis with wet lab experiments and deep knowledge of your biological system.</p>
                 </div>
 
                 <div class="nav-buttons">
