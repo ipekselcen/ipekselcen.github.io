@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RNA-seq Analysis: Understanding Your Options | Ipek Selcen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+        
+        nav {
+            background: #2c3e50;
+            padding: 1rem 2rem;
+            border-bottom: 3px solid #3498db;
+        }
+        
+        nav a {
+            color: #ecf0f1;
+            text-decoration: none;
+            margin-right: 2rem;
+            font-weight: 500;
+        }
+        
+        nav a:hover {
+            color: #3498db;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .back-link {
+            color: #3498db;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            line-height: 1.4;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-top: 3rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+        
+        h3 {
+            color: #34495e;
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        h4 {
+            color: #34495e;
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+        
+        .info-box {
+            background: #ecf0f1;
+            border-left: 4px solid #3498db;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+        
+        .info-box h4 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #f39c12;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+        
+        .tip-box {
+            background: #d1ecf1;
+            border-left: 4px solid #17a2b8;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 4px;
+        }
+        
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        li {
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+        
+        strong {
+            color: #2c3e50;
+        }
+        
+        code {
+            background: #f8f9fa;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #e83e8c;
+        }
+        
+        .code-block {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 1.5rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+        }
+        
+        th {
+            background: #34495e;
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 1rem;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .comparison-table {
+            font-size: 0.9rem;
+        }
+        
+        .comparison-table td:first-child {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .decision-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        
+        .decision-box h3 {
+            color: white;
+            margin-top: 0;
+        }
+        
+        .decision-box ul {
+            margin-left: 1.5rem;
+        }
+        
+        .decision-box li {
+            color: white;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 2px solid #ecf0f1;
+        }
+        
+        .nav-button {
+            background: #3498db;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .nav-button:hover {
+            background: #2980b9;
+        }
+        
+        .toc {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .toc h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        
+        .toc ul {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .toc li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .toc a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: #7f8c8d;
+            border-top: 1px solid #ecf0f1;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="../../index.html">Ipek Selcen</a>
+        <a href="../../index.html">Home</a>
+        <a href="../index.html">Bioinformatics</a>
+        <a href="../../editorial/index.html">Science Communication</a>
+        <a href="../../cv.html">CV</a>
+    </nav>
+
+    <div class="container">
+        <a href="../index.html" class="back-link">← Back to Bioinformatics</a>
+
+        <h1>RNA-seq Analysis: Understanding Your Options and Making Informed Decisions</h1>
+        <p class="subtitle">
+            A conceptual guide to help biologists navigate the RNA-seq analysis landscape. 
+            Learn the "why" behind different approaches before diving into the "how."
+        </p>
+
+        <div class="info-box">
+            <h4>Who is this for?</h4>
+            <p>This guide is designed for experimental biologists who need to analyze RNA-seq data but feel overwhelmed by the many different tools and approaches. We focus on understanding the <strong>decision points</strong> rather than memorizing commands.</p>
+            <p><strong>No prior bioinformatics experience required.</strong> We'll explain concepts using real-world analogies and help you make informed choices for your specific research questions.</p>
+        </div>
+
+        <div class="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#introduction">1. Introduction: One Question, Many Paths</a></li>
+                <li><a href="#alignment-decision">2. Alignment-Based vs. Alignment-Free</a></li>
+                <li><a href="#gene-vs-transcript">3. Gene-Level vs. Transcript-Level Analysis</a></li>
+                <li><a href="#quantification">4. Count Quantification Methods</a></li>
+                <li><a href="#normalization">5. Normalization: Making Data Comparable</a></li>
+                <li><a href="#experimental-design">6. Experimental Design Considerations</a></li>
+                <li><a href="#recommended-pipelines">7. Recommended Pipelines for Common Scenarios</a></li>
+                <li><a href="#dnmt1-choices">8. Our Choices for the Dnmt1 Tutorial</a></li>
+                <li><a href="#pitfalls">9. Common Pitfalls to Avoid</a></li>
+            </ul>
+        </div>
+
+        <h2 id="introduction">1. Introduction: One Question, Many Paths</h2>
+        
+        <p>At its core, RNA-seq answers a deceptively simple question: <strong>How much is each gene expressed in my samples?</strong></p>
+        
+        <p>But when you sit down to analyze your data, you're immediately confronted with choices:</p>
+        <ul>
+            <li>Should I use STAR, HISAT2, Salmon, or Kallisto?</li>
+            <li>Do I want gene-level or transcript-level quantification?</li>
+            <li>What's the difference between FPKM, TPM, and normalized counts?</li>
+            <li>How do I know if I'm making the right choice?</li>
+        </ul>
+
+        <p>Here's the good news: <strong>there's no single "correct" pipeline.</strong> Different approaches work better for different biological questions, sample types, and computational resources.</p>
+
+        <div class="tip-box">
+            <h4>The Goal of This Guide</h4>
+            <p>Rather than telling you "always use method X," we'll help you understand:</p>
+            <ul>
+                <li>What each approach actually does (in plain English)</li>
+                <li>When to use which method</li>
+                <li>What trade-offs you're making</li>
+                <li>How to recognize if something went wrong</li>
+            </ul>
+        </div>
+
+        <p>Think of this guide as your RNA-seq GPS. We'll show you the different routes, explain what makes each one unique, and help you choose the path that makes sense for your specific destination.</p>
+
+        <h2 id="alignment-decision">2. Decision Point 1: Alignment-Based vs. Alignment-Free Quantification</h2>
+
+        <p>This is your first major fork in the road. Do you align your reads to the genome, or do you skip that step entirely?</p>
+
+        <h3>The Two Approaches</h3>
+
+        <p><strong>Alignment-based (STAR, HISAT2):</strong> Map each read to its exact location in the genome, then count how many reads land in each gene.</p>
+
+        <p><strong>Alignment-free (Salmon, Kallisto):</strong> Match reads directly to known transcript sequences without pinpointing genomic locations. This is sometimes called "pseudo-alignment" or "lightweight alignment."</p>
+
+        <h3>The Library Analogy</h3>
+
+        <p>Imagine you're trying to figure out which books are most popular in a library by analyzing borrowing records (where each record is like a sequencing read).</p>
+
+        <p><strong>Alignment-based approach:</strong> You first figure out exactly where each book sits on the shelves (chromosome coordinates), then count how many borrowing records point to books in each section. This gives you a complete map of the library, but it takes more time.</p>
+
+        <p><strong>Alignment-free approach:</strong> You match borrowing records directly to a catalog of book titles, skipping the shelf location step entirely. Much faster, but you lose the spatial information.</p>
+
+        <h3>When to Use What</h3>
+
+        <div class="decision-box">
+            <h3>Use Salmon or Kallisto when:</h3>
+            <ul>
+                <li>Your main question is: "Which genes are differentially expressed?"</li>
+                <li>You're working with a well-annotated organism (human, mouse, etc.)</li>
+                <li>You have many samples (>50) and speed matters</li>
+                <li>Computational resources are limited</li>
+                <li>You want transcript-level quantification in addition to gene-level</li>
+            </ul>
+        </div>
+
+        <div class="decision-box">
+            <h3>Use STAR or HISAT2 when:</h3>
+            <ul>
+                <li>You need to discover novel transcripts or splicing events</li>
+                <li>You want to visualize your reads in IGV (Integrative Genomics Viewer)</li>
+                <li>You're working with a poorly annotated organism</li>
+                <li>You need the alignment for other analyses (variant calling, RNA editing)</li>
+                <li>You plan to integrate RNA-seq with other genomic data (ChIP-seq, ATAC-seq)</li>
+                <li>You're investigating specific genomic regions or mutations</li>
+            </ul>
+        </div>
+
+        <h3>Technical Comparison</h3>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>STAR</th>
+                    <th>HISAT2</th>
+                    <th>Salmon</th>
+                    <th>Kallisto</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Speed</td>
+                    <td>Slow</td>
+                    <td>Medium</td>
+                    <td>Fast</td>
+                    <td>Fastest</td>
+                </tr>
+                <tr>
+                    <td>Memory Required</td>
+                    <td>~30GB (human)</td>
+                    <td>~8GB (human)</td>
+                    <td>~4GB</td>
+                    <td>~4GB</td>
+                </tr>
+                <tr>
+                    <td>Output Files</td>
+                    <td>BAM (aligned reads)</td>
+                    <td>BAM (aligned reads)</td>
+                    <td>Count tables</td>
+                    <td>Count tables</td>
+                </tr>
+                <tr>
+                    <td>Novel Transcripts</td>
+                    <td>Yes (2-pass mode)</td>
+                    <td>Limited</td>
+                    <td>No</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td>IGV Visualization</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td>No</td>
+                    <td>No</td>
+                </tr>
+                <tr>
+                    <td>Isoform Quantification</td>
+                    <td>Needs extra steps</td>
+                    <td>Needs extra steps</td>
+                    <td>Built-in</td>
+                    <td>Built-in</td>
+                </tr>
+                <tr>
+                    <td>Best For</td>
+                    <td>Discovery projects</td>
+                    <td>Standard analysis</td>
+                    <td>Large cohorts</td>
+                    <td>Quick analysis</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="info-box">
+            <h4>A Note on Accuracy</h4>
+            <p>Multiple benchmarking studies have shown that Salmon and Kallisto produce gene-level counts that are highly concordant with alignment-based methods for differential expression analysis. The key difference is really about <strong>what else you need</strong> beyond just the counts.</p>
+        </div>
+
+        <h3>Understanding the Tools</h3>
+
+        <h4>STAR (Spliced Transcripts Alignment to a Reference)</h4>
+        <ul>
+            <li><strong>Strength:</strong> Excellent at detecting splice junctions, including novel ones</li>
+            <li><strong>Two-pass mode:</strong> First pass discovers junctions, second pass uses them for better alignment</li>
+            <li><strong>Trade-off:</strong> High memory requirements but very accurate</li>
+            <li><strong>Output:</strong> BAM files you can open in IGV to see exactly where reads mapped</li>
+        </ul>
+
+        <h4>HISAT2 (Hierarchical Indexing for Spliced Alignment)</h4>
+        <ul>
+            <li><strong>Strength:</strong> Much lower memory footprint than STAR</li>
+            <li><strong>Speed:</strong> Faster than STAR for most analyses</li>
+            <li><strong>Trade-off:</strong> Slightly less sensitive for novel junction discovery</li>
+            <li><strong>Best use:</strong> When you need BAM files but have limited computational resources</li>
+        </ul>
+
+        <h4>Salmon</h4>
+        <ul>
+            <li><strong>Strength:</strong> Extremely fast while maintaining accuracy</li>
+            <li><strong>Built-in features:</strong> Automatic bias correction, handles multi-mapping probabilistically</li>
+            <li><strong>Output:</strong> Transcript-level counts (can be summarized to genes)</li>
+            <li><strong>Trade-off:</strong> Requires a reference transcriptome (can't discover novel transcripts)</li>
+        </ul>
+
+        <h4>Kallisto</h4>
+        <ul>
+            <li><strong>Strength:</strong> Even faster than Salmon</li>
+            <li><strong>Unique feature:</strong> Bootstrapping for uncertainty quantification</li>
+            <li><strong>Method:</strong> Uses k-mers for pseudoalignment</li>
+            <li><strong>Best use:</strong> Large studies where speed is critical</li>
+        </ul>
+
+        <h2 id="gene-vs-transcript">3. Decision Point 2: Gene-Level vs. Transcript-Level Analysis</h2>
+
+        <p>This decision shapes what biological questions you can answer with your data.</p>
+
+        <h3>Understanding the Difference</h3>
+
+        <p><strong>Gene-level analysis</strong> asks: "How much is the <em>entire</em> DNMT1 gene expressed?"<br>
+        <strong>Transcript-level analysis</strong> asks: "Which specific <em>versions</em> (isoforms) of DNMT1 are expressed?"</p>
+
+        <h3>The Restaurant Menu Analogy</h3>
+
+        <p>Imagine you manage a restaurant and want to understand what customers order:</p>
+
+        <p><strong>Gene-level thinking:</strong> "How many pasta dishes did we sell today?" (Total pasta orders = ~100)</p>
+
+        <p><strong>Transcript-level thinking:</strong> "Which specific pasta dishes did customers order?" (Spaghetti = 45, Penne = 30, Rigatoni = 15, Fettuccine = 10)</p>
+
+        <p>Both answers are correct, but they tell you different things. The gene-level view is simpler and tells you about overall popularity. The transcript-level view reveals customer preferences for specific variations.</p>
+
+        <h3>When Does This Matter?</h3>
+
+        <div class="decision-box">
+            <h3>Gene-level quantification is sufficient when:</h3>
+            <ul>
+                <li>Your question is about overall gene regulation (up or down)</li>
+                <li>You're interested in which pathways are affected</li>
+                <li>You're doing a first-pass exploratory analysis</li>
+                <li>Alternative splicing isn't relevant to your biological system</li>
+                <li>You want simpler statistics and clearer interpretation</li>
+            </ul>
+        </div>
+
+        <div class="decision-box">
+            <h3>Transcript-level analysis becomes important when:</h3>
+            <ul>
+                <li>Alternative splicing is relevant to your biology (development, cancer, neurodegeneration)</li>
+                <li>Different isoforms have different functions (e.g., membrane-bound vs. secreted)</li>
+                <li>You're studying tissue-specific isoform expression</li>
+                <li>Protein domains are included/excluded by splicing</li>
+                <li>Known splicing defects are involved in your disease model</li>
+            </ul>
+        </div>
+
+        <h3>Real-World Example</h3>
+
+        <p>Consider the gene <em>BCL2L1</em>, which encodes two major isoforms:</p>
+        <ul>
+            <li><strong>BCL-xL:</strong> Anti-apoptotic (prevents cell death)</li>
+            <li><strong>BCL-xS:</strong> Pro-apoptotic (promotes cell death)</li>
+        </ul>
+
+        <p>Gene-level analysis might show "no change in <em>BCL2L1</em> expression," but transcript-level analysis could reveal a dramatic shift from the long (protective) to the short (death-promoting) isoform. This would completely change your biological interpretation!</p>
+
+        <h3>The Statistical Trade-offs</h3>
+
+        <div class="warning-box">
+            <h4>Challenges with Transcript-Level Analysis</h4>
+            <p>Transcript-level analysis is statistically harder:</p>
+            <ul>
+                <li><strong>More features = more multiple testing:</strong> Testing 20,000 genes vs. 200,000 transcripts means more stringent p-value corrections</li>
+                <li><strong>Lower counts per feature:</strong> If a gene has 1000 reads split across 5 transcripts, each transcript has ~200 reads (less statistical power)</li>
+                <li><strong>Correlation structure:</strong> Transcripts from the same gene aren't independent, violating some statistical assumptions</li>
+                <li><strong>Annotation ambiguity:</strong> Some reads can't be uniquely assigned to one transcript</li>
+            </ul>
+        </div>
+
+        <h3>The Typical Workflows</h3>
+
+        <h4>Gene-level workflow:</h4>
+        <div class="code-block">
+# Alignment-based:
+STAR/HISAT2 → featureCounts/HTSeq → DESeq2 → Gene-level DE
+
+# Alignment-free:
+Salmon/Kallisto → tximport (summarize to genes) → DESeq2 → Gene-level DE
+        </div>
+
+        <h4>Transcript-level workflow:</h4>
+        <div class="code-block">
+# Full isoform analysis:
+Salmon/Kallisto → IsoformSwitchAnalyzeR → Isoform switching
+
+# Differential transcript usage:
+Salmon/Kallisto → DRIMSeq/DEXSeq → Which isoforms change within genes
+
+# Discovery-based:
+STAR → StringTie → Ballgown → Transcript-level DE
+        </div>
+
+        <div class="tip-box">
+            <h4>Practical Advice</h4>
+            <p><strong>Start with gene-level analysis.</strong> It's simpler, more powerful, and answers most biological questions. If you find interesting candidates or if alternative splicing is central to your question, then dive into transcript-level analysis for those specific genes or pathways.</p>
+        </div>
+
+        <h2 id="quantification">4. Decision Point 3: Count Quantification Methods</h2>
+
+        <p>If you chose an alignment-based approach, you now need to convert your aligned reads (BAM files) into a count matrix. This step determines how many reads "belong" to each gene.</p>
+
+        <h3>The Main Tools</h3>
+
+        <h4>featureCounts (from Subread package)</h4>
+        <p><strong>Most popular choice for a reason:</strong></p>
+        <ul>
+            <li>Very fast (multi-threaded)</li>
+            <li>Handles paired-end reads elegantly</li>
+            <li>Clear handling of multi-mapping reads</li>
+            <li>Produces a simple count matrix ready for DESeq2</li>
+            <li>Excellent documentation</li>
+        </ul>
+
+        <h4>HTSeq</h4>
+        <p><strong>The original standard:</strong></p>
+        <ul>
+            <li>Python-based, well-established</li>
+            <li>Multiple counting modes (union, intersection-strict, intersection-nonempty)</li>
+            <li>Slower than featureCounts (single-threaded)</li>
+            <li>Still widely used and cited</li>
+        </ul>
+
+        <h4>RSEM</h4>
+        <p><strong>When you need transcript-level from aligned reads:</strong></p>
+        <ul>
+            <li>Uses Expectation-Maximization algorithm</li>
+            <li>Probabilistically assigns multi-mapping reads</li>
+            <li>Provides both gene and isoform-level counts</li>
+            <li>More computationally intensive</li>
+        </ul>
+
+        <h3>The Multi-Mapping Reads Question</h3>
+
+        <p>Some reads map equally well to multiple locations in the genome (common for gene families, repetitive regions, or similar isoforms). How do you count these?</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Strategy</th>
+                    <th>What it does</th>
+                    <th>When to use</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Discard them</strong></td>
+                    <td>Only count uniquely mapping reads</td>
+                    <td>Conservative approach for gene-level DE (most common)</td>
+                </tr>
+                <tr>
+                    <td><strong>Count fractionally</strong></td>
+                    <td>If read maps to 3 places, give 0.33 count to each</td>
+                    <td>When working with gene families or pseudogenes</td>
+                </tr>
+                <tr>
+                    <td><strong>Count all</strong></td>
+                    <td>Give full count to every location</td>
+                    <td>Risky - inflates counts, rarely recommended</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="info-box">
+            <h4>Practical Recommendation</h4>
+            <p>For standard differential expression analysis, <strong>use featureCounts with default settings</strong> (discarding multi-mappers). This is conservative and works well for most biological questions. The small number of reads you lose is unlikely to affect your biological conclusions.</p>
+        </div>
+
+        <h2 id="normalization">5. Decision Point 4: Normalization - Making Data Comparable</h2>
+
+        <p>Raw sequencing produces different numbers of reads for each sample (library size differences). Additionally, longer genes capture more reads than shorter genes, even if they're expressed at the same level. Normalization corrects for these technical biases.</p>
+
+        <h3>Understanding the Metrics</h3>
+
+        <h4>Raw Counts</h4>
+        <p><strong>What they are:</strong> The direct output from alignment and quantification<br>
+        <strong>When to use:</strong> As input to DESeq2 or edgeR for statistical testing<br>
+        <strong>Never use for:</strong> Comparing across samples or genes</p>
+
+        <h4>CPM (Counts Per Million)</h4>
+        <p><strong>What it does:</strong> Divides counts by total library size and multiplies by 1 million<br>
+        <strong>Formula:</strong> (count / total_reads) × 1,000,000<br>
+        <strong>Use for:</strong> Quick visual comparisons<br>
+        <strong>Limitation:</strong> Doesn't account for gene length or compositional bias</p>
+
+        <h4>FPKM/RPKM (Fragments/Reads Per Kilobase per Million)</h4>
+        <p><strong>What it does:</strong> Adjusts for both library size AND gene length<br>
+        <strong>Formula:</strong> (count / gene_length_kb) / (total_reads / 1,000,000)<br>
+        <strong>Historical note:</strong> Was once popular, now largely deprecated<br>
+        <strong>Problem:</strong> Biased for differential expression (do NOT use for DE analysis)</p>
+
+        <h4>TPM (Transcripts Per Million)</h4>
+        <p><strong>What it does:</strong> Like FPKM but does normalization in a different order<br>
+        <strong>Key advantage:</strong> TPM values sum to 1 million in each sample (interpretable)<br>
+        <strong>Use for:</strong> Comparing relative abundances across samples<br>
+        <strong>Still not ideal for:</strong> Statistical DE testing (use raw counts with DESeq2 instead)</p>
+
+        <h4>TMM/RLE (Used internally by edgeR/DESeq2)</h4>
+        <p><strong>What they do:</strong> Sophisticated normalization that assumes most genes don't change<br>
+        <strong>TMM:</strong> Trimmed Mean of M-values (edgeR)<br>
+        <strong>RLE:</strong> Relative Log Expression (DESeq2)<br>
+        <strong>Key point:</strong> These tools apply normalization automatically - you provide raw counts</p>
+
+        <div class="warning-box">
+            <h4>Critical: What to Use When</h4>
+            <p><strong>For differential expression testing:</strong> Always provide RAW COUNTS to DESeq2 or edgeR. They handle normalization internally.</p>
+            <p><strong>For visualization:</strong> Use DESeq2's normalized counts (via counts(dds, normalized=TRUE))</p>
+            <p><strong>For reporting expression levels:</strong> TPM is more interpretable than FPKM</p>
+            <p><strong>Never:</strong> Use FPKM or TPM as input to DESeq2 or for statistical testing</p>
+        </div>
+
+        <h3>Why This Matters: A Concrete Example</h3>
+
+        <p>Imagine you have two samples:</p>
+        <ul>
+            <li><strong>Sample A:</strong> 20 million reads total</li>
+            <li><strong>Sample B:</strong> 40 million reads total (deeper sequencing)</li>
+        </ul>
+
+        <p>Gene X has:</p>
+        <ul>
+            <li><strong>Sample A:</strong> 100 raw counts</li>
+            <li><strong>Sample B:</strong> 200 raw counts</li>
+        </ul>
+
+        <p>Is Gene X differentially expressed? <strong>No!</strong> It just got twice as many reads because Sample B was sequenced twice as deeply.</p>
+
+        <p>After CPM normalization:</p>
+        <ul>
+            <li><strong>Sample A:</strong> (100 / 20M) × 1M = 5 CPM</li>
+            <li><strong>Sample B:</strong> (200 / 40M) × 1M = 5 CPM</li>
+        </ul>
+
+        <p>Now they're comparable - Gene X has the same expression level in both samples.</p>
+
+        <h2 id="experimental-design">6. Decision Point 5: Experimental Design Considerations</h2>
+
+        <p>The best analysis pipeline won't save a poorly designed experiment. Here are key considerations that affect your analysis strategy:</p>
+
+        <h3>Batch Effects</h3>
+
+        <p><strong>What they are:</strong> Technical variation from processing samples at different times, on different days, or with different reagent lots</p>
+
+        <div class="warning-box">
+            <h4>When to worry about batch effects:</h4>
+            <ul>
+                <li>Samples processed on different days</li>
+                <li>Different library prep kits or batches</li>
+                <li>Samples sequenced on different runs</li>
+                <li>Different people prepared the libraries</li>
+            </ul>
+        </div>
+
+        <p><strong>How to detect:</strong> Run PCA and check if samples cluster by processing date rather than biological condition</p>
+
+        <p><strong>How to handle:</strong></p>
+        <ul>
+            <li><strong>Best solution:</strong> Balanced experimental design (equal representation of conditions in each batch)</li>
+            <li><strong>If design is balanced:</strong> Include batch as a covariate in DESeq2 design formula</li>
+            <li><strong>If design is unbalanced:</strong> Use ComBat-seq or RUVSeq for batch correction</li>
+            <li><strong>Last resort:</strong> limma's removeBatchEffect (only for visualization, not for DE testing)</li>
+        </ul>
+
+        <h3>Replicates: How Many Do You Need?</h3>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Replicates per group</th>
+                    <th>Power to detect</th>
+                    <th>Recommendation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>n = 2</td>
+                    <td>Only very large effects</td>
+                    <td>Avoid if possible - minimal statistical power</td>
+                </tr>
+                <tr>
+                    <td>n = 3</td>
+                    <td>Moderate to large effects</td>
+                    <td>Minimum acceptable for most studies</td>
+                </tr>
+                <tr>
+                    <td>n = 4-5</td>
+                    <td>Good power for typical effects</td>
+                    <td>Recommended for most experiments</td>
+                </tr>
+                <tr>
+                    <td>n = 6+</td>
+                    <td>Excellent power, can detect subtle effects</td>
+                    <td>Ideal, especially for heterogeneous samples</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="tip-box">
+            <h4>Rule of Thumb</h4>
+            <p><strong>It's better to have more biological replicates than more sequencing depth.</strong> 6 samples with 20M reads each will give you more statistical power than 3 samples with 40M reads each.</p>
+        </div>
+
+        <h3>Paired vs. Unpaired Designs</h3>
+
+        <p><strong>Paired design:</strong> Same subject/sample measured before and after treatment (e.g., tumor vs. adjacent normal tissue from the same patient)</p>
+
+        <p><strong>Advantage:</strong> Controls for individual variation - much more powerful</p>
+
+        <p><strong>How to handle in DESeq2:</strong> Include subject ID in the design formula:</p>
+        <div class="code-block">
+# For paired design:
+design = ~ patient + condition
+
+# This controls for patient-to-patient variation
+        </div>
+
+        <h2 id="recommended-pipelines">7. Recommended Pipelines for Common Scenarios</h2>
+
+        <p>Now that you understand the options, here are concrete recommendations for different research scenarios:</p>
+
+        <h3>Scenario 1: Standard Differential Expression (Like Dnmt1 Project)</h3>
+        <div class="info-box">
+            <h4>Question: Which genes change between condition A and condition B?</h4>
+            <p><strong>Recommended Pipeline:</strong></p>
+            <div class="code-block">
+Salmon/Kallisto → tximport → DESeq2 → Gene-level results
+            </div>
+            <p><strong>Why this works:</strong> Fast, accurate, and perfectly adequate for identifying differentially expressed genes. The speed advantage of Salmon/Kallisto lets you iterate quickly if you need to re-analyze.</p>
+        </div>
+
+        <h3>Scenario 2: Novel Transcript Discovery</h3>
+        <div class="info-box">
+            <h4>Question: Are there unannotated transcripts in my system?</h4>
+            <p><strong>Recommended Pipeline:</strong></p>
+            <div class="code-block">
+STAR (2-pass mode) → StringTie (assembly) → Merge annotations → 
+featureCounts/StringTie quantification → DESeq2
+            </div>
+            <p><strong>Why this works:</strong> STAR's 2-pass mode discovers novel splice junctions. StringTie assembles transcripts including unannotated ones. You get both discovery and quantification.</p>
+        </div>
+
+        <h3>Scenario 3: Alternative Splicing / Isoform Analysis</h3>
+        <div class="info-box">
+            <h4>Question: Do different isoforms of my gene of interest change?</h4>
+            <p><strong>Recommended Pipeline:</strong></p>
+            <div class="code-block">
+Salmon → IsoformSwitchAnalyzeR → Isoform switching analysis
+
+Alternative:
+STAR → rMATS → Differential splicing events
+            </div>
+            <p><strong>Why this works:</strong> IsoformSwitchAnalyzeR specifically identifies isoform switches and their functional consequences. rMATS is excellent for detecting specific splicing event types (exon skipping, intron retention, etc.).</p>
+        </div>
+
+        <h3>Scenario 4: Large Cohort Study (>100 samples)</h3>
+        <div class="info-box">
+            <h4>Question: Gene expression patterns across many patient samples</h4>
+            <p><strong>Recommended Pipeline:</strong></p>
+            <div class="code-block">
+Kallisto → tximport → DESeq2 (or limma-voom for even larger datasets)
+            </div>
+            <p><strong>Why this works:</strong> Kallisto is the fastest option. When you have many samples, you have plenty of statistical power, so the marginal gains from more sophisticated alignment aren't worth the time cost.</p>
+        </div>
+
+        <h3>Scenario 5: Integration with ChIP-seq or ATAC-seq</h3>
+        <div class="info-box">
+            <h4>Question: How do chromatin changes relate to expression changes?</h4>
+            <p><strong>Recommended Pipeline:</strong></p>
+            <div class="code-block">
+STAR → featureCounts → DESeq2
+(Keep BAM files for visualization in IGV alongside ChIP-seq/ATAC-seq)
+            </div>
+            <p><strong>Why this works:</strong> You need BAM files to visualize RNA-seq coverage at specific loci (promoters, enhancers) alongside your ChIP-seq or ATAC-seq peaks. Salmon/Kallisto don't provide this.</p>
+        </div>
+
+        <h3>Scenario 6: Non-Model Organism or Poor Annotation</h3>
+        <div class="info-box">
+            <h4>Question: Analyzing RNA-seq from an organism with incomplete genome annotation</h4>
+            <p><strong>Recommended Pipeline:</strong></p>
+            <div class="code-block">
+HISAT2 (or STAR if memory allows) → StringTie (genome-guided assembly) → 
+featureCounts with custom GTF → DESeq2
+            </div>
+            <p><strong>Why this works:</strong> You can't rely on existing annotations, so you build a transcriptome from your data. HISAT2 gives you alignment flexibility with reasonable memory usage.</p>
+        </div>
+
+        <h2 id="dnmt1-choices">8. Our Choices for the Dnmt1 Tutorial</h2>
+
+        <p>For the detailed Dnmt1 knockout RNA-seq tutorial that follows this guide, we made these specific choices:</p>
+
+        <div class="decision-box">
+            <h3>Pipeline: STAR → featureCounts → DESeq2</h3>
+            
+            <h4>Why STAR (not Salmon/Kallisto)?</h4>
+            <ul>
+                <li><strong>Educational value:</strong> Understanding alignment teaches fundamental concepts about how sequencing reads map to genomes</li>
+                <li><strong>Flexibility:</strong> BAM files enable visualization in IGV, which is crucial for validating results</li>
+                <li><strong>Future integration:</strong> BAM files allow integration with ChIP-seq or ATAC-seq data from the same cells</li>
+                <li><strong>Discovery potential:</strong> 2-pass mode can identify novel splicing events relevant to OPC biology</li>
+            </ul>
+
+            <h4>Why Gene-Level (not Transcript-Level)?</h4>
+            <ul>
+                <li><strong>Primary question:</strong> "What genes does Dnmt1 regulate?" rather than "What isoforms change?"</li>
+                <li><strong>Statistical power:</strong> Gene-level analysis has more power to detect moderate effect sizes</li>
+                <li><strong>Interpretability:</strong> Gene-level results are easier to validate experimentally and connect to pathways</li>
+                <li><strong>Practical approach:</strong> Start broad, then investigate specific genes for isoform differences if interesting candidates emerge</li>
+            </ul>
+
+            <h4>Why featureCounts?</h4>
+            <ul>
+                <li><strong>Speed:</strong> Handles multiple BAM files quickly with multi-threading</li>
+                <li><strong>Paired-end handling:</strong> Correctly counts fragments (not individual reads) for paired-end data</li>
+                <li><strong>Clear output:</strong> Simple count matrix format that DESeq2 expects</li>
+                <li><strong>Standard choice:</strong> Most widely used tool for this step</li>
+            </ul>
+
+            <h4>Why DESeq2?</h4>
+            <ul>
+                <li><strong>Gold standard:</strong> Most widely used and trusted tool for RNA-seq differential expression</li>
+                <li><strong>Robust statistics:</strong> Handles small sample sizes well, robust to outliers</li>
+                <li><strong>Excellent documentation:</strong> Detailed vignettes and active support community</li>
+                <li><strong>Integrated workflow:</strong> From normalization through visualization in one framework</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h4>What This Approach Gives Us</h4>
+            <p>This pipeline provides:</p>
+            <ul>
+                <li>Reliable differential expression results for gene-level analysis</li>
+                <li>BAM files for visual validation of interesting findings</li>
+                <li>Foundation for potential follow-up analyses (isoforms, integration with other data types)</li>
+                <li>Standard, reproducible workflow that reviewers and readers will recognize</li>
+            </ul>
+        </div>
+
+        <h2 id="pitfalls">9. Common Pitfalls to Avoid</h2>
+
+        <div class="warning-box">
+            <h4>❌ Using FPKM or TPM for Differential Expression</h4>
+            <p><strong>Why it's wrong:</strong> These normalized values violate the statistical assumptions of DE tools</p>
+            <p><strong>Do this instead:</strong> Always provide raw counts to DESeq2 or edgeR</p>
+        </div>
+
+        <div class="warning-box">
+            <h4>❌ Filtering Genes After Normalization</h4>
+            <p><strong>Why it's wrong:</strong> Normalization factors are calculated based on all genes, including low-count ones</p>
+            <p><strong>Do this instead:</strong> Filter low-count genes first, then run DESeq2</p>
+        </div>
+
+        <div class="warning-box">
+            <h4>❌ Comparing Gene Expression Across Genes Without Proper Normalization</h4>
+            <p><strong>Why it's wrong:</strong> Raw counts favor longer genes (they capture more reads)</p>
+            <p><strong>Do this instead:</strong> Use TPM or FPKM only when comparing expression levels of different genes within a sample</p>
+        </div>
+
+        <div class="warning-box">
+            <h4>❌ Ignoring Batch Effects</h4>
+            <p><strong>Why it's wrong:</strong> Technical variation can completely obscure biological signal</p>
+            <p><strong>Do this instead:</strong> Always run PCA first, check if samples cluster by processing date, include batch in model if needed</p>
+        </div>
+
+        <div class="warning-box">
+            <h4>❌ Not Checking Alignment Rates</h4>
+            <p><strong>Why it's wrong:</strong> Low alignment rates indicate problems (wrong genome, contamination, poor quality)</p>
+            <p><strong>Do this instead:</strong> Check that >80% of reads align before proceeding with DE analysis</p>
+        </div>
+
+        <div class="warning-box">
+            <h4>❌ Using Transcript Counts Directly in DESeq2</h4>
+            <p><strong>Why it's wrong:</strong> DESeq2 expects gene-level counts or proper transcript-level tools</p>
+            <p><strong>Do this instead:</strong> Use tximport to summarize transcript counts to gene-level, or use specialized tools for transcript-level DE</p>
+        </div>
+
+        <div class="warning-box">
+            <h4>❌ Over-Interpreting Small Fold Changes</h4>
+            <p><strong>Why it's wrong:</strong> Statistical significance (low p-value) doesn't mean biological importance</p>
+            <p><strong>Do this instead:</strong> Set reasonable fold-change thresholds (e.g., log2FC > 1) based on your biological system</p>
+        </div>
+
+        <div class="warning-box">
+            <h4>❌ Treating Replicates as Independent Samples</h4>
+            <p><strong>Why it's wrong:</strong> Technical replicates (same sample sequenced twice) aren't independent biological measurements</p>
+            <p><strong>Do this instead:</strong> Merge technical replicates; only biological replicates provide statistical power</p>
+        </div>
+
+        <h2>Summary: Your RNA-seq Decision Framework</h2>
+
+        <p>By now, you should have a clear mental framework for approaching RNA-seq analysis:</p>
+
+        <ol>
+            <li><strong>Start with your biological question</strong> - this drives all downstream choices</li>
+            <li><strong>Consider your computational resources</strong> - be realistic about what you can run</li>
+            <li><strong>Choose alignment strategy</strong> - alignment-free for speed, alignment-based for flexibility</li>
+            <li><strong>Decide on resolution</strong> - gene-level for most questions, transcript-level when splicing matters</li>
+            <li><strong>Use appropriate normalization</strong> - raw counts for DE testing, normalized counts for visualization</li>
+            <li><strong>Account for experimental design</strong> - replicates, batches, paired samples</li>
+            <li><strong>Validate your results</strong> - QC at every step, visualize to ensure results make biological sense</li>
+        </ol>
+
+        <div class="tip-box">
+            <h4>Remember</h4>
+            <p>There is no universally "correct" pipeline. The best approach depends on your specific question, your data characteristics, and your available resources. The goal is to make <strong>informed decisions</strong> that you can justify, rather than blindly following a recipe.</p>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="../index.html" class="nav-button">← Back to Bioinformatics</a>
+            <a href="chapter1-introduction.html" class="nav-button">Next: Dnmt1 Tutorial Chapter 1 →</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Ipek Selcen</p>
+    </footer>
+</body>
+</html>
