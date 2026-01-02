@@ -3,13 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beyond the Textbook: How TET1 Discovery Reveals Computational Thinking</title>
+    <title>Beyond the Textbook: How TET1 Discovery Reveals Computational Thinking | Ipek Selcen</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/components.css">
     <link rel="stylesheet" href="/css/pages.css">
     <!-- Syntax highlighting for code blocks -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <style>
+        /* Superscript citation styling */
+        sup a {
+            font-weight: 600;
+            padding: 0 0.15rem;
+        }
+        sup a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Reference list styling */
+        .references ol {
+            padding-left: 1.5rem;
+        }
+        .references li {
+            margin-bottom: 0.75rem;
+        }
+        .references li:target {
+            background-color: #f0fdfa;
+            padding: 0.5rem;
+            margin-left: -0.5rem;
+            border-radius: 4px;
+            border-left: 3px solid #14b8a6;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -27,17 +52,21 @@
 
     <!-- Main Content -->
     <div class="container">
-        <a href="/index.html" style="color: #14b8a6; font-size: 0.9rem; display: inline-block; margin-bottom: 2rem; text-decoration: none;">
+        <a href="/editorial/index.html" style="color: #14b8a6; font-size: 0.9rem; display: inline-block; margin-bottom: 2rem; text-decoration: none;">
             ← Back to Science Communication
         </a>
 
-        <article class="post-header">
-            <div class="post-meta">
-                <span class="post-tag">Systems Biology</span>
-                <span class="post-date">January 2, 2026</span>
-            </div>
-            <h1 class="post-title">Beyond the Textbook: How TET1 Discovery Reveals Computational Thinking in Biology</h1>
-        </article>
+        <span style="background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%); color: white; padding: 0.5rem 1.25rem; border-radius: 50px; font-size: 0.875rem; font-weight: 600; display: inline-block; margin-bottom: 1.5rem;">
+            Systems Biology
+        </span>
+
+        <h1 style="font-size: 2.5rem; font-weight: 700; line-height: 1.2; margin-bottom: 1rem; color: #1e293b;">
+            Beyond the Textbook: How TET1 Discovery Reveals Computational Thinking in Biology
+        </h1>
+        
+        <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 2rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 2rem;">
+            Posted January 2, 2026
+        </p>
 
         <div class="post-content">
             <p class="lead">
@@ -87,7 +116,7 @@
             <h2>Part 2: The Plot Twist - TET1 Reveals a State Space</h2>
             
             <p>
-                In 2009, Anjana Rao's lab (Tahiliani et al., Science) discovered TET1 doesn't remove methylation directly. Instead:
+                In 2009, Anjana Rao's lab (Tahiliani et al., Science)<sup><a href="#ref1" style="color: #14b8a6; text-decoration: none;">1</a></sup> discovered TET1 doesn't remove methylation directly. Instead:
             </p>
 
             <div style="background: #1e293b; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; font-family: monospace; color: #e2e8f0;">
@@ -230,7 +259,7 @@ class DNAMethylation_New:
 # If k2 is rate-limiting → 5hmC should be abundant</code></pre>
 
             <p>
-                <strong>What the data showed:</strong> Koh et al. (2011) found that in embryonic stem cells (ESCs), 5hmC is <strong>abundant</strong> - sometimes comprising 1% of all cytosines.
+                <strong>What the data showed:</strong> Koh et al. (2011)<sup><a href="#ref3" style="color: #14b8a6; text-decoration: none;">3</a></sup> found that in embryonic stem cells (ESCs), 5hmC is <strong>abundant</strong> - sometimes comprising 1% of all cytosines.
             </p>
 
             <p>
@@ -309,7 +338,7 @@ Gene_C can still be activated by: ['TET2', 'TET3']</pre>
             </p>
 
             <p>
-                <strong>Experimental validation:</strong> Dawlaty et al. (2011) showed that TET1 knockout mice are viable and fertile, with only subtle defects. TET2 and TET3 expression increases to compensate.
+                <strong>Experimental validation:</strong> Dawlaty et al. (2011)<sup><a href="#ref4" style="color: #14b8a6; text-decoration: none;">4</a></sup> showed that TET1 knockout mice are viable and fertile, with only subtle defects. TET2 and TET3 expression increases to compensate.
             </p>
 
             <p>
@@ -381,7 +410,7 @@ library(GenomicRanges)
 
             <h3>What This Reveals</h3>
 
-            <p>Published TET1 multi-omics studies (Wu et al., 2011; Huang et al., 2014) showed:</p>
+            <p>Published TET1 multi-omics studies (Wu et al., 2011<sup><a href="#ref5" style="color: #14b8a6; text-decoration: none;">5</a></sup>; Huang et al., 2014<sup><a href="#ref6" style="color: #14b8a6; text-decoration: none;">6</a></sup>) showed:</p>
 
             <ol>
                 <li><strong>5hmC enrichment at enhancers and gene bodies</strong> correlates with <strong>active transcription</strong></li>
@@ -585,31 +614,31 @@ library(GenomicRanges)
         </div>
 
         <div class="references">
-            <h2>Key References</h2>
+            <h2>References</h2>
             
             <p><strong>TET Enzyme Discovery:</strong></p>
-            <ul>
-                <li>Tahiliani M, et al. (2009) "Conversion of 5-methylcytosine to 5-hydroxymethylcytosine in mammalian DNA by MLL partner TET1." <em>Science</em> 324(5929):930-5.</li>
-                <li>Kriaucionis S, Heintz N. (2009) "The nuclear DNA base 5-hydroxymethylcytosine is present in Purkinje neurons and the brain." <em>Science</em> 324(5929):929-30.</li>
-            </ul>
+            <ol style="line-height: 1.8;">
+                <li id="ref1">Tahiliani M, et al. (2009) "Conversion of 5-methylcytosine to 5-hydroxymethylcytosine in mammalian DNA by MLL partner TET1." <em>Science</em> 324(5929):930-5.</li>
+                <li id="ref2">Kriaucionis S, Heintz N. (2009) "The nuclear DNA base 5-hydroxymethylcytosine is present in Purkinje neurons and the brain." <em>Science</em> 324(5929):929-30.</li>
+            </ol>
 
             <p><strong>TET1 Function and Compensation:</strong></p>
-            <ul>
-                <li>Koh KP, et al. (2011) "Tet1 and Tet2 regulate 5-hydroxymethylcytosine production and cell lineage specification in mouse embryonic stem cells." <em>Cell Stem Cell</em> 8(2):200-13.</li>
-                <li>Dawlaty MM, et al. (2011) "Tet1 is dispensable for maintaining pluripotency and its loss is compatible with embryonic and postnatal development." <em>Cell Stem Cell</em> 9(2):166-75.</li>
-            </ul>
+            <ol start="3" style="line-height: 1.8;">
+                <li id="ref3">Koh KP, et al. (2011) "Tet1 and Tet2 regulate 5-hydroxymethylcytosine production and cell lineage specification in mouse embryonic stem cells." <em>Cell Stem Cell</em> 8(2):200-13.</li>
+                <li id="ref4">Dawlaty MM, et al. (2011) "Tet1 is dispensable for maintaining pluripotency and its loss is compatible with embryonic and postnatal development." <em>Cell Stem Cell</em> 9(2):166-75.</li>
+            </ol>
 
             <p><strong>Multi-Omics Integration:</strong></p>
-            <ul>
-                <li>Wu H, et al. (2011) "Genome-wide analysis of 5-hydroxymethylcytosine distribution reveals its dual function in transcriptional regulation in mouse embryonic stem cells." <em>Genes Dev</em> 25(7):679-84.</li>
-                <li>Huang Y, et al. (2014) "Distinct roles of the methylcytosine oxidases Tet1 and Tet2 in mouse embryonic stem cells." <em>PNAS</em> 111(4):1361-6.</li>
-            </ul>
+            <ol start="5" style="line-height: 1.8;">
+                <li id="ref5">Wu H, et al. (2011) "Genome-wide analysis of 5-hydroxymethylcytosine distribution reveals its dual function in transcriptional regulation in mouse embryonic stem cells." <em>Genes Dev</em> 25(7):679-84.</li>
+                <li id="ref6">Huang Y, et al. (2014) "Distinct roles of the methylcytosine oxidases Tet1 and Tet2 in mouse embryonic stem cells." <em>PNAS</em> 111(4):1361-6.</li>
+            </ol>
 
             <p><strong>Reviews on Computational Thinking:</strong></p>
-            <ul>
-                <li>Alon U. (2007) "Network motifs: theory and experimental approaches." <em>Nat Rev Genet</em> 8:450–461.</li>
-                <li>Barabási AL, Oltvai ZN. (2004) "Network biology: understanding the cell's functional organization." <em>Nat Rev Genet</em> 5:101–113.</li>
-            </ul>
+            <ol start="7" style="line-height: 1.8;">
+                <li id="ref7">Alon U. (2007) "Network motifs: theory and experimental approaches." <em>Nat Rev Genet</em> 8:450–461.</li>
+                <li id="ref8">Barabási AL, Oltvai ZN. (2004) "Network biology: understanding the cell's functional organization." <em>Nat Rev Genet</em> 5:101–113.</li>
+            </ol>
         </div>
 
         <footer class="site-footer">
