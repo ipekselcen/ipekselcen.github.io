@@ -68,11 +68,82 @@
     margin-bottom: 0.5rem;
 }
 
-/* Post Content */
+/* ============================================
+   NEW BLOG POST HEADER STYLES
+   ============================================ */
+
+/* Back link styling */
+.post-back-link {
+    color: #14b8a6;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+    text-decoration: none;
+}
+
+.post-back-link:hover {
+    text-decoration: underline;
+}
+
+/* Post category badge container */
+.post-badge-container {
+    margin-bottom: 1.5rem;
+}
+
+/* Category badges - base style */
+.post-badge {
+    color: white;
+    padding: 0.5rem 1.25rem;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+/* Systems Biology / Teaching badge (teal/green) */
+.post-badge.systems-biology,
+.post-badge.teaching {
+    background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+}
+
+/* Research Communication badge (purple) */
+.post-badge.research {
+    background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+}
+
+/* Post title - larger version for blog posts */
+.post-title-main {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: #1e293b;
+}
+
+/* Post date/metadata */
+.post-date-info {
+    color: #64748b;
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 2rem;
+}
+
+/* ============================================
+   POST CONTENT
+   ============================================ */
 .post-content {
     font-size: 1.05rem;
     line-height: 1.8;
     color: var(--color-text-secondary);
+}
+
+/* Lead paragraph styling */
+.post-content .lead {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #475569;
+    margin-bottom: 1.5rem;
 }
 
 .post-content h2 {
@@ -113,9 +184,73 @@
     padding-left: 2rem;
 }
 
+.post-content ol {
+    margin: 1.5rem 0;
+    padding-left: 2rem;
+}
+
 .post-content li {
     margin-bottom: 0.75rem;
     line-height: 1.7;
+}
+
+/* Callout box ul margins */
+.callout ul {
+    margin-top: 0.5rem;
+}
+
+/* ============================================
+   SUPERSCRIPT CITATIONS
+   ============================================ */
+sup a {
+    color: #14b8a6;
+    font-weight: 600;
+    padding: 0 0.15rem;
+    text-decoration: none;
+}
+
+sup a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   CODE BLOCKS AND DISPLAYS
+   ============================================ */
+
+/* Code block improvements for blog posts */
+.post-content pre {
+    background: #1e293b;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    overflow-x: auto;
+}
+
+.post-content pre code {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #e2e8f0;
+}
+
+/* Inline code */
+.post-content code:not(pre code) {
+    background: #f1f5f9;
+    color: #0d9488;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-size: 0.9em;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+/* Monospace display blocks (not code) */
+.code-display {
+    background: #1e293b;
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+    font-family: monospace;
+    color: #e2e8f0;
 }
 
 /* ============================================
@@ -283,18 +418,62 @@
 }
 
 /* ============================================
+   EXAMPLE BOXES (Good/Bad Examples)
+   ============================================ */
+.example-bad {
+    background: #fef2f2;
+    border-left: 4px solid #ef4444;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.example-bad strong {
+    color: #991b1b;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.example-bad p,
+.example-bad ol,
+.example-bad ul {
+    color: #991b1b;
+    margin-top: 0.5rem;
+}
+
+.example-good {
+    background: #f0fdf4;
+    border-left: 4px solid #22c55e;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+.example-good strong {
+    color: #166534;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.example-good p,
+.example-good ol,
+.example-good ul {
+    color: #166534;
+    margin-top: 0.5rem;
+}
+
+/* ============================================
    REFERENCES SECTION
    ============================================ */
 .references {
     margin-top: 4rem;
     padding-top: 2rem;
-    border-top: 1px solid var(--color-border);
+    border-top: 2px solid var(--color-border);
 }
 
 .references h2 {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
+    color: #1e293b;
 }
 
 .references h3 {
@@ -309,8 +488,16 @@
     font-weight: 600;
 }
 
+.references p strong {
+    color: #1e293b;
+    display: block;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
 .references ol {
     padding-left: 1.5rem;
+    line-height: 1.8;
 }
 
 .references ul {
@@ -323,4 +510,31 @@
     font-size: 0.9rem;
     line-height: 1.6;
     color: var(--color-text-secondary);
+}
+
+/* Reference highlighting when clicked */
+.references li:target {
+    background-color: #f0fdfa;
+    padding: 0.5rem;
+    margin-left: -0.5rem;
+    border-radius: 4px;
+    border-left: 3px solid #14b8a6;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 768px) {
+    .post-title-main {
+        font-size: 1.75rem;
+    }
+    
+    .post-content .lead {
+        font-size: 1.05rem;
+    }
+    
+    .post-content pre {
+        padding: 1rem;
+        font-size: 0.85rem;
+    }
 }
