@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beyond the Textbook: How TET1 Discovery Reveals Computational Thinking</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/components.css">
+    <link rel="stylesheet" href="/css/pages.css">
+    <!-- Syntax highlighting for code blocks -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="site-nav">
+        <div class="nav-container">
+            <a href="/index.html" class="site-logo">Ipek Selcen</a>
+            <ul class="nav-menu">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/bioinformatics/index.html">Bioinformatics</a></li>
+                <li><a href="/editorial/index.html" class="active">Science Communication</a></li>
+                <li><a href="/cv.html">CV</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <a href="../index.html" style="color: #14b8a6; font-size: 0.9rem; display: inline-block; margin-bottom: 2rem; text-decoration: none;">
+            ← Back to Science Communication
+        </a>
+
+        <article class="post-header">
+            <div class="post-meta">
+                <span class="post-tag">Systems Biology</span>
+                <span class="post-date">January 2, 2026</span>
+            </div>
+            <h1 class="post-title">Beyond the Textbook: How TET1 Discovery Reveals Computational Thinking in Biology</h1>
+        </article>
+
+        <div class="post-content">
+            <p class="lead">
+                When TET1 was discovered in 2009, the biology community celebrated a biochemical breakthrough: an enzyme that oxidizes 5-methylcytosine. Science and Cell papers flooded in. Textbooks got updated. Case closed, right?
+            </p>
+
+            <p>
+                But here's what most people missed: TET1's discovery didn't just reveal a new enzyme. It revealed that DNA methylation is a <strong>computational system</strong> with states, transitions, and information processing capabilities that traditional biochemistry couldn't predict.
+            </p>
+
+            <p>
+                If you learn to think about TET1 computationally, you'll understand not just what it does, but how to predict what happens when you perturb it. You'll stop memorizing pathways and start understanding biological systems as algorithms running on molecular hardware.
+            </p>
+
+            <h2>Part 1: The Story Your Textbook Told You</h2>
+            
+            <p>For decades, DNA methylation seemed simple:</p>
+
+            <div class="callout callout-note">
+                <strong>The Old Model</strong>
+                <p>
+                    CpG islands + DNMT enzymes → 5-methylcytosine (5mC)<br>
+                    5mC = Gene Silencing = Heterochromatin = "Off"<br><br>
+                    Unmethylated = Gene Active = Euchromatin = "On"
+                </p>
+            </div>
+
+            <p>
+                It was binary. Clean. Wrong.
+            </p>
+
+            <p>
+                The problem? Nobody could explain <strong>active demethylation</strong>. Sure, DNA methylation patterns could be diluted through cell division (passive demethylation), but what about when cells needed to rapidly activate a silenced gene?
+            </p>
+
+            <p>
+                The prevailing assumption was "it probably just doesn't happen much" or "maybe some repair pathway does it accidentally."
+            </p>
+
+            <div class="callout callout-tip">
+                <strong>Computational Insight</strong>
+                <p>
+                    Binary switches are <strong>informationally poor</strong>. Real biological systems encode information in richer state spaces. Computational thinkers should have been suspicious.
+                </p>
+            </div>
+
+            <h2>Part 2: The Plot Twist - TET1 Reveals a State Space</h2>
+            
+            <p>
+                In 2009, Anjana Rao's lab (Tahiliani et al., Science) discovered TET1 doesn't remove methylation directly. Instead:
+            </p>
+
+            <div style="background: #1e293b; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; font-family: monospace; color: #e2e8f0;">
+                5mC --TET1--> 5hmC --TET1--> 5fC --TET1--> 5caC --TDG/BER--> C
+            </div>
+
+            <p>
+                This wasn't just a pathway. It was a <strong>revelation about information encoding</strong>.
+            </p>
+
+            <h3>Why This Matters Computationally</h3>
+
+            <p>
+                Instead of a binary switch, DNA now has at least <strong>five distinct states</strong> at every cytosine:
+            </p>
+
+            <ol>
+                <li><strong>C</strong> (cytosine) - unmethylated</li>
+                <li><strong>5mC</strong> (5-methylcytosine) - methylated</li>
+                <li><strong>5hmC</strong> (5-hydroxymethylcytosine) - oxidized once</li>
+                <li><strong>5fC</strong> (5-formylcytosine) - oxidized twice</li>
+                <li><strong>5caC</strong> (5-carboxylcytosine) - oxidized thrice</li>
+            </ol>
+
+            <p>Each state has different:</p>
+            <ul>
+                <li><strong>Protein binding partners</strong> (readers that recognize different marks)</li>
+                <li><strong>Chemical stability</strong> (transition rates between states)</li>
+                <li><strong>Biological functions</strong> (gene activation vs. silencing vs. poising)</li>
+            </ul>
+
+            <p>
+                This is exactly how computer scientists think about state machines. DNA methylation isn't a bit (0 or 1), it's more like a <strong>multi-level cell in flash memory</strong> that can store graded information.
+            </p>
+
+            <h2>Part 3: Computational Reframing - From Biochemistry to Information Theory</h2>
+            
+            <p>Let's formalize this. Here's how a computational biologist thinks about the TET1 discovery:</p>
+
+            <pre><code class="language-python"># Traditional thinking (binary)
+class DNAMethylation_Old:
+    def __init__(self):
+        self.state = "unmethylated"  # or "methylated"
+    
+    def set_methylation(self, methylated):
+        self.state = "methylated" if methylated else "unmethylated"
+
+# Computational thinking (state space)
+class DNAMethylation_New:
+    def __init__(self):
+        self.states = {
+            'C': {
+                'energy': 0.0,
+                'stability': 'high',
+                'transitions': {'5mC': 'DNMT'},
+                'readers': ['CXXC', 'TET']
+            },
+            '5mC': {
+                'energy': -2.0,  # thermodynamically stable
+                'stability': 'high',
+                'transitions': {'5hmC': 'TET'},
+                'readers': ['MBD', 'MeCP2']
+            },
+            '5hmC': {
+                'energy': -1.0,  # intermediate stability
+                'stability': 'medium',
+                'transitions': {'5fC': 'TET', '5mC': 'reverse?'},
+                'readers': ['Uhrf2', 'WT1', 'MeCP2']
+            },
+            '5fC': {
+                'energy': 0.5,  # less stable
+                'stability': 'low',
+                'transitions': {'5caC': 'TET', 'C': 'TDG'},
+                'readers': ['TDG']
+            },
+            '5caC': {
+                'energy': 1.0,  # least stable
+                'stability': 'low',
+                'transitions': {'C': 'TDG'},
+                'readers': ['TDG']
+            }
+        }
+        self.current_state = 'C'
+    
+    def get_information_content(self):
+        """
+        Shannon entropy: H = -Σ p(i) * log2(p(i))
+        5 possible states = max 2.32 bits of information per cytosine
+        vs binary (2 states) = max 1 bit
+        
+        This is 2.3x more information encoding capacity!
+        """
+        import math
+        n_states = len(self.states)
+        # Assuming equal probability (max entropy)
+        return -sum([1/n_states * math.log2(1/n_states) 
+                     for _ in range(n_states)])</code></pre>
+
+            <div class="callout callout-note">
+                <strong>Key Insight</strong>
+                <p>
+                    By revealing oxidized methylcytosines, TET1 showed that the genome has <strong>2.3x more information encoding capacity</strong> than we thought.
+                </p>
+            </div>
+
+            <p>This is profound. It means:</p>
+            <ul>
+                <li>More nuanced gene regulation is possible</li>
+                <li>Cell identity can be encoded more stably</li>
+                <li>Developmental transitions can be more precisely controlled</li>
+            </ul>
+
+            <h2>Part 4: What Computational Thinking Lets You Predict</h2>
+            
+            <p>
+                Now that we have a state space model, we can ask questions that pure biochemistry couldn't answer:
+            </p>
+
+            <h3>Question 1: Is 5hmC a Transient Intermediate or a Stable Mark?</h3>
+
+            <p><strong>Traditional approach:</strong> Measure 5hmC levels in cells. If you find it, it exists. Done.</p>
+
+            <p><strong>Computational approach:</strong> Model the kinetics and predict steady-state levels.</p>
+
+            <pre><code class="language-r"># Kinetic model
+# Let k1 = rate of 5mC → 5hmC conversion
+# Let k2 = rate of 5hmC → 5fC conversion
+
+# If 5hmC is just a transient intermediate:
+# k1 ≈ k2 (fast in, fast out)
+# Steady state: [5hmC] ≈ 0
+
+# If 5hmC is a stable regulatory mark:
+# k1 > k2 (fast in, slow out)
+# Steady state: [5hmC] accumulates
+
+# Mathematical prediction:
+# [5hmC]_steady_state = (k1 * [5mC]) / (k2 + k_degradation)
+
+# If k2 is rate-limiting → 5hmC should be abundant</code></pre>
+
+            <p>
+                <strong>What the data showed:</strong> Koh et al. (2011) found that in embryonic stem cells (ESCs), 5hmC is <strong>abundant</strong> - sometimes comprising 1% of all cytosines.
+            </p>
+
+            <p>
+                <strong>Computational conclusion:</strong> k₂ must be rate-limiting. This means <strong>5hmC is not just an intermediate</strong> - it's a stable epigenetic mark with its own regulatory function.
+            </p>
+
+            <div class="callout callout-tip">
+                <strong>Biological Insight</strong>
+                <p>
+                    Cells use 5hmC to poise genes - maintaining them in an intermediate state between "off" (5mC) and "on" (C). This is exactly what you'd want during development when cells need to maintain flexibility before committing to a fate.
+                </p>
+            </div>
+
+            <h3>Question 2: Network Redundancy - Why Three TET Enzymes?</h3>
+
+            <p>
+                Mammals don't just have TET1. They have TET1, TET2, and TET3.
+            </p>
+
+            <p><strong>Traditional thinking:</strong> "Probably just redundancy. Evolution is messy."</p>
+
+            <p><strong>Computational thinking:</strong> Redundancy in biological networks is rarely accidental. It's either:</p>
+            <ol>
+                <li><strong>Fault tolerance</strong> (backup systems)</li>
+                <li><strong>Specialization</strong> (different contexts)</li>
+                <li><strong>Signal amplification</strong> (parallel processing)</li>
+            </ol>
+
+            <p>Let's model this:</p>
+
+            <pre><code class="language-python">import networkx as nx
+import matplotlib.pyplot as plt
+
+# Build a simplified gene regulatory network
+G = nx.DiGraph()
+
+# Add nodes
+genes = ['Gene_A', 'Gene_B', 'Gene_C']
+enzymes = ['TET1', 'TET2', 'TET3', 'DNMT3A', 'DNMT3B']
+
+G.add_nodes_from(genes, node_type='gene')
+G.add_nodes_from(enzymes, node_type='enzyme')
+
+# Add edges (simplified regulatory relationships)
+# TET enzymes activate genes by oxidizing 5mC
+for tet in ['TET1', 'TET2', 'TET3']:
+    for gene in genes:
+        G.add_edge(tet, gene, interaction='activate')
+
+# DNMTs silence genes
+for dnmt in ['DNMT3A', 'DNMT3B']:
+    for gene in genes:
+        G.add_edge(dnmt, gene, interaction='repress')
+
+# Network analysis
+print(f"Network density: {nx.density(G):.3f}")
+print(f"Number of paths from TET1 to Gene_A: {len(list(nx.all_simple_paths(G, 'TET1', 'Gene_A')))}")
+
+# Key computational question: What happens if we remove TET1?
+G_knockout = G.copy()
+G_knockout.remove_node('TET1')
+
+# Can genes still be activated?
+for gene in genes:
+    alternative_activators = [node for node in ['TET2', 'TET3'] 
+                              if nx.has_path(G_knockout, node, gene)]
+    print(f"{gene} can still be activated by: {alternative_activators}")</code></pre>
+
+            <p><strong>Output:</strong></p>
+            <pre style="background: #1e293b; padding: 1rem; border-radius: 8px; color: #e2e8f0; font-family: monospace;">Gene_A can still be activated by: ['TET2', 'TET3']
+Gene_B can still be activated by: ['TET2', 'TET3']
+Gene_C can still be activated by: ['TET2', 'TET3']</pre>
+
+            <p>
+                <strong>Computational prediction:</strong> TET1 knockout should show <strong>partial compensation</strong> by TET2/3, not complete loss of function.
+            </p>
+
+            <p>
+                <strong>Experimental validation:</strong> Dawlaty et al. (2011) showed that TET1 knockout mice are viable and fertile, with only subtle defects. TET2 and TET3 expression increases to compensate.
+            </p>
+
+            <p>
+                This is network robustness in action - exactly what graph theory predicts for scale-free biological networks.
+            </p>
+
+            <div class="callout callout-note">
+                <strong>Teaser</strong>
+                <p>
+                    My unpublished TET2 work revealed even more sophisticated compensation mechanisms that traditional thinking wouldn't predict. More on that after publication.
+                </p>
+            </div>
+
+            <h2>Part 5: Multi-Omics Integration - The Computational Payoff</h2>
+            
+            <p>
+                Here's where computational thinking really shines. Once you understand the state space and network properties, you can integrate multiple data types to test mechanistic hypotheses.
+            </p>
+
+            <h3>The Computational Framework</h3>
+
+            <pre><code class="language-r"># Integrating multiple genomics datasets to understand TET1 function
+# Using published data from Huang et al., 2014 (ESC TET1 ChIP, hmC, RNA-seq)
+
+library(tidyverse)
+library(GenomicRanges)
+
+# Step 1: Define the computational question
+# "Does 5hmC presence causally regulate gene expression?"
+# Or: "Is 5hmC a marker of regulatory potential?"
+
+# Step 2: Formalize as a statistical model
+# H1 (causal): Expression = f(5hmC_level)
+# H2 (marker): Expression = f(chromatin_state), 5hmC correlates with both
+
+# Step 3: Load data (pseudo-code for demonstration)
+# hmC_peaks <- read_narrowpeak("TET1_hMeDIP_seq.bed")
+# rna_seq <- read_tsv("TET1_KO_vs_WT_DESeq2.tsv")
+# atac_seq <- read_narrowpeak("ATAC_seq_peaks.bed")
+
+# Step 4: Integrate using genomic coordinates
+# annotate_genes <- function(gene_id) {
+#   tss <- get_tss(gene_id)
+#   
+#   # Get 5hmC in promoter region (TSS ± 2kb)
+#   promoter <- GRanges(seqnames = tss$chr, 
+#                      ranges = IRanges(start = tss$pos - 2000, 
+#                                      end = tss$pos + 2000))
+#   
+#   hmC_in_promoter <- count_overlaps(promoter, hmC_peaks)
+#   chromatin_open <- count_overlaps(promoter, atac_seq)
+#   expression <- get_expression(gene_id, rna_seq)
+#   
+#   return(tibble(gene_id, hmC_in_promoter, chromatin_open, expression))
+# }
+# 
+# integrated_data <- map_df(all_genes, annotate_genes)
+
+# Step 5: Model the relationships
+# model1 <- lm(expression ~ hmC_in_promoter, data = integrated_data)
+# model2 <- lm(expression ~ chromatin_open, data = integrated_data)
+# model3 <- lm(expression ~ hmC_in_promoter + chromatin_open + 
+#                          hmC_in_promoter:chromatin_open, 
+#              data = integrated_data)
+
+# The interaction term tests: Does 5hmC's effect depend on chromatin state?
+# If interaction is significant → context-dependent regulation
+# If not → independent effects</code></pre>
+
+            <h3>What This Reveals</h3>
+
+            <p>Published TET1 multi-omics studies (Wu et al., 2011; Huang et al., 2014) showed:</p>
+
+            <ol>
+                <li><strong>5hmC enrichment at enhancers and gene bodies</strong> correlates with <strong>active transcription</strong></li>
+                <li><strong>TET1 binding</strong> overlaps with <strong>H3K4me3</strong> (active promoter mark) and <strong>open chromatin</strong></li>
+                <li><strong>TET1 knockout</strong> causes modest gene expression changes (hundreds, not thousands of genes)</li>
+            </ol>
+
+            <div class="callout callout-tip">
+                <strong>Computational Interpretation</strong>
+                <p>
+                    5hmC is not a simple activator. It's a component of a regulatory PROGRAM.
+                </p>
+                <p>
+                    The cell isn't asking: "Is there 5hmC here?"<br>
+                    The cell is computing:<br>
+                    <code>IF (5hmC present) AND (chromatin accessible) AND (TFs bound)<br>
+                    THEN (transcription permissible)</code>
+                </p>
+                <p>
+                    This is a logical AND gate, not a simple input-output function.
+                </p>
+            </div>
+
+            <p>
+                This is why <strong>context matters</strong> in epigenetics. 5hmC at a closed chromatin region does nothing. 5hmC at an open, TF-bound enhancer facilitates activation.
+            </p>
+
+            <p>
+                The computational mindset lets you see that epigenetic marks are <strong>boolean variables in a complex logical circuit</strong>, not simple on/off switches.
+            </p>
+
+            <h2>Part 6: The "Unthinkable" That Emerges From Computational Thinking</h2>
+            
+            <p>Let me summarize what TET1 teaches us when we think computationally:</p>
+
+            <h3>1. State Space Complexity = Regulatory Flexibility</h3>
+            <p><strong>Biochemistry tells you:</strong> TET1 oxidizes 5mC</p>
+            <p><strong>Computation tells you:</strong> This creates a 5-state system with 2.3x more information capacity</p>
+            <p><strong>Why it matters:</strong> Cells can encode "poised," "active," "repressed," "irreversible" states, not just "on/off"</p>
+
+            <h3>2. Network Redundancy = Robust Computation</h3>
+            <p><strong>Biochemistry tells you:</strong> Three TET enzymes exist</p>
+            <p><strong>Computation tells you:</strong> This creates fault-tolerant parallel processing with graceful degradation</p>
+            <p><strong>Why it matters:</strong> Perturbations (mutations, knockouts, drugs) won't simply break the system - it will adapt</p>
+
+            <h3>3. Multi-Layer Regulation = Combinatorial Logic</h3>
+            <p><strong>Biochemistry tells you:</strong> 5hmC correlates with gene activation</p>
+            <p><strong>Computation tells you:</strong> 5hmC is one input in a multi-input logic gate</p>
+            <p><strong>Why it matters:</strong> You can't predict gene expression from 5hmC alone - you need the full regulatory context</p>
+
+            <h3>4. Information Flow Reveals Causality</h3>
+            <p><strong>Biochemistry tells you:</strong> TET1 binds here, 5hmC appears here, gene expression changes</p>
+            <p><strong>Computation tells you:</strong> Correlation ≠ causation until you model the directed acyclic graph</p>
+            <p><strong>Why it matters:</strong> You can now design perturbation experiments that test causal links</p>
+
+            <h2>Part 7: How to Practice Computational Thinking</h2>
+            
+            <p>Before you run your next ChIP-seq, RNA-seq, or ATAC-seq analysis, ask yourself these questions:</p>
+
+            <h3>The Computational Thinking Checklist</h3>
+
+            <div class="callout callout-note">
+                <strong>□ 1. What is the state space of my system?</strong>
+                <ul style="margin-top: 0.5rem;">
+                    <li>Not just "methylated vs unmethylated"</li>
+                    <li>What are ALL the possible states?</li>
+                    <li>What information do these states encode?</li>
+                </ul>
+            </div>
+
+            <div class="callout callout-note">
+                <strong>□ 2. What are the transition rules?</strong>
+                <ul style="margin-top: 0.5rem;">
+                    <li>What enzymes/processes move between states?</li>
+                    <li>What are the rates? (fast/slow)</li>
+                    <li>Are transitions reversible?</li>
+                </ul>
+            </div>
+
+            <div class="callout callout-note">
+                <strong>□ 3. What is the network topology?</strong>
+                <ul style="margin-top: 0.5rem;">
+                    <li>Who regulates whom?</li>
+                    <li>Are there feedback loops?</li>
+                    <li>Where is redundancy?</li>
+                </ul>
+            </div>
+
+            <div class="callout callout-note">
+                <strong>□ 4. What are the constraints?</strong>
+                <ul style="margin-top: 0.5rem;">
+                    <li>Thermodynamic (energetics)</li>
+                    <li>Topological (chromatin structure)</li>
+                    <li>Temporal (developmental time)</li>
+                    <li>Spatial (nuclear organization)</li>
+                </ul>
+            </div>
+
+            <div class="callout callout-note">
+                <strong>□ 5. What does this topology predict about perturbations?</strong>
+                <ul style="margin-top: 0.5rem;">
+                    <li>Single gene knockout = ?</li>
+                    <li>Drug treatment = ?</li>
+                    <li>Stress response = ?</li>
+                </ul>
+            </div>
+
+            <div class="callout callout-note">
+                <strong>□ 6. How do I integrate multiple measurements?</strong>
+                <ul style="margin-top: 0.5rem;">
+                    <li>Are they measuring the same thing at different scales?</li>
+                    <li>Are they inputs and outputs of the same process?</li>
+                    <li>What's the causal structure?</li>
+                </ul>
+            </div>
+
+            <div class="callout callout-note">
+                <strong>□ 7. What would surprise me?</strong>
+                <ul style="margin-top: 0.5rem;">
+                    <li>If X happened, what would that tell me about my model?</li>
+                    <li>What result would force me to rethink my assumptions?</li>
+                </ul>
+            </div>
+
+            <h3>Example: Applying This to Your Next Experiment</h3>
+
+            <p>Let's say you're studying a TET enzyme (maybe TET2...) in your favorite cell type.</p>
+
+            <div style="background: #fef2f2; border-left: 4px solid #ef4444; padding: 1rem; margin: 1rem 0;">
+                <strong style="color: #991b1b;">❌ Bad computational thinking:</strong>
+                <p style="color: #991b1b; margin-top: 0.5rem;">
+                    "I'll knock out TET2, do RNA-seq, and see what genes change. Then I'll make a GO term enrichment plot and call it a day."
+                </p>
+            </div>
+
+            <div style="background: #f0fdf4; border-left: 4px solid #22c55e; padding: 1rem; margin: 1rem 0;">
+                <strong style="color: #166534;">✓ Good computational thinking:</strong>
+                <p style="color: #166534; margin-top: 0.5rem;">
+                    "TET2 operates in a network with TET1/3, DNMTs, and chromatin remodelers. Before I even do the experiment, let me predict:
+                </p>
+                <ol style="color: #166534; margin-top: 0.5rem;">
+                    <li><strong>State space:</strong> What regulatory states exist in my cell type?</li>
+                    <li><strong>Network:</strong> Can TET1/3 compensate for TET2 loss?</li>
+                    <li><strong>Constraints:</strong> Is TET2 the rate-limiting enzyme, or is something downstream (TDG, BER)?</li>
+                    <li><strong>Time scale:</strong> How long until compensation mechanisms kick in?</li>
+                </ol>
+                <p style="color: #166534; margin-top: 0.5rem;">
+                    Based on these predictions, I should:<br>
+                    • Measure TET1/3 expression after TET2 KO (test compensation)<br>
+                    • Time-course RNA-seq (capture dynamics, not just endpoint)<br>
+                    • Multi-omics (5hmC, chromatin, expression) to see information flow<br>
+                    • Model the gene regulatory network before and after perturbation
+                </p>
+                <p style="color: #166534; margin-top: 0.5rem;">
+                    This way, I'm not just generating data. I'm testing a computational hypothesis about how the system works."
+                </p>
+            </div>
+
+            <h2>What's Next</h2>
+            
+            <p>
+                The TET1 story shows that computational thinking transforms how you understand biology. You stop seeing isolated biochemical reactions and start seeing:
+            </p>
+
+            <ul>
+                <li><strong>State machines</strong> (methylation states)</li>
+                <li><strong>Networks</strong> (gene regulation)</li>
+                <li><strong>Information processing</strong> (epigenetic code)</li>
+                <li><strong>Optimization</strong> (balancing stability vs flexibility)</li>
+                <li><strong>Robustness</strong> (fault tolerance through redundancy)</li>
+            </ul>
+
+            <p>
+                My own unpublished work on TET2 revealed even deeper layers of this computational architecture. When I knocked out TET2 in oligodendrocyte progenitor cells, the compensation mechanisms were far more sophisticated than simple TET1/3 upregulation. The cell rerouted information flow through RNA modification pathways, chromatin remodelers, and alternative demethylation routes - exactly the kind of network-level adaptation that computational thinking predicts.
+            </p>
+
+            <p>But that's a story for after the paper is published.</p>
+
+            <p>
+                For now, I encourage you to practice this mindset with published systems. Pick your favorite epigenetic regulator and ask:
+            </p>
+            <ul>
+                <li>What's the state space?</li>
+                <li>What's the network?</li>
+                <li>What would computation predict that biochemistry alone wouldn't?</li>
+            </ul>
+
+            <div class="callout callout-tip">
+                <strong>Coming Up in This Series</strong>
+                <p>
+                    <strong>Next:</strong> "Chromatin as a Phase-Separated Material: Why Your ATAC-seq Peaks Aren't What You Think"
+                </p>
+                <p>
+                    <strong>Later:</strong> "The TET2 Compensation Network: A Case Study in Computational Prediction" (after publication)
+                </p>
+                <p>
+                    <strong>Also:</strong> "Why Your Heatmap Is Lying To You: Dimensionality Reduction and Perceptual Biases"
+                </p>
+            </div>
+
+        </div>
+
+        <div class="references">
+            <h2>Key References</h2>
+            
+            <p><strong>TET Enzyme Discovery:</strong></p>
+            <ul>
+                <li>Tahiliani M, et al. (2009) "Conversion of 5-methylcytosine to 5-hydroxymethylcytosine in mammalian DNA by MLL partner TET1." <em>Science</em> 324(5929):930-5.</li>
+                <li>Kriaucionis S, Heintz N. (2009) "The nuclear DNA base 5-hydroxymethylcytosine is present in Purkinje neurons and the brain." <em>Science</em> 324(5929):929-30.</li>
+            </ul>
+
+            <p><strong>TET1 Function and Compensation:</strong></p>
+            <ul>
+                <li>Koh KP, et al. (2011) "Tet1 and Tet2 regulate 5-hydroxymethylcytosine production and cell lineage specification in mouse embryonic stem cells." <em>Cell Stem Cell</em> 8(2):200-13.</li>
+                <li>Dawlaty MM, et al. (2011) "Tet1 is dispensable for maintaining pluripotency and its loss is compatible with embryonic and postnatal development." <em>Cell Stem Cell</em> 9(2):166-75.</li>
+            </ul>
+
+            <p><strong>Multi-Omics Integration:</strong></p>
+            <ul>
+                <li>Wu H, et al. (2011) "Genome-wide analysis of 5-hydroxymethylcytosine distribution reveals its dual function in transcriptional regulation in mouse embryonic stem cells." <em>Genes Dev</em> 25(7):679-84.</li>
+                <li>Huang Y, et al. (2014) "Distinct roles of the methylcytosine oxidases Tet1 and Tet2 in mouse embryonic stem cells." <em>PNAS</em> 111(4):1361-6.</li>
+            </ul>
+
+            <p><strong>Reviews on Computational Thinking:</strong></p>
+            <ul>
+                <li>Alon U. (2007) "Network motifs: theory and experimental approaches." <em>Nat Rev Genet</em> 8:450–461.</li>
+                <li>Barabási AL, Oltvai ZN. (2004) "Network biology: understanding the cell's functional organization." <em>Nat Rev Genet</em> 5:101–113.</li>
+            </ul>
+        </div>
+
+        <footer class="site-footer">
+            © 2025 Ipek Selcen
+        </footer>
+    </div>
+
+    <!-- Syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</body>
+</html>
