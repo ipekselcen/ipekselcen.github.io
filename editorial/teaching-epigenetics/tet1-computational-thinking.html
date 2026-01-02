@@ -52,19 +52,21 @@
 
     <!-- Main Content -->
     <div class="container">
-        <a href="/editorial/index.html" style="color: #14b8a6; font-size: 0.9rem; display: inline-block; margin-bottom: 2rem; text-decoration: none;">
+        <a href="/editorial/index.html" class="post-back-link">
             ← Back to Science Communication
         </a>
 
-        <span style="background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%); color: white; padding: 0.5rem 1.25rem; border-radius: 50px; font-size: 0.875rem; font-weight: 600; display: inline-block; margin-bottom: 1.5rem;">
-            Systems Biology
-        </span>
+        <div class="post-badge-container">
+            <span class="post-badge systems-biology">
+                Systems Biology
+            </span>
+        </div>
 
-        <h1 style="font-size: 2.5rem; font-weight: 700; line-height: 1.2; margin-bottom: 1rem; color: #1e293b;">
+        <h1 class="post-title-main">
             Beyond the Textbook: How TET1 Discovery Reveals Computational Thinking in Biology
         </h1>
         
-        <p style="color: #64748b; font-size: 0.95rem; margin-bottom: 2rem; border-bottom: 1px solid #e2e8f0; padding-bottom: 2rem;">
+        <p class="post-date-info">
             Posted January 2, 2026
         </p>
 
@@ -116,10 +118,10 @@
             <h2>Part 2: The Plot Twist - TET1 Reveals a State Space</h2>
             
             <p>
-                In 2009, Anjana Rao's lab (Tahiliani et al., Science)<sup><a href="#ref1" style="color: #14b8a6; text-decoration: none;">1</a></sup> discovered TET1 doesn't remove methylation directly. Instead:
+                In 2009, Anjana Rao's lab (Tahiliani et al., Science)<sup><a href="#ref1">1</a></sup> discovered TET1 doesn't remove methylation directly. Instead:
             </p>
 
-            <div style="background: #1e293b; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0; font-family: monospace; color: #e2e8f0;">
+            <div class="code-display">
                 5mC --TET1--> 5hmC --TET1--> 5fC --TET1--> 5caC --TDG/BER--> C
             </div>
 
@@ -259,7 +261,7 @@ class DNAMethylation_New:
 # If k2 is rate-limiting → 5hmC should be abundant</code></pre>
 
             <p>
-                <strong>What the data showed:</strong> Koh et al. (2011)<sup><a href="#ref3" style="color: #14b8a6; text-decoration: none;">3</a></sup> found that in embryonic stem cells (ESCs), 5hmC is <strong>abundant</strong> - sometimes comprising 1% of all cytosines.
+                <strong>What the data showed:</strong> Koh et al. (2011)<sup><a href="#ref3">3</a></sup> found that in embryonic stem cells (ESCs), 5hmC is <strong>abundant</strong> - sometimes comprising 1% of all cytosines.
             </p>
 
             <p>
@@ -329,7 +331,7 @@ for gene in genes:
     print(f"{gene} can still be activated by: {alternative_activators}")</code></pre>
 
             <p><strong>Output:</strong></p>
-            <pre style="background: #1e293b; padding: 1rem; border-radius: 8px; color: #e2e8f0; font-family: monospace;">Gene_A can still be activated by: ['TET2', 'TET3']
+            <pre class="code-display">Gene_A can still be activated by: ['TET2', 'TET3']
 Gene_B can still be activated by: ['TET2', 'TET3']
 Gene_C can still be activated by: ['TET2', 'TET3']</pre>
 
@@ -338,7 +340,7 @@ Gene_C can still be activated by: ['TET2', 'TET3']</pre>
             </p>
 
             <p>
-                <strong>Experimental validation:</strong> Dawlaty et al. (2011)<sup><a href="#ref4" style="color: #14b8a6; text-decoration: none;">4</a></sup> showed that TET1 knockout mice are viable and fertile, with only subtle defects. TET2 and TET3 expression increases to compensate.
+                <strong>Experimental validation:</strong> Dawlaty et al. (2011)<sup><a href="#ref4">4</a></sup> showed that TET1 knockout mice are viable and fertile, with only subtle defects. TET2 and TET3 expression increases to compensate.
             </p>
 
             <p>
@@ -410,7 +412,7 @@ library(GenomicRanges)
 
             <h3>What This Reveals</h3>
 
-            <p>Published TET1 multi-omics studies (Wu et al., 2011<sup><a href="#ref5" style="color: #14b8a6; text-decoration: none;">5</a></sup>; Huang et al., 2014<sup><a href="#ref6" style="color: #14b8a6; text-decoration: none;">6</a></sup>) showed:</p>
+            <p>Published TET1 multi-omics studies (Wu et al., 2011<sup><a href="#ref5">5</a></sup>; Huang et al., 2014<sup><a href="#ref6">6</a></sup>) showed:</p>
 
             <ol>
                 <li><strong>5hmC enrichment at enhancers and gene bodies</strong> correlates with <strong>active transcription</strong></li>
@@ -474,7 +476,7 @@ library(GenomicRanges)
 
             <div class="callout callout-note">
                 <strong>□ 1. What is the state space of my system?</strong>
-                <ul style="margin-top: 0.5rem;">
+                <ul>
                     <li>Not just "methylated vs unmethylated"</li>
                     <li>What are ALL the possible states?</li>
                     <li>What information do these states encode?</li>
@@ -483,7 +485,7 @@ library(GenomicRanges)
 
             <div class="callout callout-note">
                 <strong>□ 2. What are the transition rules?</strong>
-                <ul style="margin-top: 0.5rem;">
+                <ul>
                     <li>What enzymes/processes move between states?</li>
                     <li>What are the rates? (fast/slow)</li>
                     <li>Are transitions reversible?</li>
@@ -492,7 +494,7 @@ library(GenomicRanges)
 
             <div class="callout callout-note">
                 <strong>□ 3. What is the network topology?</strong>
-                <ul style="margin-top: 0.5rem;">
+                <ul>
                     <li>Who regulates whom?</li>
                     <li>Are there feedback loops?</li>
                     <li>Where is redundancy?</li>
@@ -501,7 +503,7 @@ library(GenomicRanges)
 
             <div class="callout callout-note">
                 <strong>□ 4. What are the constraints?</strong>
-                <ul style="margin-top: 0.5rem;">
+                <ul>
                     <li>Thermodynamic (energetics)</li>
                     <li>Topological (chromatin structure)</li>
                     <li>Temporal (developmental time)</li>
@@ -511,7 +513,7 @@ library(GenomicRanges)
 
             <div class="callout callout-note">
                 <strong>□ 5. What does this topology predict about perturbations?</strong>
-                <ul style="margin-top: 0.5rem;">
+                <ul>
                     <li>Single gene knockout = ?</li>
                     <li>Drug treatment = ?</li>
                     <li>Stress response = ?</li>
@@ -520,7 +522,7 @@ library(GenomicRanges)
 
             <div class="callout callout-note">
                 <strong>□ 6. How do I integrate multiple measurements?</strong>
-                <ul style="margin-top: 0.5rem;">
+                <ul>
                     <li>Are they measuring the same thing at different scales?</li>
                     <li>Are they inputs and outputs of the same process?</li>
                     <li>What's the causal structure?</li>
@@ -529,7 +531,7 @@ library(GenomicRanges)
 
             <div class="callout callout-note">
                 <strong>□ 7. What would surprise me?</strong>
-                <ul style="margin-top: 0.5rem;">
+                <ul>
                     <li>If X happened, what would that tell me about my model?</li>
                     <li>What result would force me to rethink my assumptions?</li>
                 </ul>
@@ -539,32 +541,32 @@ library(GenomicRanges)
 
             <p>Let's say you're studying a TET enzyme (maybe TET2...) in your favorite cell type.</p>
 
-            <div style="background: #fef2f2; border-left: 4px solid #ef4444; padding: 1rem; margin: 1rem 0;">
-                <strong style="color: #991b1b;">❌ Bad computational thinking:</strong>
-                <p style="color: #991b1b; margin-top: 0.5rem;">
+            <div class="example-bad">
+                <strong>❌ Bad computational thinking:</strong>
+                <p>
                     "I'll knock out TET2, do RNA-seq, and see what genes change. Then I'll make a GO term enrichment plot and call it a day."
                 </p>
             </div>
 
-            <div style="background: #f0fdf4; border-left: 4px solid #22c55e; padding: 1rem; margin: 1rem 0;">
-                <strong style="color: #166534;">✓ Good computational thinking:</strong>
-                <p style="color: #166534; margin-top: 0.5rem;">
+            <div class="example-good">
+                <strong>✓ Good computational thinking:</strong>
+                <p>
                     "TET2 operates in a network with TET1/3, DNMTs, and chromatin remodelers. Before I even do the experiment, let me predict:
                 </p>
-                <ol style="color: #166534; margin-top: 0.5rem;">
+                <ol>
                     <li><strong>State space:</strong> What regulatory states exist in my cell type?</li>
                     <li><strong>Network:</strong> Can TET1/3 compensate for TET2 loss?</li>
                     <li><strong>Constraints:</strong> Is TET2 the rate-limiting enzyme, or is something downstream (TDG, BER)?</li>
                     <li><strong>Time scale:</strong> How long until compensation mechanisms kick in?</li>
                 </ol>
-                <p style="color: #166534; margin-top: 0.5rem;">
+                <p>
                     Based on these predictions, I should:<br>
                     • Measure TET1/3 expression after TET2 KO (test compensation)<br>
                     • Time-course RNA-seq (capture dynamics, not just endpoint)<br>
                     • Multi-omics (5hmC, chromatin, expression) to see information flow<br>
                     • Model the gene regulatory network before and after perturbation
                 </p>
-                <p style="color: #166534; margin-top: 0.5rem;">
+                <p>
                     This way, I'm not just generating data. I'm testing a computational hypothesis about how the system works."
                 </p>
             </div>
@@ -617,25 +619,25 @@ library(GenomicRanges)
             <h2>References</h2>
             
             <p><strong>TET Enzyme Discovery:</strong></p>
-            <ol style="line-height: 1.8;">
+            <ol>
                 <li id="ref1">Tahiliani M, et al. (2009) "Conversion of 5-methylcytosine to 5-hydroxymethylcytosine in mammalian DNA by MLL partner TET1." <em>Science</em> 324(5929):930-5.</li>
                 <li id="ref2">Kriaucionis S, Heintz N. (2009) "The nuclear DNA base 5-hydroxymethylcytosine is present in Purkinje neurons and the brain." <em>Science</em> 324(5929):929-30.</li>
             </ol>
 
             <p><strong>TET1 Function and Compensation:</strong></p>
-            <ol start="3" style="line-height: 1.8;">
+            <ol start="3" >
                 <li id="ref3">Koh KP, et al. (2011) "Tet1 and Tet2 regulate 5-hydroxymethylcytosine production and cell lineage specification in mouse embryonic stem cells." <em>Cell Stem Cell</em> 8(2):200-13.</li>
                 <li id="ref4">Dawlaty MM, et al. (2011) "Tet1 is dispensable for maintaining pluripotency and its loss is compatible with embryonic and postnatal development." <em>Cell Stem Cell</em> 9(2):166-75.</li>
             </ol>
 
             <p><strong>Multi-Omics Integration:</strong></p>
-            <ol start="5" style="line-height: 1.8;">
+            <ol start="5" >
                 <li id="ref5">Wu H, et al. (2011) "Genome-wide analysis of 5-hydroxymethylcytosine distribution reveals its dual function in transcriptional regulation in mouse embryonic stem cells." <em>Genes Dev</em> 25(7):679-84.</li>
                 <li id="ref6">Huang Y, et al. (2014) "Distinct roles of the methylcytosine oxidases Tet1 and Tet2 in mouse embryonic stem cells." <em>PNAS</em> 111(4):1361-6.</li>
             </ol>
 
             <p><strong>Reviews on Computational Thinking:</strong></p>
-            <ol start="7" style="line-height: 1.8;">
+            <ol start="7" >
                 <li id="ref7">Alon U. (2007) "Network motifs: theory and experimental approaches." <em>Nat Rev Genet</em> 8:450–461.</li>
                 <li id="ref8">Barabási AL, Oltvai ZN. (2004) "Network biology: understanding the cell's functional organization." <em>Nat Rev Genet</em> 5:101–113.</li>
             </ol>
