@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chromatin Accessibility Explained | Ipek Selcen</title>
+    <title>Chromatin Accessibility as an Energy Landscape | Ipek Selcen</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/components.css">
     <link rel="stylesheet" href="/css/pages.css">
+    <!-- Syntax highlighting for code blocks -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -25,216 +27,501 @@
 
     <!-- Main Content -->
     <div class="container">
-        <a href="../index.html" style="color: #14b8a6; font-size: 0.9rem; display: inline-block; margin-bottom: 2rem; text-decoration: none;">
+        <a href="/editorial/index.html" class="post-back-link">
             ← Back to Science Communication
         </a>
 
-        <article class="post-header">
-            <div class="post-meta">
-                <span class="post-tag">Teaching Epigenetics</span>
-            </div>
-            <h1 class="post-title">Chromatin Accessibility: Why Some DNA is Open for Business</h1>
-        </article>
+        <div class="post-badge-container">
+            <span class="post-badge systems-biology">
+                Systems Biology
+            </span>
+        </div>
+
+        <h1 class="post-title-main">
+            Chromatin Accessibility as an Energy Landscape: Why Your ATAC-seq Peaks Aren't What You Think
+        </h1>
+        
+        <p class="post-date-info">
+            Posted January 2, 2026
+        </p>
 
         <div class="post-content">
-            <h2>Introduction</h2>
-            <p>
-                Your genome contains about 3 billion base pairs of DNA, all packed into a nucleus that is only about 5 micrometers across. If you stretched out all the DNA from one cell, it would be roughly 2 meters long. How does the cell pack all this DNA and still allow access to the genes that need to be read?
+            <p class="lead">
+                Most biologists think of chromatin accessibility as "open" or "closed" - like a light switch. But think about it computationally: chromatin accessibility is more like a **probability** - sometimes the DNA is exposed, sometimes it's wrapped up, and what you measure is the average over millions of cells and moments in time.
             </p>
 
             <p>
-                The answer is chromatin, the combination of DNA and proteins that makes up our chromosomes. But not all chromatin is packaged the same way. Some regions are tightly packed and inaccessible, while others are loosely organized and accessible. This accessibility determines which parts of the genome can be read by the cell's machinery. Understanding chromatin accessibility is fundamental to understanding how genes are regulated.
+                This shift - from binary thinking to **probabilistic thinking** - changes how you interpret ATAC-seq data and predict what happens when you perturb the system.
             </p>
 
-            <h2>Open vs. Closed Chromatin</h2>
             <p>
-                DNA wraps around histone proteins to form nucleosomes which is the basic units of chromatin. Each nucleosome consists of ~147 base pairs of DNA wound 1.65 times around a histone octamer containing two copies each of H2A, H2B, H3, and H4 (Luger et al., 1997). These core histones are small, highly conserved proteins (11-15 kDa each) that are among the most abundant proteins in eukaryotic cells.
+                Let me show you why this matters for your research.
+            </p>
+
+            <h2>Part 1: The Problem - 2 Meters of DNA in a 5 Micron Nucleus</h2>
+            
+            <p>
+                Here's the computational problem: You have ~2 meters of DNA that needs to fit into a nucleus that's 5 micrometers across. That's a <strong>packing ratio of 400,000:1</strong>.
             </p>
 
             <div class="callout callout-note">
-                <strong>Note</strong>
+                <strong>The Packaging Challenge</strong>
                 <p>
-                    The 147 bp of DNA wrapped around histones is remarkably consistent across all eukaryotes. This means techniques and insights from yeast or fly studies often translate directly to human cells!
+                    To put this in perspective: If your DNA were the width of a piece of string (2mm), you'd need to pack 4 kilometers of it into a space the size of a basketball.
+                </p>
+                <p>
+                    And you need to do this while still allowing specific segments to be accessible on demand. This is a <strong>computational optimization problem</strong>.
                 </p>
             </div>
 
             <p>
-                The DNA between nucleosomes, called <em>linker DNA</em>, varies in length from ~20-80 bp depending on the organism and genomic location. Histone H1 often binds to this linker DNA and helps compact nucleosomes into higher-order structures. When nucleosomes pack together tightly, they form closed chromatin (heterochromatin), which is generally transcriptionally inactive. When nucleosomes are spaced out or depleted, the DNA exists in open chromatin (euchromatin), which allows transcription factors and other regulatory proteins to bind.
+                The textbook tells you: "DNA wraps around histones to form nucleosomes." 
             </p>
 
             <p>
-                This is not just a binary on/off state. Chromatin exists along a spectrum from completely inaccessible to highly accessible. Different genomic regions have different levels of accessibility depending on:
-            </p>
-            <ul>
-                <li>How many nucleosomes are present (nucleosome occupancy)</li>
-                <li>How tightly nucleosomes are packed (spacing of 20 bp vs. 80 bp linkers)</li>
-                <li>Which histone modifications are present (acetylation, methylation, phosphorylation)</li>
-                <li>Whether the DNA is methylated (5-methylcytosine at CpG dinucleotides)</li>
-                <li>Which chromatin remodeling enzymes are active</li>
-                <li>The concentration and binding affinity of transcription factors competing for DNA access</li>
-            </ul>
-
-            <p>
-                Functionally, we measure accessibility by how easily enzymes like DNase I or Tn5 transposase can access the DNA. Highly accessible regions such as active promoters and enhancers show 10-100 fold more enzyme cutting than bulk chromatin, while inaccessible regions such as centromeres show very little digestion even with high enzyme concentrations.
+                But the computational question is: <strong>Why does DNA wrap around histones at all?</strong>
             </p>
 
-            <h2>What Makes Chromatin Accessible?</h2>
-            
-            <h3>Nucleosome Positioning and Depletion</h3>
+            <h3>The Physics of DNA-Histone Binding</h3>
+
             <p>
-                The position of nucleosomes along DNA is not random. At active genes, the region immediately upstream of the transcription start site (TSS) often has few or no nucleosomes. This nucleosome-depleted region (NDR) is typically 100-200 bp long and allows transcription factors to bind DNA directly. This NDR is flanked by well-positioned nucleosomes: the -1 nucleosome sits just upstream of the NDR, and the +1 nucleosome sits immediately downstream of the TSS.
+                DNA is negatively charged (from the phosphate backbone). Histones are positively charged (lots of lysine and arginine). They stick together via electrostatic attraction - like opposite magnets.<sup><a href="#ref1">1</a></sup>
             </p>
 
             <p>
-                Flanking this open region are well-positioned nucleosomes with characteristic spacing of about 165-185 bp (nucleosome + linker). This regular spacing pattern becomes less precise further into the gene body (Schones et al., 2008). The positioning of nucleosomes is controlled by a combination of DNA sequence preferences, transcription factor binding, and chromatin remodelers.
+                Here's the key: <strong>DNA-histone binding is strong, but not permanent.</strong><sup><a href="#ref2">2</a></sup>
+            </p>
+
+            <p>
+                Think of it like Velcro - strong enough to stay attached most of the time, but not so strong that you can't pull it apart when needed. This is exactly what the cell wants: stable packaging that can still be opened when genes need to be accessed.
             </p>
 
             <div class="callout callout-tip">
-                <strong>Tip</strong>
+                <strong>Computational Insight</strong>
                 <p>
-                    When analyzing ATAC-seq data, strong peaks at gene promoters usually indicate these nucleosome-depleted regions. We'll cover how to identify and interpret these peaks computationally in the next post!
+                    The cell faces a trade-off: 
+                </p>
+                <ul>
+                    <li>**Too tight** binding → DNA is well-packaged but can't be accessed (bad)</li>
+                    <li>**Too loose** binding → DNA is accessible but takes up too much space (also bad)</li>
+                </ul>
+                <p>
+                    Evolution optimized for the middle ground - strong enough for compaction, weak enough for dynamic access.
                 </p>
             </div>
 
+            <h2>Part 2: Thinking in Probabilities, Not Absolutes</h2>
+
             <p>
-                Segal et al. (2006) showed that DNA sequence itself influences where nucleosomes form. Certain sequences (particularly stretches of repeated A and T bases) disfavor nucleosome binding, while others with periodic patterns of AT/GC dinucleotides stabilize nucleosomes. However, in living cells, these sequence preferences are often overridden by active processes involving ATP-dependent chromatin remodelers.
+                Traditional thinking: "This promoter is open, that enhancer is closed."
             </p>
 
-            <h3>Chromatin Remodeling Complexes</h3>
             <p>
-                Cells use ATP-powered molecular machines called chromatin remodelers to move, eject, or restructure nucleosomes. These multi-subunit complexes consume ATP (typically 1 ATP per base pair translocated) to disrupt histone-DNA contacts and reposition nucleosomes. There are four main families, classified by their catalytic ATPase subunit:
+                Computational thinking: <strong>Every genomic position has a probability of being accessible at any given moment.</strong>
+            </p>
+
+            <h3>Why Probability Matters</h3>
+
+            <p>
+                Imagine you're looking at a promoter under a microscope (if you could). At any single moment, you might see:
             </p>
 
             <ul>
-                <li><strong>SWI/SNF complexes</strong> can slide nucleosomes along DNA or completely eject them. These complexes are typically 1-2 MDa in size and contain 10-15 subunits. The catalytic subunit (BRG1/SMARCA4 or BRM/SMARCA2) has both DNA translocation and histone chaperone activities, allowing these complexes to create NDRs at enhancers and promoters.</li>
-                <li><strong>ISWI complexes</strong> typically slide nucleosomes to evenly space them, rather than ejecting them. They bind to both the nucleosome and linker DNA, using the length of linker DNA as a "ruler" to determine proper spacing. ISWI complexes are important for maintaining chromatin organization and generating the regular nucleosome arrays seen in gene bodies.</li>
-                <li><strong>CHD complexes</strong> can both remodel nucleosomes and recognize specific histone modifications through their <em>chromodomains</em>. CHD1 recognizes H3K4me3 (a mark of active promoters), while CHD4 (part of the NuRD complex) is associated with gene repression.</li>
-                <li><strong>INO80 complexes</strong> specialize in nucleosome sliding and histone variant exchange. They can replace canonical H2A with the variant H2A.Z, which creates more unstable nucleosomes that are easier to displace.</li>
-            </ul>
-
-            <div class="callout callout-important">
-                <strong>Important</strong>
-                <p>
-                    Different remodeler families have opposite effects on chromatin. SWI/SNF complexes typically open chromatin, while some CHD complexes (like CHD4/NuRD) help close it. Understanding which remodelers are active in your cell type is crucial for interpreting accessibility changes.
-                </p>
-            </div>
-
-            <h3>Histone Modifications</h3>
-            <p>
-                Chemical modifications on histone proteins affect how tightly DNA wraps around nucleosomes and which proteins can bind chromatin. Acetylation of lysine residues (particularly H3K27ac, H3K9ac, and H4K16ac) neutralizes the positive charge on histones, weakening the electrostatic interaction between histones and the negatively charged DNA backbone. This makes chromatin more accessible.
-            </p>
-
-            <p>
-                Histone acetyltransferases (HATs) such as p300/CBP and GCN5 add acetyl groups, while histone deacetylases (HDACs) remove them. The balance between HAT and HDAC activity determines the acetylation state of chromatin. For example, p300 acetylates H3K27 at active enhancers, creating the H3K27ac mark that distinguishes active from poised regulatory elements.
-            </p>
-
-            <p>Methylation has more complex effects depending on which residue is modified:</p>
-            <ul>
-                <li><strong>H3K4me1</strong> marks enhancers (both active and poised)</li>
-                <li><strong>H3K4me3</strong> marks active promoters and the +1 nucleosome</li>
-                <li><strong>H3K27me3</strong> (deposited by Polycomb complexes) marks repressed chromatin</li>
-                <li><strong>H3K9me3</strong> and <strong>H3K27me3</strong> mark constitutive heterochromatin</li>
+                <li>DNA completely free of nucleosomes (accessible)</li>
+                <li>A nucleosome partially unwrapped</li>
+                <li>A fully wrapped nucleosome (inaccessible)</li>
+                <li>DNA with a transcription factor bound (also accessible)</li>
             </ul>
 
             <p>
-                These modifications do not just change DNA-histone affinity. They also create binding sites for "reader" proteins. For example, the <em>bromodomains</em> in SWI/SNF complexes recognize acetylated lysines, while chromodomains in CHD proteins recognize methylated lysines. This allows cells to couple histone modifications with chromatin remodeling.
-            </p>
-
-            <h2>Why Does Accessibility Matter?</h2>
-            <p>
-                Chromatin accessibility is the first checkpoint for gene regulation. Before a gene can be transcribed, its regulatory elements (promoters and enhancers) need to be accessible to transcription factors. Inaccessible DNA simply cannot be bound by regulatory proteins, no matter how many transcription factors are present in the cell.
-            </p>
-
-            <p>This means accessibility helps determine:</p>
-            <ul>
-                <li><strong>Cell identity:</strong> Different cell types keep different genes accessible</li>
-                <li><strong>Development:</strong> Changes in accessibility drive differentiation</li>
-                <li><strong>Disease:</strong> Mutations that alter chromatin accessibility can cause disease</li>
-                <li><strong>Response to signals:</strong> Cells can change accessibility to respond to environmental cues</li>
-            </ul>
-
-            <h2>Measuring Chromatin Accessibility</h2>
-            
-            <div class="callout callout-tip">
-                <strong>Connecting Biology to Analysis</strong>
-                <p>
-                    Understanding these biological principles will help you interpret your ATAC-seq results. A strong ATAC-seq peak means high accessibility, which typically indicates an active regulatory region like an enhancer or promoter!
-                </p>
-            </div>
-
-            <p>Scientists have developed several methods to map chromatin accessibility across the genome:</p>
-
-            <p>
-                <strong>DNase-seq</strong> uses the enzyme DNase I (deoxyribonuclease I), which preferentially cuts DNA in accessible regions at a rate ~100-fold higher than in nucleosomal DNA. DNase I is a ~30 kDa endonuclease that requires Ca²⁺ and Mg²⁺ and cuts the DNA backbone non-specifically. By titrating DNase I concentration carefully, researchers can preferentially digest accessible DNA, then sequence the resulting fragments to map open chromatin genome-wide. DNase-seq typically requires 1-10 million cells and involves multiple optimization steps to get the right digestion conditions.
+                These states are constantly flickering - nucleosomes wrap and unwrap, proteins bind and unbind. Over time, any position spends a certain **percentage** of time in each state.
             </p>
 
             <p>
-                <strong>FAIRE-seq</strong> (Formaldehyde-Assisted Isolation of Regulatory Elements) exploits the fact that formaldehyde crosslinks proteins to DNA. After crosslinking and sonication, nucleosome-bound DNA remains in the crosslinked protein-DNA complexes and can be removed by phenol-chloroform extraction, while nucleosome-free DNA stays in the aqueous phase and can be sequenced. FAIRE-seq requires ~10 million cells.
+                Here's the key insight: <strong>ATAC-seq doesn't measure a binary "open/closed" state. It measures the time-averaged probability that a region is accessible.</strong>
             </p>
 
+            <h3>What Your ATAC-seq Peak Really Means</h3>
+
             <p>
-                <strong>ATAC-seq</strong> (Assay for Transposase-Accessible Chromatin), developed by Buenrostro et al. (2013), uses a hyperactive Tn5 transposase enzyme that simultaneously cuts DNA and inserts sequencing adapters (a process called "tagmentation"). The Tn5 transposase is a 50 kDa protein that, when loaded with adapter sequences, preferentially inserts into accessible chromatin.
+                When you see a strong ATAC-seq peak, you're seeing a region that spends **more time accessible** than occluded. This could happen because:
             </p>
 
-            <p>ATAC-seq has become the most popular method because it (Buenrostro et al., 2013, 2015):</p>
-            <ul>
-                <li>Requires very few cells (500-50,000, with recent protocols working from ~100 cells)</li>
-                <li>Is fast (the wet lab protocol takes ~3 hours)</li>
-                <li>Provides multiple types of information simultaneously: bulk accessibility, nucleosome positions (from fragment size distribution), and transcription factor footprints (from the pattern of Tn5 insertion sites)</li>
-                <li>Can be adapted to single-cell analysis (scATAC-seq), allowing measurement of cell-to-cell variation in chromatin states</li>
-                <li>Has high signal-to-noise ratio because the transposase only cuts accessible DNA</li>
-            </ul>
+            <ol>
+                <li>Nucleosomes are rarely present (low occupancy)</li>
+                <li>Nucleosomes are present but unstable (frequently unwrapping)</li>
+                <li>Active remodeling is constantly displacing nucleosomes</li>
+                <li>The DNA sequence naturally disfavors nucleosome formation</li>
+            </ol>
 
             <p>
-                The fragment size distribution from ATAC-seq is particularly informative (Buenrostro et al., 2013): fragments &lt;100 bp come from nucleosome-free regions, fragments of ~200 bp represent DNA from a single nucleosome (mono-nucleosomal), and larger fragments (400 bp, 600 bp) represent di-nucleosomes and tri-nucleosomes. This periodicity reveals nucleosome positioning genome-wide.
+                A strong ATAC-seq peak = high probability of accessibility.
             </p>
 
             <div class="callout callout-note">
-                <strong>Remember This</strong>
+                <strong>Computational Prediction</strong>
                 <p>
-                    Fragment size distribution is built into ATAC-seq quality control! When you check your data quality, you will look for this characteristic pattern: a peak at &lt;100 bp (nucleosome-free), another at ~200 bp (mono-nucleosomes), and decreasing peaks at 400 bp and 600 bp.
+                    If accessibility is probabilistic, then you should be able to predict ATAC-seq peaks from factors that affect the probability:
+                </p>
+                <ul>
+                    <li>DNA sequence (some sequences favor nucleosomes, others don't)</li>
+                    <li>Histone modifications (affect nucleosome stability)</li>
+                    <li>Transcription factor binding sites (compete for DNA)</li>
+                    <li>ATP-dependent remodeler activity (actively change accessibility)</li>
+                </ul>
+                <p>
+                    And indeed, machine learning models can predict accessibility from these features with ~80% accuracy.<sup><a href="#ref4">4</a></sup>
                 </p>
             </div>
 
-            <h2>Summary</h2>
+            <h2>Part 3: Chromatin Remodelers as Molecular Motors</h2>
+
             <p>
-                Chromatin accessibility is a fundamental property that determines which parts of the genome are available for transcription factors to bind and genes to be expressed. It is controlled by multiple mechanisms including nucleosome positioning, chromatin remodeling, and histone modifications. Modern techniques such as ATAC-seq allow us to map accessibility genome-wide with very few cells, opening up new ways to study gene regulation in development and disease.
+                Textbooks tell you: "SWI/SNF remodelers open chromatin."
             </p>
+
+            <p>
+                But computationally: <strong>Chromatin remodelers are molecular machines that use ATP energy to do mechanical work</strong> - literally pushing and pulling on nucleosomes to move them around.
+            </p>
+
+            <h3>The Cost of Remodeling</h3>
+
+            <p>
+                Moving a nucleosome isn't free. The DNA is wrapped 1.65 times around the histone octamer with ~14 contact points. Breaking these contacts requires energy.
+            </p>
+
+            <p>
+                Remodelers hydrolyze ATP (the cell's energy currency) to provide this energy. The rate? About <strong>1 ATP molecule per base pair of DNA moved</strong>.<sup><a href="#ref6">6</a></sup>
+            </p>
+
+            <p>
+                To create a 150 base pair nucleosome-free region at a promoter? That's ~150 ATP molecules.
+            </p>
+
+            <div class="callout callout-tip">
+                <strong>Computational Implication</strong>
+                <p>
+                    Chromatin remodeling is <strong>energy-expensive</strong>. This explains several observations:
+                </p>
+                <ul>
+                    <li><strong>Specificity:</strong> Cells can't afford to remodel everywhere - remodelers are recruited only to specific sites via transcription factors</li>
+                    <li><strong>Metabolic coupling:</strong> When ATP is low (stress, aging), chromatin becomes less accessible</li>
+                    <li><strong>Cancer:</strong> SWI/SNF mutations (found in ~20% of cancers<sup><a href="#ref10">10</a></sup>) prevent cells from opening chromatin at differentiation genes</li>
+                </ul>
+            </div>
+
+            <h3>Think of It as a Budget</h3>
+
+            <p>
+                The cell has an "energy budget" for chromatin remodeling. It can't afford to keep all chromatin open all the time. So it:
+            </p>
+
+            <ol>
+                <li>Invests heavily in important regulatory regions (promoters, enhancers of active genes)</li>
+                <li>Lets sequence preferences dominate elsewhere (passive packaging)</li>
+                <li>Responds to signals by reallocating the budget (developmental transitions)</li>
+            </ol>
+
+            <p>
+                This is classic computational optimization under resource constraints.
+            </p>
+
+            <h2>Part 4: Nucleosome Positioning - Sequence vs. Regulation</h2>
+
+            <p>
+                You've probably heard: "Some DNA sequences favor nucleosomes, others don't."<sup><a href="#ref7">7</a></sup>
+            </p>
+
+            <p>
+                But here's the computational insight: <strong>Nucleosome positioning is a competition between sequence preferences (passive) and active regulation (energy-driven)</strong>.
+            </p>
+
+            <h3>Why Sequence Matters</h3>
+
+            <p>
+                DNA isn't uniform. Some sequences are easy to bend, others are rigid:
+            </p>
+
+            <ul>
+                <li><strong>AT-rich sequences</strong> (lots of A and T) are rigid → don't like wrapping around histones → often found at promoters</li>
+                <li><strong>GC-rich sequences</strong> (lots of G and C) are flexible → wrap around histones easily → often found in gene bodies</li>
+            </ul>
+
+            <p>
+                If you just looked at sequence, you could predict where nucleosomes "want" to be.
+            </p>
+
+            <h3>But Cells Override Sequence</h3>
+
+            <p>
+                Here's the interesting part: In yeast, ~50% of nucleosome positioning matches sequence predictions. In mammals, only ~20-30%.<sup><a href="#ref8">8</a></sup>
+            </p>
+
+            <p>
+                Why? Because mammalian cells <strong>actively override</strong> sequence preferences using:
+            </p>
+
+            <ol>
+                <li><strong>Transcription factors</strong> that compete for DNA binding</li>
+                <li><strong>Chromatin remodelers</strong> that reposition nucleosomes using ATP</li>
+                <li><strong>Histone modifications</strong> that change how tightly DNA binds</li>
+                <li><strong>DNA methylation</strong> (5mC makes nucleosomes bind tighter)</li>
+            </ol>
+
+            <p>
+                Think of it this way: Sequence is the "default" setting, but cells have knobs and switches (remodelers, TFs, modifications) to override that default when needed.
+            </p>
+
+            <div class="callout callout-note">
+                <strong>Computational Thinking</strong>
+                <p>
+                    This is why the same DNA sequence can be:
+                </p>
+                <ul>
+                    <li>Accessible in one cell type (remodelers active, TFs bound)</li>
+                    <li>Inaccessible in another cell type (no remodelers, no TFs)</li>
+                </ul>
+                <p>
+                    Context determines accessibility, not just sequence.
+                </p>
+            </div>
+
+            <h2>Part 5: What ATAC-seq Actually Measures</h2>
+
+            <p>
+                Now that we understand accessibility is probabilistic, let's revisit what ATAC-seq actually tells you.
+            </p>
+
+            <h3>ATAC-seq Measures Time Averages</h3>
+
+            <p>
+                ATAC-seq uses Tn5 transposase, which cuts accessible DNA.<sup><a href="#ref9">9</a></sup> But here's the thing:
+            </p>
+
+            <ol>
+                <li>At any instant, each position is either accessible or covered by a nucleosome</li>
+                <li>These states are constantly flickering (wrapping/unwrapping)</li>
+                <li>Tn5 has minutes to insert during the experiment</li>
+                <li>More insertions occur where DNA spends more time accessible</li>
+            </ol>
+
+            <p>
+                <strong>So ATAC-seq signal = probability that a position is accessible, averaged over time and cells.</strong>
+            </p>
+
+            <h3>Fragment Size Tells You More Than You Think</h3>
+
+            <p>
+                ATAC-seq doesn't just tell you WHERE chromatin is accessible - it also tells you HOW it's accessible through fragment sizes:<sup><a href="#ref9">9</a></sup>
+            </p>
+
+            <ul>
+                <li><strong>&lt;100 bp fragments</strong> → from nucleosome-free regions (Tn5 cut twice in open DNA)</li>
+                <li><strong>~200 bp fragments</strong> → from single nucleosomes (Tn5 cut on both sides)</li>
+                <li><strong>~400 bp fragments</strong> → from di-nucleosomes (two nucleosomes close together)</li>
+            </ul>
+
+            <div class="callout callout-tip">
+                <strong>Practical Insight</strong>
+                <p>
+                    When you check ATAC-seq quality, you look for this pattern:
+                </p>
+                <ul>
+                    <li>Strong &lt;100 bp peak + weak 200 bp peak → **Active promoter/enhancer** (lots of time nucleosome-free)</li>
+                    <li>Regular 200 bp peaks → **Gene body** (well-organized nucleosome array)</li>
+                    <li>No clear peaks → **Heterochromatin** or bad data</li>
+                </ul>
+                <p>
+                    The fragment size distribution is like a fingerprint of the chromatin state.
+                </p>
+            </div>
+
+            <h2>Part 6: Why This Computational View Matters</h2>
+
+            <p>
+                So why think about chromatin as an energy landscape rather than just "open" or "closed"?
+            </p>
+
+            <h3>1. It Lets You Make Quantitative Predictions</h3>
+
+            <p>
+                Traditional: "This mutation might affect chromatin accessibility."
+            </p>
+
+            <p>
+                Computational: "This mutation removes 3 AT base pairs, reducing ΔG_bending by ~2 kBT, increasing nucleosome occupancy probability from 30% to 45%."
+            </p>
+
+            <h3>2. It Explains Why Accessibility is Context-Dependent</h3>
+
+            <p>
+                The same DNA sequence can be accessible in one cell type and inaccessible in another, because the energy landscape depends on:
+            </p>
+
+            <ul>
+                <li>TF expression (shifts equilibrium by competing for binding)</li>
+                <li>Remodeler activity (active input of energy)</li>
+                <li>Metabolic state (ATP availability)</li>
+                <li>Histone modifications (change ΔG)</li>
+            </ul>
+
+            <p>
+                Binary thinking can't explain this. Energy landscape thinking can.
+            </p>
+
+            <h3>3. It Connects to Disease</h3>
+
+            <p>
+                Many diseases involve chromatin accessibility changes:
+            </p>
+
+            <ul>
+                <li><strong>Cancer:</strong> SWI/SNF mutations are found in ~20% of cancers<sup><a href="#ref10">10</a></sup> → can't efficiently open chromatin → differentiation blocked</li>
+                <li><strong>Aging:</strong> Decreased NAD+ → reduced SIRT activity → hyperacetylation → inappropriate accessibility<sup><a href="#ref11">11</a></sup></li>
+                <li><strong>Metabolic disease:</strong> Mitochondrial dysfunction → low ATP → reduced remodeling → altered accessibility</li>
+            </ul>
+
+            <p>
+                Understanding the energetics helps you understand the mechanism.
+            </p>
+
+            <h2>Part 7: Practical Implications for Your ATAC-seq Analysis</h2>
+
+            <p>
+                Here's how thinking computationally changes how you analyze ATAC-seq data:
+            </p>
+
+            <h3>Don't Just Call "Peaks"</h3>
+
+            <p>
+                Traditional approach: Run MACS2, get peaks, do GO enrichment. Done.
+            </p>
+
+            <p>
+                Computational approach:
+            </p>
+
+            <ol>
+                <li><strong>Quantify accessibility</strong> - don't just binary call peaks, measure continuous accessibility scores</li>
+                <li><strong>Integrate fragment size</strong> - use nucleosome-free vs. mono-nucleosomal reads to infer mechanism</li>
+                <li><strong>Model the landscape</strong> - predict accessibility from sequence + TF motifs + histone marks</li>
+                <li><strong>Look for deviations</strong> - where does observed accessibility deviate from sequence prediction? → Active regulation</li>
+            </ol>
+
+            <h3>Think About Dynamics, Not Just Static States</h3>
+
+            <p>
+                ATAC-seq is a snapshot of a dynamic equilibrium. Consider:
+            </p>
+
+            <ul>
+                <li>Time-course experiments to measure accessibility changes</li>
+                <li>Perturbations (metabolic inhibitors, remodeler inhibitors) to probe energetics</li>
+                <li>Single-cell ATAC-seq to measure cell-to-cell variability in accessibility</li>
+            </ul>
+
+            <h3>Integrate with Other Data</h3>
+
+            <p>
+                Accessibility doesn't exist in isolation. Integrate with:
+            </p>
+
+            <ul>
+                <li><strong>RNA-seq:</strong> Does accessibility correlate with expression? (It should, but not perfectly)</li>
+                <li><strong>ChIP-seq:</strong> Which TFs are bound at accessible regions? (They're competing for DNA)</li>
+                <li><strong>Hi-C:</strong> Does 3D structure affect accessibility? (Loop extrusion brings enhancers to promoters)</li>
+            </ul>
+
+            <div class="example-good">
+                <strong>✓ Computational analysis workflow:</strong>
+                <p>
+                    "I observe increased ATAC-seq signal at enhancers in differentiated cells. Let me check:
+                </p>
+                <ol>
+                    <li>Is this from increased NFR (more sub-100bp fragments)?</li>
+                    <li>Which TFs are expressed that could compete for binding?</li>
+                    <li>Do these enhancers have H3K27ac (active mark)?</li>
+                    <li>Does accessibility correlate with nearby gene expression?</li>
+                    <li>Can I predict this from TF motifs + ATP levels + histone marks?</li>
+                </ol>
+                <p>
+                    This tells me <strong>mechanism</strong>, not just correlation."
+                </p>
+            </div>
+
+            <h2>What's Next</h2>
+
+            <p>
+                We've seen that chromatin accessibility isn't a binary state - it's a probability distribution over an energy landscape shaped by thermodynamics, active remodeling, and competitive binding.
+            </p>
+
+            <p>
+                This computational view explains:
+            </p>
+
+            <ul>
+                <li>Why accessibility is context-dependent</li>
+                <li>How remodelers work (molecular motors overcoming energy barriers)</li>
+                <li>What ATAC-seq really measures (time-averaged probability)</li>
+                <li>Why fragment size distributions matter (signatures of the landscape)</li>
+            </ul>
+
+            <p>
+                Next in this series: <strong>"Phase Separation and Chromatin Domains: Why Your ChIP-seq Signal Forms Droplets"</strong> - where we'll see that chromatin doesn't just have accessible and inaccessible regions, it phase separates into distinct liquid-like compartments with emergent properties.
+            </p>
+
+            <div class="callout callout-tip">
+                <strong>Coming Up in This Series</strong>
+                <p>
+                    <strong>Next:</strong> "Phase Separation as a Computational Mechanism: How Cells Use Physics to Solve Organizational Problems"
+                </p>
+                <p>
+                    <strong>Also:</strong> "Network Motifs in Gene Regulation: Why Feed-Forward Loops Are Everywhere"
+                </p>
+            </div>
+
         </div>
 
         <div class="references">
-            <h2>Key References</h2>
+            <h2>References</h2>
             
-            <p><strong>Foundational Work:</strong></p>
-            <ul>
-                <li>Kornberg, R. D. & Klug, A. The nucleosome. Sci. Am. 244, 52–64 (1981).</li>
-                <li>Luger, K. et al. Crystal structure of the nucleosome core particle at 2.8 Å resolution. Nature 389, 251–260 (1997).</li>
-            </ul>
+            <p><strong>Chromatin Structure and Energetics:</strong></p>
+            <ol>
+                <li id="ref1">Luger, K. et al. (1997) "Crystal structure of the nucleosome core particle at 2.8 Å resolution." <em>Nature</em> 389:251-260.</li>
+                <li id="ref2">Brower-Toland, B. D. et al. (2002) "Mechanical disruption of individual nucleosomes reveals a reversible multistage release of DNA." <em>PNAS</em> 99:1960-1965.</li>
+                <li id="ref3">Polach, K. J. & Widom, J. (1995) "Mechanism of protein access to specific DNA sequences in chromatin: a dynamic equilibrium model for gene regulation." <em>J Mol Biol</em> 254:130-149.</li>
+            </ol>
 
-            <p><strong>Chromatin Accessibility:</strong></p>
-            <ul>
-                <li>Buenrostro, J. D. et al. Transposition of native chromatin for fast and sensitive epigenomic profiling of open chromatin, DNA-binding proteins and nucleosome position. Nat. Methods 10, 1213–1218 (2013).</li>
-                <li>Buenrostro, J. D. et al. Single-cell chromatin accessibility reveals principles of regulatory variation. Nature 523, 486–490 (2015).</li>
-                <li>Klemm, S. L., Shipony, Z. & Greenleaf, W. J. Chromatin accessibility and the regulatory epigenome. Nat. Rev. Genet. 20, 207–220 (2019).</li>
-            </ul>
+            <p><strong>Nucleosome Positioning and Prediction:</strong></p>
+            <ol start="4">
+                <li id="ref4">Kelley, D. R. et al. (2018) "Sequential regulatory activity prediction across chromosomes with convolutional neural networks." <em>Genome Res</em> 28:739-750.</li>
+                <li id="ref5">Richmond, T. J. & Davey, C. A. (2003) "The structure of DNA in the nucleosome core." <em>Nature</em> 423:145-150.</li>
+                <li id="ref6">Clapier, C. R. & Cairns, B. R. (2009) "The biology of chromatin remodeling complexes." <em>Annu Rev Biochem</em> 78:273-304.</li>
+                <li id="ref7">Segal, E. et al. (2006) "A genomic code for nucleosome positioning." <em>Nature</em> 442:772-778.</li>
+                <li id="ref8">Schones, D. E. et al. (2008) "Dynamic regulation of nucleosome positioning in the human genome." <em>Cell</em> 132:887-898.</li>
+            </ol>
 
-            <p><strong>Nucleosome Positioning:</strong></p>
-            <ul>
-                <li>Segal, E. et al. A genomic code for nucleosome positioning. Nature 442, 772–778 (2006).</li>
-                <li>Schones, D. E. et al. Dynamic regulation of nucleosome positioning in the human genome. Cell 132, 887–898 (2008).</li>
-                <li>Struhl, K. & Segal, E. Determinants of nucleosome positioning. Nat. Struct. Mol. Biol. 20, 267–273 (2013).</li>
-            </ul>
+            <p><strong>ATAC-seq and Accessibility Profiling:</strong></p>
+            <ol start="9">
+                <li id="ref9">Buenrostro, J. D. et al. (2013) "Transposition of native chromatin for fast and sensitive epigenomic profiling of open chromatin, DNA-binding proteins and nucleosome position." <em>Nat Methods</em> 10:1213-1218.</li>
+                <li id="ref10">Kadoch, C. et al. (2013) "Proteomic and bioinformatic analysis of mammalian SWI/SNF complexes identifies extensive roles in human malignancy." <em>Nat Genet</em> 45:592-601.</li>
+                <li id="ref11">Benayoun, B. A. et al. (2015) "Remodeling of epigenome and transcriptome landscapes with aging in mice reveals widespread induction of inflammatory responses." <em>Genome Res</em> 25:697-709.</li>
+            </ol>
 
-            <p><strong>Reviews:</strong></p>
-            <ul>
-                <li>Buenrostro, J. D., Wu, B., Chang, H. Y. & Greenleaf, W. J. ATAC-seq: A method for assaying chromatin accessibility genome-wide. Curr. Protoc. Mol. Biol. 109, 21.29.1–21.29.9 (2015).</li>
-                <li>Henikoff, S. & Shilatifard, A. Histone modification: cause or cog? Trends Genet. 27, 389–396 (2011).</li>
-            </ul>
+            <p><strong>Reviews on Computational Approaches:</strong></p>
+            <ol start="12">
+                <li id="ref12">Klemm, S. L. et al. (2019) "Chromatin accessibility and the regulatory epigenome." <em>Nat Rev Genet</em> 20:207-220.</li>
+                <li id="ref13">Struhl, K. & Segal, E. (2013) "Determinants of nucleosome positioning." <em>Nat Struct Mol Biol</em> 20:267-273.</li>
+            </ol>
         </div>
 
         <footer class="site-footer">
             © 2025 Ipek Selcen
         </footer>
     </div>
+
+    <!-- Syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>
