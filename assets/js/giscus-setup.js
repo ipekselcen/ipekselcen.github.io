@@ -18,7 +18,7 @@ function determineGiscusTheme() {
 
   let giscusAttributes = {
     src: "https://giscus.app/client.js",
-    "data-repo": "ipekselcen/ipekselcen.github.io.1",
+    "data-repo": "ipekselcen/ipekselcen.github.io-1",
     "data-repo-id": "",
     "data-category": "Comments",
     "data-category-id": "",
