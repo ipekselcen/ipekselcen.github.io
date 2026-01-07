@@ -6,6 +6,8 @@ description: How single-cell epigenomics reveals that Alzheimer's is fundamental
 tags: epigenomics alzheimers single-cell chromatin research-summary
 categories: research-highlights
 related_posts: true
+toc:
+  side: left
 ---
 
 Most people think of Alzheimer's disease in terms of plaques and tangles; the protein clumps that show up in brain scans. But a massive new study published in *Cell* this September reveals that the real story might be about something more fundamental: brain cells losing their grip on gene regulation itself.
