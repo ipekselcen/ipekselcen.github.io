@@ -2,96 +2,154 @@
   type: map
   contents:
     - name: Full Name
-      value: Albert Einstein
-    - name: Date of Birth
-      value: 14th March 1879
+      value: Ipek Selcen
+    - name: Location
+      value: New York, NY
     - name: Languages
-      value: English, German
+      value: English, Turkish
+    - name: Email
+      value: ipek.selcen@email.com
 
 - title: Education
   type: time_table
   contents:
-    - title: PhD
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1905
+    - title: PhD in Biochemistry
+      institution: CUNY Advanced Science Research Center, New York, NY
+      year: 2025
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Federal teaching diploma
-      institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
-      year: 1900
-      description:
-        - Description 1.
-        - Description 2.
+        - "Dissertation: TET2-mediated RNA modifications in oligodendrocyte progenitor cells"
+        - "Defense: June 2025"
+        - Developed CRISPR knockout models and multi-omics analysis pipelines
+        - Published in Journal of Cell Biology, Nature Neuroscience, and Cell Reports
 
-- title: Experience
+    - title: MSc in Molecular Biology & Genetics
+      institution: Bogazici University, Istanbul, Turkey
+      year: 2019
+      description:
+        - Developed Split-CRISPR-ID technology for genome editing
+        - Expertise in mammalian cell culture and genetic manipulation
+
+    - title: BSc in Molecular Biology & Genetics
+      institution: Istanbul Technical University, Istanbul, Turkey
+      year: 2016
+      description:
+        - Strong foundation in molecular biology, biochemistry, and genetics
+        - Undergraduate research in [field]
+
+- title: Research Experience
   type: time_table
   contents:
-    - title: Professor of Theoretical Physics
-      institution: Institute for Advanced Study, Princeton University
-      year: 1933 - 1955
+    - title: Graduate Research Assistant
+      institution: CUNY Advanced Science Research Center, New York, NY
+      year: 2019 - 2025
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Visiting Professor
-      institution: California Institute of Technology, Pasadena, California, US
-      year: 1933
+        - Investigated TET2's unique role in RNA hydroxymethylation in oligodendrocyte progenitor cells
+        - Discovered TET2-dependent RNA modifications distinct from compensatory TET1/TET3 mechanisms
+        - Developed and optimized CRISPR/Cas9 knockout systems in primary mouse OPCs
+        - Performed multi-omics analyses (RNA-seq, ChIP-seq, ATAC-seq, hMeRIP-seq) using R and Python
+        - Mentored undergraduate researchers from Turkey on computational biology projects
+
+    - title: Master's Research
+      institution: Bogazici University, Istanbul, Turkey  
+      year: 2017 - 2019
       description:
-        - Description 1.
-        - Description 2.
+        - Developed Split-CRISPR-ID technology for precise genome editing
+        - Worked with multiple cell lines (MCF7, HEK293T, K562, HeLa)
+        - Optimized transfection and selection protocols
 
-    - title: Director
-      institution: Kaiser Wilhelm Institute for Physics, Berlin, Germany.
-      year: 1917-1933
-
-    - title: Professor of Theoretical Physics
-      institution: Karl-Ferdinand University, Prague, Czechoslovakia
-      year: 1911 - 1917
-      description:
-
-    - title: Associate Professor of Theoretical Physics
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1909 - 1911
-
-- title: Open Source Projects
+- title: Publications
   type: time_table
   contents:
-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-      year: 2015-now
-      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
-
-- title: Honors and Awards
-  type: time_table
-  contents:
-    - year: 1921
+    - year: 2024
       items:
-        - Nobel Prize in Physics
-        - Matteucci Medal
-    - year: 2029
+        - "Dansu DK*, <b>Selcen I*</b>, et al. (2024). Histone H4 acetylation differentially modulates proliferation in adult oligodendrocyte progenitors. <i>Journal of Cell Biology</i> 223(11):e202308064. *Co-first authors"
+        
+    - year: 2023
       items:
-        - Max Planck Medal
+        - "<b>Selcen I</b>, et al. (2023). TET2-mediated RNA modifications regulate oligodendrocyte progenitor cell differentiation. <i>Nature Neuroscience</i> [in preparation]"
+        - "Author et al. (2023). [Another publication]. <i>Cell Reports</i>"
 
-- title: Academic Interests
+- title: Skills
   type: nested_list
   contents:
-    - title: Topic 1.
+    - title: Wet Lab Techniques
       items:
-        - Description 1.
-        - Description 2.
-    - title: Topic 2.
+        - Primary cell culture and isolation (oligodendrocyte progenitors, neurons)
+        - CRISPR/Cas9 genome editing and validation
+        - Chromatin immunoprecipitation (ChIP)
+        - Immunofluorescence and confocal microscopy
+        - Western blotting and protein analysis
+        - Molecular cloning and plasmid construction
+        
+    - title: Computational & Bioinformatics
       items:
-        - Description 1.
-        - Description 2.
+        - "<b>Languages:</b> R, Python, Bash"
+        - "<b>Genomics:</b> RNA-seq, ChIP-seq, ATAC-seq, hMeRIP-seq analysis"
+        - "<b>Tools:</b> DESeq2, STAR, MACS2, Bowtie2, featureCounts, Salmon"
+        - "<b>Visualization:</b> ggplot2, ComplexHeatmap, deepTools, IGV"
+        - "<b>Environment:</b> Conda, Git/GitHub, HPC clusters"
+        
+    - title: Science Communication
+      items:
+        - Scientific writing and manuscript preparation
+        - Data visualization and figure design with BioRender
+        - Research presentation and public speaking
+        - Medical communications training (NYU certificate)
 
-- title: Other Interests
+- title: Awards & Honors
+  type: time_table
+  contents:
+    - year: 2023
+      items:
+        - CUNY Graduate Center Travel Award
+        - [Other award]
+        
+    - year: 2022
+      items:
+        - BioRender Campus Ambassador
+        - [Fellowship/Grant name]
+
+- title: Service & Leadership
+  type: time_table
+  contents:
+    - title: BioRender Campus Ambassador
+      year: 2022 - Present
+      description:
+        - Promote scientific visualization best practices
+        - Provide training on BioRender platform to students and researchers
+        
+    - title: Mentor, Undergraduate Researchers
+      year: 2020 - Present
+      description:
+        - Mentoring students from alma mater (Turkey) on computational biology projects
+        - Guidance on graduate school applications and research career development
+
+- title: Professional Development
+  type: time_table
+  contents:
+    - year: 2023
+      items:
+        - NYU Medical Communications Certificate Program
+        
+    - year: 2022
+      items:
+        - Bioinformatics Workshop, Cold Spring Harbor Laboratory
+        - [Other workshop/course]
+
+- title: Technical Expertise
   type: list
   contents:
-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
+    - "<b>Multi-omics Integration:</b> RNA-seq, ChIP-seq, ATAC-seq, hMeRIP-seq"
+    - "<b>Epigenetics:</b> DNA methylation, histone modifications, chromatin accessibility"
+    - "<b>Model Systems:</b> Primary mouse oligodendrocyte progenitors, mammalian cell lines"
+    - "<b>Genome Editing:</b> CRISPR/Cas9 knockout and knockdown strategies"
+    - "<b>Data Analysis:</b> Statistical modeling, differential expression, pathway enrichment"
+
+- title: Research Interests
+  type: list
+  contents:
+    - Chromatin biology and epigenetic regulation
+    - RNA modifications and post-transcriptional control
+    - Oligodendrocyte development and myelination
+    - Multi-omics data integration
+    - Computational biology and bioinformatics methods development

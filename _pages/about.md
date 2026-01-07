@@ -2,24 +2,22 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: PhD in Biochemistry | Bridging Wet Lab & Computational Biology
 
 profile:
   align: right
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+    <p>New York, NY</p>
 
-selected_papers: true # includes a list of papers marked as "selected={true}"
+selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 
 announcements:
-  enabled: true # includes a list of news items
-  scrollable: true # adds a vertical scroll bar if there are more than 3 news items
-  limit: 5 # leave blank to include all the news in the `_news` folder
+  enabled: # includes a list of news items
+  scrollable: # adds a vertical scroll bar if there are more than 3 news items
+  limit: 3 # leave blank to include all the news in the `_news` folder
 
 latest_posts:
   enabled: true
@@ -27,8 +25,14 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+Hi! I'm Ipek, a recent PhD graduate in Biochemistry from CUNY Advanced Science Research Center. I defended my dissertation in June 2025 on how TET2 regulates RNA modifications in brain cells—a project that taught me as much about perseverance as it did about molecular biology.
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+I love the challenge of bridging wet lab and computational work. My days in grad school went from pipetting at the bench to analyzing terabytes of sequencing data in R and Python.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+Outside the lab, I'm passionate about making computational concepts accessible to biologists. I'm building tutorials to help bridge that gap. I also love mentoring undergraduate students from my alma mater in Turkey, helping them navigate their own scientific journeys.
+
+When I'm not thinking about chromatin or writing code, you'll find me with my cats Bomi and Yulaf (yes, I'm one of *those* scientists). My husband Arda is a dermatology resident, so our dinner conversations are… eclectic.
+
+I'm currently seeking positions in computational biology, bioinformatics, scientific editing, or postdoctoral research where I can combine rigorous data analysis with clear science communication.
+
+**What I bring:** Chromatin biology expertise • Multi-omics integration • R & Python fluency • Science communication • A genuine excitement for making complex biology understandable
