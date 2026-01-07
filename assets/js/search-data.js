@@ -30,7 +30,29 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "books-the-godfather",
+        },{id: "post-tracking-glioblastoma-39-s-circular-dna-at-single-cell-resolution",
+        
+          title: "Tracking Glioblastoma&#39;s Circular DNA at Single-Cell Resolution",
+        
+        description: "How single-cell epigenomics reveals that Alzheimer&#39;s is fundamentally about regulatory collapse, not just protein aggregates",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/glioblastoma-ecdna/";
+          
+        },
+      },{id: "post-epigenomic-breakdown-in-alzheimer-39-s-when-brain-cells-lose-control",
+        
+          title: "Epigenomic Breakdown in Alzheimer&#39;s: When Brain Cells Lose Control",
+        
+        description: "How single-cell epigenomics reveals that Alzheimer&#39;s is fundamentally about regulatory collapse, not just protein aggregates",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2025/alzheimers-epigenomics/";
+          
+        },
+      },{id: "books-the-godfather",
           title: 'The Godfather',
           description: "",
           section: "Books",handler: () => {
