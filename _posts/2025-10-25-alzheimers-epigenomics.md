@@ -3,7 +3,7 @@ layout: post
 title: "Epigenomic Breakdown in Alzheimer's: When Brain Cells Lose Control"
 date: 2025-10-25
 description: How single-cell epigenomics reveals that Alzheimer's is fundamentally about regulatory collapse, not just protein aggregates
-tags: epigenomics alzheimers single-cell chromatin research-summary
+tags: epigenomics alzheimers single-cell chromatin
 categories: research-highlights
 related_posts: true
 ---
