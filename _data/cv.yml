@@ -8,7 +8,7 @@
     - name: Languages
       value: English, Turkish
     - name: Email
-      value: ipek.selcen@email.com
+      value: ipek.selcen@gmail.com
 
 - title: Education
   type: time_table
@@ -17,16 +17,16 @@
       institution: CUNY Advanced Science Research Center, New York, NY
       year: 2025
       description:
-        - "Dissertation: TET2-mediated RNA modifications in oligodendrocyte progenitor cells"
-        - "Defense: June 2025"
+        - Dissertation: " TET2-mediated RNA modifications in adult oligodendrocyte progenitor cells"
         - Developed CRISPR knockout models and multi-omics analysis pipelines
-        - Published in Journal of Cell Biology, Nature Neuroscience, and Cell Reports
+        - In vitro and in vivo studies on epigenetic regulation of OPC proliferation
 
     - title: MSc in Molecular Biology & Genetics
       institution: Bogazici University, Istanbul, Turkey
       year: 2019
       description:
-        - Developed Split-CRISPR-ID technology for genome editing
+        - Thesis: "Development of Split-CRISPR-ID Technology for Chromatin-associated Protein Discovery"        - Proficient in CRISPR/Cas9 genome editing in various mammalian cell lines
+        - Proficient in CRISPR/Cas9 genome editing in various cancer cell lines
         - Expertise in mammalian cell culture and genetic manipulation
 
     - title: BSc in Molecular Biology & Genetics
@@ -34,7 +34,7 @@
       year: 2016
       description:
         - Strong foundation in molecular biology, biochemistry, and genetics
-        - Undergraduate research in [field]
+        - Undergraduate research in micRNA regulation of neural stem cells
 
 - title: Research Experience
   type: time_table
@@ -47,27 +47,39 @@
         - Discovered TET2-dependent RNA modifications distinct from compensatory TET1/TET3 mechanisms
         - Developed and optimized CRISPR/Cas9 knockout systems in primary mouse OPCs
         - Performed multi-omics analyses (RNA-seq, ChIP-seq, ATAC-seq, hMeRIP-seq) using R and Python
-        - Mentored undergraduate researchers from Turkey on computational biology projects
+        - Mentored graduate students on wet lab techniques and computational biology
 
     - title: Master's Research
       institution: Bogazici University, Istanbul, Turkey  
       year: 2017 - 2019
       description:
-        - Developed Split-CRISPR-ID technology for precise genome editing
-        - Worked with multiple cell lines (MCF7, HEK293T, K562, HeLa)
+        - Developed Split-CRISPR-ID technology for precise genome targeting and protein interaction studies
+        - Worked with multiple cell lines (MCF7, HEK293T, K562, HeLa, SKMel-28)
         - Optimized transfection and selection protocols
+        - Optimized homemade Gibson Assembly protocols for plasmid construction
 
 - title: Publications
   type: time_table
   contents:
+    - year: 2025
+      items:
+        - "<b>Selcen I</b>, et al. (2025). TET2-mediated RNA modifications regulate oligodendrocyte progenitor cell differentiation. [in preparation]"
+        
     - year: 2024
       items:
         - "Dansu DK*, <b>Selcen I*</b>, et al. (2024). Histone H4 acetylation differentially modulates proliferation in adult oligodendrocyte progenitors. <i>Journal of Cell Biology</i> 223(11):e202308064. *Co-first authors"
         
     - year: 2023
       items:
-        - "<b>Selcen I</b>, et al. (2023). TET2-mediated RNA modifications regulate oligodendrocyte progenitor cell differentiation. <i>Nature Neuroscience</i> [in preparation]"
-        - "Author et al. (2023). [Another publication]. <i>Cell Reports</i>"
+        - "Pruvost, M., Patzig, J., Yattah, C., <b>Selcen I</b>, et al. (2023). The stability of the myelinating oligodendrocyte transcriptome is regulated by the nuclear lamina. <i>Cell Reports</i>"
+
+    - year: 2023
+      items:
+        - "<b>Selcen I</b>, et al. (2023). The epigenetic landscape of oligodendrocyte lineage cells. <i>Annals of the New York Academy of Sciences</i>"
+
+    - year: 2022
+      items:
+        - "Dansu DK, Liang, J., <b>Selcen I</b>, et al. (2022). PRMT5 Interacting Partners and Substrates in Oligodendrocyte Lineage Cells. <i>Frontiers in Cellular Neuroscience</i>
 
 - title: Skills
   type: nested_list
@@ -76,8 +88,11 @@
       items:
         - Primary cell culture and isolation (oligodendrocyte progenitors, neurons)
         - CRISPR/Cas9 genome editing and validation
+        - Primary cell culture and isolation (neonatal and adult oligodendrocyte progenitors)
         - Chromatin immunoprecipitation (ChIP)
-        - Immunofluorescence and confocal microscopy
+        - Protein immunoprecipitation (Co-IP)
+        - RNA immunoprecipitation (RIP)
+        - Immunofluorescence, Immunohistochemistry and confocal microscopy
         - Western blotting and protein analysis
         - Molecular cloning and plasmid construction
         
@@ -85,10 +100,10 @@
       items:
         - "<b>Languages:</b> R, Python, Bash"
         - "<b>Genomics:</b> RNA-seq, ChIP-seq, ATAC-seq, hMeRIP-seq analysis"
-        - "<b>Tools:</b> DESeq2, STAR, MACS2, Bowtie2, featureCounts, Salmon"
+        - "<b>Tools:</b> DESeq2, STAR, MACS2, Bowtie2, featureCounts, Salmon, rMATS"
         - "<b>Visualization:</b> ggplot2, ComplexHeatmap, deepTools, IGV"
         - "<b>Environment:</b> Conda, Git/GitHub, HPC clusters"
-        
+
     - title: Science Communication
       items:
         - Scientific writing and manuscript preparation
@@ -96,24 +111,11 @@
         - Research presentation and public speaking
         - Medical communications training (NYU certificate)
 
-- title: Awards & Honors
-  type: time_table
-  contents:
-    - year: 2023
-      items:
-        - CUNY Graduate Center Travel Award
-        - [Other award]
-        
-    - year: 2022
-      items:
-        - BioRender Campus Ambassador
-        - [Fellowship/Grant name]
-
 - title: Service & Leadership
   type: time_table
   contents:
     - title: BioRender Campus Ambassador
-      year: 2022 - Present
+      year: 2022 - 2025
       description:
         - Promote scientific visualization best practices
         - Provide training on BioRender platform to students and researchers
@@ -121,20 +123,19 @@
     - title: Mentor, Undergraduate Researchers
       year: 2020 - Present
       description:
-        - Mentoring students from alma mater (Turkey) on computational biology projects
+        - Mentoring students from alma mater (Turkey) on molecular biology projects
         - Guidance on graduate school applications and research career development
 
 - title: Professional Development
   type: time_table
   contents:
-    - year: 2023
+    - year: 2025
       items:
         - NYU Medical Communications Certificate Program
         
     - year: 2022
       items:
-        - Bioinformatics Workshop, Cold Spring Harbor Laboratory
-        - [Other workshop/course]
+        - Bioinformatics Workshop, VAI Epigenetics Symposium
 
 - title: Technical Expertise
   type: list
@@ -149,7 +150,7 @@
   type: list
   contents:
     - Chromatin biology and epigenetic regulation
+    - Cancer Epigenetics
     - RNA modifications and post-transcriptional control
-    - Oligodendrocyte development and myelination
     - Multi-omics data integration
     - Computational biology and bioinformatics methods development
