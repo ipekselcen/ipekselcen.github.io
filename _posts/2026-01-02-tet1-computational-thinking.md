@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Beyond the Textbook: How TET1 Discovery Reveals Computational Thinking in Biology"
+title: "What I Wish Someone Had Told Me About TET1: A Computational Thinking Journey"
 date: 2026-01-02
-description: Stop memorizing pathways. Start understanding biological systems as algorithms running on molecular hardware.
+description: Three years into my PhD, I finally understood what I was actually measuring. Here's what clicked.
 tags: systems-biology computational-thinking epigenetics DNA-methylation
 categories: SciComm
 related_posts: true
@@ -10,397 +10,412 @@ toc:
   sidebar: left
 ---
 
-When TET1 was discovered in 2009, the biology community celebrated a biochemical breakthrough: an enzyme that oxidizes 5-methylcytosine. Science and Cell papers flooded in. Textbooks got updated. Case closed, right?
+I spent the first two years of my PhD memorizing pathways. "TET1 oxidizes 5-methylcytosine." Check. "5hmC is an intermediate in demethylation." Check. "TET enzymes regulate gene expression." Check.
 
-But here's what most people missed: TET1's discovery didn't just reveal a new enzyme. It revealed that DNA methylation is a **computational system** with states, transitions, and information processing capabilities that traditional biochemistry couldn't predict.
+Then I knocked out TET2 in my oligodendrocyte progenitor cells, ran RNA-seq, and... nothing made sense.
 
-If you learn to think about TET1 computationally, you'll understand not just what it does, but how to predict what happens when you perturb it. You'll stop memorizing pathways and start understanding biological systems as algorithms running on molecular hardware.
+The patterns I saw didn't match any textbook. My PI was confused. I was confused. I'd generated beautiful data but had no framework to interpret it. That's when I realized: **I'd been memorizing recipes without understanding the logic**.
 
-## Part 1: The Story Your Textbook Told You
+This post is what I wish someone had told me in year one. Not as a computational expert - I'm still learning - but as someone who finally started asking different questions.
 
-For decades, DNA methylation seemed simple:
+## The Problem With How We Learn Biology
 
-> **The Old Model:**
+Here's how I was taught DNA methylation:
+
+> **The Clean Story**
 >
-> CpG islands + DNMT enzymes → 5-methylcytosine (5mC)  
-> 5mC = Gene Silencing = Heterochromatin = "Off"
->
-> Unmethylated = Gene Active = Euchromatin = "On"
+> - DNA gets methylated (5mC) → Gene silenced
+> - DNA loses methylation → Gene active
+> - TET enzymes reverse methylation
+> - Therefore: TET knockout = more methylation = more silencing
 {: .block-warning }
 
-It was binary. Clean. Wrong.
+This made perfect sense in lectures. It completely failed in my experiments.
 
-The problem? Nobody could explain **active demethylation**. Sure, DNA methylation patterns could be diluted through cell division (passive demethylation), but what about when cells needed to rapidly activate a silenced gene?
+**Why?** Because biology isn't a linear pathway. It's a network with:
+- **Redundancy** (TET1, TET2, AND TET3 - why three?)
+- **Compensation** (lose one, others adapt)
+- **Context-dependence** (same enzyme, different outcomes in different cells)
+- **Multi-layer regulation** (not just DNA methylation - chromatin, RNA modifications, metabolic state)
 
-The prevailing assumption was "it probably just doesn't happen much" or "maybe some repair pathway does it accidentally."
+Nobody told me this. I had to learn it by banging my head against confusing data for months.
 
-> **Computational Insight**
+## The Turning Point: TET1 Discovery
+
+In 2009, TET1 was discovered.<sup>1</sup> The textbook version goes:
+
+"TET1 oxidizes 5-methylcytosine, providing a mechanism for active DNA demethylation."
+
+**What I missed** (and what took me years to appreciate): This wasn't just finding a new enzyme. It was revealing that **DNA methylation is a state space, not a binary switch**.
+
+### What That Actually Means
+
+Instead of:
+```
+Methylated (OFF) ⟷ Unmethylated (ON)
+```
+
+We have:
+```
+C → 5mC → 5hmC → 5fC → 5caC → C
+```
+
+**Why does this matter?** Because each state:
+- Has different protein readers
+- Exists at different stability levels
+- Serves different regulatory functions
+- Creates different biological outcomes
+
+This means the cell can encode way more information than just "on" or "off." It can create states like:
+- "Poised" (ready to activate quickly)
+- "Active but dynamic" (fluctuating)
+- "Progressively shutting down" (transitioning)
+- "Stably repressed" (locked)
+
+> **What Clicked For Me**
 >
-> Binary switches are **informationally poor**. Real biological systems encode information in richer state spaces. Computational thinkers should have been suspicious.
+> When I first learned about 5hmC, I thought: "Oh, an intermediate. Cool."
+>
+> What I should have thought: "Wait - if 5hmC accumulates to 1% of all cytosines in ESCs, it's NOT just an intermediate. It's serving a function. The cell is CHOOSING to keep DNA in this intermediate state."
+>
+> That shift - from thinking about intermediates to thinking about **states the cell maintains** - changed everything.
 {: .block-tip }
 
-## Part 2: The Plot Twist - TET1 Reveals a State Space
+## My TET2 Confusion (And What It Taught Me)
 
-In 2009, Anjana Rao's lab discovered TET1 doesn't remove methylation directly. Instead:<sup>1</sup>
+Let me tell you about my actual data, because this is where linear thinking completely broke down.
 
-```
-5mC --TET1--> 5hmC --TET1--> 5fC --TET1--> 5caC --TDG/BER--> C
-```
+**My prediction (linear thinking):**
+- TET2 knockout → less 5hmC → more stable 5mC → genes stay repressed
 
-This wasn't just a pathway. It was a **revelation about information encoding**.
+**What I actually saw:**
+- TET2 knockout → some 5hmC decrease BUT
+- TET1 and TET3 expression increased (compensation)
+- RNA modifications changed (unexpected)
+- Chromatin accessibility shifted at unexpected sites
+- Gene expression changes didn't correlate simply with 5hmC loss
 
-### Why This Matters Computationally
+**My PI's reaction:** "This is messy. Maybe technical variation?"
 
-Instead of a binary switch, DNA now has at least **five distinct states** at every cytosine:
+**What was actually happening:** The cell was adapting. Network compensation. Multi-layer regulation. **Exactly what you'd predict if you thought computationally**, but I didn't have that framework yet.
 
-1. **C** (cytosine) - unmethylated
-2. **5mC** (5-methylcytosine) - methylated
-3. **5hmC** (5-hydroxymethylcytosine) - oxidized once
-4. **5fC** (5-formylcytosine) - oxidized twice
-5. **5caC** (5-carboxylcytosine) - oxidized thrice
+## What "Thinking Computationally" Actually Means
 
-Each state has different:
-- **Protein binding partners** (readers that recognize different marks)
-- **Chemical stability** (transition rates between states)
-- **Biological functions** (gene activation vs. silencing vs. poising)
+I used to think "computational biology" meant "learning Python and running pipelines."
 
-This is exactly how computer scientists think about state machines. DNA methylation isn't a bit (0 or 1), it's more like a **multi-level cell in flash memory** that can store graded information.
+That's not it.
 
-> **Key Insight**
->
-> By revealing oxidized methylcytosines, TET1 showed that the genome has **2.3x more information encoding capacity** than we thought.
->
-> This is profound. It means:
-> - More nuanced gene regulation is possible
-> - Cell identity can be encoded more stably
-> - Developmental transitions can be more precisely controlled
-{: .block-tip }
+**Computational thinking means asking:**
+1. **What's the state space?** (Not just "on/off" - what are ALL possible states?)
+2. **What are the network connections?** (Who compensates when something breaks?)
+3. **What are the multi-layer regulations?** (DNA methylation doesn't act alone)
+4. **What's the cell optimizing for?** (Stability vs. flexibility? Speed vs. accuracy?)
 
-## Part 3: Computational Reframing - From Biochemistry to Information Theory
+Let me show you what this looks like in practice.
 
-Let's formalize this. Here's how a computational biologist thinks about the TET1 discovery:
+### Question 1: Why Three TET Enzymes?
+
+**Linear thinking:** "Evolution is messy. Probably redundant."
+
+**Computational thinking:** "Redundancy in biology usually means something. Let me think about this as a network."
 
 ```python
-# Traditional thinking (binary)
-class DNAMethylation_Old:
-    def __init__(self):
-        self.state = "unmethylated"  # or "methylated"
-    
-    def set_methylation(self, methylated):
-        self.state = "methylated" if methylated else "unmethylated"
+# This is how I started thinking about it
+# (Warning: I'm still learning Python, this is conceptual)
 
-# Computational thinking (state space)
-class DNAMethylation_New:
-    def __init__(self):
-        self.states = {
-            'C': {
-                'energy': 0.0,
-                'stability': 'high',
-                'transitions': {'5mC': 'DNMT'},
-                'readers': ['CXXC', 'TET']
-            },
-            '5mC': {
-                'energy': -2.0,  # thermodynamically stable
-                'stability': 'high',
-                'transitions': {'5hmC': 'TET'},
-                'readers': ['MBD', 'MeCP2']
-            },
-            '5hmC': {
-                'energy': -1.0,  # intermediate stability
-                'stability': 'medium',
-                'transitions': {'5fC': 'TET', '5mC': 'reverse?'},
-                'readers': ['Uhrf2', 'WT1', 'MeCP2']
-            },
-            # ... and so on
-        }
+network = {
+    'TET1': {'targets': gene_set, 'expression': 'constitutive'},
+    'TET2': {'targets': gene_set, 'expression': 'inducible'},  
+    'TET3': {'targets': gene_set, 'expression': 'tissue_specific'}
+}
+
+# Question: If I knock out TET2, what happens?
+# Linear: TET2 targets lose 5hmC
+# Network: Do TET1/3 compensate? Do cells reroute regulation?
 ```
 
-## Part 4: What Computational Thinking Lets You Predict
+When I finally looked at published TET1 knockout data,<sup>4</sup> mice were **viable and fertile**. Subtle defects, but mostly fine.
 
-Now that we have a state space model, we can ask questions that pure biochemistry couldn't answer:
+**Why?** Network compensation. TET2 and TET3 picked up the slack.
 
-### Question 1: Is 5hmC a Transient Intermediate or a Stable Mark?
+**What this taught me:** When you see three enzymes doing similar things, don't think "redundant waste." Think "robust system with failsafes."
 
-**Traditional approach:** Measure 5hmC levels in cells. If you find it, it exists. Done.
+The cell isn't stupid. We're just not asking the right questions.
 
-**Computational approach:** Model the kinetics and predict steady-state levels.
+### Question 2: Is 5hmC Transient or Stable?
 
+This is where computational thinking saved me from misinterpreting my own data.
+
+**What I measured:** 5hmC at certain promoters in my OPCs.
+
+**Linear interpretation:** "5hmC is present, so demethylation is happening here."
+
+**Computational question:** "Wait - if 5hmC is just a transient intermediate, why is it so abundant in ESCs (1% of all cytosines)?"<sup>3</sup>
+
+Let me think about kinetics:
 ```r
-# Kinetic model
-# Let k1 = rate of 5mC → 5hmC conversion
-# Let k2 = rate of 5hmC → 5fC conversion
+# If 5hmC is transient:
+# k1 (5mC → 5hmC) ≈ k2 (5hmC → 5fC)
+# Steady state: [5hmC] should be very low
 
-# If 5hmC is just a transient intermediate:
-# k1 ≈ k2 (fast in, fast out)
-# Steady state: [5hmC] ≈ 0
-
-# If 5hmC is a stable regulatory mark:
-# k1 > k2 (fast in, slow out)
+# If 5hmC is stable:
+# k1 (5mC → 5hmC) >> k2 (5hmC → 5fC)  
 # Steady state: [5hmC] accumulates
+
+# The data shows: 5hmC is ABUNDANT
+# Therefore: k2 must be slow
+# Meaning: 5hmC is not just passing through
 ```
 
-**What the data showed:** Koh et al. (2011) found that in embryonic stem cells (ESCs), 5hmC is **abundant** - sometimes comprising 1% of all cytosines.<sup>3</sup>
+**What this means:** 5hmC isn't just "on the way to demethylation." It's a **mark the cell maintains** to keep genes in a poised state.
 
-**Computational conclusion:** k₂ must be rate-limiting. This means **5hmC is not just an intermediate** - it's a stable epigenetic mark with its own regulatory function.
+**Why this matters for my research:** When I see 5hmC at a promoter in my OPCs, it might not mean "actively demethylating." It might mean "maintaining plasticity" - ready to go either way depending on signals.
 
-> **Biological Insight**
+Completely different biological interpretation. Same data.
+
+> **The Struggle Is Real**
 >
-> Cells use 5hmC to poise genes - maintaining them in an intermediate state between "off" (5mC) and "on" (C). This is exactly what you'd want during development when cells need to maintain flexibility before committing to a fate.
-{: .block-tip }
-
-### Question 2: Network Redundancy - Why Three TET Enzymes?
-
-Mammals don't just have TET1. They have TET1, TET2, and TET3.
-
-**Traditional thinking:** "Probably just redundancy. Evolution is messy."
-
-**Computational thinking:** Redundancy in biological networks is rarely accidental. It's either:
-1. **Fault tolerance** (backup systems)
-2. **Specialization** (different contexts)
-3. **Signal amplification** (parallel processing)
-
-Let's model this:
-
-```python
-import networkx as nx
-
-# Build a simplified gene regulatory network
-G = nx.DiGraph()
-
-# Add nodes
-genes = ['Gene_A', 'Gene_B', 'Gene_C']
-enzymes = ['TET1', 'TET2', 'TET3', 'DNMT3A', 'DNMT3B']
-
-G.add_nodes_from(genes, node_type='gene')
-G.add_nodes_from(enzymes, node_type='enzyme')
-
-# TET enzymes activate genes by oxidizing 5mC
-for tet in ['TET1', 'TET2', 'TET3']:
-    for gene in genes:
-        G.add_edge(tet, gene, interaction='activate')
-
-# Key computational question: What happens if we remove TET1?
-G_knockout = G.copy()
-G_knockout.remove_node('TET1')
-
-# Can genes still be activated?
-for gene in genes:
-    alternative_activators = [node for node in ['TET2', 'TET3'] 
-                              if nx.has_path(G_knockout, node, gene)]
-    print(f"{gene} can still be activated by: {alternative_activators}")
-```
-
-**Output:**
-```
-Gene_A can still be activated by: ['TET2', 'TET3']
-Gene_B can still be activated by: ['TET2', 'TET3']
-Gene_C can still be activated by: ['TET2', 'TET3']
-```
-
-**Computational prediction:** TET1 knockout should show **partial compensation** by TET2/3, not complete loss of function.
-
-**Experimental validation:** Dawlaty et al. (2011) showed that TET1 knockout mice are viable and fertile, with only subtle defects. TET2 and TET3 expression increases to compensate.<sup>4</sup>
-
-This is network robustness in action - exactly what graph theory predicts for scale-free biological networks.
-
-> **Note**
+> I didn't figure this out quickly. I spent MONTHS confused about my 5hmC data. I kept thinking "is my hMeRIP-seq bad?" when really, I was asking the wrong questions.
 >
-> My unpublished TET2 work revealed even more sophisticated compensation mechanisms that traditional thinking wouldn't predict. More on that after publication.
+> The turning point was reading papers about 5hmC in development and realizing: **the cell uses 5hmC to maintain flexible states**. It's not a bug, it's a feature.
 {: .block-warning }
 
-## Part 5: Multi-Omics Integration - The Computational Payoff
+## The Multi-Layer Reality Nobody Tells You
 
-Here's where computational thinking really shines. Once you understand the state space and network properties, you can integrate multiple data types to test mechanistic hypotheses.
+Here's what really frustrated me: **Every paper I read would focus on ONE layer of regulation** and claim causality.
 
-### The Computational Framework
+"TET2 mutation causes reduced 5hmC, leading to gene X downregulation."
 
-```r
-# Integrating multiple genomics datasets to understand TET1 function
-library(tidyverse)
-library(GenomicRanges)
+But when I looked at my data, I had to ask:
+- Did chromatin accessibility change? (Yes)
+- Did RNA modifications change? (Yes, unexpectedly)
+- Did metabolic state shift? (Probably)
+- Did other TET enzymes compensate? (Definitely)
+- Were there feedback loops I'm missing? (Almost certainly)
 
-# Step 1: Define the computational question
-# "Does 5hmC presence causally regulate gene expression?"
-# Or: "Is 5hmC a marker of regulatory potential?"
+**The reality:** DNA methylation is ONE layer in a multi-layer regulatory system.
 
-# Step 2: Formalize as a statistical model
-# H1 (causal): Expression = f(5hmC_level)
-# H2 (marker): Expression = f(chromatin_state), 5hmC correlates with both
-
-# Step 3: Model the relationships
-model1 <- lm(expression ~ hmC_in_promoter, data = integrated_data)
-model2 <- lm(expression ~ chromatin_open, data = integrated_data)
-model3 <- lm(expression ~ hmC_in_promoter + chromatin_open + 
-                         hmC_in_promoter:chromatin_open, 
-             data = integrated_data)
-
-# The interaction term tests: Does 5hmC's effect depend on chromatin state?
-# If interaction is significant → context-dependent regulation
+```
+Cell State
+    ↓
+Metabolic State → ATP levels → Chromatin Remodeling
+    ↓                              ↓
+Transcription Factors → Chromatin Accessibility
+    ↓                              ↓
+DNA Methylation (5mC/5hmC) ← RNA Modifications
+    ↓                              ↓
+Histone Modifications → Gene Expression
+    ↓
+Feedback Loops
 ```
 
-### What This Reveals
+**When you perturb ONE thing** (like knocking out TET2), the **entire system responds**. You're not seeing "the effect of TET2" - you're seeing the **system's adaptation to losing TET2**.
 
-Published TET1 multi-omics studies (Wu et al., 2011; Huang et al., 2014) showed:<sup>5,6</sup>
+This is why:
+- My RNA-seq alone didn't tell the story
+- I needed ATAC-seq to see chromatin changes
+- I needed hMeRIP-seq to see RNA modification responses
+- I needed metabolic profiling to understand the cellular state
+- I STILL don't have the complete picture
 
-1. **5hmC enrichment at enhancers and gene bodies** correlates with **active transcription**
-2. **TET1 binding** overlaps with **H3K4me3** (active promoter mark) and **open chromatin**
-3. **TET1 knockout** causes modest gene expression changes (hundreds, not thousands of genes)
+## What I Do Differently Now
 
-> **Computational Interpretation**
+I'm not going to pretend I have this figured out. I'm still learning. But here's what changed in how I approach my research:
+
+### Before Running Experiments
+
+**Old me:** "I'll knock out TET2 and do RNA-seq."
+
+**Current me:** 
+1. Draw the network on paper. Where are backup systems?
+2. What multi-layer regulations exist?
+3. What would linear thinking predict?
+4. What would network compensation predict?
+5. What additional data would I need to distinguish these?
+
+**This doesn't mean I always do the perfect experiment.** Money and time are real constraints. But at least I **know what I'm missing**.
+
+### When Analyzing Data
+
+**Old me:** Run DESeq2 → Get gene list → Run GO enrichment → Call it a day
+
+**Current me:**
+```r
+# After DESeq2, ask:
+# 1. Does this pattern match network predictions?
+# 2. Are compensatory genes changing?
+# 3. What if I'm measuring adaptation, not direct effects?
+# 4. What other layers should I check?
+
+# Example from my actual analysis:
+results <- DESeq2_results
+up_genes <- filter(results, log2FC > 1, padj < 0.05)
+
+# Check: Are TET1/TET3 in my up-regulated genes?
+# If yes → network compensation, as predicted
+# If no → something else is going on, investigate
+```
+
+### When Reading Papers
+
+**Old me:** Trust the interpretation in the abstract.
+
+**Current me:** 
+- Did they check for compensation?
+- Is this correlation or causation?
+- What layers of regulation did they ignore?
+- Would their conclusions hold if the system adapted?
+
+**Example:** I recently read a paper claiming "TET2 loss causes specific gene downregulation."
+
+Red flags:
+- ❌ Didn't measure TET1/TET3 (compensation?)
+- ❌ Didn't measure chromatin state (accessibility changes?)
+- ❌ Endpoint analysis only (what about dynamics?)
+- ❌ Assumed direct causality (network effects?)
+
+I'm not saying the paper is wrong. I'm saying **their interpretation assumed linearity** in a clearly non-linear system.
+
+## The Checklist I Use Now
+
+Before making claims about my data, I ask:
+
+**□ State Space Questions**
+- [ ] Am I thinking binary when I should think spectrum?
+- [ ] What states can the system occupy?
+- [ ] What transitions are possible?
+
+**□ Network Questions**
+- [ ] What compensates if this breaks?
+- [ ] Are there parallel pathways?
+- [ ] What feedback loops exist?
+
+**□ Multi-Layer Questions**
+- [ ] What other regulatory layers are involved?
+- [ ] Did I measure them?
+- [ ] If not, how does that limit my interpretation?
+
+**□ Plasticity Questions**
+- [ ] Is the cell adapting to my perturbation?
+- [ ] Am I measuring steady-state or transition?
+- [ ] Would temporal dynamics change my interpretation?
+
+**□ Causality Questions**
+- [ ] Am I claiming correlation or causation?
+- [ ] What experiment would actually test causality?
+- [ ] What would change my conclusion?
+
+> **Reality Check**
 >
-> 5hmC is not a simple activator. It's a component of a regulatory PROGRAM.
+> Do I do all of this perfectly? No.
 >
-> The cell isn't asking: "Is there 5hmC here?"  
-> The cell is computing:  
-> ```
-> IF (5hmC present) AND (chromatin accessible) AND (TFs bound)
-> THEN (transcription permissible)
-> ```
+> Do I have time and money to measure every layer? No.
 >
-> This is a logical AND gate, not a simple input-output function.
+> But at least I **know what I'm not measuring** and can qualify my claims accordingly.
+>
+> That's the difference.
 {: .block-tip }
 
-This is why **context matters** in epigenetics. 5hmC at a closed chromatin region does nothing. 5hmC at an open, TF-bound enhancer facilitates activation.
+## What I'm Still Learning
 
-The computational mindset lets you see that epigenetic marks are **boolean variables in a complex logical circuit**, not simple on/off switches.
+Let me be honest about where I struggle:
 
-## Part 6: The "Unthinkable" That Emerges From Computational Thinking
+**1. When to stop adding complexity**
 
-Let me summarize what TET1 teaches us when we think computationally:
+I can spiral into "but what about..." forever. Sometimes you need to make simplifying assumptions to make progress. I'm still learning where to draw that line.
 
-### 1. State Space Complexity = Regulatory Flexibility
+**2. Quantitative predictions**
 
-**Biochemistry tells you:** TET1 oxidizes 5mC  
-**Computation tells you:** This creates a 5-state system with 2.3x more information capacity
+I can think about networks qualitatively. Making actual quantitative predictions? That's harder. I'm working on it.
 
-**Why it matters:** Cells can encode "poised," "active," "repressed," "irreversible" states, not just "on/off"
+**3. Integrating all the data**
 
-### 2. Network Redundancy = Robust Computation
+I have RNA-seq, ATAC-seq, hMeRIP-seq sitting on my hard drive. Integrating them properly is... a work in progress. The conceptual framework is there. The practical execution is messy.
 
-**Biochemistry tells you:** Three TET enzymes exist  
-**Computation tells you:** This creates fault-tolerant parallel processing with graceful degradation
+**4. Communicating uncertainty**
 
-**Why it matters:** Perturbations (mutations, knockouts, drugs) won't simply break the system - it will adapt
+In talks, PIs want definitive statements. "TET2 regulates gene X." But what I actually mean is: "TET2 loss correlates with gene X changes, possibly through network adaptation involving chromatin and RNA modifications, but I haven't proven causality."
 
-### 3. Multi-Layer Regulation = Combinatorial Logic
+How do you say that in a conference talk without sounding wishy-washy?
 
-**Biochemistry tells you:** 5hmC correlates with gene activation  
-**Computation tells you:** 5hmC is one input in a multi-input logic gate
+Still figuring that out.
 
-**Why it matters:** You can't predict gene expression from 5hmC alone - you need the full regulatory context
+## Why This Matters For You
 
-### 4. Information Flow Reveals Causality
+If you're early in your PhD (or considering grad school), **please learn this framework earlier than I did**.
 
-**Biochemistry tells you:** TET1 binds here, 5hmC appears here, gene expression changes  
-**Computation tells you:** Correlation ≠ causation until you model the directed acyclic graph
+Not because it makes research easier - it doesn't. If anything, it makes you realize how much you DON'T know.
 
-**Why it matters:** You can now design perturbation experiments that test causal links
+But it will save you from:
+- ❌ Making overclaimed conclusions
+- ❌ Being confused when knockouts don't match predictions
+- ❌ Missing compensation mechanisms
+- ❌ Thinking your "messy" data is bad when it's actually informative
 
-## Part 7: How to Practice Computational Thinking
+**Biology is not linear.** Cells are plastic, adaptive, multi-layer regulatory systems.
 
-Before you run your next ChIP-seq, RNA-seq, or ATAC-seq analysis, ask yourself these questions:
-
-### The Computational Thinking Checklist
-
-**□ 1. What is the state space of my system?**
-- Not just "methylated vs unmethylated"
-- What are ALL the possible states?
-- What information do these states encode?
-
-**□ 2. What are the transition rules?**
-- What enzymes/processes move between states?
-- What are the rates? (fast/slow)
-- Are transitions reversible?
-
-**□ 3. What is the network topology?**
-- Who regulates whom?
-- Are there feedback loops?
-- Where is redundancy?
-
-**□ 4. What are the constraints?**
-- Thermodynamic (energetics)
-- Topological (chromatin structure)
-- Temporal (developmental time)
-- Spatial (nuclear organization)
-
-**□ 5. What does this topology predict about perturbations?**
-- Single gene knockout = ?
-- Drug treatment = ?
-- Stress response = ?
-
-**□ 6. How do I integrate multiple measurements?**
-- Are they measuring the same thing at different scales?
-- Are they inputs and outputs of the same process?
-- What's the causal structure?
-
-**□ 7. What would surprise me?**
-- If X happened, what would that tell me about my model?
-- What result would force me to rethink my assumptions?
-
-### Example: Applying This to Your Next Experiment
-
-Let's say you're studying a TET enzyme (maybe TET2...) in your favorite cell type.
-
-> **❌ Bad computational thinking:**
->
-> "I'll knock out TET2, do RNA-seq, and see what genes change. Then I'll make a GO term enrichment plot and call it a day."
-{: .block-danger }
-
-> **✓ Good computational thinking:**
->
-> "TET2 operates in a network with TET1/3, DNMTs, and chromatin remodelers. Before I even do the experiment, let me predict:
->
-> 1. **State space:** What regulatory states exist in my cell type?
-> 2. **Network:** Can TET1/3 compensate for TET2 loss?
-> 3. **Constraints:** Is TET2 the rate-limiting enzyme, or is something downstream (TDG, BER)?
-> 4. **Time scale:** How long until compensation mechanisms kick in?
->
-> Based on these predictions, I should:
-> - Measure TET1/3 expression after TET2 KO (test compensation)
-> - Time-course RNA-seq (capture dynamics, not just endpoint)
-> - Multi-omics (5hmC, chromatin, expression) to see information flow
-> - Model the gene regulatory network before and after perturbation
->
-> This way, I'm not just generating data. I'm testing a computational hypothesis about how the system works."
-{: .block-tip }
+**The sooner you think that way, the better.**
 
 ## What's Next
 
-The TET1 story shows that computational thinking transforms how you understand biology. You stop seeing isolated biochemical reactions and start seeing:
+I'm working on a companion post about chromatin accessibility using the same framework - thinking about it as a probability landscape rather than "open" vs "closed."
 
-- **State machines** (methylation states)
-- **Networks** (gene regulation)
-- **Information processing** (epigenetic code)
-- **Optimization** (balancing stability vs flexibility)
-- **Robustness** (fault tolerance through redundancy)
+I'm also writing up my TET2 work (finally). The compensation mechanisms we found are... not what textbooks would predict. But they make perfect sense when you think computationally.
 
-My own unpublished work on TET2 revealed even deeper layers of this computational architecture. When I knocked out TET2 in oligodendrocyte progenitor cells, the compensation mechanisms were far more sophisticated than simple TET1/3 upregulation. The cell rerouted information flow through RNA modification pathways, chromatin remodelers, and alternative demethylation routes - exactly the kind of network-level adaptation that computational thinking predicts.
+After publication, I'll write about what we learned and what I still don't understand.
 
-But that's a story for after the paper is published.
+For now, if you're struggling with confusing epigenetics data, know that:
+1. You're not alone
+2. Your data probably isn't bad
+3. You might just be asking linear questions about a non-linear system
 
-For now, I encourage you to practice this mindset with published systems. Pick your favorite epigenetic regulator and ask:
-- What's the state space?
-- What's the network?
-- What would computation predict that biochemistry alone wouldn't?
+Start thinking about networks, plasticity, and multi-layer regulation. Your confusion might turn into clarity.
 
-> **Coming Up in This Series**
+At least, that's what happened for me.
+
+> **Coming Up**
 >
-> **Next:** "Chromatin as a Phase-Separated Material: Why Your ATAC-seq Peaks Aren't What You Think"
->
-> **Later:** "The TET2 Compensation Network: A Case Study in Computational Prediction" (after publication)
->
-> **Also:** "Why Your Heatmap Is Lying To You: Dimensionality Reduction and Perceptual Biases"
+> - "Chromatin Accessibility as Probability: What Your ATAC-seq Really Measures"
+> - "The TET2 Story: When Compensation Mechanisms Surprise You" (after publication)
+> - "How I Actually Analyze Multi-Omics Data (Messy Reality Edition)"
 {: .block-tip }
 
 ---
 
-### References
+### References & Further Reading
 
-1. Tahiliani M, et al. (2009) "Conversion of 5-methylcytosine to 5-hydroxymethylcytosine in mammalian DNA by MLL partner TET1." *Science* 324(5929):930-5.
+**The papers that changed how I think:**
+
+1. Tahiliani M, et al. (2009) "Conversion of 5-methylcytosine to 5-hydroxymethylcytosine in mammalian DNA by MLL partner TET1." *Science* 324(5929):930-5. 
+   - *Why it matters: Revealed the state space of DNA methylation*
+
 2. Kriaucionis S, Heintz N. (2009) "The nuclear DNA base 5-hydroxymethylcytosine is present in Purkinje neurons and the brain." *Science* 324(5929):929-30.
+
 3. Koh KP, et al. (2011) "Tet1 and Tet2 regulate 5-hydroxymethylcytosine production and cell lineage specification in mouse embryonic stem cells." *Cell Stem Cell* 8(2):200-13.
+   - *Why it matters: Showed 5hmC is abundant, not transient*
+
 4. Dawlaty MM, et al. (2011) "Tet1 is dispensable for maintaining pluripotency and its loss is compatible with embryonic and postnatal development." *Cell Stem Cell* 9(2):166-75.
+   - *Why it matters: Network compensation in action*
+
 5. Wu H, et al. (2011) "Genome-wide analysis of 5-hydroxymethylcytosine distribution reveals its dual function in transcriptional regulation in mouse embryonic stem cells." *Genes Dev* 25(7):679-84.
+
 6. Huang Y, et al. (2014) "Distinct roles of the methylcytosine oxidases Tet1 and Tet2 in mouse embryonic stem cells." *PNAS* 111(4):1361-6.
+
+**On network thinking:**
+
 7. Alon U. (2007) "Network motifs: theory and experimental approaches." *Nat Rev Genet* 8:450–461.
+   - *For when you want to formalize network thinking*
+
 8. Barabási AL, Oltvai ZN. (2004) "Network biology: understanding the cell's functional organization." *Nat Rev Genet* 5:101–113.
+
+**What I'm reading now:**
+
+- Anything by Uri Alon on systems biology
+- Papers on cellular plasticity and adaptive responses
+- Multi-omics integration methods (still learning!)
+
+---
+
+*This is part of my "Systems Biology for Biologists" series, where I'm documenting what I'm learning as I learn it. Mistakes, confusions, and all.*
+
+*If you're also struggling with these concepts, let's struggle together. Science is hard.*
