@@ -6,6 +6,8 @@ description: Stop memorizing pathways. Start understanding biological systems as
 tags: systems-biology computational-thinking epigenetics DNA-methylation
 categories: SciComm
 related_posts: true
+toc:
+  sidebar: left
 ---
 
 When TET1 was discovered in 2009, the biology community celebrated a biochemical breakthrough: an enzyme that oxidizes 5-methylcytosine. Science and Cell papers flooded in. Textbooks got updated. Case closed, right?
