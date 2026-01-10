@@ -30,7 +30,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-tracking-glioblastoma-39-s-circular-dna-at-single-cell-resolution",
+        },{id: "post-beyond-the-textbook-how-tet1-discovery-reveals-computational-thinking-in-biology",
+        
+          title: "Beyond the Textbook: How TET1 Discovery Reveals Computational Thinking in Biology",
+        
+        description: "Stop memorizing pathways. Start understanding biological systems as algorithms running on molecular hardware.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/tet1-computational-thinking/";
+          
+        },
+      },{id: "post-tracking-glioblastoma-39-s-circular-dna-at-single-cell-resolution",
         
           title: "Tracking Glioblastoma&#39;s Circular DNA at Single-Cell Resolution",
         
