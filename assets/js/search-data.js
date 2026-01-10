@@ -30,11 +30,11 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-beyond-the-textbook-how-tet1-discovery-reveals-computational-thinking-in-biology",
+        },{id: "post-what-i-wish-someone-had-told-me-about-tet1-a-computational-thinking-journey",
         
-          title: "Beyond the Textbook: How TET1 Discovery Reveals Computational Thinking in Biology",
+          title: "What I Wish Someone Had Told Me About TET1: A Computational Thinking Journey...",
         
-        description: "Stop memorizing pathways. Start understanding biological systems as algorithms running on molecular hardware.",
+        description: "Three years into my PhD, I finally understood what I was actually measuring. Here&#39;s what clicked.",
         section: "Posts",
         handler: () => {
           
