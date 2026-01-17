@@ -6,8 +6,6 @@ description: A biologist’s guide to computational thinking, told through the e
 tags: epigenetics, computational-thinking, methods, DNA-methylation, chromatin
 categories: research-highlights
 related_posts: true
-toc:
-	sidebar: left
 ---
 
 > **For the biologist who learned to code out of necessity:** This post traces how experimental breakthroughs in epigenetics inadvertently taught us computational thinking—before we even knew we were learning it.
