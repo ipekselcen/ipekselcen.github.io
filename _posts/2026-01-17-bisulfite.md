@@ -8,10 +8,6 @@ categories: research-highlights
 related_posts: true
 ---
 
-> **For the biologist who learned to code out of necessity:** This post traces how experimental breakthroughs in epigenetics inadvertently taught us computational thinking—before we even knew we were learning it.
-
----
-
 ## The Problem That Changed Everything
 
 In 1992, Marianne Frommer faced what seemed like a simple question: how do you tell the difference between a methylated cytosine and an unmethylated one? Both are cytosines. Both look identical under a microscope. Both have the same mass on a spectrometer.
