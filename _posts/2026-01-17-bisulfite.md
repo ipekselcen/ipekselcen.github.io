@@ -1,6 +1,5 @@
------
-
-## layout: post
+---
+layout: post
 title: “From Bisulfite to Foundation Models: How Epigenetics Methods Taught Us to Think Computationally”
 date: 2026-01-17
 description: A biologist’s guide to computational thinking, told through the evolution of epigenetics methods
@@ -10,10 +9,9 @@ giscus_comments: true
 related_posts: true
 toc:
 sidebar: left
-
+---
 > **For the biologist who learned to code out of necessity:** This post traces how experimental breakthroughs in epigenetics inadvertently taught us computational thinking—before we even knew we were learning it.
-
------
+---
 
 ## The Problem That Changed Everything
 
