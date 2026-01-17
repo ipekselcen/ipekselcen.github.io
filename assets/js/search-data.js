@@ -30,15 +30,15 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-bisulfite",
+        },{id: "post-",
         
-          title: "Bisulfite",
+          title: "",
         
         description: "",
         section: "Posts",
         handler: () => {
           
-            window.location.href = "/blog/2026/bisulfite/";
+            window.location.href = "/blog/2026/2026-01-17-bisulfite/";
           
         },
       },{id: "post-what-i-wish-someone-had-told-me-about-tet1-a-computational-thinking-journey",
