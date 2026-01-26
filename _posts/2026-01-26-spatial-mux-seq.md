@@ -11,7 +11,7 @@ Here's a problem I kept running into during my PhD: I'd measure chromatin access
 
 The annoying part wasn't just that I couldn't answer these questions—it's that I couldn't even ask them properly. Each experiment destroyed the tissue, so I was always comparing different samples, different time points, hoping they were similar enough that the patterns I saw were real.
 
-[Spatial-Mux-seq](https://www.nature.com/articles/s41592-024-02576-0), published this January in *Nature Methods* (and immediately highlighted as one of the editors' favorite papers of 2025), solves this by measuring five molecular layers simultaneously in the same tissue section: two histone modifications, chromatin accessibility, gene expression, and proteins. All with spatial coordinates.
+[Spatial-Mux-seq](https://www.nature.com/articles/s41592-024-02576-0), published last January in *Nature Methods* (and immediately highlighted as one of the editors' favorite papers of 2025), solves this by measuring five molecular layers simultaneously in the same tissue section: two histone modifications, chromatin accessibility, gene expression, and proteins. All with spatial coordinates.
 
 Think of it like watching a dance from five different camera angles at once. Suddenly you can see not just the individual movements, but the choreography.
 
