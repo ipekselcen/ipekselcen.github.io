@@ -17,9 +17,9 @@ toc:
 
 Both are cytosines. Both look identical under a microscope. Both have the same mass on a spectrometer. The only difference—one has a methyl group (-CH₃), the other doesn't—is chemically silent in most assays.
 
-Her solution seemed almost comically simple: treat DNA with sodium bisulfite. Under harsh conditions (high temperature, low pH, hours of incubation), something remarkable happens. Unmethylated cytosines convert to uracils. Methylated cytosines stay cytosines—the methyl group protects them.
+Her solution seemed almost comically simple: treat DNA with sodium bisulfite. Under harsh conditions (high temperature, low pH, hours of incubation), something remarkable happens. Unmethylated cytosines convert to uracils. Methylated cytosines stay cytosines, as the methyl group protects them.
 
-Sequence the treated DNA, and you get your answer. Except you don't get a direct readout of methylation. You get sequences full of Ts (converted from unmethylated Cs) and Cs (that stayed methylated because they were protected). Someone—or something—has to **infer** the original methylation state by comparing treated to untreated DNA.
+Sequence the treated DNA, and you get your answer. Except you don't get a direct readout of methylation. You get sequences full of Ts (converted from unmethylated Cs) and Cs (that stayed methylated because they were protected). Someone, or something, has to infer the original methylation state by comparing treated to untreated DNA.
 
 > **The moment Frommer created bisulfite sequencing, she created a computational problem.**
 
@@ -44,14 +44,9 @@ Let's unpack what running bisulfite sequencing required in those early days. Thi
 
 **Each of these is its own computational problem.** And here's what's fascinating: in the 1990s and early 2000s, biologists did steps 3-6 *by hand*, often using Excel. They were doing computational thinking without formal training. They just called it "analyzing my data."
 
----
-
-<div style="background: #f0f4f8; padding: 20px; margin: 20px 0; border-left: 4px solid #3b82f6;">
-
-### Editorial Note: What Made This a Methods Paper
-
-Frommer et al. (1992) in *PNAS* is a masterclass in methods innovation. The paper:
-
+> ##### Editorial Note: What Made This a Methods Paper
+>
+> Frommer et al. (1992) in *PNAS* is a masterclass in methods innovation. The paper:
 - **Identified a chemical property** (differential deamination) that could encode biological information
 - **Validated the method** on known methylated sites (CG islands)
 - **Demonstrated generalizability** across different genomic contexts
@@ -62,10 +57,8 @@ Frommer et al. (1992) in *PNAS* is a masterclass in methods innovation. The pape
 The computational burden this created? That was a feature, not a bug. It forced the field to develop tools that would become essential for all sequencing-based methods.
 
 **Reference:** Frommer, M. et al. (1992). "A genomic sequencing protocol that yields a positive display of 5-methylcytosine residues in individual DNA strands." *PNAS* 89(5):1827-1831.
+{: .block-tip }
 
-</div>
-
----
 
 ## The Pattern Recognition Breakthrough: ATAC-seq's Hidden Data
 
