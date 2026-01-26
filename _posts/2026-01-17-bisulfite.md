@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Method That Taught Biologists to Code (Without Knowing It)"
-date: 2026-01-17
+date: 2026-01-27
 tags: epigenetics, computational-thinking, methods, DNA-methylation, chromatin
 category: research-highlights
 related_posts: true
@@ -11,19 +11,21 @@ toc:
 
 > **For the biologist who learned to code out of necessity:** This post traces how three experimental breakthroughs in epigenetics inadvertently taught us computational thinking—before we even knew we were learning it.
 
-## The Problem That Changed Everything
+---
 
-**1992, UC San Francisco.** Marianne Frommer faced what seemed like an impossible question: how do you tell the difference between a methylated cytosine and an unmethylated one?
+## The Inference Problem
+
+In 1992, Marianne Frommer faced a technical challenge: how do you distinguish between a methylated cytosine and an unmethylated one?
 
 Both are cytosines. Both look identical under a microscope. Both have the same mass on a spectrometer. The only difference—one has a methyl group (-CH₃), the other doesn't—is chemically silent in most assays.
 
-Her solution seemed almost comically simple: treat DNA with sodium bisulfite. Under harsh conditions (high temperature, low pH, hours of incubation), something remarkable happens. Unmethylated cytosines convert to uracils. Methylated cytosines stay cytosines, as the methyl group protects them.
+Her solution was elegant: treat DNA with sodium bisulfite. Under harsh conditions (high temperature, low pH, hours of incubation), unmethylated cytosines convert to uracils while methylated cytosines remain unchanged—the methyl group protects them from deamination.
 
-Sequence the treated DNA, and you get your answer. Except you don't get a direct readout of methylation. You get sequences full of Ts (converted from unmethylated Cs) and Cs (that stayed methylated because they were protected). Someone, or something, has to infer the original methylation state by comparing treated to untreated DNA.
+Sequence the treated DNA, and you get your answer. Except you don't get a direct readout of methylation. You get sequences full of Ts (converted from unmethylated Cs) and Cs (that stayed methylated because they were protected). Someone—or something—has to **infer** the original methylation state by comparing treated to untreated DNA.
 
-> **The moment Frommer created bisulfite sequencing, she created a computational problem.**
+Bisulfite sequencing created a computational problem by design. The inference step—reconstructing methylation status from sequence differences—is **decomposition**: breaking down a complex biological question into a series of logical steps that must be executed in order.
 
-That inference step? That's **decomposition**—the first principle of computational thinking. Breaking down a complex biological question ("What's methylated?") into a series of logical steps that must be executed in order.
+---
 
 ## What Bisulfite Sequencing Actually Forced You to Do
 
@@ -42,20 +44,24 @@ Let's unpack what running bisulfite sequencing required in those early days. Thi
 
 **Each of these is its own computational problem.** And here's what's fascinating: in the 1990s and early 2000s, biologists did steps 3-6 *by hand*, often using Excel. They were doing computational thinking without formal training. They just called it "analyzing my data."
 
+---
+
 > ##### Editorial Note: What Made This a Methods Paper
 >
 > Frommer et al. (1992) in *PNAS* is a masterclass in methods innovation. The paper:
-- **Identified a chemical property** (differential deamination) that could encode biological information
-- **Validated the method** on known methylated sites (CG islands)
-- **Demonstrated generalizability** across different genomic contexts
-- **Acknowledged limitations** (incomplete conversion, sequencing requirements)
-
-**Why this matters for Nature Methods readers:** The best methods papers don't just describe a new technique. They show how the technique enables questions that were previously unanswerable. Frommer's innovation wasn't just measuring methylation—it was measuring methylation *at single-nucleotide resolution*.
-
-The computational burden this created? That was a feature, not a bug. It forced the field to develop tools that would become essential for all sequencing-based methods.
-
-**Reference:** Frommer, M. et al. (1992). "A genomic sequencing protocol that yields a positive display of 5-methylcytosine residues in individual DNA strands." *PNAS* 89(5):1827-1831.
+> - **Identified a chemical property** (differential deamination) that could encode biological information
+> - **Validated the method** on known methylated sites (CG islands)
+> - **Demonstrated generalizability** across different genomic contexts
+> - **Acknowledged limitations** (incomplete conversion, sequencing requirements)
+>
+> **Why this matters for Nature Methods readers:** The best methods papers don't just describe a new technique. They show how the technique enables questions that were previously unanswerable. Frommer's innovation wasn't just measuring methylation—it was measuring methylation *at single-nucleotide resolution*.
+>
+> The computational burden this created? That was a feature, not a bug. It forced the field to develop tools that would become essential for all sequencing-based methods.
+>
+> **Reference:** Frommer, M. et al. (1992). "A genomic sequencing protocol that yields a positive display of 5-methylcytosine residues in individual DNA strands." *PNAS* 89(5):1827-1831.
 {: .block-tip }
+
+---
 
 ## The Pattern Recognition Breakthrough: ATAC-seq's Hidden Data
 
@@ -67,7 +73,7 @@ Sequence the fragments. Count where they came from. You have a map of open chrom
 
 **Except that's not all you have.**
 
-### The Data Everyone Ignored (At First)
+### Fragment Lengths as Data
 
 Here's what early ATAC-seq papers did:
 1. Align reads to the genome
@@ -75,7 +81,7 @@ Here's what early ATAC-seq papers did:
 3. Conclude: "This region is accessible"
 4. Discard everything else
 
-But "everything else" included fragment length. And fragment length turned out to encode an enormous amount of information that was sitting there all along.
+But "everything else" included fragment length—and fragment length encodes structural information about nucleosome positioning.
 
 Think about what Tn5 actually does: it cuts accessible DNA. But DNA isn't naked—it's wrapped around nucleosomes. Tn5 cuts in the linker regions between nucleosomes, or in nucleosome-free regions at regulatory elements.
 
@@ -85,27 +91,31 @@ Think about what Tn5 actually does: it cuts accessible DNA. But DNA isn't naked�
 
 **This is pattern recognition:** seeing signal in what everyone else thought was noise.
 
-> ##### NOTE
+---
+
+> ##### Editorial Note: When Simple Gets Sophisticated
 >
 > Buenrostro et al. (2013) in *Nature Methods* appeared straightforward: replace DNase-seq's complex protocol with Tn5 tagmentation. But the method's real innovation emerged later, as the field recognized patterns in the data.
-
+>
 > **Evolution of ATAC-seq analysis:**
-
+>
 > - **2013:** Peak calling only
 > - **2015:** Fragment length distributions reveal nucleosome positioning
 > - **2016:** NucleoATAC extracts transcription factor footprints
 > - **2019:** Single-cell ATAC-seq with droplet microfluidics
 > - **2023:** Paired-tag methods for chromatin + RNA in same cells
-
+>
 > **What this teaches about methods evaluation:** The best methods create data that the developers didn't fully know how to interpret yet. ATAC-seq's fragment lengths were always there. It took the field 2-3 years to systematically recognize the patterns.
-
+>
 > **When reviewing methods papers, ask:** Is the data richer than the analysis shown? Are there unexploited features that could enable future discoveries?
-
-> **Reference:** Buenrostro, J.D. et al. (2013). "Transposition of native chromatin for fast and sensitiveepigenomic profiling of open chromatin, DNA-binding proteins and nucleosome position." *Nature Methods* 10:1213–1218.
+>
+> **Reference:** Buenrostro, J.D. et al. (2013). "Transposition of native chromatin for fast and sensitive epigenomic profiling of open chromatin, DNA-binding proteins and nucleosome position." *Nature Methods* 10:1213–1218.
 {: .block-tip }
 
+---
+
 ## Algorithmic Thinking: The Peak Calling Problem
- 
+
 Let me tell you about the first time I ran ChIP-seq analysis during my PhD.
 
 I had beautiful peaks. Gorgeous enrichment. Except when I looked closer, I also had peaks in:
@@ -137,7 +147,9 @@ The difference? MACS2 doesn't just count. It **models the data generation proces
 
 This is the essence of algorithmic thinking: understanding *why* the data looks the way it does, then designing procedures that account for that structure.
 
-> ##### NOTE
+---
+
+> ##### Editorial Note: The Importance of Thoughtful Defaults
 >
 > Zhang et al. (2008) developed MACS specifically to address ChIP-seq's systematic biases. What makes it a landmark methods paper:
 >
@@ -154,6 +166,9 @@ This is the essence of algorithmic thinking: understanding *why* the data looks 
 > **For methods developers:** Good defaults are not laziness. They're a service to users who don't have the time or statistical background to optimize every parameter. Your algorithm should work out-of-the-box for 80% of use cases.
 >
 > **Reference:** Zhang, Y. et al. (2008). "Model-based analysis of ChIP-Seq (MACS)." *Genome Biology* 9:R137.
+{: .block-tip }
+
+---
 
 ## The Computational Thinking You Already Had
 
@@ -168,6 +183,8 @@ When I noticed my ChIP peaks always appeared near transcription start sites and 
 When I wrote detailed protocols for CRISPR cloning that could work for any guide RNA, I was doing **abstraction**: designing procedures that generalize beyond specific examples.
 
 The transition to computational biology wasn't learning to think differently. It was learning to apply problem-solving skills I already had to questions where the "experiment" was running code instead of pipetting samples.
+
+---
 
 ## What This Means for Reading Methods Papers
 
@@ -190,6 +207,7 @@ Next time you read a methods paper—especially if you're evaluating it for sign
 
 These questions aren't just academic. They're how you evaluate whether a method is truly innovative or just incrementally different from what already exists.
 
+---
 
 ## Looking Ahead
 
