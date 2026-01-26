@@ -2,7 +2,7 @@
 layout: post
 title: "Seeing Five Molecular Layers at Once: How Spatial-Mux-seq Caught Development in the Act"
 date: 2026-01-26
-tags: spatial-omics, multi-omics, chromatin, development, epigenetics
+tags: spatial-omics multi-omics chromatin epigenetics
 category: research-highlights
 related_posts: true
 ---
