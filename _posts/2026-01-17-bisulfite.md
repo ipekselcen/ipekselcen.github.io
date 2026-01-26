@@ -139,24 +139,23 @@ The difference? MACS2 doesn't just count. It **models the data generation proces
 
 This is the essence of algorithmic thinking: understanding *why* the data looks the way it does, then designing procedures that account for that structure.
 
-> ##### Editorial Note: The Importance of Thoughtful Defaults
+> ##### NOTE
 >
 > Zhang et al. (2008) developed MACS specifically to address ChIP-seq's systematic biases. What makes it a landmark methods paper:
-
-**Problem definition:** ChIP-seq enrichment isn't uniform. Background varies by:
-- Local GC content
-- Mappability
-- Open chromatin state
-- Sequencing depth artifacts
-
-**Algorithmic innovation:** Dynamic local lambda calculation. Instead of one global background threshold, MACS estimates expected background in windows around each potential peak.
-
-**Impact:** MACS became the field standard not just because it worked well, but because its defaults worked well. Most users never tuned parameters—the algorithm was designed around realistic assumptions about ChIP-seq data.
-
-**For methods developers:** Good defaults are not laziness. They're a service to users who don't have the time or statistical background to optimize every parameter. Your algorithm should work out-of-the-box for 80% of use cases.
-
-**Reference:** Zhang, Y. et al. (2008). "Model-based analysis of ChIP-Seq (MACS)." *Genome Biology* 9:R137.
-{: .block-tip }
+>
+> **Problem definition:** ChIP-seq enrichment isn't uniform. Background varies by:
+> - Local GC content
+> - Mappability
+> - Open chromatin state
+> - Sequencing depth artifacts
+>
+> **Algorithmic innovation:** Dynamic local lambda calculation. Instead of one global background threshold, MACS estimates expected background in windows around each potential peak.
+>
+> **Impact:** MACS became the field standard not just because it worked well, but because its defaults worked well. Most users never tuned parameters—the algorithm was designed around realistic assumptions about ChIP-seq data.
+>
+> **For methods developers:** Good defaults are not laziness. They're a service to users who don't have the time or statistical background to optimize every parameter. Your algorithm should work out-of-the-box for 80% of use cases.
+>
+> **Reference:** Zhang, Y. et al. (2008). "Model-based analysis of ChIP-Seq (MACS)." *Genome Biology* 9:R137.
 
 ## The Computational Thinking You Already Had
 
