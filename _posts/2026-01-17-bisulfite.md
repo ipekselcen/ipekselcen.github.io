@@ -11,8 +11,6 @@ toc:
 
 > **For the biologist who learned to code out of necessity:** This post traces how three experimental breakthroughs in epigenetics inadvertently taught us computational thinking—before we even knew we were learning it.
 
----
-
 ## The Inference Problem
 
 In 1992, Marianne Frommer faced a technical challenge: how do you distinguish between a methylated cytosine and an unmethylated one?
