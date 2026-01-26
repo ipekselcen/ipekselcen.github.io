@@ -30,18 +30,7 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-from-bisulfite-to-foundation-models-how-epigenetics-methods-taught-us-to-think-computationally",
-        
-          title: "From Bisulfite to Foundation Models: How Epigenetics Methods Taught Us to Think Computationally...",
-        
-        description: "A biologist&#39;s guide to computational thinking, told through the evolution of epigenetics methods",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2026/bisulfite/";
-          
-        },
-      },{id: "post-what-i-wish-someone-had-told-me-about-tet1-a-computational-thinking-journey",
+        },{id: "post-what-i-wish-someone-had-told-me-about-tet1-a-computational-thinking-journey",
         
           title: "What I Wish Someone Had Told Me About TET1: A Computational Thinking Journey...",
         
