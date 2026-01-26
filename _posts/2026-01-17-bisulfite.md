@@ -3,7 +3,7 @@ layout: post
 title: "The Method That Taught Biologists to Code (Without Knowing It)"
 date: 2026-01-17
 tags: epigenetics, computational-thinking, methods, DNA-methylation, chromatin
-category: research-highlights
+category: SciComm
 related_posts: true
 toc:
   sidebar: left
