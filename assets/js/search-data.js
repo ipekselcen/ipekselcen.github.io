@@ -30,7 +30,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-the-method-that-taught-biologists-to-code-without-knowing-it",
+        },{id: "post-seeing-five-molecular-layers-at-once-how-spatial-mux-seq-caught-development-in-the-act",
+        
+          title: "Seeing Five Molecular Layers at Once: How Spatial-Mux-seq Caught Development in the Act...",
+        
+        description: "",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/spatial-mux-seq/";
+          
+        },
+      },{id: "post-the-method-that-taught-biologists-to-code-without-knowing-it",
         
           title: "The Method That Taught Biologists to Code (Without Knowing It)",
         
