@@ -104,6 +104,7 @@ Think about what Tn5 actually does: it cuts accessible DNA. But DNA isn't nakedâ
 > - **2016:** NucleoATAC extracts transcription factor footprints
 > - **2019:** Single-cell ATAC-seq with droplet microfluidics
 > - **2023:** Paired-tag methods for chromatin + RNA in same cells
+> - **2024-2025:** Spatial chromatin accessibility (spatial-ATAC-seq, DBiT-seq) and multi-modal spatial profiling
 >
 > **What this teaches about methods evaluation:** The best methods create data that the developers didn't fully know how to interpret yet. ATAC-seq's fragment lengths were always there. It took the field 2-3 years to systematically recognize the patterns.
 >
