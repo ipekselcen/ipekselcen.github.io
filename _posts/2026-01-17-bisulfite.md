@@ -59,7 +59,6 @@ The computational burden this created? That was a feature, not a bug. It forced 
 **Reference:** Frommer, M. et al. (1992). "A genomic sequencing protocol that yields a positive display of 5-methylcytosine residues in individual DNA strands." *PNAS* 89(5):1827-1831.
 {: .block-tip }
 
-
 ## The Pattern Recognition Breakthrough: ATAC-seq's Hidden Data
 
 Fast forward to 2013. Jason Buenrostro, a graduate student in Bill Greenleaf's lab at Stanford, developed ATAC-seq (Assay for Transposase-Accessible Chromatin using sequencing).
@@ -88,13 +87,9 @@ Think about what Tn5 actually does: it cuts accessible DNA. But DNA isn't nakedâ
 
 **This is pattern recognition:** seeing signal in what everyone else thought was noise.
 
----
-
-<div style="background: #f0f4f8; padding: 20px; margin: 20px 0; border-left: 4px solid #3b82f6;">
-
-### Editorial Note: When Simple Gets Sophisticated
-
-Buenrostro et al. (2013) in *Nature Methods* appeared straightforward: replace DNase-seq's complex protocol with Tn5 tagmentation. But the method's real innovation emerged later, as the field recognized patterns in the data.
+> ##### Editorial Note: When Simple Gets Sophisticated
+>
+> Buenrostro et al. (2013) in *Nature Methods* appeared straightforward: replace DNase-seq's complex protocol with Tn5 tagmentation. But the method's real innovation emerged later, as the field recognized patterns in the data.
 
 **Evolution of ATAC-seq analysis:**
 
@@ -109,10 +104,7 @@ Buenrostro et al. (2013) in *Nature Methods* appeared straightforward: replace D
 **When reviewing methods papers, ask:** Is the data richer than the analysis shown? Are there unexploited features that could enable future discoveries?
 
 **Reference:** Buenrostro, J.D. et al. (2013). "Transposition of native chromatin for fast and sensitive epigenomic profiling of open chromatin, DNA-binding proteins and nucleosome position." *Nature Methods* 10:1213â€“1218.
-
-</div>
-
----
+{: .block-tip }
 
 ## Algorithmic Thinking: The Peak Calling Problem
 
@@ -147,13 +139,9 @@ The difference? MACS2 doesn't just count. It **models the data generation proces
 
 This is the essence of algorithmic thinking: understanding *why* the data looks the way it does, then designing procedures that account for that structure.
 
----
-
-<div style="background: #f0f4f8; padding: 20px; margin: 20px 0; border-left: 4px solid #3b82f6;">
-
-### Editorial Note: The Importance of Thoughtful Defaults
-
-Zhang et al. (2008) developed MACS specifically to address ChIP-seq's systematic biases. What makes it a landmark methods paper:
+> ##### Editorial Note: The Importance of Thoughtful Defaults
+>
+> Zhang et al. (2008) developed MACS specifically to address ChIP-seq's systematic biases. What makes it a landmark methods paper:
 
 **Problem definition:** ChIP-seq enrichment isn't uniform. Background varies by:
 - Local GC content
@@ -168,10 +156,7 @@ Zhang et al. (2008) developed MACS specifically to address ChIP-seq's systematic
 **For methods developers:** Good defaults are not laziness. They're a service to users who don't have the time or statistical background to optimize every parameter. Your algorithm should work out-of-the-box for 80% of use cases.
 
 **Reference:** Zhang, Y. et al. (2008). "Model-based analysis of ChIP-Seq (MACS)." *Genome Biology* 9:R137.
-
-</div>
-
----
+{: .block-tip }
 
 ## The Computational Thinking You Already Had
 
