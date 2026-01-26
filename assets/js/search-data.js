@@ -30,18 +30,7 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-the-method-that-taught-biologists-to-code-without-knowing-it",
-        
-          title: "The Method That Taught Biologists to Code (Without Knowing It)",
-        
-        description: "",
-        section: "Posts",
-        handler: () => {
-          
-            window.location.href = "/blog/2026/bisulfite/";
-          
-        },
-      },{id: "post-what-i-wish-someone-had-told-me-about-tet1-a-computational-thinking-journey",
+        },{id: "post-what-i-wish-someone-had-told-me-about-tet1-a-computational-thinking-journey",
         
           title: "What I Wish Someone Had Told Me About TET1: A Computational Thinking Journey...",
         
