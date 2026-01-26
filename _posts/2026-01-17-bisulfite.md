@@ -1,309 +1,260 @@
 ---
-layout: post
-title: "From Bisulfite to Foundation Models: How Epigenetics Methods Taught Us to Think Computationally"
-date: 2026-01-17
-description: "A biologist's guide to computational thinking, told through the evolution of epigenetics methods"
-tags: epigenetics, computational-thinking, methods, DNA-methylation, chromatin
-categories: research-highlights
-related_posts: true
-toc:
-  sidebar: left
+title: "The Method That Taught Biologists to Code (Without Knowing It)"
+date: 2026-01-27
+tags: [epigenetics, computational-thinking, methods, DNA-methylation, chromatin]
+category: research-highlights
+series: "Computational Thinking for Chromatin Biologists"
+series_part: 1
 ---
 
-> **For the biologist who learned to code out of necessity:** This post traces how experimental breakthroughs in epigenetics inadvertently taught us computational thinking (before we even knew we were learning it).
+> **For the biologist who learned to code out of necessity:** This post traces how three experimental breakthroughs in epigenetics inadvertently taught us computational thinking—before we even knew we were learning it.
 
 ---
 
 ## The Problem That Changed Everything
 
-In 1992, Marianne Frommer faced what seemed like a simple question: how do you tell the difference between a methylated cytosine and an unmethylated one? Both are cytosines. Both look identical under a microscope. Both have the same mass on a spectrometer.
+**1992, UC San Francisco.** Marianne Frommer faced what seemed like an impossible question: how do you tell the difference between a methylated cytosine and an unmethylated one?
 
-Her solution—treating DNA with sodium bisulfite to chemically convert unmethylated cytosines to uracils while leaving methylated cytosines untouched—became bisulfite sequencing, the gold standard for measuring DNA methylation. But here's what's fascinating: this experimental innovation forced biologists to start thinking computationally, whether they realized it or not.
+Both are cytosines. Both look identical under a microscope. Both have the same mass on a spectrometer. The only difference—one has a methyl group (-CH₃), the other doesn't—is chemically silent in most assays.
 
-Why? Because bisulfite sequencing doesn't give you a direct readout of methylation. It gives you sequences full of Ts (converted from unmethylated Cs) and Cs (originally methylated). Someone—or something—has to **infer** the original methylation state by comparing treated to untreated DNA.
+Her solution seemed almost comically simple: treat DNA with sodium bisulfite. Under harsh conditions (high temperature, low pH, hours of incubation), something remarkable happens. Unmethylated cytosines convert to uracils. Methylated cytosines stay cytosines—the methyl group protects them.
 
-> **Key Insight:** That inference step? That's computational thinking. The moment you have to reconstruct information from transformed data, you're already doing computation—even if you're just using Excel.
-{: .block-tip }
+Sequence the treated DNA, and you get your answer. Except you don't get a direct readout of methylation. You get sequences full of Ts (converted from unmethylated Cs) and Cs (that stayed methylated because they were protected). Someone—or something—has to **infer** the original methylation state by comparing treated to untreated DNA.
+
+> **The moment Frommer created bisulfite sequencing, she created a computational problem.**
+
+That inference step? That's **decomposition**—the first principle of computational thinking. Breaking down a complex biological question ("What's methylated?") into a series of logical steps that must be executed in order.
 
 ---
 
-## Decomposition: Breaking Down the Methylation Problem
+## What Bisulfite Sequencing Actually Forced You to Do
 
-Let's unpack what bisulfite sequencing actually requires you to do. This is where computational thinking starts: with **decomposition**—breaking a complex problem into manageable pieces.
+Let's unpack what running bisulfite sequencing required in those early days. This is computational thinking emerging in real time:
 
 **The experimental question:** "What is the methylation status of my genomic region?"
 
 **The computational breakdown:**
 
-1. Align bisulfite-converted reads to a reference genome (but the reads don't match perfectly anymore)
-2. Identify which Cs became Ts (unmethylated sites)
-3. Identify which Cs stayed Cs (methylated sites)
-4. Calculate methylation percentage per site
-5. Account for incomplete conversion (some Cs don't convert even if unmethylated)
+1. Sequence both bisulfite-treated and untreated DNA
+2. Align bisulfite-converted reads to a reference genome (but the reads don't match perfectly anymore because C→T conversions make them different)
+3. For every cytosine in the reference, ask: did it stay C (methylated) or become T (unmethylated)?
+4. Calculate methylation percentage per site across multiple reads
+5. Account for incomplete conversion (some Cs don't convert even if unmethylated—your bisulfite kit isn't perfect)
 6. Account for sequencing errors (some Ts might be sequencing mistakes, not conversions)
 
-Each of these is its own computational problem. And here's the kicker: in the early days, biologists did steps 2-6 by hand, often using Excel. They were doing computational thinking without formal training.
-
-### The Pattern Recognition Emerges
-
-By the mid-2000s, researchers realized they were solving the same alignment problem over and over. Different labs were writing similar scripts. The community needed a standardized tool.
-
-Enter **Bismark** (2011), which automated the entire pipeline. But Bismark didn't just automate existing manual steps—it introduced **abstraction**: the tool could handle single-end or paired-end reads, different reference genomes, various quality filters. One algorithm, many applications.
+**Each of these is its own computational problem.** And here's what's fascinating: in the 1990s and early 2000s, biologists did steps 3-6 *by hand*, often using Excel. They were doing computational thinking without formal training. They just called it "analyzing my data."
 
 ---
 
-## Pattern Recognition: The Chromatin Accessibility Revolution
+<div style="background: #f0f4f8; padding: 20px; margin: 20px 0; border-left: 4px solid #3b82f6;">
 
-Fast forward to 2013. Jason Buenrostro at Stanford develops ATAC-seq (Assay for Transposase-Accessible Chromatin using sequencing). Instead of asking "where is DNA methylated?", he asks "where is chromatin accessible?"
+### Editorial Note: What Made This a Methods Paper
 
-The experimental approach is elegantly simple: a hyperactive transposase (Tn5) cuts DNA at accessible regions and simultaneously inserts sequencing adapters. Sequence the fragments, and you have a map of open chromatin.
+Frommer et al. (1992) in *PNAS* is a masterclass in methods innovation. The paper:
 
-But here's where **pattern recognition** becomes crucial. ATAC-seq doesn't just give you a list of open regions. It gives you:
+- **Identified a chemical property** (differential deamination) that could encode biological information
+- **Validated the method** on known methylated sites (CG islands)
+- **Demonstrated generalizability** across different genomic contexts
+- **Acknowledged limitations** (incomplete conversion, sequencing requirements)
 
-- Read depth (how accessible is each region?)
-- Fragment length distribution (are nucleosomes present?)
-- Footprints (protected regions within accessible chromatin where transcription factors bind)
+**Why this matters for Nature Methods readers:** The best methods papers don't just describe a new technique. They show how the technique enables questions that were previously unanswerable. Frommer's innovation wasn't just measuring methylation—it was measuring methylation *at single-nucleotide resolution*.
 
-> **Pattern Recognition in Action:** Early ATAC-seq papers just counted peaks. Then researchers noticed patterns: certain genomic regions showed stereotypical fragment length distributions. A peak with many ~40-50bp fragments suggested nucleosome-free regions. Longer fragments (~200bp) indicated mononucleosomes.
-{: .block-tip }
+The computational burden this created? That was a feature, not a bug. It forced the field to develop tools that would become essential for all sequencing-based methods.
 
-By 2016, tools like **NucleoATAC** were extracting nucleosome positioning and transcription factor occupancy from the same ATAC-seq data, because the patterns were there all along—they just needed algorithms to recognize them systematically.
+**Reference:** Frommer, M. et al. (1992). "A genomic sequencing protocol that yields a positive display of 5-methylcytosine residues in individual DNA strands." *PNAS* 89(5):1827-1831.
 
-The key insight: ATAC-seq fragment lengths aren't noise. They're data. But recognizing that required thinking computationally about what the experimental readout was actually telling you.
+</div>
 
 ---
 
-## Algorithmic Thinking: ChIP-seq and the Peak Calling Problem
+## The Pattern Recognition Breakthrough: ATAC-seq's Hidden Data
 
-Chromatin immunoprecipitation followed by sequencing (ChIP-seq) gives you a pile of DNA fragments representing where your protein of interest was bound. Your challenge: where, exactly, were the binding sites?
+Fast forward to 2013. Jason Buenrostro, a graduate student in Bill Greenleaf's lab at Stanford, developed ATAC-seq (Assay for Transposase-Accessible Chromatin using sequencing).
 
-This is an **algorithmic thinking** problem: given noisy data with background signal, how do you systematically identify true binding events?
+The experimental approach is elegantly simple: a hyperactive transposase (Tn5) simultaneously cuts DNA at accessible regions and inserts sequencing adapters. No crosslinking, no sonication, no antibodies. Just Tn5, some cells, and a sequencer.
 
-### Naive vs. Sophisticated Approaches
+Sequence the fragments. Count where they came from. You have a map of open chromatin.
 
-| ❌ **Naive Algorithm** | ✅ **Sophisticated Algorithm (MACS2)** |
-|------------------------|----------------------------------------|
+**Except that's not all you have.**
+
+### The Data Everyone Ignored (At First)
+
+Here's what early ATAC-seq papers did:
+1. Align reads to the genome
+2. Call peaks where reads pile up
+3. Conclude: "This region is accessible"
+4. Discard everything else
+
+But "everything else" included fragment length. And fragment length turned out to encode an enormous amount of information that was sitting there all along.
+
+Think about what Tn5 actually does: it cuts accessible DNA. But DNA isn't naked—it's wrapped around nucleosomes. Tn5 cuts in the linker regions between nucleosomes, or in nucleosome-free regions at regulatory elements.
+
+- **Fragments ~40-50 bp:** Tn5 cut on both sides of a transcription factor or other protein. Nucleosome-free region.
+- **Fragments ~200 bp:** Tn5 cut in flanking linkers around one nucleosome. Mononucleosome.
+- **Fragments ~400 bp:** Two nucleosomes with linker. Dinucleosome.
+
+**This is pattern recognition:** seeing signal in what everyone else thought was noise.
+
+---
+
+<div style="background: #f0f4f8; padding: 20px; margin: 20px 0; border-left: 4px solid #3b82f6;">
+
+### Editorial Note: When Simple Gets Sophisticated
+
+Buenrostro et al. (2013) in *Nature Methods* appeared straightforward: replace DNase-seq's complex protocol with Tn5 tagmentation. But the method's real innovation emerged later, as the field recognized patterns in the data.
+
+**Evolution of ATAC-seq analysis:**
+
+- **2013:** Peak calling only
+- **2015:** Fragment length distributions reveal nucleosome positioning
+- **2016:** NucleoATAC extracts transcription factor footprints
+- **2019:** Single-cell ATAC-seq with droplet microfluidics
+- **2023:** Paired-tag methods for chromatin + RNA in same cells
+
+**What this teaches about methods evaluation:** The best methods create data that the developers didn't fully know how to interpret yet. ATAC-seq's fragment lengths were always there. It took the field 2-3 years to systematically recognize the patterns.
+
+**When reviewing methods papers, ask:** Is the data richer than the analysis shown? Are there unexploited features that could enable future discoveries?
+
+**Reference:** Buenrostro, J.D. et al. (2013). "Transposition of native chromatin for fast and sensitive epigenomic profiling of open chromatin, DNA-binding proteins and nucleosome position." *Nature Methods* 10:1213–1218.
+
+</div>
+
+---
+
+## Algorithmic Thinking: The Peak Calling Problem
+
+Let me tell you about the first time I ran ChIP-seq analysis during my PhD.
+
+I had beautiful peaks. Gorgeous enrichment. Except when I looked closer, I also had peaks in:
+- Telomeres (my transcription factor doesn't bind there)
+- Mitochondrial DNA (contamination)
+- Highly repetitive regions (alignment artifacts)
+- Random background noise that just happened to be slightly higher than average
+
+The naive approach—"count reads in windows, call high regions as peaks"—gave me garbage. I needed an algorithm that understood the structure of the problem.
+
+### How ChIP-seq Taught Me Algorithmic Thinking
+
+**ChIP-seq gives you:** Millions of DNA fragments representing where your protein of interest was bound.
+
+**Your challenge:** Where, *exactly*, were the binding sites?
+
+This is algorithmic thinking: designing a step-by-step procedure that accounts for how your data was actually generated.
+
+| ❌ **Naive Algorithm (What I Tried First)** | ✅ **Sophisticated Algorithm (MACS2)** |
+|----------------------------------------------|----------------------------------------|
 | 1. Align reads to genome | 1. Model local background using control samples |
 | 2. Count reads in sliding windows | 2. Shift reads to estimate fragment centers |
-| 3. Call regions with high counts as "peaks" | 3. Use dynamic lambda (local background rate) |
-| 4. Done | 4. Calculate fold enrichment and statistical significance |
-| *What early researchers did manually* | 5. Call peaks using FDR cutoff |
+| 3. Call regions with high counts as "peaks" | 3. Use dynamic lambda (local background varies!) |
+| 4. Get overwhelmed by false positives | 4. Calculate fold enrichment AND statistical significance |
+| 5. Spend weeks troubleshooting | 5. Call peaks using FDR cutoff |
 |  | 6. Report peak summits, not just regions |
 
-Notice the difference? The sophisticated algorithm doesn't just count. It **models** the data generation process (how reads are created from fragments, how background varies locally) and uses that model to make better inferences.
+The difference? MACS2 doesn't just count. It **models the data generation process**: how reads are created from fragments, how background varies locally, how sequencing depth affects power. Then it uses that model to make better inferences.
 
-> **This is algorithmic thinking:** Designing a step-by-step procedure that accounts for the structure of your problem.
-{: .block-warning }
-
----
-
-## Abstraction: Single-Cell Multi-Omics
-
-Here's where epigenetics methods get really interesting computationally. By 2018, we had:
-
-- scATAC-seq: single-cell chromatin accessibility
-- scRNA-seq: single-cell gene expression  
-- Single-cell bisulfite sequencing: single-cell methylation
-
-Each generates sparse, noisy data. Each requires different computational approaches. But researchers started asking: what if we measured multiple epigenetic layers in the **same** cells?
-
-### The Multi-Omics Explosion (2020-2025)
-
-```mermaid
-timeline
-    title Evolution of Multi-Omics Methods
-    2020 : SHARE-seq : Simultaneous RNA + chromatin accessibility
-    2021 : 10x Multiome : Commercial platform for paired RNA + ATAC
-    2025 : Spatial-Mux-seq : Chromatin + histones + protein + RNA in spatial context
-```
-
-The computational challenge: these assays measure fundamentally different things. RNA-seq counts molecules. ATAC-seq measures accessibility. Methylation is binary at each CG site.
-
-**Abstraction to the rescue:** Tools like **Signac** and **ArchR** introduced a unified framework.
-
-**The Key Abstraction:**
-
-All single-cell data can be represented as:
-
-- **Cell × Feature matrix** (what you measure)
-- **Metadata** (cell annotations, quality metrics)  
-- **Dimensional reduction** (shared latent space)
-
-Whether you have RNA counts, ATAC peaks, or methylation rates, this framework applies. The computational operations—normalization, feature selection, clustering, visualization—work on the abstract representation, not the raw data type.
-
-This is abstraction: identifying common structure across different domains and building tools that work at that level of generality.
+This is the essence of algorithmic thinking: understanding *why* the data looks the way it does, then designing procedures that account for that structure.
 
 ---
 
-## The Deep Learning Revolution: When Pattern Recognition Meets Abstraction
+<div style="background: #f0f4f8; padding: 20px; margin: 20px 0; border-left: 4px solid #3b82f6;">
 
-### 2024: The Year Foundation Models Arrived in Epigenetics
+### Editorial Note: The Importance of Thoughtful Defaults
 
-Taskiran et al. (Nature, 2024) trained a deep learning model on single-cell ATAC-seq to learn enhancer grammar. Not "where are enhancers?" but "what makes an enhancer work?"
+Zhang et al. (2008) developed MACS specifically to address ChIP-seq's systematic biases. What makes it a landmark methods paper:
 
-The model learned to:
-- Design synthetic enhancers from scratch
-- Predict cell-type specificity from sequence alone
-- Generate minimal 50bp sequences that still function as enhancers
+**Problem definition:** ChIP-seq enrichment isn't uniform. Background varies by:
+- Local GC content
+- Mappability
+- Open chromatin state
+- Sequencing depth artifacts
 
-Meanwhile, Bravo González-Blas et al. (Nature Cell Biology, 2024) developed **DeepLiver**, which predicts how enhancer architecture encodes spatial identity in the liver. Single-nucleotide resolution. Experimentally validated.
+**Algorithmic innovation:** Dynamic local lambda calculation. Instead of one global background threshold, MACS estimates expected background in windows around each potential peak.
 
-### What's Computationally Different About Foundation Models?
+**Impact:** MACS became the field standard not just because it worked well, but because its defaults worked well. Most users never tuned parameters—the algorithm was designed around realistic assumptions about ChIP-seq data.
 
-<table class="table table-sm">
-<thead>
-<tr>
-<th>Traditional Approaches</th>
-<th>Foundation Model Approaches</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1. Design experiment<br>2. Collect data<br>3. Apply statistics<br>4. Interpret results</td>
-<td>1. Train on millions of cells<br>2. Learn generalizable patterns<br>3. Generate predictions<br>4. Test predictions experimentally<br>5. Refine model</td>
-</tr>
-</tbody>
-</table>
+**For methods developers:** Good defaults are not laziness. They're a service to users who don't have the time or statistical background to optimize every parameter. Your algorithm should work out-of-the-box for 80% of use cases.
 
-The model becomes the hypothesis generator. It discovers patterns humans wouldn't have designed experiments to test.
+**Reference:** Zhang, Y. et al. (2008). "Model-based analysis of ChIP-Seq (MACS)." *Genome Biology* 9:R137.
 
-### But Here's the Critical Lesson from 2025
-
-> **⚠️ Critical Computational Thinking:** Just because it's deep learning doesn't mean it's better.
->
-> Ahlmann-Eltze et al. (Nature Methods, 2025) showed that foundation models for predicting gene perturbation responses didn't outperform simple baselines. The hype around AI in genomics needed rigorous benchmarking.
-{: .block-danger }
-
-This is **algorithmic evaluation**: don't just build fancy models. Ask:
-- What is the simplest approach that would work? 
-- How much better is your complex method? 
-- Is the added complexity worth it?
+</div>
 
 ---
 
-## What Biologists Can Learn From This History
+## The Computational Thinking You Already Had
 
-Every methods advance in epigenetics required computational thinking, even if the developers didn't call it that:
+Here's what I realized during my PhD, somewhere around year 4 when I was knee-deep in hMeRIP-seq analysis and trying to figure out why my peaks didn't make biological sense:
 
-| Method | Computational Thinking Skill |
-|--------|----------------------------|
-| **Bisulfite sequencing (1992)** | Decomposition—breaking experimental readouts into inference steps |
-| **ATAC-seq (2013)** | Pattern recognition—seeing signal in fragment length distributions |
-| **ChIP-seq peak calling** | Algorithmic thinking—designing procedures that account for data structure |
-| **Multi-omics (2020s)** | Abstraction—finding common frameworks across data types |
-| **Foundation models (2024-2025)** | Critical evaluation—distinguishing transformative tools from hype |
+**I was already thinking computationally. I just didn't call it that.**
+
+When I troubleshot why my Western blot didn't work, I was doing **decomposition**: breaking down the protocol into steps, testing each one systematically, identifying where the failure occurred.
+
+When I noticed my ChIP peaks always appeared near transcription start sites and wondered if that was biological signal or technical artifact, I was doing **pattern recognition**: seeing structure in data and asking what it meant.
+
+When I wrote detailed protocols for CRISPR cloning that could work for any guide RNA, I was doing **abstraction**: designing procedures that generalize beyond specific examples.
+
+The transition to computational biology wasn't learning to think differently. It was learning to apply problem-solving skills I already had to questions where the "experiment" was running code instead of pipetting samples.
 
 ---
 
-## Practical Exercise: Think Through a Methods Paper Computationally
+## What This Means for Reading Methods Papers
 
-Next time you read a methods paper, ask yourself these questions:
-
-{% details Click to expand: Computational Thinking Framework %}
+Next time you read a methods paper—especially if you're evaluating it for significance, rigor, or publication—ask yourself:
 
 **Decomposition:**
 - What is the experimental readout, and what biological question does it answer?
-- What are the steps from raw data to biological conclusion?
-- Which steps are experimental? Which are computational?
+- What computational steps are required to go from raw data to biological conclusion?
+- Are any of these steps new/challenging/rate-limiting for the field?
 
 **Pattern recognition:**
 - What patterns in the data indicate signal vs. noise?
-- Are there unexpected patterns the authors exploit (like ATAC-seq fragment lengths)?
+- Are there features being exploited that weren't obvious at first (like ATAC fragment lengths)?
 - What assumptions about data structure does the analysis make?
 
 **Algorithmic thinking:**
-- What is the step-by-step procedure for going from reads to results?
+- Could you explain the analysis procedure to someone and they'd get the same results?
 - How does the algorithm handle edge cases (low coverage, ambiguous mappings, batch effects)?
-- Could you describe the algorithm to someone else and they'd get the same results?
+- Are the defaults reasonable? Would naive users get good results out-of-the-box?
 
-**Abstraction:**
-- Does this method generalize beyond the specific application shown?
-- What is the minimal necessary input? What is optional?
-- Could the core approach be adapted to other biological questions?
-
-**Evaluation:**
-- How is this method benchmarked against alternatives?
-- What are the failure modes? When would a simpler approach work just as well?
-- Are the computational claims rigorously tested?
-
-{% enddetails %}
+These questions aren't just academic. They're how you evaluate whether a method is truly innovative or just incrementally different from what already exists.
 
 ---
 
-## The Computational Thinking You Already Have
+## Looking Ahead
 
-If you've ever:
+Three methods. Three computational thinking lessons:
 
-- ✓ Troubleshot why your Western blot didn't work (**decomposition**)
-- ✓ Noticed that your ChIP peaks always appear near TSSs (**pattern recognition**)
-- ✓ Written a step-by-step protocol (**algorithmic thinking**)
-- ✓ Designed a cloning strategy that works for multiple constructs (**abstraction**)
-- ✓ Tested whether you really need that expensive antibody (**evaluation**)
+| Method | Year | Computational Skill Taught |
+|--------|------|---------------------------|
+| **Bisulfite sequencing** | 1992 | Decomposition—inference from transformed data |
+| **ATAC-seq** | 2013 | Pattern recognition—signal in fragment lengths |
+| **ChIP-seq peak calling** | 2008 | Algorithmic thinking—modeling data generation |
 
-...then you're already thinking computationally. 
+But here's what's interesting: we've only covered methods that work on *one data type* at a time. What happens when methods from different fields start talking to each other?
 
-> **The transition to computational biology isn't learning to think differently.** It's learning to apply the problem-solving skills you already have to questions where the "experiment" is running code instead of pipetting samples.
-{: .block-tip }
+What happens when you want to measure chromatin accessibility AND gene expression AND DNA methylation in the *same cells*?
 
----
-
-## Looking Forward: Programmable Biology
-
-The most exciting methods papers in 2025 share a common thread: they're moving from *describing* biology to *programming* it.
-
-**PERT** (Pierce et al., Nature, 2025)
-: Prime editing that reads through stop codons, potentially treating dozens of genetic diseases with a single construct
-
-**Perturb-FISH** (Binan et al., Cell, 2025)
-: CRISPR screening with spatial transcriptomics, capturing cell-autonomous and intercellular effects simultaneously
-
-**Base editing screens** (Multiple labs, 2024-2025)
-: Connecting GWAS variants to functional outcomes at scale
-
-These methods require sophisticated computational thinking at every step:
-- Designing guide RNAs (**algorithmic design**)
-- Analyzing spatial genetic interactions (**multi-dimensional pattern recognition**)
-- Linking variants to phenotypes (**causal inference in high-dimensional space**)
-
-The wet lab and the computational lab aren't separate anymore. Every experiment generates data that requires algorithmic interpretation. Every analysis makes assumptions about biology that should be experimentally validated.
+That's where we're going in Part 2: the multi-omics revolution, and the computational thinking skill that made it possible—**abstraction**.
 
 ---
 
-## Epilogue: The Biologist's Advantage
-
-The biologists who thrive in this environment won't necessarily be the ones who learn to code (though that helps). They'll be the ones who learn to think about biological problems the way Marianne Frommer thought about bisulfite sequencing: **as an inference problem where experimental design and computational analysis are inseparable.**
-
-> **Remember:** When Frommer developed bisulfite sequencing in 1992, she wasn't trying to teach anyone computational thinking. She was just trying to measure methylation. But in solving that problem, she inadvertently created a method that would force an entire generation of biologists to think computationally.
->
-> That's the beautiful irony: the best computational methods emerge not from trying to be computational, but from trying to answer biological questions well.
-{: .block-tip }
-
----
-
-## References & Further Reading
+## References
 
 **Historical methods:**
-- Frommer et al. (1992). "A genomic sequencing protocol that yields a positive display of 5-methylcytosine residues in individual DNA strands." *PNAS* 89(5):1827-1831.
-- Buenrostro et al. (2013). "Transposition of native chromatin for fast and sensitive epigenomic profiling of open chromatin, DNA-binding proteins and nucleosome position." *Nature Methods* 10:1213–1218.
+- Frommer, M. et al. (1992). "A genomic sequencing protocol that yields a positive display of 5-methylcytosine residues in individual DNA strands." *PNAS* 89(5):1827-1831. [PubMed](https://pubmed.ncbi.nlm.nih.gov/1542678/)
+
+- Buenrostro, J.D. et al. (2013). "Transposition of native chromatin for fast and sensitive epigenomic profiling of open chromatin, DNA-binding proteins and nucleosome position." *Nature Methods* 10:1213–1218. [PubMed](https://pubmed.ncbi.nlm.nih.gov/24097267/)
 
 **Computational tools:**
-- Krueger & Andrews (2011). "Bismark: a flexible aligner and methylation caller for Bisulfite-Seq applications." *Bioinformatics* 27(11):1571-1572.
-- Zhang et al. (2008). "Model-based analysis of ChIP-Seq (MACS)." *Genome Biology* 9:R137.
-- Schep et al. (2017). "chromVAR: inferring transcription-factor-associated accessibility from single-cell epigenomic data." *Nature Methods* 14:975–978.
+- Zhang, Y. et al. (2008). "Model-based analysis of ChIP-Seq (MACS)." *Genome Biology* 9:R137. [PubMed](https://pubmed.ncbi.nlm.nih.gov/18798982/)
 
-**Modern multi-omics:**
-- Ma et al. (2020). "Chromatin Potential Identified by Shared Single-Cell Profiling of RNA and Chromatin." *Cell* 183(4):1103-1116.
-- Guo et al. (2025). "Spatial-Mux-seq: versatile spatial multiplexing of multi-omics modalities." *Nature Methods* 22:520–529.
+- Schep, A.N. et al. (2017). "chromVAR: inferring transcription-factor-associated accessibility from single-cell epigenomic data." *Nature Methods* 14:975–978. [PubMed](https://pubmed.ncbi.nlm.nih.gov/28825706/)
 
-**Foundation models & critical evaluation:**
-- Taskiran, I.I. et al. (2024). "Cell-type-directed design of synthetic enhancers." *Nature* 626:212–220.
-- Bravo González-Blas, C. et al. (2024). "Single-cell spatial multi-omics and deep learning dissect enhancer-driven gene regulatory networks in liver zonation." *Nature Cell Biology* 26(1):153-167.
-- Ahlmann-Eltze, C. et al. (2025). "Comparison of transformers and simple baselines for predicting perturbation responses." *Nature Methods* 22:1657–1661.
-
-**Programmable biology:**
-- Pierce, S.E. et al. (2025). "Prime editing-installed suppressor tRNAs for disease-agnostic genome editing." *Nature* 648:191–202.
-- Binan, L. et al. (2025). "Simultaneous CRISPR screening and spatial transcriptomics reveal intracellular, intercellular, and functional transcriptional circuits." *Cell* 188(8):2141-2158.
+- Schep, A.N. et al. (2015). "Structured nucleosome fingerprints enable high-resolution mapping of chromatin architecture within regulatory regions." *Genome Research* 25:1757-1770. [PubMed](https://pubmed.ncbi.nlm.nih.gov/26314830/) (NucleoATAC)
 
 ---
 
-*This post is part of an ongoing series on computational thinking for experimental biologists.*
+**Next in this series:** *Part 2: When Chromatin Methods Converged—The Multi-Omics Revolution*
+
+---
+
+*This is Part 1 of a 3-part series on computational thinking for chromatin biologists. Written by a chromatin biologist who learned computational thinking the hard way—by running experiments that generated data I didn't know how to analyze.*
