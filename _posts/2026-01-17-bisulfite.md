@@ -25,8 +25,6 @@ Sequence the treated DNA, and you get your answer. Except you don't get a direct
 
 That inference step? That's **decomposition**—the first principle of computational thinking. Breaking down a complex biological question ("What's methylated?") into a series of logical steps that must be executed in order.
 
----
-
 ## What Bisulfite Sequencing Actually Forced You to Do
 
 Let's unpack what running bisulfite sequencing required in those early days. This is computational thinking emerging in real time:
@@ -171,8 +169,6 @@ When I wrote detailed protocols for CRISPR cloning that could work for any guide
 
 The transition to computational biology wasn't learning to think differently. It was learning to apply problem-solving skills I already had to questions where the "experiment" was running code instead of pipetting samples.
 
----
-
 ## What This Means for Reading Methods Papers
 
 Next time you read a methods paper—especially if you're evaluating it for significance, rigor, or publication—ask yourself:
@@ -194,7 +190,6 @@ Next time you read a methods paper—especially if you're evaluating it for sign
 
 These questions aren't just academic. They're how you evaluate whether a method is truly innovative or just incrementally different from what already exists.
 
----
 
 ## Looking Ahead
 
