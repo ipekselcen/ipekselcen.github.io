@@ -87,27 +87,27 @@ Think about what Tn5 actually does: it cuts accessible DNA. But DNA isn't naked�
 
 **This is pattern recognition:** seeing signal in what everyone else thought was noise.
 
-> ##### Editorial Note: When Simple Gets Sophisticated
+> ##### NOTE
 >
 > Buenrostro et al. (2013) in *Nature Methods* appeared straightforward: replace DNase-seq's complex protocol with Tn5 tagmentation. But the method's real innovation emerged later, as the field recognized patterns in the data.
 
-**Evolution of ATAC-seq analysis:**
+> **Evolution of ATAC-seq analysis:**
 
-- **2013:** Peak calling only
-- **2015:** Fragment length distributions reveal nucleosome positioning
-- **2016:** NucleoATAC extracts transcription factor footprints
-- **2019:** Single-cell ATAC-seq with droplet microfluidics
-- **2023:** Paired-tag methods for chromatin + RNA in same cells
+> - **2013:** Peak calling only
+> - **2015:** Fragment length distributions reveal nucleosome positioning
+> - **2016:** NucleoATAC extracts transcription factor footprints
+> - **2019:** Single-cell ATAC-seq with droplet microfluidics
+> - **2023:** Paired-tag methods for chromatin + RNA in same cells
 
-**What this teaches about methods evaluation:** The best methods create data that the developers didn't fully know how to interpret yet. ATAC-seq's fragment lengths were always there. It took the field 2-3 years to systematically recognize the patterns.
+> **What this teaches about methods evaluation:** The best methods create data that the developers didn't fully know how to interpret yet. ATAC-seq's fragment lengths were always there. It took the field 2-3 years to systematically recognize the patterns.
 
-**When reviewing methods papers, ask:** Is the data richer than the analysis shown? Are there unexploited features that could enable future discoveries?
+> **When reviewing methods papers, ask:** Is the data richer than the analysis shown? Are there unexploited features that could enable future discoveries?
 
-**Reference:** Buenrostro, J.D. et al. (2013). "Transposition of native chromatin for fast and sensitive epigenomic profiling of open chromatin, DNA-binding proteins and nucleosome position." *Nature Methods* 10:1213–1218.
+> **Reference:** Buenrostro, J.D. et al. (2013). "Transposition of native chromatin for fast and sensitiveepigenomic profiling of open chromatin, DNA-binding proteins and nucleosome position." *Nature Methods* 10:1213–1218.
 {: .block-tip }
 
 ## Algorithmic Thinking: The Peak Calling Problem
-
+ 
 Let me tell you about the first time I ran ChIP-seq analysis during my PhD.
 
 I had beautiful peaks. Gorgeous enrichment. Except when I looked closer, I also had peaks in:
