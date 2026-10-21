@@ -1,9 +1,33 @@
+# ipekselcen.github.io
 
+Personal website of **Ipek Selcen** — PhD in Biochemistry, bridging wet lab
+and computational biology.
 
----
+Live at: <https://ipekselcen.github.io>
+
+## About
+
+Recent PhD graduate (CUNY Advanced Science Research Center, June 2025).
+Dissertation: TET2 regulation of RNA modifications in brain cells.
+Interests: epigenomics, single-cell methods, and making sequencing data
+talk to each other.
+
+## Stack
+
+- [Jekyll](https://jekyllrb.com) static site
+- [al-folio](https://github.com/alshedivat/al-folio) theme
+- Deployed automatically via GitHub Actions on push to `main`
+
+## Local preview
+
+```bash
+bundle install
+bundle exec jekyll serve
+```
+
+Then open <http://localhost:4000>.
 
 ## License
 
-The theme is available as open source under the terms of the [MIT License](https://github.com/alshedivat/al-folio/blob/main/LICENSE).
-
-Originally, **al-folio** was based on the [\*folio theme](https://github.com/bogoli/-folio) (published by [Lia Bogoev](https://liabogoev.com) and under the MIT license). Since then, it got a full re-write of the styles and many additional cool features.
+Theme: [MIT License](https://github.com/alshedivat/al-folio/blob/main/LICENSE)
+(al-folio / Maruan Al-Shedivat). Site content: © Ipek Selcen.
