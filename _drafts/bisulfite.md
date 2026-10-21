@@ -3,7 +3,7 @@ layout: post
 title: "From Bisulfite to Foundation Models: How Epigenetics Methods Taught Us to Think Computationally"
 date: 2026-01-17
 description: "A biologist's guide to computational thinking, told through the evolution of epigenetics methods"
-tags: epigenetics, computational-thinking, methods, DNA-methylation, chromatin
+tags: epigenetics computational-thinking methods DNA-methylation chromatin
 categories: research-highlights
 related_posts: true
 toc:
