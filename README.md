@@ -5,13 +5,6 @@ and computational biology.
 
 Live at: <https://ipekselcen.github.io>
 
-## About
-
-Recent PhD graduate (CUNY Advanced Science Research Center, June 2025).
-Dissertation: TET2 regulation of RNA modifications in brain cells.
-Interests: epigenomics, single-cell methods, and making sequencing data
-talk to each other.
-
 ## Stack
 
 - [Jekyll](https://jekyllrb.com) static site
