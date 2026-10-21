@@ -3,7 +3,7 @@ _site
 .sass-cache
 .jekyll-cache
 .jekyll-metadata
-.DS_store
+.DS_Store
 .ruby-version
 .tweet-cache
 Gemfile.lock
@@ -12,3 +12,22 @@ node_modules/
 vendor
 .idea
 .venv
+
+# ---- My additions ----
+# Private notes and scratch work (never pushed)
+notes/
+scratch/
+
+# Raw data behind blog figures (commit only the final figure)
+data/
+*.fastq.gz
+*.bam
+*.h5ad
+*.rds
+
+# R, Python and Jupyter leftovers
+.Rhistory
+.RData
+.Rproj.user/
+__pycache__/
+.ipynb_checkpoints/
