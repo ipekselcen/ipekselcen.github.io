@@ -2,7 +2,7 @@
 layout: post
 title: "When Chromatin Methods Converged: The Multi-Omics Revolution"
 date: 2026-01-27
-tags: epigenetics, computational-thinking, multi-omics, spatial-omics, chromatin
+tags: epigenetics computational-thinking multi-omics spatial-omics chromatin
 category: research-highlights
 related_posts: true
 toc:
