@@ -30,7 +30,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "post-seeing-five-molecular-layers-at-once-how-spatial-mux-seq-caught-development-in-the-act",
+        },{id: "post-oncohistones-part-1-the-k27m-mutation",
+        
+          title: "Oncohistones, part 1: the K27M mutation",
+        
+        description: "A single lysine-to-methionine swap in histone H3 can reshape chromatin and gene expression across a cancer cell.",
+        section: "Posts",
+        handler: () => {
+          
+            window.location.href = "/blog/2026/oncohistones-one-residue/";
+          
+        },
+      },{id: "post-seeing-five-molecular-layers-at-once-how-spatial-mux-seq-caught-development-in-the-act",
         
           title: "Seeing Five Molecular Layers at Once: How Spatial-Mux-seq Caught Development in the Act...",
         
