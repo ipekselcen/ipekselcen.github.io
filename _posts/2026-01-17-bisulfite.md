@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "The Method That Taught Biologists to Code (Without Knowing It)"
+title: "What Sequencing Methods Teach Us About Inference"
 date: 2026-01-17
 tags: epigenetics computational-thinking methods DNA-methylation chromatin
 category: SciComm
@@ -9,241 +9,51 @@ toc:
   sidebar: left
 ---
 
-> **For the biologist who learned to code out of necessity:** This post traces how three experimental breakthroughs in epigenetics inadvertently taught us computational thinking—before we even knew we were learning it.
+When I started learning computational biology, I thought of computation as something that happened after an experiment: sequence the sample, then analyze the data. Reading the history of sequencing methods changed that view. In methods such as bisulfite sequencing, the biological quantity of interest is not read directly. It has to be inferred from a measurement shaped by the chemistry and the assay.
 
-## The Inference Problem
+That is a useful way to read methods papers: follow the steps from the molecular event to the signal, then from the signal to the biological claim.
 
-In 1992, Marianne Frommer faced a technical challenge: how do you distinguish between a methylated cytosine and an unmethylated one?
+## Bisulfite sequencing: a chemical conversion, then an inference
 
-Both are cytosines. Both look identical under a microscope. Both have the same mass on a spectrometer. The only difference—one has a methyl group (-CH₃), the other doesn't—is chemically silent in most assays.
+Frommer and colleagues introduced genomic sequencing with sodium bisulfite to map 5-methylcytosine at individual DNA strands.<sup>1</sup> Under bisulfite treatment, unmethylated cytosines are deaminated and read as thymines after amplification and sequencing, while 5-methylcytosines are relatively resistant and are generally read as cytosines.
 
-Her solution was elegant: treat DNA with sodium bisulfite. Under harsh conditions (high temperature, low pH, hours of incubation), unmethylated cytosines convert to uracils while methylated cytosines remain unchanged—the methyl group protects them from deamination.
+The sequence is therefore an assay-dependent readout, not a direct label of methylation. At a cytosine position, a C in the treated read is interpreted as methylated and a T as converted, subject to conversion efficiency, sequencing error, coverage, and alignment. The result depends on both the chemical treatment and the computational steps used to map reads and summarize calls.
 
-Sequence the treated DNA, and you get your answer. Except you don't get a direct readout of methylation. You get sequences full of Ts (converted from unmethylated Cs) and Cs (that stayed methylated because they were protected). Someone—or something—has to **infer** the original methylation state by comparing treated to untreated DNA.
+Standard bisulfite sequencing also does not distinguish 5-methylcytosine (5mC) from 5-hydroxymethylcytosine (5hmC): both are generally read as C. Methods such as oxidative bisulfite sequencing or TAB-seq were developed to distinguish these modifications.<sup>2,3</sup>
 
-Bisulfite sequencing created a computational problem by design. The inference step—reconstructing methylation status from sequence differences—is **decomposition**: breaking down a complex biological question into a series of logical steps that must be executed in order.
+One detail I had not appreciated at first is that a measured conversion is not automatically a perfect classification. Incomplete conversion can make an unmethylated cytosine appear protected; damage or sequencing error can also affect calls. The assay's chemistry and quality controls are part of the interpretation, not merely preparation before “the real analysis.”
 
----
+## ATAC-seq: more than peak locations
 
-## What Bisulfite Sequencing Actually Forced You to Do
+ATAC-seq uses Tn5 transposase to insert sequencing adapters into accessible chromatin.<sup>4</sup> The locations of insertions can be used to identify regions enriched for accessibility. The reads also retain fragment-length information, which can reflect nucleosome-associated patterns in the underlying chromatin.
 
-Let's unpack what running bisulfite sequencing required in those early days. This is computational thinking emerging in real time:
+That information needs careful interpretation. Fragment length is not a direct image of a nucleosome, and transcription-factor footprinting is sensitive to factors such as Tn5 sequence bias, coverage, and analysis choices. Methods such as NucleoATAC use fragment patterns to infer nucleosome positioning and occupancy; those inferences depend on the model and data quality.<sup>5</sup>
 
-**The experimental question:** "What is the methylation status of my genomic region?"
+The broader lesson I take from ATAC-seq is to ask what information an assay records beyond its most familiar summary. A peak set is one representation of the data, not necessarily the only one. Additional analyses can be informative, but should be validated and described as inferences.
 
-**The computational breakdown:**
+## ChIP-seq: modeling the data-generation process
 
-1. Sequence both bisulfite-treated and untreated DNA
-2. Align bisulfite-converted reads to a reference genome (but the reads don't match perfectly anymore because C→T conversions make them different)
-3. For every cytosine in the reference, ask: did it stay C (methylated) or become T (unmethylated)?
-4. Calculate methylation percentage per site across multiple reads
-5. Account for incomplete conversion (some Cs don't convert even if unmethylated—your bisulfite kit isn't perfect)
-6. Account for sequencing errors (some Ts might be sequencing mistakes, not conversions)
+ChIP-seq peak calling offers another example. Enriched read coverage is evidence for protein-associated DNA fragments, but coverage varies for reasons beyond binding. Peak callers therefore compare observed signal with a background model rather than treating every region with many reads as a binding site.
 
-**Each of these is its own computational problem.** And here's what's fascinating: in the 1990s and early 2000s, biologists did steps 3-6 *by hand*, often using Excel. They were doing computational thinking without formal training. They just called it "analyzing my data."
+MACS was developed to identify enriched regions in ChIP-seq data using a model of fragment size and local background, with control data used when available.<sup>6</sup> The particular model and settings matter; a peak is a statistical call under those assumptions, not proof by itself that a protein directly binds a regulatory element or controls a nearby gene.
 
----
+## The habit I am trying to build
 
-> ##### Editorial Note: What Made This a Methods Paper
->
-> Frommer et al. (1992) in *PNAS* is a masterclass in methods innovation. The paper:
-> - **Identified a chemical property** (differential deamination) that could encode biological information
-> - **Validated the method** on known methylated sites (CG islands)
-> - **Demonstrated generalizability** across different genomic contexts
-> - **Acknowledged limitations** (incomplete conversion, sequencing requirements)
->
-> **Why this matters for Nature Methods readers:** The best methods papers don't just describe a new technique. They show how the technique enables questions that were previously unanswerable. Frommer's innovation wasn't just measuring methylation—it was measuring methylation *at single-nucleotide resolution*.
->
-> The computational burden this created? That was a feature, not a bug. It forced the field to develop tools that would become essential for all sequencing-based methods.
->
-> **Reference:** Frommer, M. et al. (1992). "A genomic sequencing protocol that yields a positive display of 5-methylcytosine residues in individual DNA strands." *PNAS* 89(5):1827-1831.
-{: .block-tip }
+These methods have helped me think of computational analysis as part of experimental reasoning. For any assay, I try to ask:
 
----
+- What molecular property does the assay measure directly?
+- What transformations occur between the sample and the data?
+- Which parts of the result are measured, and which are inferred?
+- What technical effects could produce a similar signal?
+- What independent evidence would strengthen the interpretation?
 
-## The Pattern Recognition Breakthrough: ATAC-seq's Hidden Data
+This is not a checklist that guarantees a correct conclusion. It is a way to make the reasoning visible—from chemistry and read generation through analysis to interpretation. That has been a more useful introduction to computational thinking for me than the idea that it begins when a biologist opens a programming language.
 
-Fast forward to 2013. Jason Buenrostro, a graduate student in Bill Greenleaf's lab at Stanford, developed ATAC-seq (Assay for Transposase-Accessible Chromatin using sequencing).
+### References
 
-The experimental approach is elegantly simple: a hyperactive transposase (Tn5) simultaneously cuts DNA at accessible regions and inserts sequencing adapters. No crosslinking, no sonication, no antibodies. Just Tn5, some cells, and a sequencer.
-
-Sequence the fragments. Count where they came from. You have a map of open chromatin.
-
-**Except that's not all you have.**
-
-### Fragment Lengths as Data
-
-Here's what early ATAC-seq papers did:
-1. Align reads to the genome
-2. Call peaks where reads pile up
-3. Conclude: "This region is accessible"
-4. Discard everything else
-
-But "everything else" included fragment length—and fragment length encodes structural information about nucleosome positioning.
-
-Think about what Tn5 actually does: it cuts accessible DNA. But DNA isn't naked—it's wrapped around nucleosomes. Tn5 cuts in the linker regions between nucleosomes, or in nucleosome-free regions at regulatory elements.
-
-- **Fragments ~40-50 bp:** Tn5 cut on both sides of a transcription factor or other protein. Nucleosome-free region.
-- **Fragments ~200 bp:** Tn5 cut in flanking linkers around one nucleosome. Mononucleosome.
-- **Fragments ~400 bp:** Two nucleosomes with linker. Dinucleosome.
-
-**This is pattern recognition:** seeing signal in what everyone else thought was noise.
-
----
-
-> ##### Editorial Note: When Simple Gets Sophisticated
->
-> Buenrostro et al. (2013) in *Nature Methods* appeared straightforward: replace DNase-seq's complex protocol with Tn5 tagmentation. But the method's real innovation emerged later, as the field recognized patterns in the data.
->
-> **Evolution of ATAC-seq analysis:**
->
-> - **2013:** Peak calling only
-> - **2015:** Fragment length distributions reveal nucleosome positioning
-> - **2016:** NucleoATAC extracts transcription factor footprints
-> - **2019:** Single-cell ATAC-seq with droplet microfluidics
-> - **2023:** Paired-tag methods for chromatin + RNA in same cells
-> - **2024-2025:** Spatial chromatin accessibility (spatial-ATAC-seq, DBiT-seq) and multi-modal spatial profiling
->
-> **What this teaches about methods evaluation:** The best methods create data that the developers didn't fully know how to interpret yet. ATAC-seq's fragment lengths were always there. It took the field 2-3 years to systematically recognize the patterns.
->
-> **When reviewing methods papers, ask:** Is the data richer than the analysis shown? Are there unexploited features that could enable future discoveries?
->
-> **Reference:** Buenrostro, J.D. et al. (2013). "Transposition of native chromatin for fast and sensitive epigenomic profiling of open chromatin, DNA-binding proteins and nucleosome position." *Nature Methods* 10:1213–1218.
-{: .block-tip }
-
----
-
-## Algorithmic Thinking: The Peak Calling Problem
-
-Let me tell you about the first time I ran ChIP-seq analysis during my PhD.
-
-I had beautiful peaks. Gorgeous enrichment. Except when I looked closer, I also had peaks in:
-- Telomeres (my transcription factor doesn't bind there)
-- Mitochondrial DNA (contamination)
-- Highly repetitive regions (alignment artifacts)
-- Random background noise that just happened to be slightly higher than average
-
-The naive approach—"count reads in windows, call high regions as peaks"—gave me garbage. I needed an algorithm that understood the structure of the problem.
-
-### How ChIP-seq Taught Me Algorithmic Thinking
-
-**ChIP-seq gives you:** Millions of DNA fragments representing where your protein of interest was bound.
-
-**Your challenge:** Where, *exactly*, were the binding sites?
-
-This is algorithmic thinking: designing a step-by-step procedure that accounts for how your data was actually generated.
-
-| ❌ **Naive Algorithm (What I Tried First)** | ✅ **Sophisticated Algorithm (MACS2)** |
-|----------------------------------------------|----------------------------------------|
-| 1. Align reads to genome | 1. Model local background using control samples |
-| 2. Count reads in sliding windows | 2. Shift reads to estimate fragment centers |
-| 3. Call regions with high counts as "peaks" | 3. Use dynamic lambda (local background varies!) |
-| 4. Get overwhelmed by false positives | 4. Calculate fold enrichment AND statistical significance |
-| 5. Spend weeks troubleshooting | 5. Call peaks using FDR cutoff |
-|  | 6. Report peak summits, not just regions |
-
-The difference? MACS2 doesn't just count. It **models the data generation process**: how reads are created from fragments, how background varies locally, how sequencing depth affects power. Then it uses that model to make better inferences.
-
-This is the essence of algorithmic thinking: understanding *why* the data looks the way it does, then designing procedures that account for that structure.
-
----
-
-> ##### Editorial Note: The Importance of Thoughtful Defaults
->
-> Zhang et al. (2008) developed MACS specifically to address ChIP-seq's systematic biases. What makes it a landmark methods paper:
->
-> **Problem definition:** ChIP-seq enrichment isn't uniform. Background varies by:
-> - Local GC content
-> - Mappability
-> - Open chromatin state
-> - Sequencing depth artifacts
->
-> **Algorithmic innovation:** Dynamic local lambda calculation. Instead of one global background threshold, MACS estimates expected background in windows around each potential peak.
->
-> **Impact:** MACS became the field standard not just because it worked well, but because its defaults worked well. Most users never tuned parameters—the algorithm was designed around realistic assumptions about ChIP-seq data.
->
-> **For methods developers:** Good defaults are not laziness. They're a service to users who don't have the time or statistical background to optimize every parameter. Your algorithm should work out-of-the-box for 80% of use cases.
->
-> **Reference:** Zhang, Y. et al. (2008). "Model-based analysis of ChIP-Seq (MACS)." *Genome Biology* 9:R137.
-{: .block-tip }
-
----
-
-## The Computational Thinking You Already Had
-
-Here's what I realized during my PhD, somewhere around year 4 when I was knee-deep in hMeRIP-seq analysis and trying to figure out why my peaks didn't make biological sense:
-
-**I was already thinking computationally. I just didn't call it that.**
-
-When I troubleshot why my Western blot didn't work, I was doing **decomposition**: breaking down the protocol into steps, testing each one systematically, identifying where the failure occurred.
-
-When I noticed my ChIP peaks always appeared near transcription start sites and wondered if that was biological signal or technical artifact, I was doing **pattern recognition**: seeing structure in data and asking what it meant.
-
-When I wrote detailed protocols for CRISPR cloning that could work for any guide RNA, I was doing **abstraction**: designing procedures that generalize beyond specific examples.
-
-The transition to computational biology wasn't learning to think differently. It was learning to apply problem-solving skills I already had to questions where the "experiment" was running code instead of pipetting samples.
-
----
-
-## What This Means for Reading Methods Papers
-
-Next time you read a methods paper—especially if you're evaluating it for significance, rigor, or publication—ask yourself:
-
-**Decomposition:**
-- What is the experimental readout, and what biological question does it answer?
-- What computational steps are required to go from raw data to biological conclusion?
-- Are any of these steps new/challenging/rate-limiting for the field?
-
-**Pattern recognition:**
-- What patterns in the data indicate signal vs. noise?
-- Are there features being exploited that weren't obvious at first (like ATAC fragment lengths)?
-- What assumptions about data structure does the analysis make?
-
-**Algorithmic thinking:**
-- Could you explain the analysis procedure to someone and they'd get the same results?
-- How does the algorithm handle edge cases (low coverage, ambiguous mappings, batch effects)?
-- Are the defaults reasonable? Would naive users get good results out-of-the-box?
-
-These questions aren't just academic. They're how you evaluate whether a method is truly innovative or just incrementally different from what already exists.
-
----
-
-## Looking Ahead
-
-Three methods. Three computational thinking lessons:
-
-| Method | Year | Computational Skill Taught |
-|--------|------|---------------------------|
-| **Bisulfite sequencing** | 1992 | Decomposition—inference from transformed data |
-| **ATAC-seq** | 2013 | Pattern recognition—signal in fragment lengths |
-| **ChIP-seq peak calling** | 2008 | Algorithmic thinking—modeling data generation |
-
-But here's what's interesting: we've only covered methods that work on *one data type* at a time. What happens when methods from different fields start talking to each other?
-
-What happens when you want to measure chromatin accessibility AND gene expression AND DNA methylation in the *same cells*?
-
-That's where we're going in Part 2: the multi-omics revolution, and the computational thinking skill that made it possible—**abstraction**.
-
----
-
-## References
-
-**Historical methods:**
-- Frommer, M. et al. (1992). "A genomic sequencing protocol that yields a positive display of 5-methylcytosine residues in individual DNA strands." *PNAS* 89(5):1827-1831. [PubMed](https://pubmed.ncbi.nlm.nih.gov/1542678/)
-
-- Buenrostro, J.D. et al. (2013). "Transposition of native chromatin for fast and sensitive epigenomic profiling of open chromatin, DNA-binding proteins and nucleosome position." *Nature Methods* 10:1213–1218. [PubMed](https://pubmed.ncbi.nlm.nih.gov/24097267/)
-
-**Computational tools:**
-- Zhang, Y. et al. (2008). "Model-based analysis of ChIP-Seq (MACS)." *Genome Biology* 9:R137. [PubMed](https://pubmed.ncbi.nlm.nih.gov/18798982/)
-
-- Schep, A.N. et al. (2017). "chromVAR: inferring transcription-factor-associated accessibility from single-cell epigenomic data." *Nature Methods* 14:975–978. [PubMed](https://pubmed.ncbi.nlm.nih.gov/28825706/)
-
-- Schep, A.N. et al. (2015). "Structured nucleosome fingerprints enable high-resolution mapping of chromatin architecture within regulatory regions." *Genome Research* 25:1757-1770. [PubMed](https://pubmed.ncbi.nlm.nih.gov/26314830/) (NucleoATAC)
-
----
-
-**Next in this series:** *Part 2: When Chromatin Methods Converged—The Multi-Omics Revolution*
-
----
-
-*This is Part 1 of a 3-part series on computational thinking for chromatin biologists. Written by a chromatin biologist who learned computational thinking the hard way—by running experiments that generated data I didn't know how to analyze.*
+1. Frommer M, et al. A genomic sequencing protocol that yields a positive display of 5-methylcytosine residues in individual DNA strands. *Proc Natl Acad Sci U S A.* 1992;89(5):1827-1831. [doi:10.1073/pnas.89.5.1827](https://doi.org/10.1073/pnas.89.5.1827)
+2. Booth MJ, et al. Quantitative sequencing of 5-methylcytosine and 5-hydroxymethylcytosine at single-base resolution. *Science.* 2012;336(6083):934-937. [doi:10.1126/science.1220671](https://doi.org/10.1126/science.1220671)
+3. Yu M, et al. Base-resolution analysis of 5-hydroxymethylcytosine in the mammalian genome. *Cell.* 2012;149(6):1368-1380. [doi:10.1016/j.cell.2012.04.027](https://doi.org/10.1016/j.cell.2012.04.027)
+4. Buenrostro JD, et al. Transposition of native chromatin for fast and sensitive epigenomic profiling of open chromatin, DNA-binding proteins and nucleosome position. *Nat Methods.* 2013;10(12):1213-1218. [doi:10.1038/nmeth.2688](https://doi.org/10.1038/nmeth.2688)
+5. Schep AN, et al. Structured nucleosome fingerprints enable high-resolution mapping of chromatin architecture within regulatory regions. *Genome Res.* 2015;25(11):1757-1770. [doi:10.1101/gr.192294.115](https://doi.org/10.1101/gr.192294.115)
+6. Zhang Y, et al. Model-based analysis of ChIP-Seq (MACS). *Genome Biol.* 2008;9(9):R137. [doi:10.1186/gb-2008-9-9-r137](https://doi.org/10.1186/gb-2008-9-9-r137)
