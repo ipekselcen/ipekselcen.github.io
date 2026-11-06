@@ -41,9 +41,9 @@ ninja.data = [{
             window.location.href = "/blog/2026/oncohistones-one-residue/";
           
         },
-      },{id: "post-seeing-five-molecular-layers-at-once-how-spatial-mux-seq-caught-development-in-the-act",
+      },{id: "post-what-spatial-mux-seq-adds-to-tissue-epigenomics",
         
-          title: "Seeing Five Molecular Layers at Once: How Spatial-Mux-seq Caught Development in the Act...",
+          title: "What Spatial-Mux-seq Adds to Tissue Epigenomics",
         
         description: "",
         section: "Posts",
@@ -52,9 +52,9 @@ ninja.data = [{
             window.location.href = "/blog/2026/spatial-mux-seq/";
           
         },
-      },{id: "post-the-method-that-taught-biologists-to-code-without-knowing-it",
+      },{id: "post-what-sequencing-methods-teach-us-about-inference",
         
-          title: "The Method That Taught Biologists to Code (Without Knowing It)",
+          title: "What Sequencing Methods Teach Us About Inference",
         
         description: "",
         section: "Posts",
@@ -63,33 +63,33 @@ ninja.data = [{
             window.location.href = "/blog/2026/bisulfite/";
           
         },
-      },{id: "post-what-i-wish-someone-had-told-me-about-tet1-a-computational-thinking-journey",
+      },{id: "post-learning-to-think-beyond-a-linear-tet-pathway",
         
-          title: "What I Wish Someone Had Told Me About TET1: A Computational Thinking Journey...",
+          title: "Learning to Think Beyond a Linear TET Pathway",
         
-        description: "Three years into my PhD, I finally understood what I was actually measuring. Here&#39;s what clicked.",
+        description: "A reflection on how the published TET literature changed the way I think about DNA methylation and gene regulation.",
         section: "Posts",
         handler: () => {
           
             window.location.href = "/blog/2026/tet1-computational-thinking/";
           
         },
-      },{id: "post-tracking-glioblastoma-39-s-circular-dna-at-single-cell-resolution",
+      },{id: "post-reading-glioblastoma-ecdna-at-single-cell-resolution",
         
-          title: "Tracking Glioblastoma&#39;s Circular DNA at Single-Cell Resolution",
+          title: "Reading Glioblastoma ecDNA at Single-Cell Resolution",
         
-        description: "How single-cell epigenomics reveals that Alzheimer&#39;s is fundamentally about regulatory collapse, not just protein aggregates",
+        description: "What scCirclehunter can infer about ecDNA-bearing cell populations in glioblastoma from single-cell ATAC-seq data.",
         section: "Posts",
         handler: () => {
           
             window.location.href = "/blog/2025/glioblastoma-ecdna/";
           
         },
-      },{id: "post-epigenomic-breakdown-in-alzheimer-39-s-when-brain-cells-lose-control",
+      },{id: "post-reading-epigenomic-changes-across-alzheimer-39-s-disease",
         
-          title: "Epigenomic Breakdown in Alzheimer&#39;s: When Brain Cells Lose Control",
+          title: "Reading Epigenomic Changes Across Alzheimer&#39;s Disease",
         
-        description: "How single-cell epigenomics reveals that Alzheimer&#39;s is fundamentally about regulatory collapse, not just protein aggregates",
+        description: "What a multiregion single-cell study suggests about epigenomic changes, cell identity and cognitive resilience in Alzheimer&#39;s disease.",
         section: "Posts",
         handler: () => {
           
