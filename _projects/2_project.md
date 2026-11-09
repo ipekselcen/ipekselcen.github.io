@@ -15,9 +15,9 @@ mermaid:
 
 ## Overview
 
-This project demonstrates how to extract biological insight from RNA-seq data through careful analytical design and interpretation. Using publicly available data (GSE79018), we investigate what happens when neonatal oligodendrocyte progenitors lose *Dnmt1*, the enzyme responsible for maintaining DNA methylation patterns during cell division.
+I used the public GSE79018 dataset to examine RNA-seq from neonatal oligodendrocyte progenitor cells with *Dnmt1* knockout and control conditions. The analysis asks which expression patterns differ between the groups and what we can conclude from those differences. *Dnmt1* helps maintain DNA methylation during cell division.
 
-**The central question:** Do cells recognize and respond to loss of epigenetic memory? And if so, how?
+The comparison has two replicates per condition, so the results need to be read with that limitation in mind.
 
 ---
 

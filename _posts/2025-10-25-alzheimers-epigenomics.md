@@ -12,7 +12,7 @@ Alzheimer's disease is usually introduced through its defining pathology and its
 
 A 2025 *Cell* study by Liu and colleagues addresses this question with single-nucleus epigenomic and transcriptomic data from six brain regions. The authors integrated ATAC-seq, RNA-seq and multiome datasets from aged control and Alzheimer's disease donors. The scale is valuable, but the central contribution is the ability to compare regulatory patterns across regions and cell populations rather than treating the brain as a single sample.
 
-## What the study reports
+## What the study found
 
 The authors report widespread changes in large-scale chromatin compartmentalization and a reduction in what they define as single-cell epigenomic information. These are measurements of regulatory organization and cell-type-associated patterns; they should not be read as direct evidence that a cell has literally lost its identity.
 
@@ -20,7 +20,7 @@ The changes differed across brain regions and cell types. The study describes ep
 
 The paper also compares donors with different cognitive outcomes relative to their Alzheimer's pathology. Higher epigenomic stability was associated with cognitive resilience in the analyzed data. That association is intriguing, but it does not establish that preserving epigenomic stability causes resilience or that a specific intervention can produce it.
 
-## What I took from it
+## What stayed with me
 
 The paper changed the question I ask of an epigenomic atlas. It is not only “which genes or regions change?” but also “which cell populations change, where, and in relation to what clinical or pathological measures?” The multiregion design makes those comparisons possible, while the observational nature of postmortem data sets limits on causal interpretation.
 

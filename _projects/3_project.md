@@ -12,7 +12,7 @@ toc:
 
 ## Overview
 
-This project investigates how histone modifications regulate the unique properties of adult oligodendrocyte progenitors (aOPCs) in the brain. Using ChIP-seq for H4K8 acetylation—an activating chromatin mark—we reveal how epigenetic mechanisms maintain progenitor identity while preparing cells for rapid differentiation when needed.
+This page summarizes the H4K8ac ChIP-seq work in our 2024 study of adult and neonatal oligodendrocyte progenitor cells. We compared the mark across the two groups and asked how the differences related to gene activity and OPC behavior. ChIP-seq shows where the mark is enriched; the functional experiments in the paper address what those differences may mean.
 
 **Published in:** *Journal of Cell Biology* (2024)  
 **Citation:** Dansu DK\*, Selcen I\*, et al. Histone H4 acetylation differentially modulates proliferation in adult oligodendrocyte progenitors. *J Cell Biol* 223(11):e202308064. [[DOI]](https://doi.org/10.1083/jcb.202308064)

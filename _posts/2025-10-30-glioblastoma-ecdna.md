@@ -12,13 +12,13 @@ Extrachromosomal DNA (ecDNA) consists of DNA circles separate from linear chromo
 
 In a 2025 *Cell Discovery* paper, Jiang and colleagues introduce scCirclehunter, a computational framework that identifies candidate ecDNA regions from single-cell ATAC-seq data and assigns them to cell populations. The method uses a pseudo-bulk strategy and relies on assumptions about ecDNA copy number and chromatin accessibility. Its assignments are computational inferences from the sequencing data, not direct imaging of each circle in every cell.
 
-## What the study reports
+## What the authors found
 
 The authors applied scCirclehunter to glioblastoma datasets and reported variation in ecDNA-bearing cell populations across patients. In a tumor with multiple ecDNAs, they used the framework to examine malignant-cell trajectories associated with different ecDNA species.
 
 They also integrated single-cell RNA-seq data and focused on ecNR2E1. Their analyses linked ecNR2E1-bearing cells with broader transcriptional programs, and the authors interpret the results as evidence that ecDNA can contribute to tumor progression. They additionally report a potential association between ecDNA and increased mitochondrial transfer. The latter is presented as a possible link, not proof that ecDNA-bearing cells cause mitochondrial transfer.
 
-## What I took from it
+## What caught my attention
 
 The paper is a useful example of how an existing assay can support questions beyond its original readout. ATAC-seq measures accessible chromatin, but the authors use its signal patterns to infer candidate ecDNA and assign them to cell populations. That makes the method interesting for reanalysis of existing datasets, while also making validation and attention to its assumptions important.
 

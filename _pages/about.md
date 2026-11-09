@@ -25,14 +25,12 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Hi! I'm Ipek, a recent PhD graduate in Biochemistry from CUNY Advanced Science Research Center. I defended my dissertation in June 2025 on how TET2 regulates RNA modifications in brain cells—a project that taught me as much about perseverance as it did about molecular biology.
+Hi, I'm Ipek. I finished my PhD in Biochemistry at CUNY Advanced Science Research Center in 2025. I studied epigenetic regulation in oligodendrocyte progenitor cells. A lot of my work moved between the bench and sequencing data, and this site is where I'm putting some of what I've learned—and what I'm still learning.
 
-I love the challenge of bridging wet lab and computational work. My days in grad school went from pipetting at the bench to analyzing terabytes of sequencing data in R and Python.
+I make tutorials for biologists learning computational methods, and mentor undergraduate students from my alma mater in Turkey.
 
-Outside the lab, I'm passionate about making computational concepts accessible to biologists. I'm building tutorials to help bridge that gap. I also love mentoring undergraduate students from my alma mater in Turkey, helping them navigate their own scientific journeys.
+At home, I have two cats, Bomi and Yulaf. My husband is a dermatology resident, so we don't run out of things to talk about.
 
-When I'm not thinking about chromatin or writing code, you'll find me with my cats Bomi and Yulaf (yes, I'm one of *those* scientists). My husband Arda is a dermatology resident, so our dinner conversations are… eclectic.
+I'm interested in computational biology, bioinformatics, scientific editing, and postdoctoral research.
 
-I'm currently seeking positions in computational biology, bioinformatics, scientific editing, or postdoctoral research where I can combine rigorous data analysis with clear science communication.
-
-**What I bring:** Chromatin biology expertise • Multi-omics integration • R & Python fluency • Science communication • A genuine excitement for making complex biology understandable
+My research background is in chromatin biology and multi-omics analysis.

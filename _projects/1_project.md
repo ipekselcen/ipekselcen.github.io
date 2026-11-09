@@ -12,11 +12,7 @@ toc:
 
 ## Overview
 
-RNA-seq has become the standard for transcriptome profiling, but the analytical landscape remains fragmented with competing tools, conflicting recommendations, and evolving best practices. This creates a challenge: **How do you make informed analytical choices when experts disagree?**
-
-This tutorial provides a **conceptual framework** for RNA-seq analysis. Rather than prescribing a single "correct" pipeline, we examine the trade-offs between approaches and provide decision-making criteria based on your biological question, data characteristics, and computational constraints.
-
-**The goal:** Understand *why* you make certain analytical choices, so you can adapt your approach to your specific needs and justify your decisions scientifically.
+These are notes on the choices that come up in RNA-seq analysis: what question the experiment is meant to answer, which methods fit that question, and what the results can and cannot tell us. There isn't one pipeline that fits every dataset, so I focus on the reasoning behind the choices rather than prescribing a single workflow.
 
 ---
 
@@ -527,12 +523,6 @@ Every analytical choice involves trade-offs:
 
 ---
 
-## Tutorial Philosophy
+## A note on using this page
 
-**Computational analysis serves biological understanding, not the other way around.**
-
-Your domain expertise—understanding your cell type, developmental context, signaling pathways, and published literature—transforms gene lists into biological insight.
-
-A perfectly executed computational pipeline that produces biologically meaningless results is worse than a rough analysis that generates testable, important hypotheses.
-
-**Learn the tools. Understand the logic. Ask the biology.**
+The examples are starting points. Check the assumptions and documentation for the tools you use, and adapt the analysis to your own experiment.

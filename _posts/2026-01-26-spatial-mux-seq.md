@@ -11,7 +11,7 @@ One challenge in tissue epigenomics is connecting regulatory measurements to the
 
 I found the approach interesting because it puts several molecular measurements into a shared tissue context. That makes it possible to study relationships among modalities without relying only on comparisons between separately sampled sections.
 
-## What the authors report
+## What the paper shows
 
 The authors applied Spatial-Mux-seq to mouse embryos and mouse brains. Their analyses describe spatial and developmental relationships among histone modifications, chromatin accessibility, gene expression, and protein abundance during neuron differentiation. They also report a radial-glia niche with spatially dynamic epigenetic signals.
 
@@ -19,7 +19,7 @@ These are relationships observed across modalities and tissue locations. They ar
 
 The study's central technical contribution is the simultaneous, spatially resolved measurement of two histone modifications, chromatin accessibility, whole-transcriptome RNA, and proteins. The method was demonstrated in mouse tissues; applying it to other tissues or experimental questions would require considering its protocol, resolution, and sensitivity for each modality.
 
-## What I took from it
+## What I found useful
 
 Spatial-Mux-seq illustrates why keeping tissue context can matter in epigenomic studies. A molecular profile detached from its location may miss differences between neighboring populations. At the same time, measuring more modalities does not automatically make interpretation simpler: each assay has its own signal properties, and associations across layers still need careful analysis.
 
