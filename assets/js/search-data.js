@@ -98,17 +98,17 @@ ninja.data = [{
         },
       },{id: "projects-rna-seq-analysis",
           title: 'RNA-seq Analysis',
-          description: "A decision framework for experimental design and computational analysis",
+          description: "Notes on choosing and interpreting RNA-seq methods.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_project/";
             },},{id: "projects-dnmt1-knockout-analysis",
           title: 'Dnmt1 Knockout Analysis',
-          description: "From transcriptional changes to biological mechanism - a case study in RNA-seq interpretation",
+          description: "RNA-seq analysis of public Dnmt1 knockout data from neonatal OPCs.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2_project/";
             },},{id: "projects-h4k8ac-chip-seq-analysis",
           title: 'H4K8ac ChIP-seq Analysis',
-          description: "How chromatin accessibility shapes adult oligodendrocyte progenitor identity and function",
+          description: "H4K8ac ChIP-seq in adult and neonatal oligodendrocyte progenitor cells.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/3_project/";
             },},{
